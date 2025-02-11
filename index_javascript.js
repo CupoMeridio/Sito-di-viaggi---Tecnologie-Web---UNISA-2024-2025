@@ -29,3 +29,16 @@ function showSlides(n) {
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
 }
+
+/*Login popup*/
+const openBtn = document.getElementById("accessoButton");
+const closeBtn = document.getElementById("chiudiAccessoButton");
+const popup = document.getElementById("login")
+
+openBtn.addEventListener("click", () => {
+    popup.classList.add("open");
+});
+
+closeBtn.addEventListener("click", () => {
+    popup.classList.remove("open");
+});
