@@ -1,0 +1,213 @@
+/* Imposta lo stile generale del corpo della pagina */
+body {
+    font-family: Arial, sans-serif;                                             /* Carattere del testo */
+  /*background-color: #f4f4f4;*/                                                /* Colore di sfondo della pagina*/
+  /*background-image: url('immagini/sfondo_registrazione.jpg');*/               /* Imposta l'immagine indicata dall'url come sfondo della pagina*/
+  /*background-size: cover;*/                                                   /* Adatta l'immagine a tutta la pagina*/
+  /*background-repeat: no-repeat;                                               /*Evita la ripetizione dell'immagine*/
+    background-position: center;                                                /* Centra l'immagine*/
+    display: flex;                                                              /* Uso del layout flexbox per centrare il contenuto */
+    justify-content: center;                                                    /* Centra orizzontalmente il contenuto */
+    align-items: center;                                                        /* Centra verticalmente il contenuto */
+    height: 100vh;                                                              /* Altezza della pagina uguale alla finestra del browser */
+    margin: 0;                                                                  /* Rimuove il margine predefinito del body */
+}
+
+/* Stile per il contenitore principale */
+.container {
+    background-color: rgba(0, 0, 0, 0.8);;                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
+    border-radius: 5px;                                                         /* Angoli arrotondati */
+    padding: 20px;                                                              /* Spaziatura interna */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);                                    /* Ombra leggera intorno al contenitore */
+    width: 50%;
+    color: white;
+    overflow-y: auto;
+}
+
+#registrazione{
+    display: grid;                                                              /* Usa il layout CSS Grid */
+    grid-template-columns: 1fr 1fr;                                             /* Due colonne*/
+    gap: 20px;                                                                  /* Spaziatura tra le colonne */
+
+}
+
+/* Stile per l'intestazione del form */
+h2 {
+    margin-bottom: 20px;                        /* Spaziatura inferiore */
+    text-align: center;                         /* Allinea il testo al centro */
+    color: white;                               /* Imposta il testo di colore bainco*/
+}
+
+
+
+/* Stile per i campi del form */
+.form-fields {
+    margin-bottom: 15px;                        /* Spaziatura inferiore tra i gruppi di elementi */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Stile per le etichette del form */
+label {
+    display: block;                             /* Mostra l'etichetta come blocco */
+    margin-bottom: 5px;                         /* Spaziatura inferiore rispetto all'input */
+}
+
+/* Stile per i campi di input del form */
+input {
+    width: 100%;                                /* Larghezza completa del contenitore padre */
+    padding: 8px;                               /* Spaziatura interna */
+    box-sizing: border-box;                     /* Include il padding e il bordo nella larghezza totale */
+    border: 1px solid #ccc;                     /* Bordo grigio chiaro */
+    border-radius: 4px;                         /* Angoli arrotondati */
+}
+
+
+/* Stile per il pulsante di invio */
+button {
+    width: 50%;                                 /* Larghezza completa del contenitore padre */
+    padding: 10px;                              /* Spaziatura interna */
+    background-color: #5cb85c;                  /* Colore verde di sfondo */
+    border: none;                               /* Rimuove il bordo */
+    color: white;                               /* Colore del testo */
+    border-radius: 4px;                         /* Angoli arrotondati */
+    cursor: pointer;                            /* Cambia il cursore in una mano quando si passa sopra */
+}
+
+.button-submit-container {
+    display: flex;                              /* Attiva Flexbox */
+    justify-content: center;                    /* Centra orizzontalmente */
+    align-items: center;                        /* Centra verticalmente (se necessario) */
+    margin-top: 20px;                           /* Aggiungi margine superiore per separare il bottone */
+}
+
+
+
+/* Stile per la colonna della foto profilo */
+.form-photo {
+    text-align: center;                         /* Centra i contenuti nella colonna della foto */
+}
+
+/* Stile per il pulsante quando l'utente passa sopra */
+button:hover {
+    background-color: #4cae4c;                  /* Cambia il colore di sfondo a un verde più scuro */
+}
+
+/* Stile per il messaggio di successo o errore */
+#message {
+    margin-top: 20px;                           /* Spaziatura superiore */
+    text-align: center;                         /* Allinea il testo al centro */
+}
+
+/* Stile per i messaggi di errore */
+.error {
+    color: red;                                 /* Colore rosso per evidenziare l'errore */
+    font-size: 0.9em;                           /* Riduce leggermente la dimensione del testo */
+}
+
+/* Stile per il suggerimento sulla password */
+.password-hint {
+    font-size: 0.9em;                           /* Dimensione del testo ridotta */
+    color: #666;                                /* Colore grigio per il testo */
+    margin-top: 5px;                            /* Spaziatura superiore */
+    display: none;                              /* Nascosto di default */
+}
+
+/* Stile per la barra di forza della password */
+.password-security {
+    margin-top: 5px;                            /* Spaziatura superiore */
+}
+
+/* Stile generale per l'indicatore di sicurezza della password */
+.password-security div {
+    height: 5px;                                /* Altezza della barra */
+    border-radius: 4px;                         /* Angoli arrotondati */
+}
+
+/* Stile per una password non sicura */
+.weak {
+    width: 33%;                                 /* Larghezza della barra debole (33% della barra totale) */
+    background-color: red;                      /* Colore rosso per indicare poca sicurezza */
+}
+
+/* Stile per una password mediamente sicura */
+.medium {
+    width: 66%;                                 /* Larghezza della barra media (66% della barra totale) */
+    background-color: orange;                   /* Colore arancione per indicare sicurezza media*/
+}
+
+/* Stile per una password molto sicura*/
+.strong {
+    width: 100%; /* Larghezza della barra forte (100% della barra totale) */
+    background-color: green; /* Colore verde per indicare sicurezza elevata */
+}
+
+/* Stile per il contenitore della foto profilo */
+.anteprima-foto {
+    margin-top: 5px;
+    position: relative;       /* Posizione relativa per il contenitore */
+    width: 100%;              /* Larghezza massima disponibile */
+    padding-top: 100%;        /* Altezza uguale alla larghezza (crea un quadrato) */
+    overflow: hidden;         /* Nasconde le parti in eccesso dell'immagine */
+    border: 2px solid #ccc;   /* Bordo opzionale */
+    border-radius: 10px;      /* Angoli arrotondati (facoltativo) */
+    box-sizing: border-box;   /* Include bordo e padding nella dimensione */
+}
+
+/* Stile per l'anteprima della foto profilo */
+.anteprima-foto img {
+    position: absolute;       /* Posizione assoluta all'interno del contenitore */
+    top: 0;
+    left: 0;
+    width: 100%;              /* L'immagine occupa tutta la larghezza del contenitore */
+    height: 100%;             /* L'immagine occupa tutta l'altezza del contenitore */
+    object-fit: cover;        /* Adatta l'immagine al contenitore ritagliando le parti in eccesso */
+
+}
+
+
+/* Stile per l'area di drag and drop*/
+.drop-area {
+    border: 2px dashed #ccc;        /* Bordo tratteggiato */
+    border-radius: 5px;             /* Angoli arrotondati */
+    padding: 20px;                  /* Spaziatura interna */
+    text-align: center;             /* Testo centrato */
+    color: #aaa;                    /* Colore del testo */
+    cursor: pointer;                /* Cambia il cursore a mano */
+    transition: background-color 0.3s ease; /* Effetto visivo al passaggio del mouse */
+}
+
+.drop-area.drag-over {
+    background-color: #f0f8ff;      /* Cambia colore quando un file è trascinato sopra */
+    border-color: #0099ff;          /* Cambia il colore del bordo */
+}
+
+
+
+/* Stile per il video di background*/
+video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+
+/* Responsive: una colonna su dispositivi stretti */
+@media (max-width: 600px) {
+    #registrazione {
+        grid-template-columns: 1fr;       /* Disposizione a una sola colonna */
+    }
+
+    .form-photo {
+        margin-top: 20px;                 /* Spaziatura tra i campi e la foto */
+    }
+
+    body {
+        height: auto; /* Rimuove altezza fissa */
+        overflow-y: auto; /* Permette di scrollare la pagina */
+    }
+}
