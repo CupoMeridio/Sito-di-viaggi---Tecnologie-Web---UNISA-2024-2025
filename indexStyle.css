@@ -94,7 +94,7 @@ body {
     position: absolute;                                                     /* Posizione assoluta per i pulsanti di navigazione */
     top: 50%;                                                               /* Posizione verticale centrata rispetto all'immagine */
     color: blueviolet;                                                    /* Colore dei pulsanti */
-    background-color:  rgba(32, 18, 73, 0.453);;                           /* Colore di sfondo semitrasparente per i pulsanti */
+    background-color:  rgba(32, 18, 73, 0.453);                           /* Colore di sfondo semitrasparente per i pulsanti */
     box-shadow: 0 0 5px  rgba(122, 78, 255, 0.453);
     cursor: pointer;                                                        /* Cambia il cursore a mano quando il mouse è sopra il pulsante */
     padding: 10px;                                                          /* Aggiunge spazio interno al pulsante */
@@ -114,7 +114,7 @@ body {
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(73, 73, 73, 0.8);                                  /* Cambia il colore di sfondo al passaggio sopra */
+    background-color: rgba(51, 30, 114, 0.453);                                  /* Cambia il colore di sfondo al passaggio sopra */
 }
 
 /* Numero di slide */
