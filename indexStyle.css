@@ -12,12 +12,24 @@ body {
 /* Navbar */
 .navbar {
     background-color: blueviolet;                                          /* Colore di sfondo della navbar */
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Imposta il font della navbar */
+    display: flex;                                                              /* Usa flexbox per allineare gli elementi */
+    justify-content: space-around;                                              /* Distribuisce uniformemente gli elementi lungo la navbar */
+    align-items: center; 
     padding-top: 15px;                                                          
     padding-bottom: 15px;
-    display: flex;                                                          /* Layout flexbox per la navbar */
-    justify-content: space-between;                                         /* Allinea gli elementi ai due estremi */
-    align-items: center;                                                    /* Centra gli elementi verticalmente */
+    position: fixed;                                                            /* Mantiene la navbar fissa in alto */
+    width: 100%;                                                                /* Occupa l'intera larghezza della pagina */
+    top: 0;                                                                     /* Posiziona la navbar in cima alla finestra */
+    z-index: 1;                                                              /* Assicura che la navbar stia sopra gli altri elementi */
+}
+
+.navbar img{
+    height: 40px;
+    margin-left: 15px;
+}
+
+.navbar img:hover{
+    cursor: pointer;
 }
 
 
@@ -47,6 +59,7 @@ body {
 
 /*slideshow*/
 .slideshow-container {
+    padding-top: 70px;
     position: relative;                                                    /* Posizione relativa per il contenitore dello slideshow */
     width: 100%;                                                           /* Imposta la larghezza al 100% della finestra */
     overflow: hidden;                                                      /* Nasconde qualsiasi parte dell'immagine che esce dai bordi */
@@ -79,10 +92,10 @@ body {
 /* Pulsanti di navigazione */
 .prev, .next {
     position: absolute;                                                     /* Posizione assoluta per i pulsanti di navigazione */
-    top: 43%;                                                               /* Posizione verticale centrata rispetto all'immagine */
+    top: 50%;                                                               /* Posizione verticale centrata rispetto all'immagine */
     color: blueviolet;                                                    /* Colore dei pulsanti */
-    background-color: rgba(61, 61, 61, 0.437);                           /* Colore di sfondo semitrasparente per i pulsanti */
-    box-shadow: 0 0 5px #ffffff8c;
+    background-color:  rgba(32, 18, 73, 0.453);;                           /* Colore di sfondo semitrasparente per i pulsanti */
+    box-shadow: 0 0 5px  rgba(122, 78, 255, 0.453);
     cursor: pointer;                                                        /* Cambia il cursore a mano quando il mouse è sopra il pulsante */
     padding: 10px;                                                          /* Aggiunge spazio interno al pulsante */
     border-radius: 50%;                                                     /* Rende i pulsanti rotondi */
@@ -110,7 +123,8 @@ body {
     font-size: 12px;                                                        /* Dimensione del testo per il numero della slide */
     padding: 8px 12px;                                                      /* Aggiunge padding attorno al numero */
     position: absolute;                                                     /* Posizione assoluta per posizionare il numero sopra l'immagine */
-    top: 10px;                                                              /* Posiziona il numero in alto a sinistra */
+    top: 80px;                                                              /* Posiziona il numero in alto a sinistra */
+    left: 10px;
     background-color: rgba(32, 18, 73, 0.453);                            /* Cambia il colore di sfondo al passaggio del mouse */
     border-radius: 5px;                                                     /* Arrotonda leggermente i bordi */
 }
@@ -124,7 +138,7 @@ body {
     bottom: 24px;                                                           /* Posiziona la didascalia in basso */
     width: 100%;                                                            /* La didascalia occupa tutta la larghezza dell'immagine */
     text-align: center;
-    background-color: rgba(48, 48, 48, 0.453);                            /* Cambia il colore di sfondo al passaggio del mouse */
+    background-color:  rgba(32, 18, 73, 0.453);;                            /* Cambia il colore di sfondo al passaggio del mouse */
 }
 
 /* Pallini per la navigazione */
