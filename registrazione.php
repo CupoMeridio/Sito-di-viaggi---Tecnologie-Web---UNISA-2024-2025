@@ -22,10 +22,16 @@ if(isset($_POST["inviato"])){
 </head>
 
 <body>
+    <nav>
+        <a href="index.html"><img src="immagini/logo.png"></a>
+        <a class="navButton" id="homeButton" href="index.html">Home</a>
+        <a class="navButton" id="aboutButton"href="index.html#about">About</a>
+        <a class="navButton" id="contactButton" href="index.html#contact-section">Contact</a>
+        <a class="navButton" id="accessoButton" href="#">Accedi</a> <!--da implementare/rimuovere-->
+    </nav>
                                                                                                                             <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
 <video id="background-video" autoplay muted loop></video>                                                                            <!-- Video di background -->
-    <div id="main-container" class="container">                                                                             <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->
-        <h2>Registrazione</h2>                                                                                               <!-- Titolo della sezione del modulo -->
+    <div id="main-container" class="container">                                                                             <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->                                                                                             <!-- Titolo della sezione del modulo -->
         <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" >  
             <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="registrazione">

@@ -21,6 +21,15 @@ nav {
     z-index: 1000;                                                              /* Assicura che la navbar stia sopra gli altri elementi */
 }
 
+nav img{
+    height: 40px;
+    margin-left: 15px;
+}
+
+nav img:hover{
+    cursor: pointer;
+}
+
 .navButton {
     text-decoration: none;                                                      /* Rimuove la sottolineatura dai link */
     color: white;                                                               /* Imposta il colore del testo su bianco */
@@ -29,17 +38,18 @@ nav {
     transition: background 0.3s;                                                /* Aggiunge una transizione fluida per il cambio di colore */
     margin-left: 10px;                                                          /* Aggiunge un po di spazio tra un bottone e l'altro */
     margin-right: 10px;
-}
-
-
-.navButton:nth-child(4) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
-    margin-right: auto;
+    border-radius: 10px;
 }
 
 .navButton:hover {
     background: #ff6600;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
     border-radius: 5px;                                                         /* Arrotonda leggermente i bordi */
 }
+
+.navButton:nth-child(3) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
+    margin-right: auto;
+}
+
 
 /* Header */
 header {

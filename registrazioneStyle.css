@@ -13,8 +13,54 @@ body {
     margin: 0;                                                                  /* Rimuove il margine predefinito del body */
 }
 
+/* Navbar */
+nav {
+    display: flex;                                                              /* Usa flexbox per allineare gli elementi */
+    justify-content: space-around;                                              /* Distribuisce uniformemente gli elementi lungo la navbar */
+    align-items: center;                                                        /* Centra verticalmente gli elementi */
+    background-color: #ff0011;                                                  /* Imposta un colore arancione per la navbar */
+    padding-top: 15px;                                                          
+    padding-bottom: 15px;
+    position: fixed;                                                            /* Mantiene la navbar fissa in alto */
+    width: 100%;                                                                /* Occupa l'intera larghezza della pagina */
+    top: 0;                                                                     /* Posiziona la navbar in cima alla finestra */
+    z-index: 1000;                                                              /* Assicura che la navbar stia sopra gli altri elementi */
+}
+
+nav img{
+    height: 40px;
+    margin-left: 15px;
+}
+
+nav img:hover{
+    cursor: pointer;
+}
+
+.navButton {
+    text-decoration: none;                                                      /* Rimuove la sottolineatura dai link */
+    color: white;                                                               /* Imposta il colore del testo su bianco */
+    font-weight: bold;                                                          /* Rende il testo in grassetto */
+    padding: 10px 15px;                                                         /* Aggiunge spazio interno ai bottoni */
+    transition: background 0.3s;                                                /* Aggiunge una transizione fluida per il cambio di colore */
+    margin-left: 10px;                                                          /* Aggiunge un po di spazio tra un bottone e l'altro */
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.navButton:hover {
+    background: #c50d00;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
+    border-radius: 5px;                                                         /* Arrotonda leggermente i bordi */
+}
+
+.navButton:nth-child(3) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
+    margin-right: auto;
+}
+
 /* Stile per il contenitore principale */
 .container {
+    width: 55%; /* Aumenta leggermente la larghezza */
+    min-height: 70vh; /* Aumenta l'altezza minima */
+    margin-top: 75px; /* Sposta il contenitore sotto la navbar */
     background-color: rgba(0, 0, 0, 0.8);;                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
     border-radius: 5px;                                                         /* Angoli arrotondati */
     padding: 20px;                                                              /* Spaziatura interna */

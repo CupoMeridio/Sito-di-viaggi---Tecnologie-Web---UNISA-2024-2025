@@ -41,11 +41,7 @@ body {
     transition: background 0.3s;                                                /* Aggiunge una transizione fluida per il cambio di colore */
     margin-left: 10px;                                                          /* Aggiunge un po di spazio tra un bottone e l'altro */
     margin-right: 10px;
-}
-
-
-.navButton:nth-child(3) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
-    margin-right: auto;
+    border-radius: 10px;
 }
 
 .navButton:hover {
@@ -54,8 +50,9 @@ body {
     cursor: pointer                                                         /* Arrotonda leggermente i bordi */
 }
 
-
-
+.navButton:nth-child(3) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
+    margin-right: auto;
+}
 
 /*slideshow*/
 .slideshow-container {
