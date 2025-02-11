@@ -1,6 +1,6 @@
 // Aggiunge un listener per l'evento "submit" al form con ID 'registrazione'
 document.getElementById('main-container').addEventListener('submit', function (event) {
-    event.preventDefault(); // Previene il comportamento predefinito di invio del form
+   // event.preventDefault(); // Previene il comportamento predefinito di invio del form
 
     // Assegna alle variabili i valori inseriti nei campi di input del form
     let nome = document.getElementById('nome').value;
@@ -36,7 +36,7 @@ document.getElementById('main-container').addEventListener('submit', function (e
 
 
     //Implementare qui l'invio dei dati al database e il reindirizzamento sulla homepage!!!!!!!!!!!!!!
-
+   // this.submit()
 });
 
 // Mostra il suggerimento per la password quando il campo 'password' riceve il focus

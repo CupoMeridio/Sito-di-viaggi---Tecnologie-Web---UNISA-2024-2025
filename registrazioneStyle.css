@@ -64,7 +64,7 @@ input {
 
 
 /* Stile per il pulsante di invio */
-button {
+input[type="submit"] {
     width: 50%;                                 /* Larghezza completa del contenitore padre */
     padding: 10px;                              /* Spaziatura interna */
     background-color: #5cb85c;                  /* Colore verde di sfondo */
@@ -89,7 +89,7 @@ button {
 }
 
 /* Stile per il pulsante quando l'utente passa sopra */
-button:hover {
+input[type="submit"]:hover {
     background-color: #4cae4c;                  /* Cambia il colore di sfondo a un verde più scuro */
 }
 

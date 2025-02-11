@@ -1,3 +1,15 @@
+<?php
+$nome="";
+$cognome="";
+$email="";
+$username="";
+$password_pre_hash="";
+$img="";
+$type="";
+if(isset($_POST["inviato"])){
+    include 'logreg.php';
+}else{
+?>
 <!DOCTYPE html>
 <html lang="it">                                                                                        <!-- Specifica il tipo di documento come HTML5 e imposta la lingua della pagina su italiano -->
 
@@ -10,14 +22,11 @@
 </head>
 
 <body>
-<?php
-
-    include 'logreg.php';
-?>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
-<video id="background-video" autoplay muted loop></video>                                               <!-- Video di background -->
-    <div id="main-container" class="container">                                                          <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->
-        <h2>Registrazione</h2>                                                                          <!-- Titolo della sezione del modulo -->
-        <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">  
+                                                                                                                            <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
+<video id="background-video" autoplay muted loop></video>                                                                            <!-- Video di background -->
+    <div id="main-container" class="container">                                                                             <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->
+        <h2>Registrazione</h2>                                                                                               <!-- Titolo della sezione del modulo -->
+        <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" >  
             <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="registrazione">
 
@@ -75,7 +84,7 @@
             </div>
             </div>
             <div class="button-submit-container">
-                <input type="submit" value="Registrati" name="inviato">                                                   <!-- Pulsante per inviare il modulo -->
+                <input type="submit" value="Registrati" name="inviato">                                              <!-- Pulsante per inviare il modulo -->
             </div>
         </form>
         <p id="message"></p>                                                                                <!-- Paragrafo vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
@@ -83,3 +92,7 @@
 </body>
 
 </html>
+
+<?php
+}
+?>

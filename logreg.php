@@ -11,13 +11,7 @@ $password= 'Farinotta01_';
 $connection_string = "host=$host port=$port dbname=$db user=$username password=$password";
 $db= pg_connect( $connection_string) or die('Impossibile connetersi al database:'.pg_last_error());
 
-$nome="";
-$cognome="";
-$email="";
-$username="";
-$password_pre_hash="";
-$img="";
-$type="";
+
 
 
 if(!isset($_POST["action"])){
@@ -25,7 +19,7 @@ if(!isset($_POST["action"])){
 }
 $form=$_POST["action"];
 
-if(isset($_POST["inviato"])){
+
 if($form=="reg"){
 if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])){
     $nome=$_POST["nome"];
@@ -35,7 +29,8 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]
     $password_pre_hash=$_POST["password"];
     
 }
-
+    $bytea=null;
+    $type=null;
 //di sicuro prendo le variabili da un form    
     if(isset($_FILES["fotoProfilo"]['tmp_name']) && $_FILES["fotoProfilo"]['tmp_name']!=""){
         $img=$_FILES["fotoProfilo"]['tmp_name'];
@@ -45,10 +40,10 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]
     }
 
     $hash=password_hash($password_pre_hash, PASSWORD_DEFAULT);
-    $query_no_injection="INSERT INTO utemte (nome, cognome, username, email, password, img,type) VALUES ($1, $2, $3, $4, $5, $6, $7)";
+    $query_no_injection="INSERT INTO utente (nome, cognome, username, email, password, img,type) VALUES ($1, $2, $3, $4, $5, $6, $7)";
     //inserimento dei dati nel database
     $result=pg_prepare($db, "insert", $query_no_injection); 
-    $values=array($nome, $cognome, $username, $email, $hash, $bytea);
+    $values=array($nome, $cognome, $username, $email, $hash, $bytea, $type);
 
     //adesso eseguo la query con i valori escapati
     $result=pg_execute($db, "insert", $values);
@@ -58,9 +53,6 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]
     }
 }else if($form == "login"){
 }
-}else {
-    
-}
-
+header("Location: index.html");
 
 ?>
