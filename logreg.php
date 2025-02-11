@@ -22,17 +22,28 @@ if($form=="reg"){
     $email=$_POST["email"];
     $username=$_POST["username"];
     $password_pre_hash=$_POST["password"];
-    $img=$_POST["fotoProfilo"];
+    $img=null;
+    $type=null;
+    if(isset($_FILES["fotoProfilo"]['tmp_name'])){
+        $img=$_FILES["fotoProfilo"]['tmp_name'];
+        $type=$_FILES["fotoProfilo"]['type'];
+        $bin=pg_get_contents($img);
+        $bytea=pg_escape_bytea($img);
+    }
 
     $hash=password_hash($password_pre_hash, PASSWORD_DEFAULT);
-    $query_no_injection="INSERT INTO utemte (nome, cognome, username, email, password, img) VALUES ($1, $2, $3, $4, $5, $6)";
+    $query_no_injection="INSERT INTO utemte (nome, cognome, username, email, password, img,type) VALUES ($1, $2, $3, $4, $5, $6, $7)";
     //inserimento dei dati nel database
-    $result=pg_prepare($db, "insert", $query_no_injection);
-    $values=array($nome, $cognome, $username, $email, $hash, $img);
+    $result=pg_prepare($db, "insert", $query_no_injection); 
+    $values=array($nome, $cognome, $username, $email, $hash, $bytea);
+
     //adesso eseguo la query con i valori escapati
     $result=pg_execute($db, "insert", $values);
+
     if(!$result){
         echo "inserimento fallito";
     }
+}else if($form == "login"){
+    
 }
 ?>

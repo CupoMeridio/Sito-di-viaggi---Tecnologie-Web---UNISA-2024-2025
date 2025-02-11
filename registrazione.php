@@ -17,7 +17,7 @@ include 'logreg.php';
     <div id="main-container" class="container">                                                          <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->
         <h2>Registrazione</h2>                                                                          <!-- Titolo della sezione del modulo -->
         <form id="form-registrazione">  
-            <input type="hidden" name="reg" id="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
+            <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="registrazione">
 
             <div class="form-group">
