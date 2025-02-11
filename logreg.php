@@ -7,24 +7,37 @@ $port = '5432';
 $db= 'tw_prova';
 $username= 'postgres';
 $password= 'Farinotta01_';
-echo "Prima della connessione";
-$connection_string = "host=$host port=$port dbname=$db user=$username password=$password";
 
-echo "Dopo la conessione";
+$connection_string = "host=$host port=$port dbname=$db user=$username password=$password";
 $db= pg_connect( $connection_string) or die('Impossibile connetersi al database:'.pg_last_error());
 
+$nome="";
+$cognome="";
+$email="";
+$username="";
+$password_pre_hash="";
+$img="";
+$type="";
 
-$form=$_POST['action'];
-//di sicuro prendo le variabili da un form
+
+if(!isset($_POST["action"])){
+    exit;
+}
+$form=$_POST["action"];
+
+if(isset($_POST["inviato"])){
 if($form=="reg"){
+if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])){
     $nome=$_POST["nome"];
     $cognome=$_POST["cognome"];
     $email=$_POST["email"];
     $username=$_POST["username"];
     $password_pre_hash=$_POST["password"];
-    $img=null;
-    $type=null;
-    if(isset($_FILES["fotoProfilo"]['tmp_name'])){
+    
+}
+
+//di sicuro prendo le variabili da un form    
+    if(isset($_FILES["fotoProfilo"]['tmp_name']) && $_FILES["fotoProfilo"]['tmp_name']!=""){
         $img=$_FILES["fotoProfilo"]['tmp_name'];
         $type=$_FILES["fotoProfilo"]['type'];
         $bin=pg_get_contents($img);
@@ -44,6 +57,10 @@ if($form=="reg"){
         echo "inserimento fallito";
     }
 }else if($form == "login"){
+}
+}else {
     
 }
+
+
 ?>

@@ -1,6 +1,3 @@
-<?php
-include 'logreg.php';
-?>
 <!DOCTYPE html>
 <html lang="it">                                                                                        <!-- Specifica il tipo di documento come HTML5 e imposta la lingua della pagina su italiano -->
 
@@ -12,11 +9,15 @@ include 'logreg.php';
     <script src="registrazione_javascript.js" type="text/javascript" defer="true"></script>             <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
 </head>
 
-<body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
+<body>
+<?php
+
+    include 'logreg.php';
+?>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
 <video id="background-video" autoplay muted loop></video>                                               <!-- Video di background -->
     <div id="main-container" class="container">                                                          <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->
         <h2>Registrazione</h2>                                                                          <!-- Titolo della sezione del modulo -->
-        <form id="form-registrazione">  
+        <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">  
             <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="registrazione">
 
@@ -24,27 +25,27 @@ include 'logreg.php';
 
                 <div class="form-fields">                                                               <!-- Contenitore per il campo Nome -->
                     <label for="nome">Nome</label>                                                      <!-- Etichetta per il campo di input associato, con l'attributo "for" legato all'id -->
-                    <input type="text" id="nome" name="nome" required>                                  <!-- Campo di input per il nome, obbligatorio grazie all'attributo "required" -->
+                    <input type="text" id="nome" name="nome" value="<?php echo $nome ?>"required>                                  <!-- Campo di input per il nome, obbligatorio grazie all'attributo "required" -->
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Cognome -->
                     <label for="cognome">Cognome</label>
-                    <input type="text" id="cognome" name="cognome" required>
+                    <input type="text" id="cognome" name="cognome" value="<?php echo $cognome ?>" required>
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Username -->
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" id="username" name="username" value="<?php echo $username ?>"required>
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Email -->
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                    <input type="email" id="email" name="email" value="<?php echo $email ?>"required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
+                    <input type="password" id="password" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
                     <div class="password-hint" id="passwordHint">                                        <!-- Testo di suggerimento per indicare i requisiti della password -->
                         La password deve contenere almeno 8 caratteri e includere almeno una
                         lettera maiuscola, una lettera minuscola, un numero e un carattere speciale.
@@ -74,7 +75,7 @@ include 'logreg.php';
             </div>
             </div>
             <div class="button-submit-container">
-                <button type="submit">Registrati</button>                                                   <!-- Pulsante per inviare il modulo -->
+                <input type="submit" value="Registrati" name="inviato">                                                   <!-- Pulsante per inviare il modulo -->
             </div>
         </form>
         <p id="message"></p>                                                                                <!-- Paragrafo vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
