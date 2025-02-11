@@ -20,7 +20,7 @@ body {
     position: fixed;                                                            /* Mantiene la navbar fissa in alto */
     width: 100%;                                                                /* Occupa l'intera larghezza della pagina */
     top: 0;                                                                     /* Posiziona la navbar in cima alla finestra */
-    z-index: 1;                                                              /* Assicura che la navbar stia sopra gli altri elementi */
+    z-index: 2;                                                              /* Assicura che la navbar stia sopra gli altri elementi */
 }
 
 .navbar img{
@@ -127,13 +127,14 @@ body {
     left: 10px;
     background-color: rgba(32, 18, 73, 0.453);                            /* Cambia il colore di sfondo al passaggio del mouse */
     border-radius: 5px;                                                     /* Arrotonda leggermente i bordi */
+    z-index: 1;
 }
 
 
 /* Descrizione della slide */
 .captionText {
     color: #f2f2f2;                                                       /* Colore del testo per la didascalia */
-    font-size: 20px;                                                        /* Dimensione del testo per la didascalia */
+    font-size: 21px;                                                        /* Dimensione del testo per la didascalia */
     position: relative;                                                     
     bottom: 24px;                                                           /* Posiziona la didascalia in basso */
     width: 100%;                                                            /* La didascalia occupa tutta la larghezza dell'immagine */
