@@ -4,6 +4,7 @@ body {
     flex-direction: column;                                               /* Disposizione verticale degli elementi */
     margin: 0;                                                            /* Rimuove il margine predefinito del body */
     padding: 0;                                                           /* Rimuove il padding predefinito del body */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Imposta il font della navbar */
 }
 
 
@@ -37,7 +38,8 @@ body {
 
 .navButton:hover {
     background: rgb(60, 26, 156);                                                        /* Cambia il colore di sfondo al passaggio del mouse */
-    border-radius: 5px;                                                         /* Arrotonda leggermente i bordi */
+    border-radius: 5px;
+    cursor: pointer                                                         /* Arrotonda leggermente i bordi */
 }
 
 
@@ -77,9 +79,10 @@ body {
 /* Pulsanti di navigazione */
 .prev, .next {
     position: absolute;                                                     /* Posizione assoluta per i pulsanti di navigazione */
-    top: 45%;                                                               /* Posizione verticale centrata rispetto all'immagine */
+    top: 43%;                                                               /* Posizione verticale centrata rispetto all'immagine */
     color: blueviolet;                                                    /* Colore dei pulsanti */
     background-color: rgba(61, 61, 61, 0.437);                           /* Colore di sfondo semitrasparente per i pulsanti */
+    box-shadow: 0 0 5px #ffffff8c;
     cursor: pointer;                                                        /* Cambia il cursore a mano quando il mouse è sopra il pulsante */
     padding: 10px;                                                          /* Aggiunge spazio interno al pulsante */
     border-radius: 50%;                                                     /* Rende i pulsanti rotondi */
@@ -246,4 +249,78 @@ footer {
     font-style: italic;          /* Testo in corsivo per il disclaimer */
     font-size: 12px;             /* Testo più piccolo per il disclaimer */
     color: #ccc;                 /* Colore del testo del disclaimer */
+}
+
+
+/*Pop-up di accesso*/
+.login {
+    background-color: rgba(48, 48, 48, 0.453);
+    opacity: 0; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login.open {
+    opacity: 1;
+    z-index: 998;
+}
+
+.login-box {
+    background-color: rgba(137, 43, 226, 0.803);
+    box-shadow: rgb(223, 43, 226);
+    color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 999;
+    box-shadow: 0 0 15px #ff00ff;
+}
+
+.login-box h5 {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 20px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.button-container {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.loginButton {
+    background-color: #1400297a;
+    text-decoration: none;                                                      /* Rimuove la sottolineatura dai link */
+    color: white;                                                             /* Imposta il colore del testo su bianco */
+    font-weight: bold;                                                          /* Rende il testo in grassetto */
+    padding: 10px 15px;                                                         /* Aggiunge spazio interno ai bottoni */
+    transition: background 0.3s;                                                /* Aggiunge una transizione fluida per il cambio di colore */
+    margin-left: 20px;                                                          /* Aggiunge un po di spazio tra un bottone e l'altro */
+    margin-right: 20px;                                                         /* Aggiunge spazio dal lato*/
+    border-radius: 10px;
+}
+
+.loginButton:hover {
+    background: rgb(60, 26, 156);                                                        /* Cambia il colore di sfondo al passaggio del mouse */
+    border-radius: 15px;
+    cursor: pointer                                                         /* Arrotonda leggermente i bordi */
 }
