@@ -7,9 +7,10 @@
     <title>Dragon Ball</title>                                                                          <!-- Imposta il titolo della pagina che apparirà nella scheda del browser -->
     <link rel="stylesheet" href="DragonBallStyle.css">                                                  <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
     <script src="mondo_javascript.js" type="text/javascript" defer="true"></script>                    <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
-</head>
+    <script src="commenti.js" type="text/javascript" defer="true"></script>
+  </head>
 
-<body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
+<body onload=" PrendiCommenti()">                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
   <nav>
     <a href="index.html"><img src="immagini/logo.png"></a>
     <a class="navButton" id="homeButton" href="index.html">Home</a>
@@ -191,7 +192,8 @@
   <!-- Colonna Aggiunta Recensione -->
   <div class="review-form" style="width: 50%;">
     <h2>Lascia una Recensione</h2>
-    <form action="submit_review.php" method="post">
+    <!-- <form action="submit_review.php" method="post">-->
+      <form name="commenti">
         <label for="location">Seleziona la location:</label>
         <select id="location" name="location">
             <option value="kamehouse">Kame House</option>
@@ -214,7 +216,7 @@
         <textarea id="experience" name="experience" rows="4" cols="50" placeholder="Scrivi la tua esperienza..."></textarea>
         <br><br>
         
-        <input type="submit" value="Invia Recensione">
+        <input type="button" value="Invia Recensione" onclick="InserisciCommento()">
     </form>
   </div>
 </div>
