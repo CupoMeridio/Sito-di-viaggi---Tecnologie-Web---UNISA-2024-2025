@@ -40,10 +40,11 @@ if ($result && pg_num_rows($result) > 0) {
     echo "<a href=\"login.html\"> login </a>";
     exit;
 }
-    $bytea=null;
-    $type=null; 
+    
+    $bytea="";
+    $type="";
 //di sicuro prendo le variabili da un form    
-    if(isset($_FILES["fotoProfilo"]['tmp_name']) && $_FILES["fotoProfilo"]['tmp_name']!=""){
+    if(isset($_FILES["fotoProfilo"]['tmp_name']) || $_FILES["fotoProfilo"]['tmp_name']!=""){
         $img=$_FILES["fotoProfilo"]['tmp_name'];
         $type=$_FILES["fotoProfilo"]['type'];
         $bin=file_get_contents($img);
