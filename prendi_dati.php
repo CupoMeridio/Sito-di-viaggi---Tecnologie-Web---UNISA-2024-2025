@@ -47,19 +47,26 @@ $query_no_injection= " SELECT * FROM  utente where email= $1 ";
     $_SESSION['nome']= $nome;
     $_SESSION['cognome']= $cognome;
     $_SESSION['username']= $username;
-    
+    if ($img != null && $type !=null ) {
+          //$_SESSION['type'] = $type;
+    $_SESSION['img']= "data:". $type . ";base64," . $img ;// passo direttamente la stringa da mettere nel src
+} 
+    // quindi l'utilizzatore dovra scrivere
+    /* <img src= <?php echo $_SESSION['img'] ?> />;*/
+    echo $nome . $cognome . $username . $type; 
 
+
+
+
+    //echo '<img src="data:' . $type . ';base64,' . $img . '" />';
 pg_close($db);
 
 ?>
+<!--
 <html>
     <body>
-        <?php   
-        echo $nome . $cognome . $username . $type;
-        if ($img != null) {
-            $_SESSION['type'] = $type;
-            echo '<img src="data:' . $type . ';base64,' . $img . '" />';
-        }
-        ?>
+    
+            <img src= <?php echo $_SESSION['img'] ?> />;
     </body>
 </html>
+-->
