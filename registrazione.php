@@ -26,7 +26,7 @@ if(isset($_POST["inviato"])){
         <a href="index.html"><img src="immagini/logo.png"></a>
         <a class="navButton" id="homeButton" href="index.html">Home</a>
         <a class="navButton" id="aboutButton"href="index.html#about">About</a>
-        <a class="navButton" id="contactButton" href="index.html#contact-section">Contact</a>
+        <a class="navButton" id="contactButton" href="index.html#footer-section">Contact</a>
         <a class="navButton" id="accessoButton" href="#">Accedi</a> <!--da implementare/rimuovere-->
     </nav>
                                                                                                                             <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
@@ -93,7 +93,10 @@ if(isset($_POST["inviato"])){
                 <input type="submit" value="Registrati" name="inviato">                                              <!-- Pulsante per inviare il modulo -->
             </div>
         </form>
-        <p id="message"></p>                                                                                <!-- Paragrafo vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
+        <p id="message"></p>
+
+        
+                                                                                     <!-- Paragrafo vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
     </div>
 </body>
 

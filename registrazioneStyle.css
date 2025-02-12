@@ -136,7 +136,7 @@ input[type="submit"] {
 
 /* Stile per il pulsante quando l'utente passa sopra */
 input[type="submit"]:hover {
-    background-color: #4cae4c;                  /* Cambia il colore di sfondo a un verde più scuro */
+    background-color: #72a472;                  /* Cambia il colore di sfondo a un verde più scuro */
 }
 
 /* Stile per il messaggio di successo o errore */
