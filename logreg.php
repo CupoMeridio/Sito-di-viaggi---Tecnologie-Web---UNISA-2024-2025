@@ -36,7 +36,7 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]
     if(isset($_FILES["fotoProfilo"]['tmp_name']) && $_FILES["fotoProfilo"]['tmp_name']!=""){
         $img=$_FILES["fotoProfilo"]['tmp_name'];
         $type=$_FILES["fotoProfilo"]['type'];
-        $bin=pg_get_contents($img);
+        $bin=file_get_contents($img);
         $bytea=pg_escape_bytea($img);
     }
 
@@ -53,6 +53,18 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]
         echo "inserimento fallito";
     }
 }else if($form == "login"){
+    $email= $_POST["email"];
+    $password=$_POST["password"];
+    //predno hash dal database
+    $query_no_injection="SELECT password FROM utente WHERE email=$1";
+    $result=pg_prepare($db, "select password", $query_no_injection);
+    $values=array($email);
+
+    //eseguo la query
+    $result=pg_execute($db, "select password", $query_no_injection);
+    if(!password_verify($password, $hash)){
+        echo "La password non "
+    }
 }
 header("Location: index.html");
 
