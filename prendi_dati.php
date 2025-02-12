@@ -18,7 +18,7 @@ $username="";
 $img="";
 $type="";
 
-$_SESSION['email']='mattiasanzari2003@gmail.com';// da togliere
+$_SESSION['email']='mattiasanzari03@gmail.com';// da togliere
 
 $email= $_SESSION['email'];
 
@@ -39,9 +39,8 @@ $query_no_injection= " SELECT * FROM  utente where email= $1 ";
         //$email=$row['email'];
         $username=$row['username'];
         $image_data = pg_unescape_bytea($row['img']);
-        if($img != null){
         $img= base64_encode ($image_data);
-        $type=$row['type'];}
+        $type=$row['type'];
         $row = pg_fetch_assoc($result);
     }
 
@@ -49,12 +48,18 @@ $query_no_injection= " SELECT * FROM  utente where email= $1 ";
     $_SESSION['cognome']= $cognome;
     $_SESSION['username']= $username;
     
-    echo $nome.$cognome.$username.$type;
 
-    if($img != null){
-    $_SESSION['type']= $type;
-    echo '<img src="data:image/'.$type.';base64,' .$img. '" />';
-}
 pg_close($db);
 
 ?>
+<html>
+    <body>
+        <?php   
+        echo $nome . $cognome . $username . $type;
+        if ($img != null) {
+            $_SESSION['type'] = $type;
+            echo '<img src="data:' . $type . ';base64,' . $img . '" />';
+        }
+        ?>
+    </body>
+</html>
