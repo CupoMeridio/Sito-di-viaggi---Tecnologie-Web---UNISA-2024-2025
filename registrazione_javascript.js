@@ -1,5 +1,8 @@
 // Aggiunge un listener per l'evento "submit" al form con ID 'registrazione'
-document.getElementById('main-container').addEventListener('submit', function (event) {
+
+// document.getElementById('main-container').addEventListener('submit', function (event) { // modifica da Mattia per provare il submit 
+
+function verificaPassword(){ // viene chiamata dal onsubmit del form una volta cliccato fala verifica -> se vero spedisce | se falso NO.
    // event.preventDefault(); // Previene il comportamento predefinito di invio del form
 
     // Assegna alle variabili i valori inseriti nei campi di input del form
@@ -17,17 +20,19 @@ document.getElementById('main-container').addEventListener('submit', function (e
     let passwordValid = validatePassword(password);
     if (!passwordValid) {
         passwordError.textContent = 'La password inserita non rispetta i requisiti.';
-        return; // Interrompe l'esecuzione se la password non è valida
+        return false; // Interrompe l'esecuzione se la password non è valida
     } else {
         passwordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
+        return true;
     }
 
     // Controlla se le password corrispondono
     if (password !== confirmPassword) {
         confirmPasswordError.textContent = 'La password non corrispondono!';
-        return; // Interrompe l'esecuzione se le password non corrispondono
+        return false; // Interrompe l'esecuzione se le password non corrispondono
     } else {
         confirmPasswordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
+        return true;
     }
 
     // Se tutto è valido, mostra un messaggio di successo
@@ -37,7 +42,7 @@ document.getElementById('main-container').addEventListener('submit', function (e
 
     //Implementare qui l'invio dei dati al database e il reindirizzamento sulla homepage!!!!!!!!!!!!!!
    // this.submit()
-});
+}
 
 // Mostra il suggerimento per la password quando il campo 'password' riceve il focus
 document.getElementById('password').addEventListener('focus', function () {

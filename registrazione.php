@@ -32,7 +32,7 @@ if(isset($_POST["inviato"])){
                                                                                                                             <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
 <video id="background-video" autoplay muted loop></video>                                                                            <!-- Video di background -->
     <div id="main-container" class="container">                                                                             <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->                                                                                             <!-- Titolo della sezione del modulo -->
-        <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" >  
+        <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" onsubmit="return verificaPassword()">  <!-- onsubmit che serve alla verifica della pw -->
             <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="registrazione">
 
