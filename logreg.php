@@ -29,6 +29,7 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]
     $password_pre_hash=$_POST["password"];
     
 }
+    
     $bytea=null;
     $type=null;
 //di sicuro prendo le variabili da un form    
