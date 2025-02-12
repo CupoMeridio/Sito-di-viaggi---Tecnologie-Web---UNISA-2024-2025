@@ -26,8 +26,19 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]
     $cognome=$_POST["cognome"];
     $email=$_POST["email"];
     $username=$_POST["username"];
-    $password_pre_hash=$_POST["password"];
-    
+    $password_pre_hash=$_POST["password"];   
+}
+$query_no_injection = "SELECT email FROM utente WHERE email = $1";
+$result = pg_prepare($db, "select email", $query_no_injection);
+$result=pg_execute($db, "select email", array($email));
+    if (result != "false"){
+        echo "<div>E-mail già presente <a href=\"registrazione.php#form-login \">Login</a></div>";
+    }
+
+if ($result && pg_num_rows($result) > 0) {
+    echo "Username già presente!";
+    echo "<a href=\"login.html\"> login </a>";
+    exit;
 }
     
     $bytea="";
@@ -48,6 +59,7 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]
 
     //adesso eseguo la query con i valori escapati
     $result=pg_execute($db, "insert", $values);
+    
 
     if(!$result){
         echo "inserimento fallito";
@@ -73,7 +85,8 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]
             }
         }
     }else{
-        echo "<div>Nessun utente con quella e-mail</div>";
+        echo "<div>Nessun utente con quella e-mail. <a href=registrati.php#form-registrazione> Registrati</a></div>";
+
     }
     
 }
