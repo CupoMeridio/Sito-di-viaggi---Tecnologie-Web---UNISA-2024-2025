@@ -96,7 +96,7 @@ if(isset($_POST["inviato"])){
         <p id="message"></p> 
 
         <form id="form-login"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-        <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
+        <input type="hidden" name="action" value="login">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="login">
 
             <div class="form-group">

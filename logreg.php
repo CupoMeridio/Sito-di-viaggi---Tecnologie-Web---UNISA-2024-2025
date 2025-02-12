@@ -36,7 +36,7 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]
         $img=$_FILES["fotoProfilo"]['tmp_name'];
         $type=$_FILES["fotoProfilo"]['type'];
         $bin=file_get_contents($img);
-        $bytea=pg_escape_bytea($img);
+        $bytea=pg_escape_bytea($bin);
     }
 
     $hash=password_hash($password_pre_hash, PASSWORD_DEFAULT);
@@ -61,9 +61,20 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]
 
     //eseguo la query
     $result=pg_execute($db, "select password", $query_no_injection);
-    if(!password_verify($password, $hash)){
-        echo "La password non "
+ 
+    if( $result != "false" ){
+        $_SESSION['email']=$email;
+        $row = pg_fetch_assoc($result);
+        if($row != "false"){
+            $hash=$row['password'];
+            if(!password_verify($password, $hash)){
+                echo "<div>Le password non corrispondono</div>";
+            }
+        }
+    }else{
+        echo "<div>Nessun utente con quella e-mail</div>";
     }
+    
 }
 header("Location: index.html");
 
