@@ -93,11 +93,29 @@ if(isset($_POST["inviato"])){
                 <input type="submit" value="Registrati" name="inviato">                                              <!-- Pulsante per inviare il modulo -->
             </div>
         </form>
-        <p id="message"></p>
+        <p id="message"></p> 
 
-        
-                                                                                     <!-- Paragrafo vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
+        <form id="form-login"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+        <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
+            <div id="login">
+
+            <div class="form-group">
+                <div class="form-fields">                                                                <!-- Contenitore per il campo Email -->
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="<?php echo $email ?>"required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                </div>
+
+                <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
+                </div>
+
+            </div>
+            <div class="button-submit-container">
+                <input type="submit" value="Login" name="inviato">
+        </form>                                                                                 <!-- Paragrafo vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
     </div>
+    
 </body>
 
 </html>
