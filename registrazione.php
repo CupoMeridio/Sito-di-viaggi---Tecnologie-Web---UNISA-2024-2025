@@ -60,7 +60,8 @@ if(isset($_POST["inviato"])){
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Email -->
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value="<?php echo $email ?>"required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                    <input type="email" id="email" name="email" value="<?php echo $email ?>"required>   
+                    <span id="emailError" class="error"></span>                             <!-- Il tipo "email" garantisce una validazione di base del formato email -->
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
@@ -80,8 +81,7 @@ if(isset($_POST["inviato"])){
                     <div id="confirmPasswordError" class="error"></div>                                  <!-- Messaggio09% di errore per il campo di conferma password (se necessario) -->
                 </div>
             </div>
-        
-    
+
             <div class="form-photo">                                                                     <!-- Contenitore per l'upload della foto profilo -->
                 <div class="form-group">
                     <label>Foto profilo</label>

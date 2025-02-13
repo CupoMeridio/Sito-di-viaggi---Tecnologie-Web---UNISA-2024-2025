@@ -34,7 +34,7 @@ $result=pg_execute($db, "select email", array($email));
 if ($result) {
     $row = pg_fetch_assoc($result);
     if ($row) {
-        $_SESSION["registrazione_error"] = "E-mail già presente. Accedi.";
+        echo"E-mail già presente.";
         header("Location: registrazione.php");
         exit;
     }

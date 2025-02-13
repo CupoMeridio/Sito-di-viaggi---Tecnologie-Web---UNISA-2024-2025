@@ -1,6 +1,24 @@
 // Aggiunge un listener per l'evento "submit" al form con ID 'registrazione'
 
 // document.getElementById('main-container').addEventListener('submit', function (event) { // modifica da Mattia per provare il submit 
+const emailProviders = [
+    "@gmail.com",
+    "@outlook.com",
+    "@yahoo.com",
+    "@icloud.com",
+    "@protonmail.com",
+    "@zoho.com",
+    "@gmx.com",
+    "@aol.com",
+    "@mail.com",
+    "@libero.it",
+    "@tiscali.it",
+    "@fastwebnet.it",
+    "@email.it",
+    "@aruba.it",
+    "@kataweb.it",
+    "@studenti.unisa.it" 
+  ];
 
 function verificaPassword(){ // viene chiamata dal onsubmit del form una volta cliccato fala verifica -> se vero spedisce | se falso NO.
    // event.preventDefault(); // Previene il comportamento predefinito di invio del form
@@ -15,7 +33,16 @@ function verificaPassword(){ // viene chiamata dal onsubmit del form una volta c
     let message = document.getElementById('message');
     let passwordError = document.getElementById('passwordError');
     let confirmPasswordError = document.getElementById('confirmPasswordError');
+    let emailError=document.getElementById("emailError");
+   if(!validateEmail(email)){
+    emailError.textContent='L\'email inserita non è valida ';
+    alert("aiuto");
+    return false;
 
+   }else{
+    emailError.textContent='';
+    return true;
+   }
     // Valida la password utilizzando la funzione `validatePassword`
     let passwordValid = validatePassword(password);
     if (!passwordValid) {
@@ -43,6 +70,14 @@ function verificaPassword(){ // viene chiamata dal onsubmit del form una volta c
     //Implementare qui l'invio dei dati al database e il reindirizzamento sulla homepage!!!!!!!!!!!!!!
    // this.submit()
 }
+/*
+function cancella(event){
+    
+}
+let elementi_input=document.getElementById("main-container").querySelectorAll("input");
+for(let i=0; elementi_input.length; i++){
+    elementi_input[i].addEventListener("change", cancella);
+}*/
 
 // Mostra il suggerimento per la password quando il campo 'password' riceve il focus
 document.getElementById('password').addEventListener('focus', function () {
@@ -67,6 +102,26 @@ document.getElementById('password').addEventListener('input', function () {
         passwordSecurity.appendChild(strengthBar); // Aggiunge la barra alla sezione di forza
     }
 });
+
+//Funzione per validare l'email
+function validateEmail(email){
+    //alert("sono stato chiamato");
+    let pattern = /^[a-zA-Z]+\d*@[a-z]+\.[a-z]+$/; 
+    if (!pattern.test(email)){   
+        //alert("sono nell'if");     
+        return false;
+    }else{
+        //alert("sono nell'else");
+        let split=email.split('@');
+        let dominio=split[1];
+        for(let i=0; i<emailProviders.length; i++ ){
+            if(dominio == emailProviders[i])
+                return true; 
+        }
+        return false;
+    }
+
+}
 
 
 // Funzione per validare la password
@@ -180,4 +235,26 @@ const videos = [
     1. L'utente mentre si registra utilizza un'email già esistente---> riprova la registrazione o fa login
     2. L'utente nel login sbaglia password---> deve riprovare l'accesso
     3. L'utente nel login sbaglia email---> risprova l'accesso o si registra
+
+    function responseHandler(response){
+    
+}
 */
+
+document.getElementById('email').addEventListener('input', function(){
+    let email=document.forms['form-registrazione']['email'];
+    //alert(email);
+    let serverRequest=new XMLHttpRequest();
+    serverRequest.onreadystatechange = function(){
+    if(serverRequest.readyState == 4 && serverRequest.status == 200){
+        //chiamo la funzione che prende la risposta dal server
+        //alert(this.responseText);
+    }
+    }
+    //qui invece preparo la richiesta
+    serverRequest.open("POST", "logreg.php");
+    serverRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //metodo post-->invio key=value
+    serverRequest.send("email="+encodeURIComponent(email));
+    
+});
