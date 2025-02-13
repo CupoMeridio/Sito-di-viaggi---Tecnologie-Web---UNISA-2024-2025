@@ -114,12 +114,12 @@ if(isset($_POST["inviato"])){
             <div class="form-group">
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Email -->
                     <label for="email-login">Email</label>
-                    <input type="email" id="email-login" name="email" value="<?php echo $email ?>"required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                    <input type="email" id="email-login" name="email-login" value="<?php echo $email ?>"required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
                     <label for="password-login">Password</label>
-                    <input type="password" id="password-login" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
+                    <input type="password" id="password-login" name="password-login" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
                 </div>
 
             </div>
