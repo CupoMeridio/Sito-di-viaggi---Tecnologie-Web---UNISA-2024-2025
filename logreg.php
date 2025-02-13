@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 
 $host='database-1.czikiq82wrwk.eu-west-2.rds.amazonaws.com';
@@ -17,8 +17,8 @@ $db= pg_connect( $connection_string) or die('Impossibile connetersi al database:
 if(!isset($_POST["action"])){
     exit;
 }
-$form=$_POST["action"];
 
+$form=$_POST["action"];
 
 if($form=="reg"){
 if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])){
@@ -31,20 +31,21 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["username"]
 $query_no_injection = "SELECT email FROM utente WHERE email = $1";
 $result = pg_prepare($db, "select email", $query_no_injection);
 $result=pg_execute($db, "select email", array($email));
-    if (result != "false"){
-        echo "<div>E-mail già presente <a href=\"registrazione.php#form-login \">Login</a></div>";
+if ($result) {
+    $row = pg_fetch_assoc($result);
+    if ($row) {
+        $_SESSION["registrazione_error"] = "E-mail già presente. Accedi.";
+        header("Location: registrazione.php");
+        exit;
     }
-
-if ($result && pg_num_rows($result) > 0) {
-    echo "Username già presente!";
-    echo "<a href=\"login.html\"> login </a>";
-    exit;
 }
+
+
     
     $bytea="";
     $type="";
 //di sicuro prendo le variabili da un form    
-    if(isset($_FILES["fotoProfilo"]['tmp_name']) || $_FILES["fotoProfilo"]['tmp_name']!=""){
+    if(($_FILES["fotoProfilo"]['tmp_name'])!=null|| $_FILES["fotoProfilo"]['tmp_name']!=""){
         $img=$_FILES["fotoProfilo"]['tmp_name'];
         $type=$_FILES["fotoProfilo"]['type'];
         $bin=file_get_contents($img);
@@ -73,23 +74,33 @@ if ($result && pg_num_rows($result) > 0) {
     $values=array($email);
 
     //eseguo la query
-    $result=pg_execute($db, "select password", $query_no_injection);
+    $result=pg_execute($db, "select password", $values);
  
-    if( $result != "false" ){
-        $_SESSION['email']=$email;
+    if( $result ){
+       
         $row = pg_fetch_assoc($result);
-        if($row != "false"){
+
+        if($row){
             $hash=$row['password'];
-            if(!password_verify($password, $hash)){
-                echo "<div>Le password non corrispondono</div>";
+
+            if(password_verify($password, $hash)){
+                $_SESSION['email']=$email;
+                header("Location: index.html"); 
+            }else{
+                $_SESSION["password_error"]="La password non è corretta. Riprova.";
+                header("Location: registrazione.php#login_page");
+                exit;
             }
         }
     }else{
-        echo "<div>Nessun utente con quella e-mail. <a href=registrati.php#form-registrazione> Registrati</a></div>";
+        $_SESSION["login_error"]="Nessun utente con quella e-mail. Registrati";
+        header("Location: registrazione.php#registrazione_page");
+        exit;
+        //echo "<div>Nessun utente con quella e-mail. <a href=registrazione.php#rregistrazione_page> Registrati</a></div>";
 
     }
     
 }
-header("Location: index.html");
 
+pg_close($db);
 ?>

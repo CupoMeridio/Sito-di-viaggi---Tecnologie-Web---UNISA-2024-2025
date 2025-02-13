@@ -24,8 +24,10 @@ nav {
     position: fixed;                                                            /* Mantiene la navbar fissa in alto */
     width: 100%;                                                                /* Occupa l'intera larghezza della pagina */
     top: 0;                                                                     /* Posiziona la navbar in cima alla finestra */
-    z-index: 1000;                                                              /* Assicura che la navbar stia sopra gli altri elementi */
+    z-index: 1000;    
+                                                             /* Assicura che la navbar stia sopra gli altri elementi */
 }
+
 
 nav img{
     height: 40px;
@@ -60,7 +62,7 @@ nav img:hover{
 .container {
     width: 55%; /* Aumenta leggermente la larghezza */
     min-height: 70vh; /* Aumenta l'altezza minima */
-    margin-top: 75px; /* Sposta il contenitore sotto la navbar */
+    margin-top: 200px; /* Sposta il contenitore sotto la navbar */
     background-color: rgba(0, 0, 0, 0.8);;                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
     border-radius: 5px;                                                         /* Angoli arrotondati */
     padding: 20px;                                                              /* Spaziatura interna */
@@ -72,9 +74,10 @@ nav img:hover{
 }
 
 #registrazione{
-    display: grid;                                                              /* Usa il layout CSS Grid */
+   display: grid;                                                              /* Usa il layout CSS Grid */
     grid-template-columns: 1fr 1fr;                                             /* Due colonne*/
-    gap: 20px;                                                                  /* Spaziatura tra le colonne */
+    gap: 20px;    
+                                                                  /* Spaziatura tra le colonne */
 
 }
 
@@ -257,4 +260,22 @@ video {
         height: auto; /* Rimuove altezza fissa */
         overflow-y: auto; /* Permette di scrollare la pagina */
     }
+}
+
+/*parte del css che gestisce i messaggi login e registrazione*/
+div.messaggio-login, div.messaggio-registrazione{
+    font-size: 12px;
+    color: rgb(165, 165, 165);
+    text-align: center;
+    margin-top: 10px;
+    
+   
+}
+
+div.messaggio-login a, div.messaggio-registrazione a{
+    color: rgb(129, 105, 150);
+}
+
+div.messaggio-login a:hover, div.messaggio-registrazione a:hover{
+    color: rgb(216, 174, 255);
 }

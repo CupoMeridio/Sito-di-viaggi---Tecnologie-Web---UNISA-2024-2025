@@ -1,4 +1,5 @@
 <?php
+session_start();
 $nome="";
 $cognome="";
 $email="";
@@ -6,9 +7,12 @@ $username="";
 $password_pre_hash="";
 $img="";
 $type="";
+
 if(isset($_POST["inviato"])){
     include 'logreg.php';
+    
 }else{
+    
 ?>
 <!DOCTYPE html>
 <html lang="it">                                                                                        <!-- Specifica il tipo di documento come HTML5 e imposta la lingua della pagina su italiano -->
@@ -22,16 +26,17 @@ if(isset($_POST["inviato"])){
 </head>
 
 <body>
+    
     <nav>
         <a href="index.html"><img src="immagini/logo.png"></a>
         <a class="navButton" id="homeButton" href="index.html">Home</a>
         <a class="navButton" id="aboutButton"href="index.html#about">About</a>
-        <a class="navButton" id="contactButton" href="index.html#footer-section">Contact</a>
-        <a class="navButton" id="accessoButton" href="#">Accedi</a> <!--da implementare/rimuovere-->
     </nav>
+    
                                                                                                                             <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
 <video id="background-video" autoplay muted loop></video>                                                                            <!-- Video di background -->
-    <div id="main-container" class="container">                                                                             <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->                                                                                             <!-- Titolo della sezione del modulo -->
+    <div id="main-container" class="container">     
+        <div id="registrazione_page" class="page">                                                                       <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->                                                                                             <!-- Titolo della sezione del modulo -->
         <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" onsubmit="return verificaPassword()">  <!-- onsubmit che serve alla verifica della pw -->
             <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="registrazione">
@@ -72,10 +77,11 @@ if(isset($_POST["inviato"])){
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Conferma password -->
                     <label for="confirmPassword">Conferma password</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" required>         <!-- Campo per confermare la password inserita -->
-                    <div id="confirmPasswordError" class="error"></div>                                  <!-- Messaggio di errore per il campo di conferma password (se necessario) -->
+                    <div id="confirmPasswordError" class="error"></div>                                  <!-- Messaggio09% di errore per il campo di conferma password (se necessario) -->
                 </div>
             </div>
-
+        
+    
             <div class="form-photo">                                                                     <!-- Contenitore per l'upload della foto profilo -->
                 <div class="form-group">
                     <label>Foto profilo</label>
@@ -92,9 +98,14 @@ if(isset($_POST["inviato"])){
             <div class="button-submit-container">
                 <input type="submit" value="Registrati" name="inviato">                                              <!-- Pulsante per inviare il modulo -->
             </div>
+            <div class="messaggio-login">Sei già registrato? <a href="#login_page">Login</a></div>
         </form>
         <p id="message"></p> 
+        </div> 
 
+
+
+        <div id="login_page" class="page">
         <form id="form-login"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         <input type="hidden" name="action" value="login">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="login">
@@ -113,13 +124,17 @@ if(isset($_POST["inviato"])){
             </div>
             <div class="button-submit-container">
                 <input type="submit" value="Login" name="inviato">
-        </form>                                                                                 <!-- Paragrafo vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
+            </div> 
+            <div class="messaggio-registrazione">Non sei registrato? <a href="#registrazione_page">Registrati</a></div>
+        </form>  
+        </div>                                                                            <!-- Paragrafo8$ vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
     </div>
+
     
 </body>
 
 </html>
 
 <?php
-}
+} 
 ?>

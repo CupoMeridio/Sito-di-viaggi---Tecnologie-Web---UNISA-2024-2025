@@ -176,5 +176,8 @@ const videos = [
     // Aggiunge un messaggio se il browser non supporta il video
     videoElement.innerHTML += 'Errore nella riproduzione del video.';
 
-
-
+/*gestione eventi di errore nei seguenti casi
+    1. L'utente mentre si registra utilizza un'email già esistente---> riprova la registrazione o fa login
+    2. L'utente nel login sbaglia password---> deve riprovare l'accesso
+    3. L'utente nel login sbaglia email---> risprova l'accesso o si registra
+*/
