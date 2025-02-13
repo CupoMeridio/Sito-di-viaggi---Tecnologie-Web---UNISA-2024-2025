@@ -1,27 +1,10 @@
 // Aggiunge un listener per l'evento "submit" al form con ID 'registrazione'
 
 // document.getElementById('main-container').addEventListener('submit', function (event) { // modifica da Mattia per provare il submit 
-const emailProviders = [
-    "@gmail.com",
-    "@outlook.com",
-    "@yahoo.com",
-    "@icloud.com",
-    "@protonmail.com",
-    "@zoho.com",
-    "@gmx.com",
-    "@aol.com",
-    "@mail.com",
-    "@libero.it",
-    "@tiscali.it",
-    "@fastwebnet.it",
-    "@email.it",
-    "@aruba.it",
-    "@kataweb.it",
-    "@studenti.unisa.it" 
-  ];
+
 
 function verificaPassword(){ // viene chiamata dal onsubmit del form una volta cliccato fala verifica -> se vero spedisce | se falso NO.
-   // event.preventDefault(); // Previene il comportamento predefinito di invio del form
+   event.preventDefault(); // Previene il comportamento predefinito di invio del form
 
     // Assegna alle variabili i valori inseriti nei campi di input del form
     let nome = document.getElementById('nome').value;
@@ -34,17 +17,16 @@ function verificaPassword(){ // viene chiamata dal onsubmit del form una volta c
     let passwordError = document.getElementById('passwordError');
     let confirmPasswordError = document.getElementById('confirmPasswordError');
     let emailError=document.getElementById("emailError");
-   if(!validateEmail(email)){
-    emailError.textContent='L\'email inserita non è valida ';
-    alert("aiuto");
-    return false;
-
+    
+    if(!validateEmail(email)){
+    emailError.textContent='Per favore inserisci un\'email valida';
+        return false;
    }else{
     emailError.textContent='';
-    return true;
+        return true;
    }
     // Valida la password utilizzando la funzione `validatePassword`
-    let passwordValid = validatePassword(password);
+  let passwordValid = validatePassword(password);
     if (!passwordValid) {
         passwordError.textContent = 'La password inserita non rispetta i requisiti.';
         return false; // Interrompe l'esecuzione se la password non è valida
@@ -61,27 +43,53 @@ function verificaPassword(){ // viene chiamata dal onsubmit del form una volta c
         confirmPasswordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
         return true;
     }
-
-    // Se tutto è valido, mostra un messaggio di successo
+ // Se tutto è valido, mostra un messaggio di successo
     message.style.color = 'green';
     message.textContent = 'Registrazione effettuata con successo!';
-
-
-    //Implementare qui l'invio dei dati al database e il reindirizzamento sulla homepage!!!!!!!!!!!!!!
-   // this.submit()
 }
-/*
-function cancella(event){
+
+/**
+ * --------------------------ZONA PASSWORD E COFERMA PASSWORD---------------------------------------
+ */
+//la funzione verifica in tempo reale che la password sia corretta
+
+let elementoPassword=document.getElementById("password");
+let passwordError=document.getElementById("passwordError");
+
+elementoPassword.addEventListener("input", function(){
+    let passwordValid = validatePassword(elementoPassword.value);  
     
-}
-let elementi_input=document.getElementById("main-container").querySelectorAll("input");
-for(let i=0; elementi_input.length; i++){
-    elementi_input[i].addEventListener("change", cancella);
-}*/
+    if(elementoPassword.value===''){
+        passwordError.textContent = '';
+    }else if (!passwordValid) {
+        passwordError.textContent = 'La password inserita non rispetta i requisiti.';
+    } else {        
+        passwordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
+    }
+});
+
+let elementoVerificaPassword=document.getElementById("confirmPassword");
+let okPassword=document.getElementById("passwordOK");
+elementoVerificaPassword.addEventListener("input", function(){
+    let password=document.getElementById("password");
+    if(elementoVerificaPassword.value === "") {
+        okPassword.textContent = '';
+        confirmPasswordError.textContent = '';
+    }else if (password.value !== elementoVerificaPassword.value && elementoVerificaPassword.value!=='') {
+        okPassword.textContent='';
+        confirmPasswordError.textContent = 'La password non corrispondono!';        
+    } else if(password.value === elementoVerificaPassword.value){
+        okPassword.textContent='ok';
+        confirmPasswordError.textContent = ''; 
+    }
+});
+
+
 
 // Mostra il suggerimento per la password quando il campo 'password' riceve il focus
 document.getElementById('password').addEventListener('focus', function () {
     document.getElementById('passwordHint').style.display = 'block';
+
 });
 
 // Nasconde il suggerimento per la password quando il campo 'password' perde il focus
@@ -102,28 +110,6 @@ document.getElementById('password').addEventListener('input', function () {
         passwordSecurity.appendChild(strengthBar); // Aggiunge la barra alla sezione di forza
     }
 });
-
-//Funzione per validare l'email
-function validateEmail(email){
-    //alert("sono stato chiamato");
-    let pattern = /^[a-zA-Z]+\d*@[a-z]+\.[a-z]+$/; 
-    if (!pattern.test(email)){   
-        //alert("sono nell'if");     
-        return false;
-    }else{
-        //alert("sono nell'else");
-        let split=email.split('@');
-        let dominio=split[1];
-        for(let i=0; i<emailProviders.length; i++ ){
-            if(dominio == emailProviders[i])
-                return true; 
-        }
-        return false;
-    }
-
-}
-
-
 // Funzione per validare la password
 // Richiede almeno una lettera maiuscola, una minuscola, un numero, un carattere speciale e almeno 8 caratteri
 function validatePassword(password) {
@@ -141,6 +127,62 @@ function getPasswordSecurity(password) {
     }
     return 'medium'; // Password media se non è forte ma ha una lunghezza accettabile
 }
+
+
+/* ----------------------------------ZONA EMAIL---------------------------------------------------- */
+const emailProviders = [
+    "@gmail.com",
+    "@outlook.com",
+    "@yahoo.com",
+    "@icloud.com",
+    "@protonmail.com",
+    "@zoho.com",
+    "@gmx.com",
+    "@aol.com",
+    "@mail.com",
+    "@libero.it",
+    "@tiscali.it",
+    "@fastwebnet.it",
+    "@email.it",
+    "@aruba.it",
+    "@kataweb.it",
+    "@studenti.unisa.it" ,
+    "@hotmail.it",
+    "@hotmail.com"
+  ];
+//Funzione per validare l'email
+//SITO REGEX---> https://support.boldsign.com/kb/article/15962/how-to-create-regular-expressions-regex-for-email-address-validation
+//grazie al sito abbaimo aggiunto un punto anche dpo la chiocciola per permettere l'inserimento di email che hano più punti
+function validateEmail(email){
+    //alert("sono stato chiamato");
+    let pattern = /^[a-zA-Z0-9_.±]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/; 
+    if (!pattern.test(email)){   
+        //alert("sono nell'if");     
+        return false;
+    }else{
+        let split=email.split('@');
+        let dominio = '@'+split[1];
+        return emailProviders.includes(dominio);
+    }
+
+}
+
+let elementoEmail=document.getElementById("email");
+let elementoError=document.getElementById("emailError");
+elementoEmail.addEventListener("input", function(){
+    if(elementoEmail.value ===''){
+        elementoError.textContent='';
+    }else if(!validateEmail(email.value)){
+        elementoError.textContent='L\'email inserita non è valida';
+    }else if(validateEmail(email.value)){
+        elementoError.textContent='';
+    }
+});
+
+
+
+
+/* ---------------------------------------------ZONA FOTO-------------------------------------------- */
 
 // Funzione per recuperare e visualizzare l'immagine caricata tramite il click del mouse sull'apposito input nel form
 document.getElementById("fotoProfilo").addEventListener("onclick", function (event) {

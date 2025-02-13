@@ -66,8 +66,8 @@ if ($result) {
         echo "inserimento fallito";
     }
 }else if($form == "login"){
-    $email= $_POST["email"];
-    $password=$_POST["password"];
+    $email= $_POST["email-login"];
+    $password=$_POST["password-login"];
     //predno hash dal database
     $query_no_injection="SELECT password FROM utente WHERE email=$1";
     $result=pg_prepare($db, "select password", $query_no_injection);

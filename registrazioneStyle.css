@@ -154,7 +154,12 @@ input[type="submit"]:hover {
     color: red;                                 /* Colore rosso per evidenziare l'errore */
     font-size: 0.9em;                           /* Riduce leggermente la dimensione del testo */
 }
-
+/*stile per messaggio di conferma password uguali*/
+.confirm{
+    color: rgb(6, 167, 0);                                 /* Colore rosso per evidenziare l'errore */
+    font-size: 0.9em; 
+    margin-top: 2px;
+}
 /* Stile per il suggerimento sulla password */
 .password-hint {
     font-size: 0.9em;                           /* Dimensione del testo ridotta */

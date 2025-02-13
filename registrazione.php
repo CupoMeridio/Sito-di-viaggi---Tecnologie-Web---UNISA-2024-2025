@@ -60,8 +60,8 @@ if(isset($_POST["inviato"])){
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Email -->
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value="<?php echo $email ?>"required>   
-                    <span id="emailError" class="error"></span>                             <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                    <input type="email" id="email" name="email" value="<?php echo $email ?>"  required>   
+                    <div id="emailError" class="error"></div>                             <!-- Il tipo "email" garantisce una validazione di base del formato email -->
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
@@ -78,6 +78,7 @@ if(isset($_POST["inviato"])){
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Conferma password -->
                     <label for="confirmPassword">Conferma password</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" required>         <!-- Campo per confermare la password inserita -->
+                    <div id="passwordOK" class="confirm"></div> 
                     <div id="confirmPasswordError" class="error"></div>                                  <!-- Messaggio09% di errore per il campo di conferma password (se necessario) -->
                 </div>
             </div>
@@ -112,13 +113,13 @@ if(isset($_POST["inviato"])){
 
             <div class="form-group">
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Email -->
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value="<?php echo $email ?>"required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                    <label for="email-login">Email</label>
+                    <input type="email" id="email-login" name="email" value="<?php echo $email ?>"required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
+                    <label for="password-login">Password</label>
+                    <input type="password" id="password-login" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
                 </div>
 
             </div>
