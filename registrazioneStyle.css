@@ -167,7 +167,11 @@ input[type="submit"]:hover {
     margin-top: 5px;                            /* Spaziatura superiore */
     display: none;                              /* Nascosto di default */
 }
-
+#vedoPassword{
+    font-size: 10px;
+    color: rgb(130, 130, 130);
+    
+}
 /* Stile per la barra di forza della password */
 .password-security {
     margin-top: 5px;                            /* Spaziatura superiore */

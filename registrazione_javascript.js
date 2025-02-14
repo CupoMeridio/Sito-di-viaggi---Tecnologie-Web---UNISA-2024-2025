@@ -55,16 +55,19 @@ function verificaPassword(){ // viene chiamata dal onsubmit del form una volta c
 
 let elementoPassword=document.getElementById("password");
 let passwordError=document.getElementById("passwordError");
-
+var span=document.getElementById("vedoPassword");
 elementoPassword.addEventListener("input", function(){
     let passwordValid = validatePassword(elementoPassword.value);  
     
     if(elementoPassword.value===''){
         passwordError.textContent = '';
+        span.textContent='';
     }else if (!passwordValid) {
         passwordError.textContent = 'La password inserita non rispetta i requisiti.';
+        span.textContent='Show Password';
     } else {        
         passwordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
+        span.textContent='Show Password';
     }
 });
 
@@ -127,8 +130,20 @@ function getPasswordSecurity(password) {
     }
     return 'medium'; // Password media se non è forte ma ha una lunghezza accettabile
 }
+/* -----------------TOGGLE CLICK------------------ */
 
-
+function toggleClick() {
+    var password = document.getElementById("password");
+    
+    if (password.type === "password") {
+      password.type = "text";
+      span.textContent='Hide Password';
+    } else {
+      password.type = "password";
+      span.textContent='Show Password';
+    }
+    
+  }
 /* ----------------------------------ZONA EMAIL---------------------------------------------------- */
 const emailProviders = [
     "@gmail.com",
@@ -178,7 +193,8 @@ elementoEmail.addEventListener("input", function(){
         elementoError.textContent='';
     }
 });
-
+/*---------------------------------------------ZONA NOME/COGNOME------------------------------------- */
+let nome=document.getElementById("nome");
 
 
 
@@ -300,3 +316,4 @@ document.getElementById('email').addEventListener('input', function(){
     serverRequest.send("email="+encodeURIComponent(email));
     
 });
+

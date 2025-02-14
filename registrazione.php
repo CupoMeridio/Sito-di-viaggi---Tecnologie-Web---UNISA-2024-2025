@@ -64,9 +64,13 @@ if(isset($_POST["inviato"])){
                     <div id="emailError" class="error"></div>                             <!-- Il tipo "email" garantisce una validazione di base del formato email -->
                 </div>
 
-                <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
+                <div class="form-fields">    
+                    <!--https://www.w3schools.com/howto/howto_js_toggle_password.asp ->toggle_visibility -->
+                                                                              <!-- Contenitore per il campo Password -->
+                    <label for="password">Password <span id="vedoPassword" class="vedoPassword" onclick="toggleClick()"></span></label>  
+                    
+                    <input type="password" id="password" name="password" value="" required>                <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
+                    
                     <div class="password-hint" id="passwordHint">                                        <!-- Testo di suggerimento per indicare i requisiti della password -->
                         La password deve contenere almeno 8 caratteri e includere almeno una
                         lettera maiuscola, una lettera minuscola, un numero e un carattere speciale.
