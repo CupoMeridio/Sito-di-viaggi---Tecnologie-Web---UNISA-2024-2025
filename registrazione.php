@@ -32,15 +32,14 @@ if(isset($_POST["inviato"])){
     <script src="registrazione_javascript.js" type="text/javascript" defer="true"></script>             <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
 </head>
 
-<body>
-    
+<body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
+
     <nav>
         <a href="index.html"><img src="immagini/logo.png"></a>
         <a class="navButton" id="homeButton" href="index.html">Home</a>
         <a class="navButton" id="aboutButton"href="index.html#about">About</a>
     </nav>
-    
-                                                                                                                            <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
+
 <video id="background-video" autoplay muted loop></video>
                                                                             <!-- Video di background -->
     <div id="main-container" class="regcontainer" style="display: <?php echo $showRegister ? 'block' : 'none'; ?>;">     

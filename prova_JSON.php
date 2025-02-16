@@ -13,8 +13,8 @@ $db= pg_connect( $connection_string) or die('Impossibile connetersi al database:
 
 $MAX=0;
 
-if ( isset($_GET['max']))
-    $MAX = $_GET['max'];
+if ( isset($_POST['max']))
+    $MAX = $_POST['max'];
 
 
 $query= "SELECT email, testo, id_testo, mondo,stelle FROM commento where (id_testo > $MAX)";// ricordati di usare il prepere 
@@ -24,21 +24,20 @@ $result = pg_query($db, $query);
 $row = pg_fetch_assoc($result);
 
 
-$out= '[';
+$out = [];
 
-while( $row != false){
-
-    
-    if($out != '[' ){ $out=$out.','; }
-    $out= $out.'{ "email": "'.$row['email'].'",';
-    $out= $out.' "testo": "'.$row['testo'].'",';
-    $out= $out.' "id_testo": "'.$row['id_testo'].'",';
-    $out= $out.' "stelle": "'.$row['stelle'].'",';
-    $out= $out.' "mondo": "'.$row['mondo'].'"}';
-    $row = pg_fetch_assoc($result);
+while ($row = pg_fetch_assoc($result)) {
+    $entry = [
+        "email" => $row['email'],
+        "testo" => $row['testo'],
+        "id_testo" => $row['id_testo'],
+        "stelle" => $row['stelle'],
+        "mondo" => $row['mondo']
+    ];
+    $out[] = $entry;
 }
-$out=$out.']';
-echo $out;
+$commenti = json_encode($out);
+echo $commenti;
 /*$json = json_decode($out);
 if (json_last_error() === JSON_ERROR_NONE) {
     echo $out;

@@ -62,4 +62,20 @@ document.getElementById('tickets-count').addEventListener('input', function() {
     }
   });
   
+  // Seleziona l'immagine e la dashboard
+const toggleButton = document.getElementById('profilePic');
+const dashboard = document.getElementById('dashboard');
+
+// Aggiungi un event listener per il click sull'immagine
+toggleButton.addEventListener('click', function(event) {
+    event.stopPropagation(); // Impedisce la propagazione dell'evento
+    dashboard.classList.toggle('visible'); // Apre/chiude la dashboard
+});
+
+// Chiudi la dashboard quando clicchi fuori da essa
+document.addEventListener('click', function(event) {
+    if (!dashboard.contains(event.target) && !toggleButton.contains(event.target)) {
+        dashboard.classList.remove('visible'); // Chiude la dashboard
+    }
+});
 

@@ -17,7 +17,7 @@ $stelle=$_POST['rating'];
 
 /*$email =  $_SESSION['email'];
 $mondo=  $_SESSION['mondo'];*/
-$email="mattiasanzari03@gmail.com";
+$email="mattiasanzari2003@gmail.com";
 $mondo="DragonBall";
 //$stelle= 5;//vedi come prenderle 
 

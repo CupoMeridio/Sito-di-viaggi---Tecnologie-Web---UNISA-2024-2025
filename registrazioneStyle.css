@@ -4,28 +4,27 @@ body {
   /*background-color: #f4f4f4;*/                                                /* Colore di sfondo della pagina*/
   /*background-image: url('immagini/sfondo_registrazione.jpg');*/               /* Imposta l'immagine indicata dall'url come sfondo della pagina*/
   /*background-size: cover;*/                                                   /* Adatta l'immagine a tutta la pagina*/
-  /*background-repeat: no-repeat;                                               /*Evita la ripetizione dell'immagine*/
+  /*background-repeat: no-repeat;                                               /* Evita la ripetizione dell'immagine*/
     background-position: center;                                                /* Centra l'immagine*/
     display: flex;                                                              /* Uso del layout flexbox per centrare il contenuto */
+    flex-direction: column;                                                     /* Imposta la direzione del flusso in verticale */
     justify-content: center;                                                    /* Centra orizzontalmente il contenuto */
     align-items: center;                                                        /* Centra verticalmente il contenuto */
-    height: 100vh;                                                              /* Altezza della pagina uguale alla finestra del browser */
+   min-height: 100vh;                                                           /* Occupa almeno l'intera altezza della finestra */
     margin: 0;                                                                  /* Rimuove il margine predefinito del body */
 }
 
 /* Navbar */
 nav {
     display: flex;                                                              /* Usa flexbox per allineare gli elementi */
+    position: fixed;
     justify-content: space-around;                                              /* Distribuisce uniformemente gli elementi lungo la navbar */
     align-items: center;                                                        /* Centra verticalmente gli elementi */
     background-color: #ff0011;                                                  /* Imposta un colore arancione per la navbar */
     padding-top: 15px;                                                          
     padding-bottom: 15px;
-    position: fixed;                                                            /* Mantiene la navbar fissa in alto */
     width: 100%;                                                                /* Occupa l'intera larghezza della pagina */
     top: 0;                                                                     /* Posiziona la navbar in cima alla finestra */
-    z-index: 1000;    
-                                                             /* Assicura che la navbar stia sopra gli altri elementi */
 }
 
 
@@ -59,41 +58,32 @@ nav img:hover{
 }
 
 /* Stile per il contenitore principale */
-.regcontainer {
-    width: 55%; /* Aumenta leggermente la larghezza */
-    min-height: 70vh; /* Aumenta l'altezza minima */
-    margin-top: 80px; /* Sposta il contenitore sotto la navbar */
-    background-color: rgba(0, 0, 0, 0.8);;                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
+/* Stile per il contenitore principale */
+.regcontainer, .logincontainer{
+    width: 55%;
+    background-color: rgba(0, 0, 0, 0.8);                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
     border-radius: 5px;                                                         /* Angoli arrotondati */
     padding: 20px;                                                              /* Spaziatura interna */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);                                    /* Ombra leggera intorno al contenitore */
     width: 50%;
     color: white;
-    overflow-y: auto;
-    
+   
 }
 
 #registrazione{
-    display: grid;                                                              /* Usa il layout CSS Grid */
-     grid-template-columns: 1fr 1fr;                                             /* Due colonne*/
-     gap: 20px;    
-                                                                   /* Spaziatura tra le colonne */
- 
- }
+   display: grid;                                                              /* Usa il layout CSS Grid */
+    grid-template-columns: 1fr 1fr;                                            /* Due colonne*/
+    gap: 20px;                                                                 /* Spaziatura tra le colonne */
 
-.logincontainer {
-    width: 55%; /* Aumenta leggermente la larghezza */
-    height: 35%;
-    margin-top: 80px; /* Sposta il contenitore sotto la navbar */
-    background-color: rgba(0, 0, 0, 0.8);;                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
-    border-radius: 5px;                                                         /* Angoli arrotondati */
-    padding: 20px;                                                              /* Spaziatura interna */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);                                    /* Ombra leggera intorno al contenitore */
-    width: 50%;
-    color: white;
-    overflow-y: auto;
-    
 }
+
+/* Stile per l'intestazione del form */
+h2 {
+    margin-bottom: 20px;                        /* Spaziatura inferiore */
+    text-align: center;                         /* Allinea il testo al centro */
+    color: white;                               /* Imposta il testo di colore bainco*/
+}
+
 
 
 /* Stile per i campi del form */
@@ -262,7 +252,7 @@ video {
 
 
 /* Responsive: una colonna su dispositivi stretti */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     #registrazione {
         grid-template-columns: 1fr;       /* Disposizione a una sola colonna */
     }
@@ -272,7 +262,8 @@ video {
     }
 
     body {
-        height: auto; /* Rimuove altezza fissa */
+        margin-top: 200px;
+        margin-bottom: 200px;
         overflow-y: auto; /* Permette di scrollare la pagina */
     }
 }
