@@ -59,10 +59,10 @@ nav img:hover{
 }
 
 /* Stile per il contenitore principale */
-.container {
+.regcontainer {
     width: 55%; /* Aumenta leggermente la larghezza */
     min-height: 70vh; /* Aumenta l'altezza minima */
-    margin-top: 200px; /* Sposta il contenitore sotto la navbar */
+    margin-top: 80px; /* Sposta il contenitore sotto la navbar */
     background-color: rgba(0, 0, 0, 0.8);;                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
     border-radius: 5px;                                                         /* Angoli arrotondati */
     padding: 20px;                                                              /* Spaziatura interna */
@@ -74,20 +74,26 @@ nav img:hover{
 }
 
 #registrazione{
-   display: grid;                                                              /* Usa il layout CSS Grid */
-    grid-template-columns: 1fr 1fr;                                             /* Due colonne*/
-    gap: 20px;    
-                                                                  /* Spaziatura tra le colonne */
+    display: grid;                                                              /* Usa il layout CSS Grid */
+     grid-template-columns: 1fr 1fr;                                             /* Due colonne*/
+     gap: 20px;    
+                                                                   /* Spaziatura tra le colonne */
+ 
+ }
 
+.logincontainer {
+    width: 55%; /* Aumenta leggermente la larghezza */
+    height: 35%;
+    margin-top: 80px; /* Sposta il contenitore sotto la navbar */
+    background-color: rgba(0, 0, 0, 0.8);;                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
+    border-radius: 5px;                                                         /* Angoli arrotondati */
+    padding: 20px;                                                              /* Spaziatura interna */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);                                    /* Ombra leggera intorno al contenitore */
+    width: 50%;
+    color: white;
+    overflow-y: auto;
+    
 }
-
-/* Stile per l'intestazione del form */
-h2 {
-    margin-bottom: 20px;                        /* Spaziatura inferiore */
-    text-align: center;                         /* Allinea il testo al centro */
-    color: white;                               /* Imposta il testo di colore bainco*/
-}
-
 
 
 /* Stile per i campi del form */

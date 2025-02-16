@@ -12,7 +12,8 @@ $showRegister = true;
 if (isset($_GET['login'])) {
     $showRegister = false;
 } 
-//per cambiare da registra a login e viceversa
+//switch log-in/registra
+$bodyClass = $showRegister ? "register-mode" : "login-mode"; // per cambiare css
 
 if(isset($_POST["inviato"])){
     include 'logreg.php';
@@ -42,8 +43,8 @@ if(isset($_POST["inviato"])){
                                                                                                                             <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
 <video id="background-video" autoplay muted loop></video>
                                                                             <!-- Video di background -->
-    <div id="main-container" class="container">     
-        <div id="registrazione_page" class="page" style="display: <?php echo $showRegister ? 'block' : 'none'; ?>;">                                                                       <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->                                                                                             <!-- Titolo della sezione del modulo -->
+    <div id="main-container" class="regcontainer" style="display: <?php echo $showRegister ? 'block' : 'none'; ?>;">     
+        <div id="registrazione_page" class="page">                                                                       <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->                                                                                             <!-- Titolo della sezione del modulo -->
         <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" onsubmit="return verificaPassword()">  <!-- onsubmit che serve alla verifica della pw -->
             <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="registrazione">
@@ -71,13 +72,9 @@ if(isset($_POST["inviato"])){
                     <div id="emailError" class="error"></div>                             <!-- Il tipo "email" garantisce una validazione di base del formato email -->
                 </div>
 
-                <div class="form-fields">    
-                    <!--https://www.w3schools.com/howto/howto_js_toggle_password.asp ->toggle_visibility -->
-                                                                              <!-- Contenitore per il campo Password -->
-                    <label for="password">Password <span id="vedoPassword" class="vedoPassword" onclick="toggleClick()"></span></label>  
-                    
-                    <input type="password" id="password" name="password" value="" required>                <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
-                    
+                <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
                     <div class="password-hint" id="passwordHint">                                        <!-- Testo di suggerimento per indicare i requisiti della password -->
                         La password deve contenere almeno 8 caratteri e includere almeno una
                         lettera maiuscola, una lettera minuscola, un numero e un carattere speciale.
@@ -117,7 +114,10 @@ if(isset($_POST["inviato"])){
 
 
 
-        <div id="login_page" class="page" style="display: <?php echo !$showRegister ? 'block' : 'none'; ?>;">
+                                                                                   <!-- Paragrafo8$ vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
+    </div>
+
+    <div id="login_page" class="logincontainer" style="display: <?php echo !$showRegister ? 'block' : 'none'; ?>;">
         <form id="form-login"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         <input type="hidden" name="action" value="login">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="login">
@@ -139,9 +139,7 @@ if(isset($_POST["inviato"])){
             </div> 
             <div class="messaggio-registrazione">Non sei registrato? <a href="?register">Registrati</a></div>
         </form>  
-        </div>                                                                            <!-- Paragrafo8$ vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
-    </div>
-
+    </div> 
     
 </body>
 
