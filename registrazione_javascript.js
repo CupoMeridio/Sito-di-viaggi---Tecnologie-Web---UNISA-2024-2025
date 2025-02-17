@@ -19,32 +19,32 @@ function verificaModulo(event){ // viene chiamata dal onsubmit del form una volt
     let confirmPasswordError = document.getElementById('confirmPasswordError');
     let emailError=document.getElementById("emailError");
     
-    document.getElementById('submitButton').disabled=true;
+    
     let bool1=false;
     let bool2=false;
     let bool3=false;
 
-    if(!validateEmail(email.value)){
+    if(!validateEmail(email)){
     emailError.textContent='Per favore inserisci un\'email valida';
-        bool1=false;
+       
    }else{
     emailError.textContent='';
         bool1=true;
    }
     // Valida la password utilizzando la funzione `validatePassword`
-  let passwordValid = validatePassword(password.value);
+  let passwordValid = validatePassword(password);
     if (!passwordValid) {
         passwordError.textContent = 'La password inserita non rispetta i requisiti.';
-        bool2=false; // Interrompe l'esecuzione se la password non è valida
+        
     } else {
         passwordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
         bool2=true;
     }
 
     // Controlla se le password corrispondono
-    if (password.value !== confirmPassword.value) {
+    if (password!== confirmPassword) {
         confirmPasswordError.textContent = 'La password non corrispondono!';
-        bool3=false; // Interrompe l'esecuzione se le password non corrispondono
+       
     } else {
         confirmPasswordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
         bool3=true;
@@ -52,11 +52,12 @@ function verificaModulo(event){ // viene chiamata dal onsubmit del form una volt
     
  // Se tutto è valido, mostra un messaggio di successo
     if(bool1 && bool2 && bool3){
-    
+    alert("tutto vero");
     message.style.color = 'green';
     message.textContent = 'Effettua la registrazione, dopo autenticati facendo il login.';
     return true;
-} else {    
+} else {   
+    alert("qualcosa non va"); 
     message.textContent = '';
     return false;
 }
