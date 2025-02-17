@@ -43,8 +43,8 @@ if(isset($_POST["inviato"])){
 <video id="background-video" autoplay muted loop></video>
                                                                             <!-- Video di background -->
     <div id="main-container" class="container">     
-        <div id="registrazione_page" class="page" style="display: <?php echo $showRegister ? 'block' : 'none'; ?>;">                                                                       <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->                                                                                             <!-- Titolo della sezione del modulo -->
-        <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" onsubmit="return verificaPassword()">  <!-- onsubmit che serve alla verifica della pw -->
+        <div id="registrazione_page" class="reg_page" style="display: <?php echo $showRegister ? 'block' : 'none'; ?>;">                                                                       <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->                                                                                             <!-- Titolo della sezione del modulo -->
+        <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" onsubmit="return verificModulo(this)">  <!-- onsubmit che serve alla verifica della pw -->
             <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="registrazione">
 
@@ -53,11 +53,13 @@ if(isset($_POST["inviato"])){
                 <div class="form-fields">                                                               <!-- Contenitore per il campo Nome -->
                     <label for="nome">Nome</label>                                                      <!-- Etichetta per il campo di input associato, con l'attributo "for" legato all'id -->
                     <input type="text" id="nome" name="nome" value="<?php echo $nome ?>"required>                                  <!-- Campo di input per il nome, obbligatorio grazie all'attributo "required" -->
+                    <div id="nameError" class="error"></div>
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Cognome -->
                     <label for="cognome">Cognome</label>
                     <input type="text" id="cognome" name="cognome" value="<?php echo $cognome ?>" required>
+                    <div id="cognomeError" class="error"></div>
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Username -->
@@ -108,7 +110,7 @@ if(isset($_POST["inviato"])){
             </div>
             </div>
             <div class="button-submit-container">
-                <input type="submit" value="Registrati" name="inviato">                                              <!-- Pulsante per inviare il modulo -->
+                <input type="submit" value="Registrati" name="inviato" id="submitButton">                                              <!-- Pulsante per inviare il modulo -->
             </div>
             <div class="messaggio-login">Sei già registrato? <a href="?login">Login</a></div>
         </form>
@@ -117,20 +119,22 @@ if(isset($_POST["inviato"])){
 
 
 
-        <div id="login_page" class="page" style="display: <?php echo !$showRegister ? 'block' : 'none'; ?>;">
-        <form id="form-login"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+        <div id="login_page" class="login_page" style="display: <?php echo !$showRegister ? 'block' : 'none'; ?>;">
+        <form id="form-login"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return controlloLogin(this)">
         <input type="hidden" name="action" value="login">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="login">
 
             <div class="form-group">
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Email -->
                     <label for="email-login">Email</label>
-                    <input type="email" id="email-login" name="email-login" value="<?php echo $email ?>"required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                    <input type="email" id="email-login" name="email" value="<?php echo $email ?>"required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                    <div id = "emailErrorLogin" class=error></div>
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
                     <label for="password-login">Password</label>
-                    <input type="password" id="password-login" name="password-login" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
+                    <input type="password" id="password-login" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
+                    <div id = "passwordErrorLogin" class=error></div>
                 </div>
 
             </div>
@@ -138,9 +142,11 @@ if(isset($_POST["inviato"])){
                 <input type="submit" value="Login" name="inviato">
             </div> 
             <div class="messaggio-registrazione">Non sei registrato? <a href="?register">Registrati</a></div>
-        </form>  
-        </div>                                                                            <!-- Paragrafo8$ vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
-    </div>
+        </form> 
+        <div id=Errore-login class="error"></div> 
+        </div>   
+    </div>                                                                      <!-- Paragrafo8$ vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
+
 
     
 </body>

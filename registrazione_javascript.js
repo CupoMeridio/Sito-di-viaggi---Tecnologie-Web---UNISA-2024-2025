@@ -3,9 +3,10 @@
 // document.getElementById('main-container').addEventListener('submit', function (event) { // modifica da Mattia per provare il submit 
 
 
-function verificaPassword(){ // viene chiamata dal onsubmit del form una volta cliccato fala verifica -> se vero spedisce | se falso NO.
-   event.preventDefault(); // Previene il comportamento predefinito di invio del form
-
+function verificaModulo(event){ // viene chiamata dal onsubmit del form una volta cliccato fala verifica -> se vero spedisce | se falso NO.
+    event.preventDefault(); // Previene il comportamento predefinito di invio del form
+    
+   
     // Assegna alle variabili i valori inseriti nei campi di input del form
     let nome = document.getElementById('nome').value;
     let cognome = document.getElementById('cognome').value;
@@ -18,37 +19,50 @@ function verificaPassword(){ // viene chiamata dal onsubmit del form una volta c
     let confirmPasswordError = document.getElementById('confirmPasswordError');
     let emailError=document.getElementById("emailError");
     
-    if(!validateEmail(email)){
+    document.getElementById('submitButton').disabled=true;
+    let bool1=false;
+    let bool2=false;
+    let bool3=false;
+
+    if(!validateEmail(email.value)){
     emailError.textContent='Per favore inserisci un\'email valida';
-        return false;
+        bool1=false;
    }else{
     emailError.textContent='';
-        return true;
+        bool1=true;
    }
     // Valida la password utilizzando la funzione `validatePassword`
-  let passwordValid = validatePassword(password);
+  let passwordValid = validatePassword(password.value);
     if (!passwordValid) {
         passwordError.textContent = 'La password inserita non rispetta i requisiti.';
-        return false; // Interrompe l'esecuzione se la password non è valida
+        bool2=false; // Interrompe l'esecuzione se la password non è valida
     } else {
         passwordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
-        return true;
+        bool2=true;
     }
 
     // Controlla se le password corrispondono
-    if (password !== confirmPassword) {
+    if (password.value !== confirmPassword.value) {
         confirmPasswordError.textContent = 'La password non corrispondono!';
-        return false; // Interrompe l'esecuzione se le password non corrispondono
+        bool3=false; // Interrompe l'esecuzione se le password non corrispondono
     } else {
         confirmPasswordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
-        return true;
+        bool3=true;
     }
+    
  // Se tutto è valido, mostra un messaggio di successo
+    if(bool1 && bool2 && bool3){
+    
     message.style.color = 'green';
-    message.textContent = 'Registrazione effettuata con successo!';
+    message.textContent = 'E\' possibile effettuare la registrazione';
+    return true;
+} else {    
+    message.textContent = '';
+    return false;
 }
-
-/**
+}
+/*
+    -------------------------------------ZONA REGISTRAZIONE------------------------------------------------------------------------------------------
  * --------------------------ZONA PASSWORD E COFERMA PASSWORD---------------------------------------
  */
 //la funzione verifica in tempo reale che la password sia corretta
@@ -116,7 +130,7 @@ document.getElementById('password').addEventListener('input', function () {
 // Funzione per validare la password
 // Richiede almeno una lettera maiuscola, una minuscola, un numero, un carattere speciale e almeno 8 caratteri
 function validatePassword(password) {
-    let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{8,}$/;
     return regex.test(password); // Ritorna true se la password soddisfa i requisiti
 }
 
@@ -134,7 +148,7 @@ function getPasswordSecurity(password) {
 
 function toggleClick() {
     var password = document.getElementById("password");
-    
+    var span = document.getElementById("vedoPassword");
     if (password.type === "password") {
       password.type = "text";
       span.textContent='Hide Password';
@@ -144,7 +158,7 @@ function toggleClick() {
     }
     
   }
-/* ----------------------------------ZONA EMAIL---------------------------------------------------- */
+/* ----------------------------------ZONA EMAIL ---------------------------------------------------- */
 const emailProviders = [
     "@gmail.com",
     "@outlook.com",
@@ -187,14 +201,55 @@ let elementoError=document.getElementById("emailError");
 elementoEmail.addEventListener("input", function(){
     if(elementoEmail.value ===''){
         elementoError.textContent='';
-    }else if(!validateEmail(email.value)){
+    }else if(!validateEmail(elementoEmail.value)){
         elementoError.textContent='L\'email inserita non è valida';
-    }else if(validateEmail(email.value)){
+    }else if(validateEmail(elementoEmail.value)){
         elementoError.textContent='';
     }
 });
+/* ----------------------------------ZONA EMAIL LOGIN---------------------------------------------------- */
+let elementoEmailLogin=document.getElementById("email-login");
+let elementoErrorLogin=document.getElementById("emailErrorLogin");
+elementoEmailLogin.addEventListener("input", function(){
+    if(elementoEmailLogin.value ==='')
+        elementoErrorLogin.textContent='';
+});
 /*---------------------------------------------ZONA NOME/COGNOME------------------------------------- */
 let nome=document.getElementById("nome");
+let nameError=document.getElementById("nameError");
+let cognome=document.getElementById("cognome");
+let cognomeError=document.getElementById("cognomeError");
+
+function validateNome(nome){
+    let pattern = /^[a-zA-Z][a-zA-Z0-9]*$/;
+    return pattern.test(nome);
+}
+function validateCognome(cognome){
+    let pattern = /^[a-zA-Z]+$/;
+    return pattern.test(cognome);
+}
+nome.addEventListener("input", function(){
+    
+    if(nome.value === ''){        
+        nameError.textContent='';
+    }else if(validateNome(nome.value)){
+        nameError.textContent='';
+        //alert("ciao");
+    }else{
+       // alert("ciao WERRRE");
+        nameError.innerHTML='Il nome non può cominciare con numeri o caratteri speciali<br>Può contenere numeri';
+    }
+});
+
+cognome.addEventListener("input", function(){
+    if(cognome.value === ''){        
+        cognomeError.textContent='';
+    }else if(validateCognome(cognome.value)){
+        cognomeError.textContent='';
+    }else{
+        cognomeError.textContent='Il cognome non può cominciare né contenere numeri o caratteri speciali';
+    }
+});
 
 
 
@@ -289,6 +344,9 @@ const videos = [
     // Aggiunge un messaggio se il browser non supporta il video
     videoElement.innerHTML += 'Errore nella riproduzione del video.';
 
+
+/* ---------------------------------ZONA ERRORI -> AJAX --------------------------------------------------------------------------- */
+
 /*gestione eventi di errore nei seguenti casi
     1. L'utente mentre si registra utilizza un'email già esistente---> riprova la registrazione o fa login
     2. L'utente nel login sbaglia password---> deve riprovare l'accesso
@@ -299,21 +357,74 @@ const videos = [
 }
 */
 
-document.getElementById('email').addEventListener('input', function(){
-    let email=document.forms['form-registrazione']['email'];
-    //alert(email);
+let emailError=document.getElementById("emailError");
+document.getElementById('email').addEventListener('blur', function(){
+    let email=document.getElementById('email');
+    //alert(email.value);
+
     let serverRequest=new XMLHttpRequest();
     serverRequest.onreadystatechange = function(){
     if(serverRequest.readyState == 4 && serverRequest.status == 200){
-        //chiamo la funzione che prende la risposta dal server
-        //alert(this.responseText);
+        if (serverRequest.responseText === "esiste") {
+            //alert("sono nell'if in ui esiste la mail");
+            //alert(serverRequest.responseText);
+            emailError.textContent = "Questa email è già in uso.";
+        } else {
+            //alert("sono nell'if in ui NON esiste la mail");
+            emailError.textContent = ""; // Nessun errore
+        }
+    } 
     }
-    }
+    //alert(email.value);
     //qui invece preparo la richiesta
-    serverRequest.open("POST", "logreg.php");
+    serverRequest.open("POST", "CartellaPHP/controlloEmailAjax.php");
     serverRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //metodo post-->invio key=value
-    serverRequest.send("email="+encodeURIComponent(email));
+    serverRequest.send("email="+encodeURIComponent(email.value));
     
 });
 
+
+function controlloEmailLogin() {
+    let email = document.getElementById('email-login').value;
+    let emailErrorLogin = document.getElementById("emailErrorLogin");
+
+    if (email.trim() === '') {
+        emailErrorLogin.textContent = 'Compila il campo e-mail';
+       
+    }
+
+    let serverRequest = new XMLHttpRequest();
+    
+    serverRequest.onreadystatechange = function () {
+        if (serverRequest.readyState == 4 && serverRequest.status == 200) {
+            alert(serverRequest.responseText);
+            if (serverRequest.responseText === "disponibile") {
+                
+                emailErrorLogin.textContent = "Questa e-mail non esiste.";
+               
+            } else {
+                emailErrorLogin.textContent = ""; // Nessun 
+               
+            }
+        }
+    };
+
+    serverRequest.open("POST", "controlloEmailAjax.php");
+    serverRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    serverRequest.send("email=" + encodeURIComponent(email));
+
+    
+}
+
+document.getElementById('email-login').addEventListener('blur', controlloEmailLogin);
+
+
+/* -------------------------------ZONA LOGIN --------------------------------------------------------------------------- */
+function controlloLogin(event){
+    event.preventDefault();
+    let email=document.getElementById('email-login').value;
+    
+   
+    
+}

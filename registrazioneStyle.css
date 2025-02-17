@@ -62,7 +62,7 @@ nav img:hover{
 .container {
     width: 55%; /* Aumenta leggermente la larghezza */
     min-height: 70vh; /* Aumenta l'altezza minima */
-    margin-top: 200px; /* Sposta il contenitore sotto la navbar */
+    margin-top: 100px; /* Sposta il contenitore sotto la navbar */
     background-color: rgba(0, 0, 0, 0.8);;                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
     border-radius: 5px;                                                         /* Angoli arrotondati */
     padding: 20px;                                                              /* Spaziatura interna */
@@ -73,13 +73,14 @@ nav img:hover{
     
 }
 
+
 #registrazione{
    display: grid;                                                              /* Usa il layout CSS Grid */
     grid-template-columns: 1fr 1fr;                                             /* Due colonne*/
-    gap: 20px;    
-                                                                  /* Spaziatura tra le colonne */
+    gap: 20px;                                                                 /* Spaziatura tra le colonne */
 
 }
+
 
 /* Stile per l'intestazione del form */
 h2 {
@@ -123,6 +124,17 @@ input[type="submit"] {
     border-radius: 4px;                         /* Angoli arrotondati */
     cursor: pointer;                            /* Cambia il cursore in una mano quando si passa sopra */
 }
+/*
+input[type="submit"]:disabled{
+                                
+    background-color: #313131;    
+                          
+}
+input[type="submit"]:disabled:hover{
+    background-color: #313131; 
+                         
+    cursor: not-allowed;
+}*/
 
 .button-submit-container {
     display: flex;                              /* Attiva Flexbox */
