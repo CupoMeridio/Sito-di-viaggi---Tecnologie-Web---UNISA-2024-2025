@@ -10,8 +10,10 @@ include("prendi_dati.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">                              <!-- Rende la pagina responsiva, adattandola alla larghezza dello schermo del dispositivo -->
     <title>Dragon Ball</title>                                                                          <!-- Imposta il titolo della pagina che apparirà nella scheda del browser -->
     <link rel="stylesheet" href="DragonBallStyle.css">                                                  <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
-    <script src="mondo_javascript.js" type="text/javascript" defer="true"></script>                    <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
-    <script src="commenti.js" type="text/javascript" defer="true"></script>
+    <script src="mondo_javascript.js" type="text/javascript" defer></script>                            <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
+    <script src="commenti.js" type="text/javascript" defer></script>
+    <script src="stripe/stripe.js" type="text/javascript" defer></script>
+    <script src="https://js.stripe.com/v3/"></script>
   </head>
 
 <body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
@@ -251,7 +253,7 @@ include("prendi_dati.php");
 <!-- Sezione Prenotazione Viaggio -->
 <div class="booking-section" style="clear:both">
   <h2>Prenota il Tuo Viaggio Fantastico!</h2>
-  <form id="booking-form" action="#" method="POST">
+  <form id="booking-form" onsubmit="return calcolaprezzo(event)">
     <label for="tickets-count">Numero di Biglietti:</label>
     <input type="number" id="tickets-count" name="tickets-count" min="1" value="1" required>
     
@@ -277,7 +279,7 @@ include("prendi_dati.php");
     <label for="comments">Commenti Speciali:</label>
     <textarea id="comments" name="comments" rows="4" placeholder="Inserisci richieste particolari o commenti"></textarea>
     
-    <button type="submit" id="submit-button">Prenota il Tuo Viaggio</button>
+    <input type="submit" id="submit-form-button"  value="Prenota il tuo viaggio!">
   </form>
 </div>
 <!--SONO QUI-->
@@ -291,6 +293,34 @@ include("prendi_dati.php");
     document.getElementById('return-date').min = departureDate;
   }
 </script>
+  
+  <div id="pagamento_con_stripe" style="display: none;">
+    <h1>Pagamento con Stripe</h1>
+    <form method="post" id="payment-form">
+      <div class="form-row">
+        <label for="fullname">
+          Nome Completo
+        </label>
+        <input type="text" id="fullname" name="fullname" value="">
+        <input type="hidden" id="importo" name="importo" value="">
+      </div>
+      <div class="form-row">
+        <label for="card-element">
+          Credit or debit card
+        </label>
+        <div id="card-element">
+          <!-- A Stripe Element will be inserted here. -->
+        </div>
+
+        <!-- Used to display Element errors. -->
+        <div id="card-errors" role="alert"></div>
+      </div>
+
+      <button id="submit-button">Submit Payment</button>
+    </form>
+
+  </div>
+  
   
   <footer>
     <div class="footer-content">
