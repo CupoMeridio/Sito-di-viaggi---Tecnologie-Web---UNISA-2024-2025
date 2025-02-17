@@ -9,7 +9,7 @@ include("prendi_dati.php");
     <meta charset="UTF-8">                                                                              <!-- Definisce la codifica dei caratteri come UTF-8, per supportare caratteri speciali -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">                              <!-- Rende la pagina responsiva, adattandola alla larghezza dello schermo del dispositivo -->
     <title>Dragon Ball</title>                                                                          <!-- Imposta il titolo della pagina che apparirà nella scheda del browser -->
-    <link rel="stylesheet" href="DragonBallStyle.css">                                                  <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
+    <link rel="stylesheet" href="jojos.css">                                                  <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
     <script src="mondo_javascript.js" type="text/javascript" defer="true"></script>                    <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
     <script src="commenti.js" type="text/javascript" defer="true"></script>
   </head>
@@ -23,7 +23,7 @@ include("prendi_dati.php");
     
     <?php if(!isset($email)){?>
     <a class="navButton" id="registrazioneButton" href="registrazione.php">Registrati</a>
-    <a class="navButton" id="accessoButton" href="#">Accedi</a>
+    <a class="navButton" id="accessoButton" href="registrazione.php?login">Accedi</a>
     <?php }?>
     
     <?php if(isset($email)){?>
@@ -45,24 +45,24 @@ include("prendi_dati.php");
     </ul>
     
   <header>
-    <video src="video/Dragon_Ball/video1.mp4" class="headerVideo" id="background-video" alt="Dragon Ball background video" autoplay muted loop></video>
-    <img class="headerImg" id="worldTitle" src="immagini/dragonballtitleheader.png" alt="Dragon Ball Title screen">
+    <video src="video/Dragon_Ball/video1.mp4" class="headerVideo" id="background-video" alt="Jojo background video" autoplay muted loop></video>
+    <img class="headerImg" id="worldTitle" src="immagini/jojostitle.png" alt="Dragon Ball Title screen">
   </header>
   
   <div class="container" id="container">
-    <h2>Esplora le più belle location del mondo di Dragon Ball!</h2>
+    <h2>Esplora le più belle location del mondo di JoJo's bizarre adventure: Golden Wind!</h2>
     <div class="locations_selector"id="locations_selector">
       <div class="location" id="location1">
-        <img src="immagini/kamehouse_.jpg">
-         <div class="location-name">Kame House</div>
+        <img src="immagini/rome.jpg">
+         <div class="location-name">Roma</div>
       </div>
       <div class="location" id="location2">
-        <img src="immagini/Namek.png">
-         <div class="location-name">Namecc</div>
+        <img src="immagini/venice.png">
+         <div class="location-name">Venezia</div>
       </div>
       <div class="location" id="location3">
-        <img src="immagini/KingKaisPlanetNV.png">
-         <div class="location-name">Pianeta di King Kai</div>
+        <img src="immagini/naples.jpg">
+         <div class="location-name">Napoli</div>
       </div>
     </div>
     <div class="info_location">

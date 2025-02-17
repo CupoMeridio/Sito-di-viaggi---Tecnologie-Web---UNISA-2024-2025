@@ -52,32 +52,3 @@ function showSlides(n) {
     // Aggiungi la classe "active" al pallino corrispondente alla slide corrente
     dots[slideIndex - 1].className += " active";
 }
-
-
-window.addEventListener('scroll', function () {
-    const header = document.querySelector('.header');
-    const headerHeight = header.offsetHeight; // Altezza dell'header
-    const scrollPosition = window.scrollY; // Posizione di scroll verticale
-    const viewportHeight = window.innerHeight; // Altezza della finestra
-
-    // Calcola quanto l'header è visibile nella finestra
-    const visibleHeight = viewportHeight - scrollPosition;
-
-    // Imposta l'altezza della sfumatura in base alla posizione di scroll
-    if (visibleHeight > 0) {
-        const maxHeight = 200; // Altezza massima della sfumatura
-        const scrollRatio = scrollPosition / headerHeight; // Rapporto di scroll (0 a 1)
-
-        // Applica una curva di crescita non lineare (es. radice quadrata)
-        const intensity = Math.sqrt(scrollRatio); // Più intenso all'inizio, più graduale alla fine
-
-        // Calcola l'altezza della sfumatura
-        const newHeight = maxHeight * intensity;
-
-        // Applica l'altezza alla sfumatura
-        header.style.setProperty('--overlay-height', `${newHeight}px`);
-    } else {
-        // Se l'header non è più visibile, ripristina l'altezza a 0
-        header.style.setProperty('--overlay-height', '0px');
-    }
-});
