@@ -74,7 +74,7 @@ if(isset($_POST["inviato"])){
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
-                    <label for="password">Password</label>
+                    <label for="password">Password <span id="vedoPassword" onclick="toggleClick()"></span></label>
                     <input type="password" id="password" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
                     <div class="password-hint" id="passwordHint">                                        <!-- Testo di suggerimento per indicare i requisiti della password -->
                         La password deve contenere almeno 8 caratteri e includere almeno una

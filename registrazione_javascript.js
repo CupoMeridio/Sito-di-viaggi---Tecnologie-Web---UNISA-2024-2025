@@ -54,7 +54,7 @@ function verificaModulo(event){ // viene chiamata dal onsubmit del form una volt
     if(bool1 && bool2 && bool3){
     
     message.style.color = 'green';
-    message.textContent = 'E\' possibile effettuare la registrazione';
+    message.textContent = 'Effettua la registrazione, dopo autenticati facendo il login.';
     return true;
 } else {    
     message.textContent = '';
@@ -363,21 +363,23 @@ document.getElementById('email').addEventListener('blur', function(){
     //alert(email.value);
 
     let serverRequest=new XMLHttpRequest();
+   
     serverRequest.onreadystatechange = function(){
     if(serverRequest.readyState == 4 && serverRequest.status == 200){
-        if (serverRequest.responseText === "esiste") {
+        //alert(serverRequest.responseText);
+        if (serverRequest.responseText === "disponibile") {
             //alert("sono nell'if in ui esiste la mail");
             //alert(serverRequest.responseText);
-            emailError.textContent = "Questa email è già in uso.";
+            emailError.textContent = "";
         } else {
             //alert("sono nell'if in ui NON esiste la mail");
-            emailError.textContent = ""; // Nessun errore
+            emailError.textContent = "Questa email è già in uso."; 
         }
     } 
     }
     //alert(email.value);
     //qui invece preparo la richiesta
-    serverRequest.open("POST", "CartellaPHP/controlloEmailAjax.php");
+    serverRequest.open("POST", "controlloEmailAjax.php");
     serverRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //metodo post-->invio key=value
     serverRequest.send("email="+encodeURIComponent(email.value));
@@ -399,12 +401,12 @@ function controlloEmailLogin() {
     serverRequest.onreadystatechange = function () {
         if (serverRequest.readyState == 4 && serverRequest.status == 200) {
             alert(serverRequest.responseText);
-            if (serverRequest.responseText === "disponibile") {
+            if (serverRequest.responseText === "esiste" ) {
                 
-                emailErrorLogin.textContent = "Questa e-mail non esiste.";
+                emailErrorLogin.textContent = "";
                
             } else {
-                emailErrorLogin.textContent = ""; // Nessun 
+                emailErrorLogin.textContent = "L'email inserita non è presente";
                
             }
         }

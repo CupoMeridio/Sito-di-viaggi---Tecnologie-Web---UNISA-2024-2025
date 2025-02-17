@@ -1,6 +1,6 @@
 <?php
-require 'CartellaPHP/connection.php';
-require 'CartellaPHP/controlloGenerale.php';
+require 'connection.php';
+require 'controlloGenerale.php';
 
 if(!isset($_POST["action"])){
     exit;
@@ -52,8 +52,8 @@ if($form=="reg"){
 }else if($form == "login"){
     $email= $_POST["email"];
     $password=$_POST["password"];
-    if(controlloEmail($email)){
-        if(controlloPassword($password)){
+    if(controlloEmail($email, $db)){
+        if(controlloPassword($email,$password, $db)){
         $_SESSION['email']=$email;
          header("Location: index.html"); 
         }else{//CONTROLLO PASSWORD FALLITO
