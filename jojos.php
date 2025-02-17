@@ -182,7 +182,7 @@ include("prendi_dati.php");
         <img class="float-right clear-left" src="immagini/capri.png">
         <h4 class="clear-left">⛵ Salpa verso l'isola di Capri</h4>
         <p class="clear-left">
-          Da Napoli potrai salpare verso l'isola di Capri, tre le acque cristalline e tra le rocce mozzafiato!<br>
+          Da Napoli potrai salpare verso l'isola di Capri, tre le acque cristalline e le rocce mozzafiato!<br>
           È proprio qui che i nostri protagonisti trovano il tesoro di Polpo, uno dei capi di Passione, che finanzia il loro viaggio verso le altre città d'Italia.
         </p>
         <h4 class="clear-left">🏹 Ottieni il tuo stand visitando Polpo</h4>
@@ -195,7 +195,7 @@ include("prendi_dati.php");
         <h4 class="clear-right">Esplora la città 🌇</h4>
         <p class="clear-right">
           Per finire, Napoli è una città che affascina con la sua storia, la sua cultura vibrante e i panorami mozzafiato. <br>
-          Come recita il famoso detto, e come ci ricorda anche il narratore, <br>"Vedi Napoli e poi muori".<br> Ogni angolo della città offre emozioni uniche che ti rimarranno nel cuore per sempre. 
+          Come recita il famoso detto, e come ci ricorda anche il narratore: <br>"Vedi Napoli e poi muori"<br> Ogni angolo della città offre emozioni uniche che ti rimarranno nel cuore per sempre. 
         </p>
       </div>
     </div>
@@ -267,10 +267,10 @@ include("prendi_dati.php");
     </select>
     
     <label for="departure-date">Data di Partenza:</label>
-    <input type="date" id="departure-date" name="departure-date" required>
+    <input type="date" id="departure-date" name="departure-date" required min="" onchange="setMinReturnDate()">
     
     <label for="return-date">Data di Ritorno:</label>
-    <input type="date" id="return-date" name="return-date" required>
+    <input type="date" id="return-date" name="return-date" required min="">
     
     <label for="comments">Commenti Speciali:</label>
     <textarea id="comments" name="comments" rows="4" placeholder="Inserisci richieste particolari o commenti"></textarea>
@@ -278,7 +278,17 @@ include("prendi_dati.php");
     <button type="submit" id="submit-button">Prenota il Tuo Viaggio</button>
   </form>
 </div>
-  
+
+<script>
+  // Impostare la data minima per la partenza come la data corrente
+  document.getElementById('departure-date').min = new Date().toLocaleDateString('en-CA');
+
+  // Funzione per aggiornare la data minima di ritorno
+  function setMinReturnDate() {
+    const departureDate = document.getElementById('departure-date').value;
+    document.getElementById('return-date').min = departureDate;
+  }
+</script>
   
   <footer>
     <div class="footer-content">
