@@ -5,6 +5,7 @@ body {
     margin: 0;                                                            /* Rimuove il margine predefinito del body */
     padding: 0;                                                           /* Rimuove il padding predefinito del body */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Imposta il font della navbar */
+    
 }
 
 
@@ -56,7 +57,7 @@ body {
 
 /*slideshow*/
 .slideshow-container {
-    padding-top: 70px;
+    top: 50px;
     position: relative;                                                    /* Posizione relativa per il contenitore dello slideshow */
     width: 100%;                                                           /* Imposta la larghezza al 100% della finestra */
     overflow: hidden;                                                      /* Nasconde qualsiasi parte dell'immagine che esce dai bordi */
@@ -120,7 +121,7 @@ body {
     font-size: 12px;                                                        /* Dimensione del testo per il numero della slide */
     padding: 8px 12px;                                                      /* Aggiunge padding attorno al numero */
     position: absolute;                                                     /* Posizione assoluta per posizionare il numero sopra l'immagine */
-    top: 80px;                                                              /* Posiziona il numero in alto a sinistra */
+    top: 40px;                                                              /* Posiziona il numero in alto a sinistra */
     left: 10px;
     background-color: rgba(32, 18, 73, 0.453);                            /* Cambia il colore di sfondo al passaggio del mouse */
     border-radius: 5px;                                                     /* Arrotonda leggermente i bordi */
@@ -154,9 +155,6 @@ body {
 .active, .dot:hover {
     background-color: #717171;                                              /* Cambia il colore al passaggio sopra o quando il pallino è attivo */
 }
-
-
-
 
 /*destinations*/
 .destinations_selector {
@@ -210,7 +208,33 @@ body {
 
 .about-section p{
     text-align: center;
+    
 }
+
+#presentazione {
+    text-align: center;
+    max-width: 70%;
+    margin: auto;
+    padding: 20px;
+}
+
+#presentazione h2{
+    color: #333;
+    font-size: 2.5em;
+}
+
+#presentazione h3{
+    color: #444;
+    font-size: 2em;
+    margin-top: 30px;
+}
+
+#presentazione p{
+    ont-size: 1.2em;
+    color: #666;
+    line-height: 1.6;
+}
+
 
 .team {
     display: flex;                                                              /* Usa flexbox per disporre gli elementi in riga */
@@ -220,10 +244,10 @@ body {
 }
 
 .team-member img{
-    width: 100%;                                                                /* L'immagine occupa tutta la larghezza della colonna */
+    justify-content: space-around;                                              /* Centra gli elementi */
     height: 200px;                                                              /* Imposta un'altezza fissa per uniformare le immagini */
     object-fit: cover;                                                          /* Adatta l'immagine mantenendo le proporzioni e riempiendo il riquadro */
-    border-radius: 50%;                                                        /* Arrotonda leggermente gli angoli delle immagini */
+    border-radius: 50%;                                                      
 }
 
 .team-member h4{
@@ -264,3 +288,46 @@ footer {
 }
 
 
+@media (max-width:890px) {
+    .team {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Crea 2 colonne di uguale larghezza */
+        justify-content: center; /* Centra gli elementi orizzontalmente */
+    }
+    
+    .team-member {
+        text-align: center; /* Centra il contenuto di ogni membro del team */
+    }
+    
+    .headerImg {
+
+    top: 35%;                                                                   /* Sposta l'ancoraggio dell'immagine al centro verticalmente */
+    left: 50%;                                                                  /* Sposta l'ancoraggio delll'immagine al centro orizzontalmente */
+    transform: translate(-50%, -50%);                                           /* Sposta l'ancoraggio dell'immgaine al suo centro*/
+    max-height: 25%;                                                             /* Limita la dimensione massima al 50% della larghezza */
+
+}
+
+
+}
+
+@media (max-width: 650px){
+        header h1{
+    position: absolute;
+    color: white;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);                                           /* Sposta l'ancoraggio dell'immgaine al suo centro*/
+    text-align: center;
+
+}
+
+    header h2{
+    position: absolute;
+    color: white;
+    top: 72.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);                                           /* Sposta l'ancoraggio dell'immgaine al suo centro*/
+    text-align: center;
+    }
+}

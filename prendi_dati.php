@@ -13,14 +13,16 @@ $db= pg_connect( $connection_string) or die('Impossibile connetersi al database:
 
 $nome="";
 $cognome="";
-$email="";
+//$email="";
 $username="";
 $img="";
 $type="";
 
-$_SESSION['email']='mattiasanzari03@gmail.com';// da togliere
+//$_SESSION['email']='mattiasanzari03@gmail.com';// da togliere
 
-$email= $_SESSION['email'];
+if(isset($_SESSION['email'])){
+
+//$email= $_SESSION['email'];
 
 $query_no_injection= " SELECT * FROM  utente where email= $1 ";
     //inserimento dei dati nel database
@@ -53,20 +55,8 @@ $query_no_injection= " SELECT * FROM  utente where email= $1 ";
 } 
     // quindi l'utilizzatore dovra scrivere
     /* <img src= <?php echo $_SESSION['img'] ?> />;*/
-    echo $nome . $cognome . $username . $type; 
 
-
-
-
-    //echo '<img src="data:' . $type . ';base64,' . $img . '" />';
+}
 pg_close($db);
 
 ?>
-<!--
-<html>
-    <body>
-    
-            <img src= <?php echo $_SESSION['img'] ?> />;
-    </body>
-</html>
--->
