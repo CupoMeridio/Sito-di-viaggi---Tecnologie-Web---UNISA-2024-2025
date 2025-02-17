@@ -281,7 +281,7 @@ include("prendi_dati.php");
 
 <script>
   // Impostare la data minima per la partenza come la data corrente
-  document.getElementById('departure-date').min = new Date().toISOString().split('T')[0];
+  document.getElementById('departure-date').min = new Date().toLocaleDateString('en-CA');
 
   // Funzione per aggiornare la data minima di ritorno
   function setMinReturnDate() {
