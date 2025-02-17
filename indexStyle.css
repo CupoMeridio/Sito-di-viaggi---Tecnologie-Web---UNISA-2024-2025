@@ -157,6 +157,7 @@ body {
 }
 
 /*destinations*/
+
 .destinations_selector {
     display: flex;                                                              /* Usa flexbox per disporre gli elementi in riga */
     justify-content: space-around;                                              /* Centra gli elementi */
@@ -166,6 +167,7 @@ body {
 
 .destinations h1{
     text-align: center;
+    margin-top: 13vh;
 }
 
 .destination {
@@ -230,7 +232,6 @@ body {
 }
 
 #presentazione p{
-    ont-size: 1.2em;
     color: #666;
     line-height: 1.6;
 }
