@@ -78,4 +78,3 @@ document.addEventListener('click', function(event) {
         dashboard.classList.remove('visible'); // Chiude la dashboard
     }
 });
-
