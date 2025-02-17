@@ -182,7 +182,7 @@ include("prendi_dati.php");
         <img class="float-right clear-left" src="immagini/capri.png">
         <h4 class="clear-left">⛵ Salpa verso l'isola di Capri</h4>
         <p class="clear-left">
-          Da Napoli potrai salpare verso l'isola di Capri, tre le acque cristalline e tra le rocce mozzafiato!<br>
+          Da Napoli potrai salpare verso l'isola di Capri, tre le acque cristalline e le rocce mozzafiato!<br>
           È proprio qui che i nostri protagonisti trovano il tesoro di Polpo, uno dei capi di Passione, che finanzia il loro viaggio verso le altre città d'Italia.
         </p>
         <h4 class="clear-left">🏹 Ottieni il tuo stand visitando Polpo</h4>
