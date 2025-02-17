@@ -195,7 +195,7 @@ include("prendi_dati.php");
         <h4 class="clear-right">Esplora la città 🌇</h4>
         <p class="clear-right">
           Per finire, Napoli è una città che affascina con la sua storia, la sua cultura vibrante e i panorami mozzafiato. <br>
-          Come recita il famoso detto, e come ci ricorda anche il narratore, <br>"Vedi Napoli e poi muori".<br> Ogni angolo della città offre emozioni uniche che ti rimarranno nel cuore per sempre. 
+          Come recita il famoso detto, e come ci ricorda anche il narratore: <br>"Vedi Napoli e poi muori"<br> Ogni angolo della città offre emozioni uniche che ti rimarranno nel cuore per sempre. 
         </p>
       </div>
     </div>
