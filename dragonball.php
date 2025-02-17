@@ -269,10 +269,10 @@ include("prendi_dati.php");
     </select>
     
     <label for="departure-date">Data di Partenza:</label>
-    <input type="date" id="departure-date" name="departure-date" required>
+    <input type="date" id="departure-date" name="departure-date" required min="" onchange="setMinReturnDate()">
     
     <label for="return-date">Data di Ritorno:</label>
-    <input type="date" id="return-date" name="return-date" required>
+    <input type="date" id="return-date" name="return-date" required min="">
     
     <label for="comments">Commenti Speciali:</label>
     <textarea id="comments" name="comments" rows="4" placeholder="Inserisci richieste particolari o commenti"></textarea>
@@ -281,6 +281,16 @@ include("prendi_dati.php");
   </form>
 </div>
   
+<script>
+  // Impostare la data minima per la partenza come la data corrente
+  document.getElementById('departure-date').min = new Date().toISOString().split('T')[0];
+
+  // Funzione per aggiornare la data minima di ritorno
+  function setMinReturnDate() {
+    const departureDate = document.getElementById('departure-date').value;
+    document.getElementById('return-date').min = departureDate;
+  }
+</script>
   
   <footer>
     <div class="footer-content">
