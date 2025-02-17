@@ -58,7 +58,10 @@ nav img:hover{
 }
 
 /* Stile per il contenitore principale */
-/* Stile per il contenitore principale */
+#main-container{
+    margin-top: 5%;
+}
+
 .regcontainer, .logincontainer{
     width: 55%;
     background-color: rgba(0, 0, 0, 0.8);                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
@@ -75,7 +78,6 @@ nav img:hover{
    display: grid;                                                              /* Usa il layout CSS Grid */
     grid-template-columns: 1fr 1fr;                                            /* Due colonne*/
     gap: 20px;                                                                 /* Spaziatura tra le colonne */
-
 }
 
 

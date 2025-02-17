@@ -18,7 +18,7 @@ include("prendi_dati.php");
   <nav>
     <a href="index.html"><img src="immagini/logo.png"></a>
     <a class="navButton" id="homeButton" href="index.html">Home</a>
-    <a class="navButton" id="aboutButton"href="index.html#about">About</a>
+    <a class="navButton" id="aboutButton"href="index.html#about-section">About</a>
     <a class="navButton" id="contactButton" href="index.html#contact-section">Contact</a>
     
     <?php if(!isset($email)){?>
@@ -45,7 +45,7 @@ include("prendi_dati.php");
     </ul>
     
   <header>
-    <video src="video/Dragon_Ball/video1.mp4" class="headerVideo" id="background-video" alt="Jojo background video" autoplay muted loop></video>
+    <video src="video/jojo/jojovideo.mp4" class="headerVideo" id="background-video" alt="Jojo background video" autoplay muted loop></video>
     <img class="headerImg" id="worldTitle" src="immagini/jojostitle.png" alt="Dragon Ball Title screen">
   </header>
   

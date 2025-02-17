@@ -18,7 +18,7 @@ include("prendi_dati.php");
   <nav>
     <a href="index.html"><img src="immagini/logo.png"></a>
     <a class="navButton" id="homeButton" href="index.html">Home</a>
-    <a class="navButton" id="aboutButton"href="index.html#about">About</a>
+    <a class="navButton" id="aboutButton"href="index.html#about-section">About</a>
     <a class="navButton" id="contactButton" href="index.html#contact-section">Contact</a>
     
     <?php if(!isset($email)){?>
