@@ -423,8 +423,6 @@ document.getElementById('email-login').addEventListener('blur', controlloEmailLo
 /* -------------------------------ZONA LOGIN --------------------------------------------------------------------------- */
 function controlloLogin(event){
     event.preventDefault();
-    let email=document.getElementById('email-login').value;
-    
-   
+    let email=document.getElementById('email-login').value;  
     
 }
