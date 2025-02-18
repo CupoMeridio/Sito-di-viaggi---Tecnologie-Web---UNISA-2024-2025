@@ -1,3 +1,6 @@
+.text{
+    display: none;
+}
 .presentazione {
     position: relative;
     width: 100%;
@@ -55,7 +58,7 @@ nav {
     display: flex;                                                              /* Usa flexbox per allineare gli elementi */
     justify-content: space-around;                                              /* Distribuisce uniformemente gli elementi lungo la navbar */
     align-items: center;                                                        /* Centra verticalmente gli elementi */
-    background-color: #ff9900;                                                  /* Imposta un colore arancione per la navbar */
+    background-color: #142c71;                                                  /* Imposta un colore arancione per la navbar */
     padding-top: 15px;                                                          
     padding-bottom: 15px;
     position: fixed;                                                            /* Mantiene la navbar fissa in alto */
@@ -128,7 +131,10 @@ header {
     transform: translate(-50%, -50%);                                           /* Sposta l'ancoraggio dell'immgaine al suo centro*/
     max-width: 50%;                                                             /* Limita la dimensione massima al 50% della larghezza */
 }
-
+#worldTitle{
+    height: 80%;
+    padding-bottom: 3%;
+}
 
 /* Stile di base per la dashboard verticale */
 #dashboard {
