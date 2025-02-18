@@ -20,7 +20,7 @@ include 'prendi_dati.php';
     <a class="navButton" id="contactButton" href="#contact-section">Contact</a>
     
     <?php if(!isset($email)){?>
-    <a class="navButton" id="registrazioneButton" href="registrazione.php">Registrati</a>
+    <a class="navButton" id="registrazioneButton" href="registrazione.php?register">Registrati</a>
     <a class="navButton" id="accessoButton" href="registrazione.php?login">Accedi</a>
     <?php }?>
     
@@ -47,7 +47,7 @@ include 'prendi_dati.php';
 
         <div class="mySlides fade">
             <div class="numberText">2 / 3</div>
-            <img src="immagini/gallifrey.jpg">
+            <a href="doctorwho.php"><img src="immagini/gallifrey.jpg"></a>
             <div class="captionText">Scopri: Gallifrey!</div>
         </div>
 
