@@ -22,7 +22,7 @@ $type="";
 
 if(isset($_SESSION['email'])){
 
-//$email= $_SESSION['email'];
+$email= $_SESSION['email'];
 
 $query_no_injection= " SELECT * FROM  utente where email= $1 ";
     //inserimento dei dati nel database
@@ -38,7 +38,7 @@ $query_no_injection= " SELECT * FROM  utente where email= $1 ";
     while ( $row != false ) {
         $nome=$row['nome'];
         $cognome=$row['cognome'];
-        //$email=$row['email'];
+        $email=$row['email'];
         $username=$row['username'];
         $image_data = pg_unescape_bytea($row['img']);
         $img= base64_encode ($image_data);
@@ -50,7 +50,7 @@ $query_no_injection= " SELECT * FROM  utente where email= $1 ";
     $_SESSION['cognome']= $cognome;
     $_SESSION['username']= $username;
     if ($img != null && $type !=null ) {
-          //$_SESSION['type'] = $type;
+          $_SESSION['type'] = $type;
     $_SESSION['img']= "data:". $type . ";base64," . $img ;// passo direttamente la stringa da mettere nel src
 } 
     // quindi l'utilizzatore dovra scrivere
