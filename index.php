@@ -41,14 +41,14 @@ include 'prendi_dati.php';
 
         <div class="mySlides fade">
             <div class="numberText">1 / 3</div>
-            <img src="immagini/gotham.png">
-            <div class="captionText">Gotham</div>
+            <a href="jojos.php"><img src="immagini/vesuvio.png"></a>
+            <div class="captionText">Scopri: Napoli!</div>
         </div>
 
         <div class="mySlides fade">
             <div class="numberText">2 / 3</div>
-            <img src="immagini/asgard.png">
-            <div class="captionText">Asgard</div>
+            <img src="immagini/gallifrey.jpg">
+            <div class="captionText">Scopri: Gallifrey!</div>
         </div>
 
         <div class="mySlides fade">
@@ -80,7 +80,7 @@ include 'prendi_dati.php';
                 <div class="destination-name">Le bizzarre avventure di Jojo</div>
             </div>
             <div class="destination" id="destination2">
-                <a href=""><img src="immagini/drwho.jpg"></a>
+                <a href="doctorwho.php"><img src="immagini/drwho.jpg"></a>
                 <div class="destination-name">Dr. Who</div>
             </div>
             <div class="destination" id="destination3">
