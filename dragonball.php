@@ -282,7 +282,7 @@ include("prendi_dati.php");
     <input type="submit" id="submit-form-button"  value="Prenota il tuo viaggio!">
   </form>
 </div>
-  
+<!--SONO QUI-->
 <script>
   // Impostare la data minima per la partenza come la data corrente
   document.getElementById('departure-date').min = new Date().toLocaleDateString('en-CA');
