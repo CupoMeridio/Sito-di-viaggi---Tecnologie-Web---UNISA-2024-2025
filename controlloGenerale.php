@@ -31,6 +31,9 @@ function controlloEmail($email,$db){
             }else {
             return false; //L'EMAIL NON E' DISPONIBILE
             }
+        }else{
+            $_SESSION['errore']='Impossibile contattre il database, riprova più tardi.';
+            return false;
         }
 }
 
@@ -56,7 +59,8 @@ function controlloPassword($email, $pass,$db){
             return false;//non esiste l'utenete???????
         }
     }else{
-        return false;//FALLITA LA QUERY
+        $_SESSION['errore']='Impossibile contattre il database, riprova più tardi.';
+        return false;
     }
 }
 

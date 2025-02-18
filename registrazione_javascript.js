@@ -29,14 +29,14 @@ function verificaModulo(){ // viene chiamata dal onsubmit del form una volta cli
     let bool4=false;
     let bool5=false;
     //NOME
-    if(validateNome(nome)){
+    if(!validateNome(nome)){
         nomeError='Per favore inserisci un nome valido';
     }else{
         nomeError='';
         bool4=true;
     }
     //COGNOME
-    if(validateCognome(cognome)){
+    if(!validateCognome(cognome)){
         cognomeError='Per favore inserisci un cognome valido';
     }else{
         cognomeError='';

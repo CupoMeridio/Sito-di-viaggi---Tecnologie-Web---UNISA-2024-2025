@@ -109,13 +109,14 @@ if(isset($_POST["inviato"])){
                 <input type="submit" value="Registrati" name="inviato" id="submitButton">                                              <!-- Pulsante per inviare il modulo -->
             </div>
             <div class="messaggio-login">Sei già registrato? <a href="?login">Login</a></div>
+            <p id="message"></p> 
         </form>
-        <p id="message"></p> 
+        
         <?php
-         if(isset($_SESSION['errore']) || true) { ?>
+         if(isset($_SESSION['errore'])) { ?>
                 <p id="messageErrorReg" class=messageError><?php echo $_SESSION['errore']; ?></p> 
         <?php
-        unset($_SESSION['errore']); }?>
+        }?>
          </div>
         </div> 
 
@@ -149,12 +150,13 @@ if(isset($_POST["inviato"])){
                 <input type="submit" value="Login" name="inviato">
             </div> 
             <div class="messaggio-registrazione">Non sei registrato? <a href="?register">Registrati</a></div>
-        </form>  
+        </form> 
+        
         <?php
          if(isset($_SESSION['errore'])) { ?>
                 <p id="messageErrorLog" class=messageError><?php echo $_SESSION['errore']; ?></p> 
         <?php
-        unset($_SESSION['errore']); }?>
+        }?>
          </div>
         
     </div> 
@@ -164,5 +166,7 @@ if(isset($_POST["inviato"])){
 </html>
 
 <?php
+
 } 
+unset($_SESSION['errore']); 
 ?>
