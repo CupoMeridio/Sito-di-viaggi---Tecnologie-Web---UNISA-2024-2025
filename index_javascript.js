@@ -52,3 +52,5 @@ function showSlides(n) {
     // Aggiungi la classe "active" al pallino corrispondente alla slide corrente
     dots[slideIndex - 1].className += " active";
 }
+
+//da gestore login e logout???

@@ -4,9 +4,11 @@
 
 
 function verificaModulo(event){ // viene chiamata dal onsubmit del form una volta cliccato fala verifica -> se vero spedisce | se falso NO.
+    console.log("Funzione verificaModulo eseguita"); // Debug
+    //alert("Funzione verificaModulo eseguita");
     event.preventDefault(); // Previene il comportamento predefinito di invio del form
     
-   
+    
     // Assegna alle variabili i valori inseriti nei campi di input del form
     let nome = document.getElementById('nome').value;
     let cognome = document.getElementById('cognome').value;
@@ -49,15 +51,19 @@ function verificaModulo(event){ // viene chiamata dal onsubmit del form una volt
         confirmPasswordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
         bool3=true;
     }
+    //alert(bool1);
+    //alert(bool2);
+    //alert(bool3);
     
  // Se tutto è valido, mostra un messaggio di successo
     if(bool1 && bool2 && bool3){
-    alert("tutto vero");
+        console.log("TUTTO va");
     message.style.color = 'green';
     message.textContent = 'Effettua la registrazione, dopo autenticati facendo il login.';
+    document.getElementById('form-registrazione').submit(); // Invio manuale del modulo
     return true;
 } else {   
-    alert("qualcosa non va"); 
+    console.log("qualcosa non va"); 
     message.textContent = '';
     return false;
 }
@@ -365,7 +371,7 @@ document.getElementById('email').addEventListener('blur', function(){
 
     let serverRequest=new XMLHttpRequest();
    
-    serverRequest.onreadystatechange = function(){
+    serverRequesgt.onreadystatechange = function(){
     if(serverRequest.readyState == 4 && serverRequest.status == 200){
         //alert(serverRequest.responseText);
         if (serverRequest.responseText === "disponibile") {
@@ -393,8 +399,7 @@ function controlloEmailLogin() {
     let emailErrorLogin = document.getElementById("emailErrorLogin");
 
     if (email.trim() === '') {
-        emailErrorLogin.textContent = 'Compila il campo e-mail';
-       
+        emailErrorLogin.textContent = 'Compila il campo e-mail';        
     }
 
     let serverRequest = new XMLHttpRequest();
@@ -412,11 +417,11 @@ function controlloEmailLogin() {
             }
         }
     };
-
+    if(email.trim() !== ''){
     serverRequest.open("POST", "controlloEmailAjax.php");
     serverRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     serverRequest.send("email=" + encodeURIComponent(email));
-
+    }
     
 }
 

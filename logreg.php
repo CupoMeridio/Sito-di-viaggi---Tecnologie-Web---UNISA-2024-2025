@@ -27,8 +27,8 @@ if($form=="reg"){
             $type=$_FILES["fotoProfilo"]['type'];
             $bin=file_get_contents($img);
             $bytea=pg_escape_bytea($bin);
-        
-            if(controlloPatternEmail($email) && controlloPatternPassword($password) && controlloPtternNome($nome) && controlloPatternCognome($cognome)){
+        }
+        if(controlloPatternEmail($email) && controlloPatternPassword($password) && controlloPtternNome($nome) && controlloPatternCognome($cognome)){
                 $hash=password_hash($password_pre_hash, PASSWORD_DEFAULT);
                 $query_no_injection="INSERT INTO utente (nome, cognome, username, email, password, img,type) VALUES ($1, $2, $3, $4, $5, $6, $7)";
                 //inserimento dei dati nel database
@@ -41,31 +41,35 @@ if($form=="reg"){
 
                 if(!$result){
                     $_SESSION['errore']="inserimento fallito";
-                    header("Location: registrazione.php#registrazione-page");
+                    header("Location: registrazione.php");
+                    exit();
                 }else{
-                    header("Location: index.html");
+                    header("Location: index.php");
+                    exit();
                 }
 
             }
-        }
-    }
+        
+}
 }else if($form == "login"){
     $email= $_POST["email"];
     $password=$_POST["password"];
     if(controlloEmail($email, $db)){
         if(controlloPassword($email,$password, $db)){
         $_SESSION['email']=$email;
-         header("Location: index.html"); 
+         header("Location: index.php"); 
         }else{//CONTROLLO PASSWORD FALLITO
             $_SESSION['errore']= $_SESSION['errore'].". Password non esistente. ";
-            header("Location: registrazione.php#login-page"); 
-            
+            header("Location: index.php"); 
+            header("Location: registrazione.php?login"); 
+            exit();            
         }
 
     }else{//CONTROLLO EMAIL FALLITO
         $_SESSION['errore']= $_SESSION['errore'].". E-mail non esistente. ";
-        header("Location: registrazione.php#login-page"); 
-        
+        //header("Location: index.html"); 
+        header("Location: registrazione.php?login"); 
+        exit();        
     }
     
 }

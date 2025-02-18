@@ -35,16 +35,16 @@ if(isset($_POST["inviato"])){
 <body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
 
     <nav>
-        <a href="index.html"><img src="immagini/logo.png"></a>
-        <a class="navButton" id="homeButton" href="index.html">Home</a>
-        <a class="navButton" id="aboutButton"href="index.html#about">About</a>
+        <a href="index.php"><img src="immagini/logo.png"></a>
+        <a class="navButton" id="homeButton" href="index.php">Home</a>
+        <a class="navButton" id="aboutButton"href="index.php#about">About</a>
     </nav>
 
 <video id="background-video" autoplay muted loop></video>
                                                                             <!-- Video di background -->
     <div id="main-container" class="regcontainer" style="display: <?php echo $showRegister ? 'block' : 'none'; ?>;">     
         <div id="registrazione_page" class="page">                                                                       <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->                                                                                             <!-- Titolo della sezione del modulo -->
-        <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" onsubmit="return verificaModulo()">  <!-- onsubmit che serve alla verifica della pw -->
+        <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" onsubmit="return verificaModulo(event)">  <!-- onsubmit che serve alla verifica della pw -->
             <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="registrazione">
 

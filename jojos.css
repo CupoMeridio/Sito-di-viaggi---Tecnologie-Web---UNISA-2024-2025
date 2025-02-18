@@ -12,7 +12,7 @@ nav {
     display: flex;                                                              /* Usa flexbox per allineare gli elementi */
     justify-content: space-around;                                              /* Distribuisce uniformemente gli elementi lungo la navbar */
     align-items: center;                                                        /* Centra verticalmente gli elementi */
-    background-color: #ff026c;                                                  /* Imposta un colore arancione per la navbar */
+    background-color: #ec2099;                                                  /* Imposta un colore arancione per la navbar */
     padding-top: 15px;                                                          
     padding-bottom: 15px;
     position: fixed;                                                            /* Mantiene la navbar fissa in alto */
@@ -40,7 +40,7 @@ nav img{
 }
 
 .navButton:hover {
-    background: #c3006b;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
+    background: #9f1567;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
     border-radius: 5px;                                                         /* Arrotonda leggermente i bordi */
 }
 
