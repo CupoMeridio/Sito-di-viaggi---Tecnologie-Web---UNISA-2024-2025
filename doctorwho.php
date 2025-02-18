@@ -32,8 +32,8 @@
         
       </nav>
     <header>
-    <video src="video/Dragon_Ball/video1.mp4" class="headerVideo" id="background-video" alt="Dragon Ball background video" autoplay muted loop></video>
-    <img class="headerImg" id="worldTitle" src="immagini/dragonballtitleheader.png" alt="Dragon Ball Title screen">
+    <video src="video/doctorwho/doctorwho.mp4" class="headerVideo" id="background-video" alt="Dragon Ball background video" autoplay muted loop></video>
+    <img class="headerImg" id="worldTitle" src="immagini/Doctor-Who-Logo.png" alt="Dragon Ball Title screen">
   </header>
 
 
@@ -43,12 +43,14 @@
             <audio id="myAudio" src="tardis.mp3"></audio>
             <img id="porta" src="immagini/s-l400.jpg">
             <img id='img1' src="https://ichef.bbci.co.uk/images/ic/976xn/p03b20k9.jpg">
-            <img id='img2' src="https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/f/fc/Alfava_Metraxis.png/revision/latest?cb=20231002233717">
+            <img id='img2' src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi637lJLBGHhPjoCu-dDoH6Gy40li81QyxWbm4wU3Ni5mCCGlxMPqRoAFuX1eIKhJKiiw16GDyHXx2AWJdEB7zD5qhOVTaUW5Vk17XZZU3d2NR9V-tXjvowoApm9SOJrKWQMKXg-XCXlSA/s1600/13152669_927233087375833_925574505_n.jpg">
             <img id='img3' src="https://i0.wp.com/www.blogtorwho.com/wp-content/uploads/2020/12/Daleks-Day-of-Reckoning-5.png?fit=1534%2C921&ssl=1">
         </div>
         
     </div>
-    
+    <div id="text1" class="text">testo 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque similique est consequatur laborum autem neque placeat dolorem. Temporibus sed voluptas nostrum deserunt. Sapiente, corporis labore. Doloremque provident natus quae aliquid?</div>
+    <div id="text2" class="text">testo2 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae delectus dolorum earum fugiat hic itaque ipsam tempore officia expedita adipisci. Molestiae ullam, animi veniam facere illum fugiat alias non iusto!</div>
+    <div id="text1"class="text">testo3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum dignissimos libero pariatur at ratione vitae alias esse, possimus ipsam totam atque facilis consectetur odit cumque, rem inventore magnam molestias? Voluptate.</div>
 <!-- Sezione Recensioni -->
 <div class="reviews-section" style="display: flex; justify-content: space-between">
   
@@ -139,7 +141,9 @@
 <script type="text/javascript">
     var audio = document.getElementById('myAudio');
     var cont_img = document.getElementsByClassName('immagini');
+    var testo= document.getElementsByClassName('text');
     var numero_img_mostrare=1;
+    var numero_text_mostrare=0;
 
     for (let i = 0; i < cont_img.length; i++) {
         var img_luoghi = cont_img[i].getElementsByTagName("img");
@@ -153,6 +157,7 @@
         console.log(cont_img.length); 
         console.log(img_luoghi.length);
         console.log(numero_img_mostrare);
+        console.log("testo" +testo.length);
     if(img_luoghi.length<1){
         numero_img_mostrare= img_luoghi.length-1;
         console.log("entrato 1 "+ numero_img_mostrare);
@@ -165,14 +170,23 @@
     for (let i = 0; i < img_luoghi.length ; i++) {
         img_luoghi[i].style.setProperty("display", "none", "");
     }
+    for(let i=0; i< testo.length;i++){
+        testo[i].style.setProperty("dislpay","none",);
+    }
         img_luoghi[numero_img_mostrare].style.setProperty("display", "block", "");
+        testo[numero_text_mostrare].style.setProperty("display", "block", "");
         
+        numero_text_mostrare++;
         numero_img_mostrare++;
     }
     function transizione(){
         for (let i = 0; i < img_luoghi.length ; i++) {
         img_luoghi[i].style.setProperty("display", "none", "");
+        
     }
+      for(let i=0; i< testo.length;i++){
+        testo[i].style.setProperty("dislpay","none");
+      }
         img_luoghi[0].style.setProperty("display", "block", "");
         setTimeout(cambio_luogo, 4000);
     }

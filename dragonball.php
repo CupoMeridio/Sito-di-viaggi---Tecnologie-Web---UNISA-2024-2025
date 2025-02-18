@@ -21,7 +21,7 @@
 
 <body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
   <nav>
-    <a href="index.html"><img src="immagini/logo.png"></a>
+    <a href="index.php"><img src="immagini/logo.png"></a>
     <a class="navButton" id="homeButton" href="index.php">Home</a>
     <a class="navButton" id="aboutButton"href="index.php#about-section">About</a>
     <a class="navButton" id="contactButton" href="index.php#contact-section">Contact</a>

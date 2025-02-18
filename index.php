@@ -16,12 +16,12 @@ include 'prendi_dati.php';
 <body>
 
     <nav class="navbar">
-    <a href="index.html"><img src="immagini/logo.png"></a>
+    <a href="index.php"><img src="immagini/logo.png"></a>
     <a class="navButton" id="aboutButton"href="#about-section">About</a>
     <a class="navButton" id="contactButton" href="#contact-section">Contact</a>
     
     <?php if(!isset($email)){?>
-    <a class="navButton" id="registrazioneButton" href="registrazione.php">Registrati</a>
+    <a class="navButton" id="registrazioneButton" href="registrazione.php?register">Registrati</a>
     <a class="navButton" id="accessoButton" href="registrazione.php?login">Accedi</a>
     <?php }?>
     
@@ -42,20 +42,20 @@ include 'prendi_dati.php';
 
         <div class="mySlides fade">
             <div class="numberText">1 / 3</div>
-            <img src="immagini/gotham.png">
-            <div class="captionText">Gotham</div>
+            <a href="jojos.php"><img src="immagini/vesuvio.png"></a>
+            <div class="captionText">Scopri: Napoli!</div>
         </div>
 
         <div class="mySlides fade">
             <div class="numberText">2 / 3</div>
-            <img src="immagini/asgard.png">
-            <div class="captionText">Asgard</div>
+            <a href="doctorwho.php"><img src="immagini/gallifrey.jpg"></a>
+            <div class="captionText">Scopri: Gallifrey!</div>
         </div>
 
         <div class="mySlides fade">
             <div class="numberText">3 / 3</div>
-            <a href="mondo.php"><img src="immagini/namecc.jpeg"></a>
-            <div class="captionText">Namecc</div>
+            <a href="dragonball.php"><img src="immagini/namecc.jpeg"></a>
+            <div class="captionText">Scopri: Namecc!</div>
         </div>
 
         <!--pulsanti <- e -> -->
@@ -81,7 +81,7 @@ include 'prendi_dati.php';
                 <div class="destination-name">Le bizzarre avventure di Jojo</div>
             </div>
             <div class="destination" id="destination2">
-                <a href=""><img src="immagini/drwho.jpg"></a>
+                <a href="doctorwho.php"><img src="immagini/drwho.jpg"></a>
                 <div class="destination-name">Dr. Who</div>
             </div>
             <div class="destination" id="destination3">
