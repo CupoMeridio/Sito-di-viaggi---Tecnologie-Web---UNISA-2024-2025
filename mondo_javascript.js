@@ -78,3 +78,16 @@ document.addEventListener('click', function(event) {
         dashboard.classList.remove('visible'); // Chiude la dashboard
     }
 });
+
+/*Login popup*/
+const openBtn = document.getElementById("submit-button");
+const closeBtn = document.getElementById("close-button");
+const popup = document.getElementById("popup");
+
+openBtn.addEventListener("click", () => {
+    popup.classList.add("open");
+});
+
+closeBtn.addEventListener("click", () => {
+    popup.classList.remove("open");
+});

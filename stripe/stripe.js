@@ -4,9 +4,12 @@
     function calcolaprezzo(event) {
         event.preventDefault(); // Evita il comportamento predefinito
         let pag_stripe = document.getElementById('pagamento_con_stripe');
+        const popup = document.getElementById("popup");
         if (pag_stripe) {
             pag_stripe.style.display = "block";
         }
+        popup.classList.add("open");
+
         let formData = new FormData(form_prenotazione);
         let num_biglietti = parseInt(formData.get('tickets-count'));
         let location = formData.get('location');
@@ -33,6 +36,15 @@
 
         return false;
     }
+
+    const closeBtn = document.getElementById("close-button");
+    const popup = document.getElementById("popup");
+    let pag_stripe = document.getElementById('pagamento_con_stripe');
+
+    closeBtn.addEventListener("click", () => {
+        popup.classList.remove("open");
+        pag_stripe.style.display = "none";
+    });
 
     const stripe = Stripe('pk_test_51QsWhnRwYugaEVfWZdpr479jZxUCuBKqds9KN0c01v8DtI9PQFFV3MSOwStu8zRt6ri900dIcnhvctZ1NVG9OCKD004ZiiHr18');
     const elements = stripe.elements();
