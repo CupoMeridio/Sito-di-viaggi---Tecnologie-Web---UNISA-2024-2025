@@ -44,7 +44,7 @@ if(isset($_POST["inviato"])){
                                                                             <!-- Video di background -->
     <div id="main-container" class="regcontainer" style="display: <?php echo $showRegister ? 'block' : 'none'; ?>;">     
         <div id="registrazione_page" class="page">                                                                       <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->                                                                                             <!-- Titolo della sezione del modulo -->
-        <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" onsubmit="return verificaModulo(event)">  <!-- onsubmit che serve alla verifica della pw -->
+        <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" onsubmit="return verificaModulo()">  <!-- onsubmit che serve alla verifica della pw -->
             <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="registrazione">
 
@@ -74,7 +74,7 @@ if(isset($_POST["inviato"])){
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
-                    <label for="password">Password <span id="vedoPassword" onclick="toggleClick()"></span></label>
+                    <label for="password">Password <span id="pwReg" class="vedoPassword" onclick="toggleClick('password', 'pwReg')"></span></label>
                     <input type="password" id="password" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
                     <div class="password-hint" id="passwordHint">                                        <!-- Testo di suggerimento per indicare i requisiti della password -->
                         La password deve contenere almeno 8 caratteri e includere almeno una
@@ -85,7 +85,7 @@ if(isset($_POST["inviato"])){
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Conferma password -->
-                    <label for="confirmPassword">Conferma password</label>
+                    <label for="confirmPassword">Conferma password <span id="confirmReg" class="vedoPassword" onclick="toggleClick('confirmPassword', 'confirmReg')"></span></label>
                     <input type="password" id="confirmPassword" name="confirmPassword" required>         <!-- Campo per confermare la password inserita -->
                     <div id="passwordOK" class="confirm"></div> 
                     <div id="confirmPasswordError" class="error"></div>                                  <!-- Messaggio09% di errore per il campo di conferma password (se necessario) -->
@@ -111,6 +111,12 @@ if(isset($_POST["inviato"])){
             <div class="messaggio-login">Sei già registrato? <a href="?login">Login</a></div>
         </form>
         <p id="message"></p> 
+        <?php
+         if(isset($_SESSION['errore']) || true) { ?>
+                <p id="messageErrorReg" class=messageError><?php echo $_SESSION['errore']; ?></p> 
+        <?php
+        unset($_SESSION['errore']); }?>
+         </div>
         </div> 
 
 
@@ -126,14 +132,16 @@ if(isset($_POST["inviato"])){
             <div class="form-group">
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Email -->
                     <label for="email-login">Email</label>
-                    <input type="email" id="email-login" name="email" value="<?php echo $email ?>"required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                    <input type="email" id="email-login" name="email" value="<?php echo $email ?>" required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
                     <div id = "emailErrorLogin" class=error></div>
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
-                    <label for="password-login">Password</label>
+                    <label for="password-login">Password  <span id="pwLogin" class="vedoPassword" onclick="toggleClick( 'password-login', 'pwLogin')"></span></label>
                     <input type="password" id="password-login" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
+                    
                     <div id = "passwordErrorLogin" class=error></div>
+                    
                 </div>
 
             </div>
@@ -142,6 +150,13 @@ if(isset($_POST["inviato"])){
             </div> 
             <div class="messaggio-registrazione">Non sei registrato? <a href="?register">Registrati</a></div>
         </form>  
+        <?php
+         if(isset($_SESSION['errore'])) { ?>
+                <p id="messageErrorLog" class=messageError><?php echo $_SESSION['errore']; ?></p> 
+        <?php
+        unset($_SESSION['errore']); }?>
+         </div>
+        
     </div> 
     
 </body>

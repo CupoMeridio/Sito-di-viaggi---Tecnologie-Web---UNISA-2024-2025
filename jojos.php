@@ -1,5 +1,8 @@
 <?php
-include("prendi_dati.php");
+session_start();
+$img=$_SESSION['img'];
+$username=$_SESSION['username'];
+$email=$_SESSION['email'];
 ?>
 
 <!DOCTYPE html>

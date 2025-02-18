@@ -3,16 +3,17 @@
 // document.getElementById('main-container').addEventListener('submit', function (event) { // modifica da Mattia per provare il submit 
 
 
-function verificaModulo(event){ // viene chiamata dal onsubmit del form una volta cliccato fala verifica -> se vero spedisce | se falso NO.
+function verificaModulo(){ // viene chiamata dal onsubmit del form una volta cliccato fala verifica -> se vero spedisce | se falso NO.
     console.log("Funzione verificaModulo eseguita"); // Debug
     //alert("Funzione verificaModulo eseguita");
-    event.preventDefault(); // Previene il comportamento predefinito di invio del form
+    //event.preventDefault(); // Previene il comportamento predefinito di invio del form
     
     
     // Assegna alle variabili i valori inseriti nei campi di input del form
     let nome = document.getElementById('nome').value;
     let cognome = document.getElementById('cognome').value;
-    let username = document.getElementById('username').value;
+    let nomeError=document.getElementById('nomeError');
+    let cognomeError=document.getElementById('cognnomeError');
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
     let confirmPassword = document.getElementById('confirmPassword').value;
@@ -25,14 +26,30 @@ function verificaModulo(event){ // viene chiamata dal onsubmit del form una volt
     let bool1=false;
     let bool2=false;
     let bool3=false;
-
+    let bool4=false;
+    let bool5=false;
+    //NOME
+    if(validateNome(nome)){
+        nomeError='Per favore inserisci un nome valido';
+    }else{
+        nomeError='';
+        bool4=true;
+    }
+    //COGNOME
+    if(validateCognome(cognome)){
+        cognomeError='Per favore inserisci un cognome valido';
+    }else{
+        cognomeError='';
+        bool5=true;
+    }
+    //EMAIL
     if(!validateEmail(email)){
-    emailError.textContent='Per favore inserisci un\'email valida';
-       
+    emailError.textContent='Per favore inserisci un\'email valida';       
    }else{
     emailError.textContent='';
         bool1=true;
    }
+   //PASSSWORD
     // Valida la password utilizzando la funzione `validatePassword`
   let passwordValid = validatePassword(password);
     if (!passwordValid) {
@@ -42,7 +59,7 @@ function verificaModulo(event){ // viene chiamata dal onsubmit del form una volt
         passwordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
         bool2=true;
     }
-
+    //CONFERMA PASSWORD
     // Controlla se le password corrispondono
     if (password!== confirmPassword) {
         confirmPasswordError.textContent = 'La password non corrispondono!';
@@ -56,28 +73,29 @@ function verificaModulo(event){ // viene chiamata dal onsubmit del form una volt
     //alert(bool3);
     
  // Se tutto è valido, mostra un messaggio di successo
-    if(bool1 && bool2 && bool3){
-        console.log("TUTTO va");
+    if(bool1 && bool2 && bool3 && bool4 && bool4){
+        //console.log("TUTTO va");
     message.style.color = 'green';
     message.textContent = 'Effettua la registrazione, dopo autenticati facendo il login.';
-    document.getElementById('form-registrazione').submit(); // Invio manuale del modulo
+   // document.getElementById('form-registrazione').submit(); // Invio manuale del modulo
     return true;
 } else {   
-    console.log("qualcosa non va"); 
+    //console.log("qualcosa non va"); 
     message.textContent = '';
     return false;
 }
 }
 /*
     -------------------------------------ZONA REGISTRAZIONE------------------------------------------------------------------------------------------
- * --------------------------ZONA PASSWORD E COFERMA PASSWORD---------------------------------------
+ * --------------------------ZONA PASSWORD E CONFERMA PASSWORD---------------------------------------
  */
 //la funzione verifica in tempo reale che la password sia corretta
 
 let elementoPassword=document.getElementById("password");
 let passwordError=document.getElementById("passwordError");
-var span=document.getElementById("vedoPassword");
+
 elementoPassword.addEventListener("input", function(){
+    let span=document.getElementById("pwReg");
     let passwordValid = validatePassword(elementoPassword.value);  
     
     if(elementoPassword.value===''){
@@ -95,14 +113,19 @@ elementoPassword.addEventListener("input", function(){
 let elementoVerificaPassword=document.getElementById("confirmPassword");
 let okPassword=document.getElementById("passwordOK");
 elementoVerificaPassword.addEventListener("input", function(){
+    let span=document.getElementById("confirmReg");
     let password=document.getElementById("password");
     if(elementoVerificaPassword.value === "") {
+        span.textContent='';
         okPassword.textContent = '';
         confirmPasswordError.textContent = '';
+        
     }else if (password.value !== elementoVerificaPassword.value && elementoVerificaPassword.value!=='') {
+        span.textContent='Show Password';
         okPassword.textContent='';
         confirmPasswordError.textContent = 'La password non corrispondono!';        
     } else if(password.value === elementoVerificaPassword.value){
+        span.textContent='Show Password';
         okPassword.textContent='ok';
         confirmPasswordError.textContent = ''; 
     }
@@ -146,25 +169,26 @@ function getPasswordSecurity(password) {
     if (password.length < 8) {
         return 'weak'; // Password debole se inferiore a 8 caratteri
     }
-    if (password.match(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/)) {
+    if (password.match(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])/)) {
         return 'strong'; // Password forte se soddisfa tutti i requisiti
     }
     return 'medium'; // Password media se non è forte ma ha una lunghezza accettabile
 }
 /* -----------------TOGGLE CLICK------------------ */
 
-function toggleClick() {
-    var password = document.getElementById("password");
-    var span = document.getElementById("vedoPassword");
+function toggleClick(pw_id, span_id) {
+    
+    var password = document.getElementById(pw_id);
+    var span = document.getElementById(span_id);
     if (password.type === "password") {
       password.type = "text";
       span.textContent='Hide Password';
     } else {
       password.type = "password";
       span.textContent='Show Password';
-    }
-    
+    }    
   }
+
 /* ----------------------------------ZONA EMAIL ---------------------------------------------------- */
 const emailProviders = [
     "@gmail.com",
@@ -371,7 +395,7 @@ document.getElementById('email').addEventListener('blur', function(){
 
     let serverRequest=new XMLHttpRequest();
    
-    serverRequesgt.onreadystatechange = function(){
+    serverRequest.onreadystatechange = function(){
     if(serverRequest.readyState == 4 && serverRequest.status == 200){
         //alert(serverRequest.responseText);
         if (serverRequest.responseText === "disponibile") {
@@ -434,3 +458,13 @@ function controlloLogin(event){
     let email=document.getElementById('email-login').value;  
     
 }
+
+document.getElementById("password-login").addEventListener("input", function(){
+    let span=document.getElementById("pwLogin");
+    let password=document.getElementById("password-login");
+    if(password.value === "") {
+        span.textContent='';      
+    }else{
+        span.textContent = 'Show Password'; 
+    }
+});

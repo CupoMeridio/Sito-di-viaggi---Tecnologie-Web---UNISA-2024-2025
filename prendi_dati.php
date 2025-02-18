@@ -1,16 +1,6 @@
 <?php
 session_start();
-
-
-$host='database-1.czikiq82wrwk.eu-west-2.rds.amazonaws.com';
-$port = '5432';
-$db= 'tw_prova';
-$username= 'postgres';
-$password= 'Farinotta01_';
-
-$connection_string = "host=$host port=$port dbname=$db user=$username password=$password";
-$db= pg_connect( $connection_string) or die('Impossibile connetersi al database:'.pg_last_error());
-
+include 'connection.php';
 $nome="";
 $cognome="";
 //$email="";
@@ -49,13 +39,15 @@ $query_no_injection= " SELECT * FROM  utente where email= $1 ";
     $_SESSION['nome']= $nome;
     $_SESSION['cognome']= $cognome;
     $_SESSION['username']= $username;
-    if ($img != null && $type !=null ) {
+    if ($img != null && $type !=null || $img != '') {
           $_SESSION['type'] = $type;
-    $_SESSION['img']= "data:". $type . ";base64," . $img ;// passo direttamente la stringa da mettere nel src
-} 
+        $_SESSION['img']= "data:". $type . ";base64," . $img ;// passo direttamente la stringa da mettere nel src
+    }else {
+        $_SESSION['img']="immagini/default.png";
+    }
     // quindi l'utilizzatore dovra scrivere
     /* <img src= <?php echo $_SESSION['img'] ?> />;*/
-
+    $img=$_SESSION['img'];
 }
 pg_close($db);
 

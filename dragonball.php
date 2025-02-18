@@ -1,5 +1,8 @@
 <?php
-include("prendi_dati.php");
+  session_start();
+  $img=$_SESSION['img'];
+  $username=$_SESSION['username'];
+  $email=$_SESSION['email'];
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +34,7 @@ include("prendi_dati.php");
     <?php if(isset($email)){?>
     <!-- Sezione profilo utente -->
     <div id="userProfile">
-        <span id="welcomeMessage"><?php echo "Ciao, $username";?> </span>  
+        <span id="welcomeMessage"><?php  echo "Ciao, $username";?> </span>
          <?php echo '<img id="profilePic" src="'.$img.'">'; ?>
         
     </div>

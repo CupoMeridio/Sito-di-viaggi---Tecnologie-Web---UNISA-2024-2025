@@ -60,7 +60,7 @@ if($form=="reg"){
          header("Location: index.php"); 
         }else{//CONTROLLO PASSWORD FALLITO
             $_SESSION['errore']= $_SESSION['errore'].". Password non esistente. ";
-            header("Location: index.php"); 
+            //header("Location: index.php"); 
             header("Location: registrazione.php?login"); 
             exit();            
         }
