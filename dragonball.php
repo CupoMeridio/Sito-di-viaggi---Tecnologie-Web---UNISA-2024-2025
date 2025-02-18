@@ -224,7 +224,7 @@
   </div>
   
   <!-- Colonna Aggiunta Recensione -->
-   <?php if(isset($email)){ ?> 
+  
   <div class="review-form" style="width: 50%;">
     <h2>Lascia una Recensione</h2>
     <!-- <form action="submit_review.php" method="post">-->
@@ -250,16 +250,18 @@
         <label for="experience">La tua esperienza:</label><br>
         <textarea id="experience" name="experience" rows="4" cols="50" required placeholder="Scrivi la tua esperienza..."></textarea>
         <br><br>
-        
+        <?php if(isset($email)){ ?> 
         <input type="button" value="Invia Recensione" onclick="InserisciCommento()">
+        <?php }else{ ?> 
+        <input type="button" value="Registrati o accedi per inviare una recensione" >
+        <?php  }?>
     </form>
   </div>
-  <?php } ?> 
+  
 </div>
 
 
 <!-- Sezione Prenotazione Viaggio -->
-<?php if(isset($email)){ ?> 
 <div class="booking-section" style="clear:both">
   <h2>Prenota il Tuo Viaggio Fantastico!</h2>
   <form id="booking-form" onsubmit="return calcolaprezzo(event)">
@@ -288,10 +290,14 @@
     <label for="comments">Commenti Speciali:</label>
     <textarea id="comments" name="comments" rows="4" placeholder="Inserisci richieste particolari o commenti"></textarea>
     
+    <?php if(isset($email)){ ?>
     <input type="submit" id="submit-form-button"  value="Prenota il tuo viaggio!">
+    <?php }else{ ?> 
+      <input type="button" id="submit-form-button"  value="Registrati o accedi per prenotare il tuo viaggio!">
+      <?php } ?>
   </form>
 </div>
-<?php } ?> 
+
 <!--SONO QUI-->
 <script>
   // Impostare la data minima per la partenza come la data corrente
