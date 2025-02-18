@@ -303,7 +303,7 @@
     document.getElementById('return-date').min = departureDate;
   }
 </script>
-  
+  <div id="popup">
   <div id="pagamento_con_stripe" style="display: none;">
     <h1>Pagamento con Stripe</h1>
     <form method="post" id="payment-form">
@@ -326,11 +326,11 @@
         <div id="card-errors" role="alert"></div>
       </div>
 
-      <button id="submit-button">Submit Payment</button>
+      <button id="close-button">Chiudi</button>
+      <button id="submit-button">Conferma pagamento</button>
     </form>
-
   </div>
-  
+  </div>
   
   <footer>
     <div class="footer-content">
