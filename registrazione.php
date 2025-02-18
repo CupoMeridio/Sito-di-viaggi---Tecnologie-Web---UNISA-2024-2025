@@ -35,9 +35,9 @@ if(isset($_POST["inviato"])){
 <body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
 
     <nav>
-        <a href="index.html"><img src="immagini/logo.png"></a>
-        <a class="navButton" id="homeButton" href="index.html">Home</a>
-        <a class="navButton" id="aboutButton"href="index.html#about">About</a>
+        <a href="index.php"><img src="immagini/logo.png"></a>
+        <a class="navButton" id="homeButton" href="index.php">Home</a>
+        <a class="navButton" id="aboutButton"href="index.php#about">About</a>
     </nav>
 
 <video id="background-video" autoplay muted loop></video>

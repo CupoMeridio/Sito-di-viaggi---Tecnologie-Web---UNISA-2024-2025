@@ -15,7 +15,7 @@ include 'prendi_dati.php';
 <body>
 
     <nav class="navbar">
-    <a href="index.html"><img src="immagini/logo.png"></a>
+    <a href="index.php"><img src="immagini/logo.png"></a>
     <a class="navButton" id="aboutButton"href="#about-section">About</a>
     <a class="navButton" id="contactButton" href="#contact-section">Contact</a>
     
@@ -53,8 +53,8 @@ include 'prendi_dati.php';
 
         <div class="mySlides fade">
             <div class="numberText">3 / 3</div>
-            <a href="mondo.php"><img src="immagini/namecc.jpeg"></a>
-            <div class="captionText">Namecc</div>
+            <a href="dragonball.php"><img src="immagini/namecc.jpeg"></a>
+            <div class="captionText">Scopri: Namecc!</div>
         </div>
 
         <!--pulsanti <- e -> -->
