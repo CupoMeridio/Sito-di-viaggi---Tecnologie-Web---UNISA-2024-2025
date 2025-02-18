@@ -153,7 +153,7 @@ if(isset($_POST["inviato"])){
         </form> 
         
         <?php
-         if(isset($_SESSION['errore'])) { ?>
+         if(isset($_SESSION['errore']) ) { ?>
                 <p id="messageErrorLog" class=messageError><?php echo $_SESSION['errore']; ?></p> 
         <?php
         }?>

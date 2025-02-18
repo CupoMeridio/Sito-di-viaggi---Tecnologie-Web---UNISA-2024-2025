@@ -1,8 +1,11 @@
 <?php
   session_start();
-  $img=$_SESSION['img'];
-  $username=$_SESSION['username'];
-  $email=$_SESSION['email'];
+  if(isset($_SESSION['img']))
+    $img=$_SESSION['img'];
+  if(isset($_SESSION['username']))
+    $username=$_SESSION['username'];
+  if(isset($_SESSION['email']))
+    $email=$_SESSION['email'];
 ?>
 
 <!DOCTYPE html>
@@ -221,6 +224,7 @@
   </div>
   
   <!-- Colonna Aggiunta Recensione -->
+   <?php if(isset($email)){ ?> 
   <div class="review-form" style="width: 50%;">
     <h2>Lascia una Recensione</h2>
     <!-- <form action="submit_review.php" method="post">-->
@@ -250,10 +254,12 @@
         <input type="button" value="Invia Recensione" onclick="InserisciCommento()">
     </form>
   </div>
+  <?php } ?> 
 </div>
 
 
 <!-- Sezione Prenotazione Viaggio -->
+<?php if(isset($email)){ ?> 
 <div class="booking-section" style="clear:both">
   <h2>Prenota il Tuo Viaggio Fantastico!</h2>
   <form id="booking-form" onsubmit="return calcolaprezzo(event)">
@@ -285,6 +291,7 @@
     <input type="submit" id="submit-form-button"  value="Prenota il tuo viaggio!">
   </form>
 </div>
+<?php } ?> 
 <!--SONO QUI-->
 <script>
   // Impostare la data minima per la partenza come la data corrente
@@ -296,7 +303,7 @@
     document.getElementById('return-date').min = departureDate;
   }
 </script>
-  
+  <div id="popup">
   <div id="pagamento_con_stripe" style="display: none;">
     <h1>Pagamento con Stripe</h1>
     <form method="post" id="payment-form">
@@ -319,11 +326,11 @@
         <div id="card-errors" role="alert"></div>
       </div>
 
-      <button id="submit-button">Submit Payment</button>
+      <button id="close-button">Chiudi</button>
+      <button id="submit-button">Conferma pagamento</button>
     </form>
-
   </div>
-  
+  </div>
   
   <footer>
     <div class="footer-content">

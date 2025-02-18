@@ -2,7 +2,7 @@
 
 require 'connection.php';
 require 'controlloGenerale.php';
-
+session_start();
 if(!isset($_POST["action"])){
     exit;
 }
