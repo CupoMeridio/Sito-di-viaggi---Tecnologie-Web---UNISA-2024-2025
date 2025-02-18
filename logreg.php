@@ -45,7 +45,8 @@ if($form=="reg"){
                     header("Location: registrazione.php");
                     exit();
                 }else{
-                    header("Location: registrazione.php?login");
+                    $_SESSION['auth']="Prima di accedere autenticati";
+                    header("Location: registrazione.php?login&email=$email");
                     exit();
                 }
 

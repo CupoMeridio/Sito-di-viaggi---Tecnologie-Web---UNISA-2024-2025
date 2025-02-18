@@ -179,7 +179,7 @@ input[type="submit"]:hover {
     display: none;                              /* Nascosto di default */
 }
 .vedoPassword{
-    font-size: 10px;
+    font-size: 0.2em;
     color: rgb(130, 130, 130);
     
 }
@@ -299,4 +299,16 @@ div.messaggio-login a, div.messaggio-registrazione a{
 
 div.messaggio-login a:hover, div.messaggio-registrazione a:hover{
     color: rgb(216, 174, 255);
+}
+
+/*ERRORI MESS*/
+.messageError{
+    text-align: center;
+    font-size: 0.8em;
+    color: #a20000;
+}
+#messageAuth{
+    text-align: center;
+    font-size: 0.8em;
+    color: #b9b9b9;
 }

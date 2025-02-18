@@ -126,6 +126,11 @@ if(isset($_POST["inviato"])){
     </div>
 
     <div id="login_page" class="logincontainer" style="display: <?php echo !$showRegister ? 'block' : 'none'; ?>;">
+        <?php
+         if(isset($_SESSION['auth']) ) { ?>
+                <p id="messageAuth" class=messageAuth><?php echo $_SESSION['auth']; ?></p> 
+        <?php
+        }?>
         <form id="form-login"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         <input type="hidden" name="action" value="login">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
             <div id="login">
@@ -133,7 +138,9 @@ if(isset($_POST["inviato"])){
             <div class="form-group">
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Email -->
                     <label for="email-login">Email</label>
-                    <input type="email" id="email-login" name="email" value="<?php echo $email ?>" required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                    <input type="email" id="email-login" name="email" value="<?php echo isset($_GET['email']) ? htmlspecialchars($_GET['email']) : ''; ?>" required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                   
+
                     <div id = "emailErrorLogin" class=error></div>
                 </div>
 
@@ -168,5 +175,6 @@ if(isset($_POST["inviato"])){
 <?php
 
 } 
+unset($_SESSION['auth']);
 unset($_SESSION['errore']); 
 ?>

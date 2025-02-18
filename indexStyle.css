@@ -23,11 +23,22 @@ body {
     top: 0;                                                                     /* Posiziona la navbar in cima alla finestra */
     z-index: 2;                                                              /* Assicura che la navbar stia sopra gli altri elementi */
 }
+.navbar div{
+    display: flex;
+    align-items: center;
+}
+.navbar div span{
+    margin-right: 10px;
+
+}
 
 .navbar img{
+    width: 40px;
     height: 40px;
-    margin-left: 15px;
+    border-radius: 50%;
+    margin-right: 15px;
 }
+
 
 .navbar img:hover{
     cursor: pointer;
@@ -54,6 +65,7 @@ body {
 .navButton:nth-child(3) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
     margin-right: auto;
 }
+
 
 /*slideshow*/
 .slideshow-container {
@@ -330,5 +342,9 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);                                           /* Sposta l'ancoraggio dell'immgaine al suo centro*/
     text-align: center;
+    }
+
+    .navbar div span{
+        font-size: 13px ;
     }
 }
