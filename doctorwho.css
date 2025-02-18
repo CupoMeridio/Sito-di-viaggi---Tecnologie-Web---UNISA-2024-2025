@@ -1,0 +1,433 @@
+.presentazione {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Centra le immagini orizzontalmente */
+    align-items: center; /* Centra le immagini verticalmente */
+}
+
+.presentazione img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Centra le immagini orizzontalmente */
+}
+
+.colonne.immagini {
+    top: 50px;
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Centra le immagini orizzontalmente */
+    align-items: center; /* Centra le immagini verticalmente */
+}
+
+#img1, #img2, #img3 {
+    display: none;
+}
+
+#porta {
+    animation-name: apparizione;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+@keyframes apparizione {
+    0%   {opacity: 0.5;}
+    25%  {opacity: 0.75;}
+    50%  {opacity: 0.25;}
+    100% {opacity: 1;}
+}
+
+/* Stile generale */
+body {
+    font-family: Arial, sans-serif;                                             /* Imposta il font generale della pagina */
+    margin: 0;                                                                  /* Rimuove il margine predefinito del browser */
+    padding: 0;                                                                 /* Rimuove il padding predefinito */
+    background-color: #f4f4f4;                                                  /* Imposta un colore di sfondo chiaro */
+    text-align: center;                                                         /* Centra il testo nella pagina */
+}
+
+/* Navbar */
+nav {
+    display: flex;                                                              /* Usa flexbox per allineare gli elementi */
+    justify-content: space-around;                                              /* Distribuisce uniformemente gli elementi lungo la navbar */
+    align-items: center;                                                        /* Centra verticalmente gli elementi */
+    background-color: #ff9900;                                                  /* Imposta un colore arancione per la navbar */
+    padding-top: 15px;                                                          
+    padding-bottom: 15px;
+    position: fixed;                                                            /* Mantiene la navbar fissa in alto */
+    width: 100%;                                                                /* Occupa l'intera larghezza della pagina */
+    top: 0;                                                                     /* Posiziona la navbar in cima alla finestra */
+    z-index: 2;                                                                 /* Assicura che la navbar stia sopra gli altri elementi */
+}
+
+nav img{
+    height: 40px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+
+.navButton {
+    text-decoration: none;                                                      /* Rimuove la sottolineatura dai link */
+    color: white;                                                               /* Imposta il colore del testo su bianco */
+    font-weight: bold;                                                          /* Rende il testo in grassetto */
+    padding: 10px 15px;                                                         /* Aggiunge spazio interno ai bottoni */
+    transition: background 0.3s;                                                /* Aggiunge una transizione fluida per il cambio di colore */
+    margin-left: 10px;                                                          /* Aggiunge un po di spazio tra un bottone e l'altro */
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.navButton:hover {
+    background: #ff6600;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
+    border-radius: 5px;                                                         /* Arrotonda leggermente i bordi */
+}
+
+.navButton:nth-child(4) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
+    margin-right: auto;
+}
+
+nav div img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+nav div{
+    display: flex;
+    align-items: center;                                                        /* Allinea verticalmente al centro */
+}
+
+
+/* Header */
+header {
+    position: relative;                                                         /* Imposta il posizionamento relativo per il contenitore */
+    width: 100%;                                                                /* Occupa l'intera larghezza */
+    height: 50vh;                                                               /* Occupa metà dello schermo in altezza */
+    overflow: hidden;                                                           /* Nasconde eventuali contenuti che escono dal riquadro */
+    min-height: 300px;                                                          /* Imposta un'altezza minima per evitare che si riduca troppo */
+   
+}
+
+.headerVideo {
+    margin-top: 53px;                                                           /* Posiziona il video nell'header appena sotto la navbar */
+    width: 100%;                                                                /* Occupa l'intera larghezza */
+    height: 100%;                                                               /* Occupa tutta l'altezza disponibile */
+    object-fit: cover;                                                          /* Adatta il video per coprire tutto lo spazio disponibile */
+}
+
+.headerImg {
+    position: absolute;                                                         /* Posiziona l'immagine sopra il video */
+    top: 60%;                                                                   /* Sposta l'ancoraggio dell'immagine al centro verticalmente */
+    left: 50%;                                                                  /* Sposta l'ancoraggio delll'immagine al centro orizzontalmente */
+    transform: translate(-50%, -50%);                                           /* Sposta l'ancoraggio dell'immgaine al suo centro*/
+    max-width: 50%;                                                             /* Limita la dimensione massima al 50% della larghezza */
+}
+
+
+/* Stile di base per la dashboard verticale */
+#dashboard {
+    z-index: 1;
+    visibility: hidden;
+    list-style-type: none;                                                      /* Rimuove i pallini della lista */
+    margin: 0;
+    padding: 0;
+    width: 15%; /* Larghezza della navbar */
+    background-color: #333333; /* Colore di sfondo */
+    position: fixed; /* Fissa la navbar sulla destra */
+    margin-top: 73.5px;
+    right: 0;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);                                 /* Effetto "in rilievo" con ombra */
+    border-radius: 10px 0px 0px 10px;                                           /* Arrotonda solo lo spigolo sinistro in alto e sinistro in basso */ 
+}
+
+/* Stile per gli elementi della lista */
+#dashboard li {
+
+    border-bottom: 1px solid #ff9900; /* Linea divisoria tra gli elementi */
+    transition: background-color 0.3s ease; /* Transizione per l'effetto hover */
+}
+
+/* Rimuove il bordo inferiore dall'ultimo elemento */
+#dashboard li:last-child {
+    border-bottom: none;
+}
+
+/* Stile per i link */
+#dashboard li a {
+    padding: 15px;
+    color: #ecf0f1; /* Colore del testo */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    display: block; /* Rende il link un blocco per occupare tutto lo spazio */
+}
+
+/* Effetto hover sugli elementi */
+#dashboard li:hover {
+    background-color: #34495e; /* Cambia colore di sfondo al passaggio del mouse */
+
+}
+
+/* Effetto hover sui link */
+#dashboard li:hover a {
+    color: #fff301; /* Cambia colore del testo al passaggio del mouse */
+}
+
+#dashboard.visible {
+    visibility: initial;
+}
+
+
+/* Container */
+.container {
+    padding: 20px 20px 20px;                                                   /* Aggiunge spazio intorno ai contenuti principali */
+}
+
+.locations_selector {
+    display: flex;                                                              /* Usa flexbox per disporre gli elementi in riga */
+    justify-content: space-around;                                              /* Centra gli elementi */
+    gap: 20px;                                                                  /* Aggiunge uno spazio tra gli elementi */
+    margin-top: 20px;                                                           /* Aggiunge spazio sopra la sezione */
+}
+
+.location {
+    flex: 1;                                                                    /* Permette alle colonne di adattarsi allo spazio disponibile */
+    max-width: 300px;                                                           /* Imposta una larghezza massima per evitare immagini troppo grandi */
+    position: relative;
+    display: inline-block;
+}
+
+.location img {
+    width: 100%;                                                                /* L'immagine occupa tutta la larghezza della colonna */
+    height: 200px;                                                              /* Imposta un'altezza fissa per uniformare le immagini */
+    object-fit: cover;                                                          /* Adatta l'immagine mantenendo le proporzioni e riempiendo il riquadro */
+    border-radius: 10px;                                                        /* Arrotonda leggermente gli angoli delle immagini */
+    transition: transform 0.3s;                                                 /* Aggiunge una transizione fluida per l'effetto zoom */
+    cursor: pointer;
+}
+
+.location-name {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    display: none;
+}
+
+
+
+.location img:hover {
+    transform: scale(1.1);                                                              /* Ingrandisce leggermente l'immagine al passaggio del mouse */
+}
+.location:hover .location-name {
+    display: block;                                                                     /* Mostra il nome quando si passa sopra */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#info_location1, #info_location2, #info_location3 {
+    opacity: 0;                                                                         /* Inizialmente invisibile */
+    display: none;                                                                      /* Inizialmente l'elemento è nascosto */
+    transition: opacity 0.5s ease-out;                                                  /* Transizione di dissolvenza */
+}
+
+/* Quando viene cliccato e la classe 'show' viene aggiunta */
+#info_location1.show, #info_location2.show, #info_location3.show {
+    display: block;                                                                     /* Imposta display su block per mostrare l'elemento */
+    opacity: 1;                                                                         /* Aumenta l'opacità per il fade-in */
+}
+
+
+#info_location1, #info_location2, #info_location3 {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 70%;
+    margin: 40px auto;
+    text-align: center;
+    padding:15px;
+}
+
+#info_location1 h4, #info_location2 h4, #info_location3 h4{
+    padding: 10px;
+    margin: 10px;
+}
+
+.info_location img.float-left {
+    margin-right: 15px;
+    float: left;
+
+    
+}
+
+.info_location img.float-right {
+    margin-left: 15px;
+    float: right;
+}
+
+.info_location h4.clear-right, .info_location p.clear-right, .info_location img.clear-right{
+    clear: right;
+}
+
+.info_location h4.clear-left, .info_location p.clear-left, .info_location img.clear-left {
+    clear: left;
+}
+
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.info_location img {
+    height:250px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+
+footer {
+    clear: both;
+    background-color: #333;                                                             /* Colore di sfondo scuro */
+    color: white;                                                                       /* Colore del testo chiaro */
+    padding: 20px;                                                                      /* Distanza interna */
+    text-align: center;                                                                 /* Centra il testo */
+    font-size: 14px;                                                                    /* Dimensione del testo (più piccola rispetto alla dimensione di default) */
+    margin-top: 50px;                                                                   /* Spazio sopra il footer */
+}
+
+.footer-content p {
+    margin: 10px 0;                                                                     /* Distanza tra i paragrafi */
+}
+
+.footer-content .disclaimer {
+    font-style: italic;                                                                 /* Testo in corsivo per il disclaimer */
+    font-size: 12px;                                                                    /* Testo più piccolo per il disclaimer */
+    color: #ccc;                                                                        /* Colore del testo del disclaimer */
+}
+
+.booking-section {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+
+  }
+  
+  .booking-section h2 {
+    text-align: center;
+  }
+  .booking-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 35%;
+    margin: 0 auto;
+  }
+  
+  .booking-section label {
+    font-weight: bold;
+
+  }
+  .booking-section input, .booking-section select, .booking-section textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  .booking-section button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .booking-section button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  
+  /* Stile generale per la sezione commenti */
+.comments-section {
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+.review-form label {
+    font-weight: bold;
+  }
+
+.review-form select, .review-form textarea  {
+    border-radius: 5px;
+    border-color: #c8c8c8;
+}
+
+
+
+/* Contenitore principale dei commenti */
+#reviews-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile per ogni singolo commento */
+.commento {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Stile per l'email */
+.commento .email {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Stile per l'ID del commento */
+.commento .id-testo {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* Stile per il testo del commento */
+.commento .testo {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Effetto hover per i commenti */
+.commento:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}

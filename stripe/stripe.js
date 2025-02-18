@@ -23,7 +23,7 @@
             return false;
         }
 
-        let saldo_tot = ((data_r - data_p) / (1000 * 60 * 60 * 24)) * num_biglietti * costo_biglietto;
+        let saldo_tot= ((data_r-data_p)*num_biglietti *50/ (1000 * 60 * 60 * 24)) +5;
         alert(saldo_tot);
 
         bottone_stripe.textContent = `Prenota il tuo viaggio a soli ${saldo_tot}€`;
@@ -85,6 +85,12 @@
                 document.getElementById('submit-button').disabled = false;
             } else if (paymentIntent && paymentIntent.status === 'succeeded') {
                 alert('Pagamento completato con successo!');
+                let pag_stripe = document.getElementById('pagamento_con_stripe');
+                if (pag_stripe) {
+                    pag_stripe.style.display = "none";
+                }
+                let prenotazione = document.getElementById('submit-form-button');
+                prenotazione.disabled=false;
             } else {
                 console.error('Errore sconosciuto durante il pagamento.');
                 cardErrors.textContent = 'Errore sconosciuto, riprova.';
