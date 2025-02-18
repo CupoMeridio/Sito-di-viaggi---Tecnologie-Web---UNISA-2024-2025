@@ -151,7 +151,7 @@ if(isset($_POST["inviato"])){
             <div class="messaggio-registrazione">Non sei registrato? <a href="?register">Registrati</a></div>
         </form>  
         <?php
-         if(isset($_SESSION['errore'])) { ?>
+         if(isset($_SESSION['errore']) ) { ?>
                 <p id="messageErrorLog" class=messageError><?php echo $_SESSION['errore']; ?></p> 
         <?php
         unset($_SESSION['errore']); }?>
