@@ -101,7 +101,7 @@ nav div{
 /* Pulsanti di navigazione */
 .prev, .next {
     position: absolute;                                                     /* Posizione assoluta per i pulsanti di navigazione */
-    top: 50%;                                                               /* Posizione verticale centrata rispetto all'immagine */
+    top: 43%;                                                               /* Posizione verticale centrata rispetto all'immagine */
     color: rgb(255, 255, 255);                                                    /* Colore dei pulsanti */
     background-color:  rgba(32, 18, 73, 0.8);                           /* Colore di sfondo semitrasparente per i pulsanti */
     box-shadow: 0 0 5px  rgba(122, 78, 255, 0.5);

@@ -252,56 +252,6 @@
 </div>
 
 
-<!-- Sezione Recensioni -->
-<div class="reviews-section" style="display: flex; justify-content: space-between">
-
-  <!-- Colonna Visualizzazione Recensioni -->
-  <div class="reviews-display" style="width: 50%;">
-    <h2>Recensioni dei Viaggiatori</h2>
-    <div id="reviews-container" style="border: 1px solid; margin: 10px; padding: 10px">
-      <p>Nessuna recensione disponibile. Sii il primo a lasciare un commento!</p>
-    </div>
-  </div>
-
-  <!-- Colonna Aggiunta Recensione -->
-
-  <div class="review-form" style="width: 50%;">
-    <h2>Lascia una Recensione</h2>
-    <!-- <form action="submit_review.php" method="post">-->
-    <form id="reviewForm" name="commenti">
-      <label for="location">Seleziona la location:
-        <select id="location" name="location" onchange="updateReviewPlaceholder()"></label>
-      <option value="kamehouse">Kame House</option>
-      <option value="namecc">Namecc</option>
-      <option value="kingkaiplanet">King Kai Planet</option>
-      </select>
-      <br><br>
-
-      <label for="rating">Valutazione (1-5 stelle):</label>
-      <select id="rating" name="rating">
-        <option value="1">1 ⭐</option>
-        <option value="2">2 ⭐⭐</option>
-        <option value="3">3 ⭐⭐⭐</option>
-        <option value="4">4 ⭐⭐⭐⭐</option>
-        <option value="5">5 ⭐⭐⭐⭐⭐</option>
-      </select>
-      <br><br>
-
-      <label for="experience">La tua esperienza:</label><br>
-      <textarea id="experience" name="experience" rows="4" cols="50" required
-        placeholder="Scrivi la tua esperienza..."></textarea>
-      <br><br>
-      <?php if (isset($email)) { ?>
-        <input type="button" value="Invia Recensione" onclick="InserisciCommento()">
-      <?php } else { ?>
-        <input type="button" value="Registrati o accedi per inviare una recensione">
-      <?php } ?>
-    </form>
-  </div>
-
-</div>
-
-
 <!-- Sezione Prenotazione Viaggio -->
 <div class="booking-section" style="clear:both">
   <h2>Prenota il Tuo Viaggio Fantastico!</h2>
@@ -378,6 +328,55 @@
       <button id="submit-button">Conferma pagamento</button>
     </form>
   </div>
+</div>
+
+<!-- Sezione Recensioni -->
+<div class="reviews-section" style="display: flex; justify-content: space-between">
+
+  <!-- Colonna Visualizzazione Recensioni -->
+  <div class="reviews-display" style="width: 50%; height: 300px; overflow-y: auto;">
+    <h2>Recensioni dei Viaggiatori</h2>
+    <div id="reviews-container" style="border: 1px solid; margin: 10px; padding: 10px">
+      <p>Nessuna recensione disponibile. Sii il primo a lasciare un commento!</p>
+    </div>
+  </div>
+
+  <!-- Colonna Aggiunta Recensione -->
+
+  <div class="review-form" style="width: 50%;">
+    <h2>Lascia una Recensione</h2>
+    <!-- <form action="submit_review.php" method="post">-->
+    <form id="reviewForm" name="commenti">
+      <label for="location">Seleziona la location:
+        <select id="location" name="location" onchange="updateReviewPlaceholder()"></label>
+      <option value="kamehouse">Kame House</option>
+      <option value="namecc">Namecc</option>
+      <option value="kingkaiplanet">King Kai Planet</option>
+      </select>
+      <br><br>
+
+      <label for="rating">Valutazione (1-5 stelle):</label>
+      <select id="rating" name="rating">
+        <option value="1">1 ⭐</option>
+        <option value="2">2 ⭐⭐</option>
+        <option value="3">3 ⭐⭐⭐</option>
+        <option value="4">4 ⭐⭐⭐⭐</option>
+        <option value="5">5 ⭐⭐⭐⭐⭐</option>
+      </select>
+      <br><br>
+
+      <label for="experience">La tua esperienza:</label><br>
+      <textarea id="experience" name="experience" rows="4" cols="50" required
+        placeholder="Scrivi la tua esperienza..."></textarea>
+      <br><br>
+      <?php if (isset($email)) { ?>
+        <input type="button" value="Invia Recensione" onclick="InserisciCommento()">
+      <?php } else { ?>
+        <input type="button" value="Registrati o accedi per inviare una recensione">
+      <?php } ?>
+    </form>
+  </div>
+
 </div>
 
 <footer>
