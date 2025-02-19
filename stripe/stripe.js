@@ -1,6 +1,9 @@
-
     let form_prenotazione = document.getElementById('booking-form');
+    let pag_stripe = document.getElementById('pagamento_con_stripe');
+    
     const MAX=101;
+
+    
     function prendiDatiAggiuntivi(){
         //1. una variaile stringa da ritornare
         let num_biglietti = parseInt(formData.get('tickets-count'));
@@ -17,8 +20,7 @@
 
     function calcolaprezzo(event) {
         event.preventDefault(); // Evita il comportamento predefinito
-        let pag_stripe = document.getElementById('pagamento_con_stripe');
-        const popup = document.getElementById("popup");
+        
         if (pag_stripe) {
             pag_stripe.style.display = "block";
         }
@@ -51,9 +53,7 @@
         return false;
     }
 
-    const closeBtn = document.getElementById("close-button");
-    const popup = document.getElementById("popup");
-    let pag_stripe = document.getElementById('pagamento_con_stripe');
+
 
     closeBtn.addEventListener("click", () => {
         popup.classList.remove("open");
@@ -170,3 +170,16 @@
         xhr.send(`num_biglietti=${num_biglietti}&location=${location}&data_p=${data_p}&data_r=${data_r}&dati=${dati}&prezzo=${importo}`);
     }
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Il codice per il pulsante "Chiudi" e il reset del form
+    document.getElementById('close-button').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('payment-form').reset();
+        cardElement.clear();
+        document.getElementById('card-errors').textContent = '';
+        document.getElementById('pagamento_con_stripe').style.display = "none";
+        document.getElementById('popup').classList.remove("open");
+        document.getElementById('submit-form-button').disabled = false;
+        
+    });
+});
