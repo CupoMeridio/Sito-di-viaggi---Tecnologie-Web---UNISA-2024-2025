@@ -112,9 +112,9 @@ body {
 .prev, .next {
     position: absolute;                                                     /* Posizione assoluta per i pulsanti di navigazione */
     top: 50%;                                                               /* Posizione verticale centrata rispetto all'immagine */
-    color: blueviolet;                                                    /* Colore dei pulsanti */
-    background-color:  rgba(32, 18, 73, 0.453);                           /* Colore di sfondo semitrasparente per i pulsanti */
-    box-shadow: 0 0 5px  rgba(122, 78, 255, 0.453);
+    color: rgb(255, 255, 255);                                                    /* Colore dei pulsanti */
+    background-color:  rgba(32, 18, 73, 0.8);                           /* Colore di sfondo semitrasparente per i pulsanti */
+    box-shadow: 0 0 5px  rgba(122, 78, 255, 0.5);
     cursor: pointer;                                                        /* Cambia il cursore a mano quando il mouse è sopra il pulsante */
     padding: 10px;                                                          /* Aggiunge spazio interno al pulsante */
     border-radius: 50%;                                                     /* Rende i pulsanti rotondi */
@@ -133,7 +133,7 @@ body {
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(51, 30, 114, 0.453);                                  /* Cambia il colore di sfondo al passaggio sopra */
+    background-color: rgba(51, 30, 114, 0.7);                                  /* Cambia il colore di sfondo al passaggio sopra */
 }
 
 /* Numero di slide */
@@ -144,7 +144,7 @@ body {
     position: absolute;                                                     /* Posizione assoluta per posizionare il numero sopra l'immagine */
     top: 40px;                                                              /* Posiziona il numero in alto a sinistra */
     left: 10px;
-    background-color: rgba(32, 18, 73, 0.453);                            /* Cambia il colore di sfondo al passaggio del mouse */
+    background-color: rgba(32, 18, 73, 0.8);                            /* Cambia il colore di sfondo al passaggio del mouse */
     border-radius: 5px;                                                     /* Arrotonda leggermente i bordi */
     z-index: 1;
 }
@@ -158,7 +158,7 @@ body {
     bottom: 24px;                                                           /* Posiziona la didascalia in basso */
     width: 100%;                                                            /* La didascalia occupa tutta la larghezza dell'immagine */
     text-align: center;
-    background-color:  rgba(32, 18, 73, 0.453);;                            /* Cambia il colore di sfondo al passaggio del mouse */
+    background-color:  rgba(32, 18, 73, 0.8);;                            /* Cambia il colore di sfondo al passaggio del mouse */
 }
 
 /* Pallini per la navigazione */
