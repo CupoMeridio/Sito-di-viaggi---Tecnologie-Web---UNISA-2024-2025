@@ -329,6 +329,11 @@ footer {
     max-height: 25%;                                                             /* Limita la dimensione massima al 50% della larghezza */
 
 }
+.destination img {
+   
+    margin-left: 3px;   
+    margin-right: 3px;                                          /* Aggiunge una transizione fluida per l'effetto zoom */
+}
 
 
 }
@@ -355,5 +360,10 @@ footer {
 
     .navbar div span{
         font-size: 13px ;
+    }
+    .destination img {
+  
+        margin-left: 3px;   
+        margin-right: 3px;                                          /* Aggiunge una transizione fluida per l'effetto zoom */
     }
 }
