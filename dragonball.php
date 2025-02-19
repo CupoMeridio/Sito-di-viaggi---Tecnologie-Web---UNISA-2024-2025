@@ -47,10 +47,8 @@
     
   </nav>
   
-  <ul id="dashboard">
-      <li><a href="#">Carrello</a></li>
+    <ul id="dashboard">
       <li><a href="modifica.php">Modifica dell'account</a></li>
-      <li><a href="#">Bho qualcje altra cosa</a></li>
       <li><a href="logout.php">Esci</a></li>
     </ul>
     
