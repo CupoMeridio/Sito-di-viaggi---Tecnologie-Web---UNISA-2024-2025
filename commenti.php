@@ -18,7 +18,7 @@ $stelle=$_POST['rating'];
 $email =  $_SESSION['email'];
 $mondo=  $_SESSION['mondo'];
 
-//$stelle= 5;//vedi come prenderle 
+ 
 
 $query= "INSERT INTO commento (email, testo, mondo, stelle ) VALUES ($1,$2,$3,$4)";
 $stmt =  pg_prepare($db,"com",$query);
