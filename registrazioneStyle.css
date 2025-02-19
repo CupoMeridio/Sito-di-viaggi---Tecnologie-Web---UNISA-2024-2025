@@ -179,7 +179,7 @@ input[type="submit"]:hover {
     display: none;                              /* Nascosto di default */
 }
 .vedoPassword{
-    font-size: 0.2em;
+    font-size: 10px;
     color: rgb(130, 130, 130);
     
 }

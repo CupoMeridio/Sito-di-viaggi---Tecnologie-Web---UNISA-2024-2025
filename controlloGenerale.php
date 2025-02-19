@@ -11,7 +11,7 @@ function controlloPatternEmail($email){
     return preg_match($pattern, $email);
     
 }
-function controlloPtternNome($nome){
+function controlloPatternNome($nome){
     $pattern = "/^[a-zA-Z][a-zA-Z0-9]*$/";
     return preg_match($pattern,$nome);
 }
@@ -21,7 +21,7 @@ function controlloPatternCognome($cognome){
 }
 
 function controlloEmail($email,$db){    
-        $query_no_injection = "SELECT email FROM utente WHERE email = $1";
+        $query_no_injection = "SELECT LOWER(email) FROM utente WHERE email = LOWER($1)";
         $result = pg_prepare($db, "select email", $query_no_injection);
         $result=pg_execute($db, "select email", array($email));
         if ($result) {
@@ -41,7 +41,7 @@ function controlloPassword($email, $pass,$db){
     if(!controlloPatternPassword($pass)){
         return false;
     }
-    $query_no_injection = "SELECT password FROM utente WHERE email = $1";
+    $query_no_injection = "SELECT password FROM utente WHERE email = LOWER($1)";
     $result = pg_prepare($db, "select_pw", $query_no_injection);
     $result=pg_execute($db, "select_pw", array($email));
 

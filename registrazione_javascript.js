@@ -430,7 +430,7 @@ function controlloEmailLogin() {
     
     serverRequest.onreadystatechange = function () {
         if (serverRequest.readyState == 4 && serverRequest.status == 200) {
-            alert(serverRequest.responseText);
+           // alert(serverRequest.responseText);
             if (serverRequest.responseText === "esiste" ) {
                 
                 emailErrorLogin.textContent = "";

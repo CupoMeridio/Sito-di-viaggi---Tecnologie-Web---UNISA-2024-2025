@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 if (isset($_SERVER['HTTP_COOKIE'])) {
@@ -13,7 +13,6 @@ if (isset($_SERVER['HTTP_COOKIE'])) {
 session_unset();
 session_destroy();
 
-header("Location: registrazione.php?login"); 
+header("Location: index.php");
 
 exit;
-?>
