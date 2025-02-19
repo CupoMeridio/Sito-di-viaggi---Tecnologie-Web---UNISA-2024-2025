@@ -264,7 +264,7 @@ footer {
     padding: 20px;                                                                      /* Distanza interna */
     text-align: center;                                                                 /* Centra il testo */
     font-size: 14px;                                                                    /* Dimensione del testo (più piccola rispetto alla dimensione di default) */
-    margin-top: 50px;                                                                   /* Spazio sopra il footer */
+    margin-top: 0px;                                                                   /* Spazio sopra il footer */
 }
 
 .footer-content p {
