@@ -1,12 +1,7 @@
 <?php
 session_start();
 include 'connection.php';
-$nome="";
-$cognome="";
-//$email="";
-$username="";
-$img="";
-$type="";
+
 
 //$_SESSION['email']='mattiasanzari03@gmail.com';// da togliere
 

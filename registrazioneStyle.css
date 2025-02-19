@@ -300,3 +300,15 @@ div.messaggio-login a, div.messaggio-registrazione a{
 div.messaggio-login a:hover, div.messaggio-registrazione a:hover{
     color: rgb(216, 174, 255);
 }
+
+/*ERRORI MESS*/
+.messageError{
+    text-align: center;
+    font-size: 0.8em;
+    color: #a42222;
+}
+#messageAuth{
+    text-align: center;
+    font-size: 0.9em;
+    color: #88c896;
+}
