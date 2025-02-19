@@ -11,7 +11,8 @@ $num_biglietti=$_POST['num_biglietti'];
 $mondo = $_POST['location'];
 $data_p = $_POST['data_p'];
 $data_r = $_POST['data_r'];
-
+$json= json_decode($_POST['dati']);
+$prezzo= $_POST['prezzo'];
 if(isset($email)){
 
     // Array di date
@@ -30,7 +31,8 @@ if(isset($email)){
         $result= pg_execute($db, "prenotazione", $values);
     }
 
-    //includi creazione pdf;
+    //includi creazione pdf
+    include('gen_pdf.php');
 }
 
 
