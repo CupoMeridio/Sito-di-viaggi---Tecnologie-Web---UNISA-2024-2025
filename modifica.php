@@ -18,7 +18,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifica dati</title>
-    <link rel="stylesheet" href="DragonBallStyle.css">
+    <link rel="stylesheet" href="registrazioneStyle.css">
 </head>
 <body>
 <nav>
@@ -45,16 +45,18 @@
 <h2>Modifica Dati</h2>
     <form action="" method="post" enctype="multipart/form-data">
         <label>Nome:</label>
-        <input type="text" name="nome" placeholder="<?php echo $nome ?>" required>
+        <input type="text" name="nome" value="<?php echo $nome ?>" required>
         
         <label>Cognome:</label>
-        <input type="text" name="cognome" placeholder="<?php echo $cognome ?>" required>
+        <input type="text" name="cognome" value="<?php echo $cognome ?>" required>
         
         <label>Email:</label>
-        <input type="email" name="email" placeholder="<?php echo $email ?>" required>
+        <input type="email" name="email" value="<?php echo $email ?>" required>
         
         <label>Username:</label>
-        <input type="text" name="username" placeholder="<?php echo $username?>" required>
+        <input type="text" name="username" value="<?php echo $username?>" required>
+
+        
         
         <label>Foto Profilo:</label>
         <input type="file" name="fotoProfilo" accept="image/*">
