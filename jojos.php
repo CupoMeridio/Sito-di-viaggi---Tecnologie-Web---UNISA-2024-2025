@@ -1,10 +1,14 @@
 <?php
-session_start();
-$img=$_SESSION['img'];
-$username=$_SESSION['username'];
-$email=$_SESSION['email'];
+  session_start();
+  if(isset($_SESSION['img']))
+    $img=$_SESSION['img'];
+  if(isset($_SESSION['username']))
+    $username=$_SESSION['username'];
+  if(isset($_SESSION['email']))
+    $email=$_SESSION['email'];
+  //DEVO SETTARE IL MONDO
+  $_SESSION['mondo']='jojo';
 ?>
-
 <!DOCTYPE html>
 <html lang="it">                                                                                        <!-- Specifica il tipo di documento come HTML5 e imposta la lingua della pagina su italiano -->
 

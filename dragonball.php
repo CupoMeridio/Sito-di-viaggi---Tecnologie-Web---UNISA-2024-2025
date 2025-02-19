@@ -6,6 +6,8 @@
     $username=$_SESSION['username'];
   if(isset($_SESSION['email']))
     $email=$_SESSION['email'];
+  //DEVO SETTARE IL MONDO
+  $_SESSION['mondo']='dragon_ball';
 ?>
 
 <!DOCTYPE html>

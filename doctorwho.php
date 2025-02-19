@@ -1,3 +1,14 @@
+<?php
+  session_start();
+  if(isset($_SESSION['img']))
+    $img=$_SESSION['img'];
+  if(isset($_SESSION['username']))
+    $username=$_SESSION['username'];
+  if(isset($_SESSION['email']))
+    $email=$_SESSION['email'];
+  //DEVO SETTARE IL MONDO
+  $_SESSION['mondo']='doctor_who';
+?>
 <!DOCTYPE html>
 <html>
 <head>

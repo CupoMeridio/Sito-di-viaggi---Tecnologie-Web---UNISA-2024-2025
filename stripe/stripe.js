@@ -1,5 +1,19 @@
 
     let form_prenotazione = document.getElementById('booking-form');
+    const MAX=101;
+    function prendiDatiAggiuntivi(){
+        //1. una variaile stringa da ritornare
+        let num_biglietti = parseInt(formData.get('tickets-count'));
+        let stringa=new Array(MAX);
+        for(let i=0; i<num_biglietti; i++){
+            stringa[i]="nominativo"+i+":"+form_prenotazione.getElementsById("ticket-name-"+i).value;
+        }
+        //ABBIAMO TUTTI I BIGLIETTI
+        stringa[num_biglietti]="commento:"+form_prenotazione.getElementById('comments').value;//qua si prende il commento
+        //creo json
+        let json=JSON.stringify(stringa);
+        //alert(json);
+    }
 
     function calcolaprezzo(event) {
         event.preventDefault(); // Evita il comportamento predefinito
@@ -16,7 +30,7 @@
         let data_p = Date.parse(formData.get('departure-date'));
         let data_r = Date.parse(formData.get('return-date'));
         let bottone_stripe = document.getElementById('submit-button');
-        let importo = document.getElementById('importo');
+        var importo = document.getElementById('importo');
         let prenotazione = document.getElementById('submit-form-button');
         
         let costo_biglietto = 50;
@@ -97,6 +111,7 @@
                 document.getElementById('submit-button').disabled = false;
             } else if (paymentIntent && paymentIntent.status === 'succeeded') {
                 alert('Pagamento completato con successo!');
+                aggiornaPrenotazione();
                 let pag_stripe = document.getElementById('pagamento_con_stripe');
                 if (pag_stripe) {
                     pag_stripe.style.display = "none";
@@ -142,6 +157,7 @@
         let location = formData.get('location');
         let data_p = Date.parse(formData.get('departure-date'));
         let data_r = Date.parse(formData.get('return-date'));
+        let dati=prendiDatiAggiuntivi();
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
@@ -151,6 +167,6 @@
 
         xhr.open("POST", "prenotazioni.php");
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send(`num_biglietti=${num_biglietti}&location=${location}&data_p=${data_p}&data_r=${data_r}`);
+        xhr.send(`num_biglietti=${num_biglietti}&location=${location}&data_p=${data_p}&data_r=${data_r}&dati=${dati}&prezzo=${importo}`);
     }
 
