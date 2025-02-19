@@ -305,10 +305,10 @@ div.messaggio-login a:hover, div.messaggio-registrazione a:hover{
 .messageError{
     text-align: center;
     font-size: 0.8em;
-    color: #a20000;
+    color: #a42222;
 }
 #messageAuth{
     text-align: center;
-    font-size: 0.8em;
-    color: #b9b9b9;
+    font-size: 0.9em;
+    color: #88c896;
 }
