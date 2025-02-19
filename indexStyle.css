@@ -4,41 +4,32 @@ body {
     flex-direction: column;                                               /* Disposizione verticale degli elementi */
     margin: 0;                                                            /* Rimuove il margine predefinito del body */
     padding: 0;                                                           /* Rimuove il padding predefinito del body */
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Imposta il font della navbar */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
     
 }
 
 
 
 /* Navbar */
-.navbar {
-    background-color: blueviolet;                                          /* Colore di sfondo della navbar */
+nav {
+    font-family:  Arial, sans-serif;                                            /* Imposta il font della navbar */
     display: flex;                                                              /* Usa flexbox per allineare gli elementi */
     justify-content: space-around;                                              /* Distribuisce uniformemente gli elementi lungo la navbar */
-    align-items: center; 
+    align-items: center;                                                        /* Centra verticalmente gli elementi */
+    background-color: blueviolet;                                                  /* Imposta un colore arancione per la navbar */
     padding-top: 15px;                                                          
     padding-bottom: 15px;
     position: fixed;                                                            /* Mantiene la navbar fissa in alto */
     width: 100%;                                                                /* Occupa l'intera larghezza della pagina */
     top: 0;                                                                     /* Posiziona la navbar in cima alla finestra */
-    z-index: 2;                                                              /* Assicura che la navbar stia sopra gli altri elementi */
-}
-.navbar div{
-    display: flex;
-    align-items: center;
-}
-.navbar div span{
-    margin-right: 10px;
-
+    z-index: 2;                                                                 /* Assicura che la navbar stia sopra gli altri elementi */
 }
 
-.navbar img{
+nav img{
     height: 40px;
     margin-left: 15px;
     cursor: pointer;
 }
-
-
 
 
 .navButton {
@@ -53,25 +44,24 @@ body {
 }
 
 .navButton:hover {
-    background: rgb(60, 26, 156);                                                        /* Cambia il colore di sfondo al passaggio del mouse */
-    border-radius: 5px;
-    cursor: pointer                                                         /* Arrotonda leggermente i bordi */
+    background: #ff6600;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
+    border-radius: 5px;                                                         /* Arrotonda leggermente i bordi */
 }
 
 .navButton:nth-child(3) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
     margin-right: auto;
 }
 
-.navbar div img {
+nav div img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 15px;
-    object-fit: cover; /* Mantiene le proporzioni dell'immagine */
-    overflow: hidden; /* Nasconde l'overflow */
+    object-fit: cover;                                                          /* Mantiene le proporzioni dell'immagine */
+    overflow: hidden;                                                           /* Nasconde l'overflow */
 }
 
-.navbar div{
+nav div{
     display: flex;
     align-items: center;                                                        /* Allinea verticalmente al centro */
 }

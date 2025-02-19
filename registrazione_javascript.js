@@ -3,7 +3,7 @@
 // document.getElementById('main-container').addEventListener('submit', function (event) { // modifica da Mattia per provare il submit 
 
 
-function verificaModulo(){ // viene chiamata dal onsubmit del form una volta cliccato fala verifica -> se vero spedisce | se falso NO.
+function verificaModulo(){ // viene chiamata dal onsubmit del form. Una volta cliccato fa la verifica -> se vero spedisce | se falso NO.
     console.log("Funzione verificaModulo eseguita"); // Debug
     //alert("Funzione verificaModulo eseguita");
     //event.preventDefault(); // Previene il comportamento predefinito di invio del form
@@ -62,7 +62,7 @@ function verificaModulo(){ // viene chiamata dal onsubmit del form una volta cli
     //CONFERMA PASSWORD
     // Controlla se le password corrispondono
     if (password!== confirmPassword) {
-        confirmPasswordError.textContent = 'La password non corrispondono!';
+        confirmPasswordError.textContent = 'Le password non corrispondono!';
        
     } else {
         confirmPasswordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
@@ -123,7 +123,7 @@ elementoVerificaPassword.addEventListener("input", function(){
     }else if (password.value !== elementoVerificaPassword.value && elementoVerificaPassword.value!=='') {
         span.textContent='Show Password';
         okPassword.textContent='';
-        confirmPasswordError.textContent = 'La password non corrispondono!';        
+        confirmPasswordError.textContent = 'Le password non corrispondono!';        
     } else if(password.value === elementoVerificaPassword.value){
         span.textContent='Show Password';
         okPassword.textContent='ok';
@@ -212,7 +212,7 @@ const emailProviders = [
   ];
 //Funzione per validare l'email
 //SITO REGEX---> https://support.boldsign.com/kb/article/15962/how-to-create-regular-expressions-regex-for-email-address-validation
-//grazie al sito abbaimo aggiunto un punto anche dpo la chiocciola per permettere l'inserimento di email che hano più punti
+//grazie al sito abbiamo aggiunto un punto anche dopo la chiocciola per permettere l'inserimento di email che hanno più punti
 function validateEmail(email){
     //alert("sono stato chiamato");
     let pattern = /^[a-zA-Z0-9_.±]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/; 
@@ -404,7 +404,7 @@ document.getElementById('email').addEventListener('blur', function(){
             emailError.textContent = "";
         } else {
             //alert("sono nell'if in ui NON esiste la mail");
-            emailError.textContent = "Questa email è già in uso."; 
+            emailError.textContent = "Questa email è già associata ad un account."; 
         }
     } 
     }
@@ -436,7 +436,7 @@ function controlloEmailLogin() {
                 emailErrorLogin.textContent = "";
                
             } else {
-                emailErrorLogin.textContent = "L'email inserita non è presente";
+                emailErrorLogin.textContent = "Non esiste alcun account associato a questa email.";
                
             }
         }

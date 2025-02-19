@@ -61,14 +61,14 @@ if ($form == "reg") {
             $_SESSION['email'] = $email;
             header("Location: index.php");
         } else {//CONTROLLO PASSWORD FALLITO
-            $_SESSION['errore'] = $_SESSION['errore'] . " Password non esistente. ";
+            $_SESSION['errore'] = $_SESSION['errore'] . " Password errata. ";
             //header("Location: index.php"); 
             header("Location: registrazione.php?login");
             exit();
         }
 
     } else {//CONTROLLO EMAIL FALLITO
-        $_SESSION['errore'] = $_SESSION['errore'] . " E-mail non esistente. ";
+        $_SESSION['errore'] = $_SESSION['errore'] . " L'email inserita non è associata ad alcun account. ";
         //header("Location: index.html"); 
         header("Location: registrazione.php?login");
         exit();

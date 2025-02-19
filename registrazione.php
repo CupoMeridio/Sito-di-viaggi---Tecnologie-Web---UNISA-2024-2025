@@ -40,13 +40,12 @@ if(isset($_POST["inviato"])){
         <a class="navButton" id="aboutButton"href="index.php#about">About</a>
     </nav>
 
-<video id="background-video" autoplay muted loop></video>
-                                                                            <!-- Video di background -->
-    <div id="main-container" class="regcontainer" style="display: <?php echo $showRegister ? 'block' : 'none'; ?>;">     
-        <div id="registrazione_page" class="page">                                                                       <!-- Contenitore principale per il modulo di registrazione, utile per applicare stili CSS -->                                                                                             <!-- Titolo della sezione del modulo -->
+<video id="background-video" autoplay muted loop></video>                                               <!-- Video di background -->
+    <div id="main-container" class="regcontainer" style="display: <?php echo $showRegister ? 'block' : 'none'; ?>;">     <!-- Contenitore principale per il modulo di registrazione -->
+        <div id="registrazione_page" class="page">                                                                                                                                                                    <!-- Titolo della sezione del modulo -->
         <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" onsubmit="return verificaModulo()">  <!-- onsubmit che serve alla verifica della pw -->
-            <input type="hidden" name="action" value="reg">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
-            <div id="registrazione">
+            <input type="hidden" name="action" value="reg">
+            <div id="registrazione">                                                                    <!-- Inizio del modulo per la registrazione -->
 
             <div class="form-group">
 
@@ -118,13 +117,8 @@ if(isset($_POST["inviato"])){
         <?php
         }?>
          </div>
-        </div> 
-
-
-
-                                                                                   <!-- Paragrafo8$ vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
-    </div>
-
+        </div></div>                                                                                    <!-- Paragrafo8$ vuoto per visualizzare messaggi dinamici (es. conferma registrazione) -->
+    
     <div id="login_page" class="logincontainer" style="display: <?php echo !$showRegister ? 'block' : 'none'; ?>;">
         <?php
          if(isset($_SESSION['auth']) ) { ?>
@@ -132,13 +126,12 @@ if(isset($_POST["inviato"])){
         <?php
         }?>
         <form id="form-login"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-        <input type="hidden" name="action" value="login">                                                  <!-- Inizio del modulo per la registrazione, identificato dall'id "registrazione" -->
-            <div id="login">
-
+        <input type="hidden" name="action" value="login">                                                  
+            <div id="login">                                                                             <!-- Inizio del modulo per il login" -->
             <div class="form-group">
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Email -->
                     <label for="email-login">Email</label>
-                    <input type="email" id="email-login" name="email" value="<?php echo isset($_GET['email']) ? htmlspecialchars($_GET['email']) : ''; ?>" required>                                <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                    <input type="email" id="email-login" name="email" value="<?php echo isset($_GET['email']) ? htmlspecialchars($_GET['email']) : ''; ?>" required>    <!-- Il tipo "email" garantisce una validazione di base del formato email -->
                    
 
                     <div id = "emailErrorLogin" class=error></div>

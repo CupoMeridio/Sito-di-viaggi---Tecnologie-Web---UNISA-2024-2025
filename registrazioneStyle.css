@@ -57,10 +57,7 @@ nav img:hover{
     margin-right: auto;
 }
 
-/* Stile per il contenitore principale */
-#main-container{
-    margin-top: 5%;
-}
+
 
 .regcontainer, .logincontainer{
     width: 55%;
@@ -268,7 +265,12 @@ video {
 
 /* Responsive: una colonna su dispositivi stretti */
 @media (max-width: 800px) {
-    #registrazione {
+    #main-container{
+        margin-top: 200px;
+        margin-bottom: 200px;
+    }
+    
+    #registrazione{
         grid-template-columns: 1fr;       /* Disposizione a una sola colonna */
     }
 
@@ -277,8 +279,7 @@ video {
     }
 
     body {
-        margin-top: 200px;
-        margin-bottom: 200px;
+
         overflow-y: auto; /* Permette di scrollare la pagina */
     }
 }
