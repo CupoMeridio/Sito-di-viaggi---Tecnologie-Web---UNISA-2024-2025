@@ -31,7 +31,7 @@ if ($form == "reg") {
         }
         if (controlloPatternEmail($email) && controlloPatternPassword($password) && controlloPtternNome($nome) && controlloPatternCognome($cognome)) {
             $hash = password_hash($password_pre_hash, PASSWORD_DEFAULT);
-            $query_no_injection = "INSERT INTO utente (nome, cognome, username, email, password, img,type) VALUES ($1, $2, $3, $4, $5, $6, $7)";
+            $query_no_injection = "INSERT INTO utente (nome, cognome, username, email, password, img,type) VALUES ($1, $2, $3,LOWER($4), $5, $6, $7)";
             //inserimento dei dati nel database
             $result = pg_prepare($db, "insert", $query_no_injection);
             $values = array($nome, $cognome, $username, $email, $hash, $bytea, $type);
