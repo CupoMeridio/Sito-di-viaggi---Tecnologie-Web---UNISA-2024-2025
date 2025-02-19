@@ -11,7 +11,7 @@ function controlloPatternEmail($email){
     return preg_match($pattern, $email);
     
 }
-function controlloPtternNome($nome){
+function controlloPatternNome($nome){
     $pattern = "/^[a-zA-Z][a-zA-Z0-9]*$/";
     return preg_match($pattern,$nome);
 }

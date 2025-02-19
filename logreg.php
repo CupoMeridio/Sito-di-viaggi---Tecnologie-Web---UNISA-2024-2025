@@ -29,7 +29,7 @@ if ($form == "reg") {
             $bin = file_get_contents($img);
             $bytea = pg_escape_bytea($bin);
         }
-        if (controlloPatternEmail($email) && controlloPatternPassword($password) && controlloPtternNome($nome) && controlloPatternCognome($cognome)) {
+        if (controlloPatternEmail($email) && controlloPatternPassword($password_pre_hash) && controlloPatternNome($nome) && controlloPatternCognome($cognome)) {
             $hash = password_hash($password_pre_hash, PASSWORD_DEFAULT);
             $query_no_injection = "INSERT INTO utente (nome, cognome, username, email, password, img,type) VALUES ($1, $2, $3,LOWER($4), $5, $6, $7)";
             //inserimento dei dati nel database
