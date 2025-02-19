@@ -49,7 +49,7 @@
       <li><a href="#">Carrello</a></li>
       <li><a href="#">Informazioni dell'account</a></li>
       <li><a href="#">Bho qualcje altra cosa</a></li>
-      <li><a href="#">Esci</a></li>
+      <li><a href="logout.php">Esci</a></li>
     </ul>
     
   <header>
