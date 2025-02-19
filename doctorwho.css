@@ -1,49 +1,3 @@
-.text{
-    display: none;
-}
-.presentazione {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center; /* Centra le immagini orizzontalmente */
-    align-items: center; /* Centra le immagini verticalmente */
-}
-
-.presentazione img {
-    width: 100%;
-    height: 50vh;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto; /* Centra le immagini orizzontalmente */
-}
-
-.colonne.immagini {
-    top: 50px;
-    position: relative;
-    width: 50%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center; /* Centra le immagini orizzontalmente */
-    align-items: center; /* Centra le immagini verticalmente */
-}
-
-#img1, #img2, #img3 {
-    display: none;
-}
-
-#porta {
-    animation-name: apparizione;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-}
-@keyframes apparizione {
-    0%   {opacity: 0.5;}
-    25%  {opacity: 0.75;}
-    50%  {opacity: 0.25;}
-    100% {opacity: 1;}
-}
-
 /* Stile generale */
 body {
     font-family: Arial, sans-serif;                                             /* Imposta il font generale della pagina */
@@ -86,7 +40,7 @@ nav img{
 }
 
 .navButton:hover {
-    background: #ff6600;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
+    background: #0b1a49;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
     border-radius: 5px;                                                         /* Arrotonda leggermente i bordi */
 }
 
@@ -187,6 +141,107 @@ header {
     visibility: initial;
 }
 
+
+
+/*slideshow*/
+.slideshow-container {
+    position: relative;
+    top: 50px;
+    height: 50%;
+    width: 30%;                                                           /* Imposta la larghezza al 100% della finestra */
+    overflow: hidden;                                                      /* Nasconde qualsiasi parte dell'immagine che esce dai bordi */
+    margin: 0 auto;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+/* Immagini dello slideshow */
+.slideshow-container img {
+    width: 100%;                                                           /* Imposta la larghezza dell'immagine al 100% del contenitore */
+    height: 30vh;                                                          /* Imposta l'altezza dell'immagine al 100% del contenitore */
+    object-fit: cover;                                                     /* Rende l'immagine di copertura, mantenendo il suo rapporto di aspetto */
+    display: block;                                                        /* Rimuove lo spazio sotto l'immagine */
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* Animazione per l'effetto di fade */
+.fade {
+    animation: fading 0.7s ease-in-out;                                      /* Effetto di transizione con l'animazione fading */
+}
+
+@keyframes fading {
+    from {
+        opacity: 0;                                                       /* Inizia con opacità ridotta */
+    }
+
+    to {
+        opacity: 1;                                                         /* Arriva a piena opacità */
+    }
+}
+
+
+/* Pulsanti di navigazione */
+.prev, .next {
+    position: absolute;                                                     /* Posizione assoluta per i pulsanti di navigazione */
+    top: 40%;                                                               /* Posizione verticale centrata rispetto all'immagine */
+    color: rgb(255, 255, 255);                                                    /* Colore dei pulsanti */
+    background-color:  rgba(32, 18, 73, 0.8);                           /* Colore di sfondo semitrasparente per i pulsanti */
+    box-shadow: 0 0 5px  rgba(122, 78, 255, 0.5);
+    cursor: pointer;                                                        /* Cambia il cursore a mano quando il mouse è sopra il pulsante */
+    padding: 10px;                                                          /* Aggiunge spazio interno al pulsante */
+    border-radius: 50%;                                                     /* Rende i pulsanti rotondi */
+    font-weight: bold;                                                      /* Imposta il peso del font dei pulsanti */
+    font-size: 18px;                                                        /* Imposta la dimensione del font */
+    transition: 0.6s ease;                                                  /* Aggiunge transizione al passaggio sopra */
+    user-select: none;                                                      /* Disabilita la selezione del testo */
+}
+
+.prev {
+    left: 10px;                                                             /* Posiziona il pulsante "prev" a sinistra */
+}
+
+.next {
+    right: 10px;                                                            /* Posiziona il pulsante "next" a destra */
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(51, 30, 114, 0.7);                                  /* Cambia il colore di sfondo al passaggio sopra */
+}
+
+/* Descrizione della slide */
+.captionText {
+    color: #f2f2f2;                                                       /* Colore del testo per la didascalia */
+    font-size: 16px;                                                        /* Dimensione del testo per la didascalia */
+    position: relative;                                                     
+    width: 20%;                                                            /* La didascalia occupa tutta la larghezza dell'immagine */
+    text-align: center;
+    background-color:  rgba(32, 18, 73, 0.8);;                            /* Cambia il colore di sfondo al passaggio del mouse */
+    bottom: 30px;
+    left: 30px;
+    padding: 3px;
+}
+
+/*TARDIS*/
+.intermezzo {
+    position: relative;
+    top: 50px;
+    height: 50%;
+    width: 30%;                                                           /* Imposta la larghezza al 100% della finestra */
+    overflow: hidden;                                                      /* Nasconde qualsiasi parte dell'immagine che esce dai bordi */
+    margin: 0 auto;
+    margin-top: 0;
+    margin-bottom: 25px;
+    display: none;
+}
+
+.intermezzo img{
+    width: 100%;                                                           /* Imposta la larghezza dell'immagine al 100% del contenitore */
+    height: 30vh;                                                          /* Imposta l'altezza dell'immagine al 100% del contenitore */
+    object-fit: cover;                                                     /* Rende l'immagine di copertura, mantenendo il suo rapporto di aspetto */
+    display: block;                                                        /* Rimuove lo spazio sotto l'immagine */
+    border-radius: 30px;
+}
 
 /* Container */
 .container {
