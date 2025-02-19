@@ -53,7 +53,7 @@ nav img:hover{
     border-radius: 5px;                                                         /* Arrotonda leggermente i bordi */
 }
 
-.navButton:nth-child(3) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
+.navButton:nth-child(4) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
     margin-right: auto;
 }
 

@@ -38,6 +38,7 @@ if(isset($_POST["inviato"])){
         <a href="index.php"><img src="immagini/logo.png"></a>
         <a class="navButton" id="homeButton" href="index.php">Home</a>
         <a class="navButton" id="aboutButton"href="index.php#about">About</a>
+        <a class="navButton" id="contactButton" href="index.php#contact-section">Contact</a>
     </nav>
 
 <video id="background-video" autoplay muted loop></video>
