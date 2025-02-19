@@ -38,7 +38,7 @@
   <?php if (isset($email)) { ?>
     <!-- Sezione profilo utente -->
     <div id="userProfile">
-      <span id="welcomeMessage"><?php echo "Ciao, $nomeutente"; ?> </span>
+      <span id="welcomeMessage"><?php echo "Ciao, $username"; ?> </span>
       <?php echo '<img id="profilePic" src="' . $img . '">'; ?>
 
     </div>
