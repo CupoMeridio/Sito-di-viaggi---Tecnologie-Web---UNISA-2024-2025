@@ -31,26 +31,38 @@ function PrendiCommenti() {
 }
 
 function LeggiCommenti(response) {
-    var commenti = JSON.parse(response);
     var html = "";
-    for (var i = 0; i < commenti.length; i++) {
-        html += `
-            <div class="commento">
-                <div class="commento-header">
-                    <span class="email">${commenti[i].email}</span>
-                    <span class="rating">${convertiStelle(commenti[i].stelle)}</span>
-                </div>
-                <div class="commento-body">
-                    <p class="testo" style="white-space: pre-wrap;">${commenti[i].testo}</p>
-                </div>
-                <div class="commento-footer">
-                    <span class="id-testo">ID: ${commenti[i].id_testo}</span>
-                </div>
-            </div>
-        `;
-        ID_ULTIMO_COMMENTO = commenti[i].id_testo;
+    try {
+        var commenti = JSON.parse(response);
+        if (commenti.length) {
+            //tutto ok
+            for (var i = 0; i < commenti.length; i++) {
+                html += `
+                    <div class="commento">
+                        <div class="commento-header">
+                            <span class="email">${commenti[i].email}</span>
+                            <span class="rating">${convertiStelle(commenti[i].stelle)}</span>
+                        </div>
+                        <div class="commento-body">
+                            <p class="testo" style="white-space: pre-wrap;">${commenti[i].testo}</p>
+                        </div>
+                        <div class="commento-footer">
+                            <span class="id-testo">ID: ${commenti[i].id_testo}</span>
+                        </div>
+                    </div>
+                `;
+                ID_ULTIMO_COMMENTO = commenti[i].id_testo;
+            }
+            document.getElementById("reviews-container").innerHTML = html;
+        }else{
+            //vuoto
+            html="<p>Nessuna recensione disponibile. Sii il primo a lasciare un commento!</p>";
+            document.getElementById("reviews-container").innerHTML = html;
+        }
+    } catch (e) {
+        //errore
+        alert("errore nel caricamento dei commenti riprovare "+ e.message);
     }
-    document.getElementById("reviews-container").innerHTML = html;
 }
 
 function convertiStelle(rating) {

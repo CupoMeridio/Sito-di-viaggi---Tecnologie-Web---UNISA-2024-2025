@@ -17,11 +17,26 @@ if ( isset($_POST['max']))
     $MAX = $_POST['max'];
 
 
-$query= "SELECT email, testo, id_testo, mondo,stelle FROM commento where (id_testo > $MAX)";// ricordati di usare il prepere 
+if(!isset($_SESSION['mondo'])){
+    $query_no_injection= "SELECT email, testo, id_testo, mondo,stelle FROM commento where (id_testo > $1)";// ricordati di usare il prepere 
+    //inserimento dei dati nel database
+    $result=pg_prepare($db, "insert_commenti", $query_no_injection); 
+    $values=array($MAX);
 
-$result = pg_query($db, $query);
+    //adesso eseguo la query con i valori escapati
+    $result=pg_execute($db, "insert_commenti", $values);
+ 
+}else{
+    $query_no_injection = "SELECT email, testo, id_testo, mondo, stelle FROM commento WHERE (id_testo > $1) AND (mondo = $2)";// ricordati di usare il prepere 
 
-$row = pg_fetch_assoc($result);
+    $result=pg_prepare($db, "insert_commenti_mondo", $query_no_injection); 
+    $values=array($MAX , $_SESSION['mondo']);
+
+    //adesso eseguo la query con i valori escapati
+    $result=pg_execute($db, "insert_commenti_mondo", $values);
+}
+
+
 
 
 $out = [];
