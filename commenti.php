@@ -15,10 +15,9 @@ $db= pg_connect( $connection_string) or die('Impossibile connetersi al database:
 $testo =$_POST['experience'];
 $stelle=$_POST['rating'];
 
-/*$email =  $_SESSION['email'];
-$mondo=  $_SESSION['mondo'];*/
-$email="mattiasanzari2003@gmail.com";
-$mondo="DragonBall";
+$email =  $_SESSION['email'];
+$mondo=  $_SESSION['mondo'];
+
 //$stelle= 5;//vedi come prenderle 
 
 $query= "INSERT INTO commento (email, testo, mondo, stelle ) VALUES ($1,$2,$3,$4)";
