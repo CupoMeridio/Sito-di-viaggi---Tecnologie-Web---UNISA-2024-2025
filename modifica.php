@@ -34,7 +34,7 @@ if (isset($_POST['update'])) {
     }
 
     // Query per aggiornare i dati dell'utente
-    if(isset($img_up)){
+    if(isset($img_up) && $img_up != null){
         $query = "UPDATE utente SET nome = $1, cognome = $2, username = $3, img = $4, type = $5 WHERE email = $6";
         $result = pg_prepare($db, "update_user", $query);
         $values = array($nome, $cognome, $username, $img_up, $type, $_SESSION['email']);
