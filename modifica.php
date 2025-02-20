@@ -48,12 +48,14 @@ if (isset($_POST['update'])) {
     $result = pg_execute($db, "update_user", $values);
 
     if ($result) {
-        header("Location: index.php");
-        exit();
+        //header("Location: index.php");
+        echo "<script>window.parent.postMessage('operationComplete', '*');</script>";
+        //exit();
     } else {
         $_SESSION['errore'] = "Errore durante l'aggiornamento dei dati.";
         header("Location: modifica.php");
-        exit();
+        echo "<script>window.parent.postMessage('operationComplete', '*');</script>";
+        //exit();
     }
 
     unset($img_up);
@@ -98,6 +100,9 @@ if (isset($_POST['update'])) {
         <input type="file" name="fotoProfilo" accept="image/*">
 
         <div class="wrapper"><input type="submit" name="update" value="Aggiorna Dati"></div>
+        <div class="wrapper">
+            <input type="button" name="close" value="Chiudi la Pagina" onclick="window.parent.postMessage('operationComplete', '*')">
+        </div>
     </form>
     <?php 
     if(isset($_SESSION['errore'])){
@@ -114,4 +119,6 @@ if (isset($_POST['update'])) {
 
 unset($_SESSION['errore']); 
 pg_close();
+
+
 ?>
