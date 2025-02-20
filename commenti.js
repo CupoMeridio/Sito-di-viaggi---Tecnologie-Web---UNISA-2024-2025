@@ -85,7 +85,7 @@ setInterval(PrendiCommenti, 5000);
 
 function updateReviewPlaceholder() {
     // Ottieni l'elemento select della location
-    const locationSelect = document.getElementById("location");
+    const locationSelect = document.getElementById("location_selection");
     // Ottieni l'elemento textarea
     const experienceTextarea = document.getElementById("experience");
 

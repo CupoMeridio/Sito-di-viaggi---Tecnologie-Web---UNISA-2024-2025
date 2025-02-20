@@ -1,0 +1,31 @@
+#form-container, #form-container-review{
+  position: relative; /* Rendi il contenitore del form un punto di riferimento per l'overlay */
+  padding: 20px;
+}
+
+.form-overlay{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+  display: none; /* Inizialmente nascosto */
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5em;
+  border-radius: 10px; /* Arrotonda gli angoli */
+}
+
+#form-overlay-review {
+    width: 100%;
+}
+
+.overlay-message {
+  background-color: rgba(255, 153, 0);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+}

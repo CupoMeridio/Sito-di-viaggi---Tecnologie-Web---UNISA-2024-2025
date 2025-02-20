@@ -17,39 +17,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">                              <!-- Rende la pagina responsiva, adattandola alla larghezza dello schermo del dispositivo -->
     <title>JoJo's Bizarre Adventure</title>                                                                          <!-- Imposta il titolo della pagina che apparirà nella scheda del browser -->
     <link rel="stylesheet" href="jojos.css">                                                  <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
-    <script src="mondo_javascript.js" type="text/javascript" defer="true"></script>                    <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
+    <link rel="stylesheet" href="commons/navbarStyle.css">
+    <link rel="stylesheet" href="commons/headerStyle.css">
+    <link rel="stylesheet" href="commons/footerStyle.css">
+    <link rel="stylesheet" href="commons/dashboardStyle.css">
+    <link rel="stylesheet" href="commons/overlayblockStyle.css">
+    <script src="commons/mondo_javascript.js" type="text/javascript" defer="true"></script>                    <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
     <script src="commenti.js" type="text/javascript" defer="true"></script>
+    <script src="stripe/stripe.js" type="text/javascript" defer></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <?php include("commons/setIcon.html"); ?>
   </head>
 
 <body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
-  <nav>
-    <a href="index.php"><img src="immagini/logo.png"></a>
-    <a class="navButton" id="homeButton" href="index.php">Home</a>
-    <a class="navButton" id="aboutButton"href="index.php#about-section">About</a>
-    <a class="navButton" id="contactButton" href="index.php#contact-section">Contact</a>
-    
-    <?php if(!isset($email)){?>
-    <a class="navButton" id="registrazioneButton" href="registrazione.php">Registrati</a>
-    <a class="navButton" id="accessoButton" href="registrazione.php?login">Accedi</a>
-    <?php }?>
-    
-    <?php if(isset($email)){?>
-    <!-- Sezione profilo utente -->
-    <div id="userProfile">
-        <span id="welcomeMessage"><?php echo "Ciao, $username";?> </span>  
-         <?php echo '<img id="profilePic" src="'.$img.'">'; ?>
-        
-    </div>
-    <?php }?>
-    
-  </nav>
+   <?php include 'commons/navbar.php'; ?>
   
-  <ul id="dashboard">
-      <li><a href="#">Carrello</a></li>
-      <li><a href="#">Informazioni dell'account</a></li>
-      <li><a href="#">Bho qualcje altra cosa</a></li>
-      <li><a href="#">Esci</a></li>
-    </ul>
+   <?php include 'commons/dashboard.html'; ?>
+  
+
     
   <header>
     <video src="video/jojo/jojovideo.mp4" class="headerVideo" id="background-video" alt="Jojo background video" autoplay muted loop></video>
@@ -211,6 +196,7 @@
 <!-- Sezione Prenotazione Viaggio -->
 <div class="booking-section" style="clear:both">
   <h2>Prenota il Tuo Viaggio Fantastico!</h2>
+  <div id="form-container"> <!-- Contenitore per il form -->
   <form id="booking-form" action="#" method="POST">
     <label for="tickets-count">Numero di Biglietti:</label>
     <input type="number" id="tickets-count" name="tickets-count" min="1" value="1" required>
@@ -239,6 +225,12 @@
     
     <button type="submit" id="submit-button">Prenota il Tuo Viaggio</button>
   </form>
+  <?php if(!isset($email)){ ?>
+  <div id="form-overlay" class="form-overlay">
+    <div class="overlay-message">Registrati o accedi per prenotare il tuo viaggio!</div>
+  </div>
+  <?php } ?>
+  </div>
 </div>
 
 <script>
@@ -252,27 +244,25 @@
   }
 </script>
 
+  <?php include("commons/popup.html"); ?>
+
 <!-- Sezione Recensioni -->
 <div class="reviews-section" style="display: flex; justify-content: space-between">
   
   <!-- Colonna Visualizzazione Recensioni -->
-  <div class="reviews-display" style="width: 50%; height: 300px; overflow-y: auto;">
-    <h2>Recensioni dei Viaggiatori</h2>
-    <div id="reviews-container" style="border: 1px solid; margin: 10px; padding: 10px">
-      <p>Nessuna recensione disponibile. Sii il primo a lasciare un commento!</p>
-    </div>
-  </div>
+  <?php include("commons/recensioni.html"); ?>
   
   <!-- Colonna Aggiunta Recensione -->
   <div class="review-form" style="width: 50%;">
     <h2>Lascia una Recensione</h2>
     <!-- <form action="submit_review.php" method="post">-->
+      <div id="form-container-review"> <!-- Contenitore per il form -->
       <form id="reviewForm" name="commenti">
         <label for="location">Seleziona la location:
-        <select id="location" name="location" onchange="updateReviewPlaceholder()"></label>
-            <option value="kamehouse">Roma</option>
-            <option value="namecc">Venezia</option>
-            <option value="kingkaiplanet">Napoli</option>
+        <select id="location_selection" name="location" onchange="updateReviewPlaceholder()"></label>
+            <option value="kamehouse">Kame House</option>
+            <option value="namecc">Namecc</option>
+            <option value="kingkaiplanet">King Kai Planet</option>
         </select>
         <br><br>
         
@@ -289,21 +279,22 @@
         <label for="experience">La tua esperienza:</label><br>
         <textarea id="experience" name="experience" rows="4" cols="50" required placeholder="Scrivi la tua esperienza..."></textarea>
         <br><br>
-        
+        <?php if(isset($email)){ ?> 
         <input type="button" value="Invia Recensione" onclick="InserisciCommento()">
-    </form>
+        <?php }else{ ?> 
+        <input type="button" value="Registrati o accedi per inviare una recensione" >
+        <?php  }?>
+      </form>
+      <?php if(!isset($email)){ ?>
+      <div id="form-overlay-review" class="form-overlay">
+        <div class="overlay-message">Registrati o accedi per scrivere una recensione!</div>
+      </div>
+      <?php } ?>
+    </div>
   </div>
 </div>
 
   
-  <footer>
-    <div class="footer-content">
-        <p>&copy; 2025 BeyondReality Journeys | Tutti i diritti riservati.</p>
-        <p class="disclaimer">
-            🚨 <strong>Disclaimer:</strong> Questo sito non è un reale sito di viaggi, ma è un progetto creato per l'esame di <strong>Tecnologie Web</strong> dell'Università degli Studi di Salerno (UNISA) per l'anno accademico 2024/2025. <br>
-            Tutti i contenuti sono puramente fittizi.
-        </p>
-    </div>    
-</footer>
+  <?php include("commons/footer.html"); ?>
 </body>
 </html>

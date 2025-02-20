@@ -1,0 +1,24 @@
+/* Header */
+header {
+    position: relative;                                                         /* Imposta il posizionamento relativo per il contenitore */
+    width: 100%;                                                                /* Occupa l'intera larghezza */
+    height: 50vh;                                                               /* Occupa metà dello schermo in altezza */
+    overflow: hidden;                                                           /* Nasconde eventuali contenuti che escono dal riquadro */
+    min-height: 300px;                                                          /* Imposta un'altezza minima per evitare che si riduca troppo */
+   
+}
+
+.headerVideo {
+    margin-top: 53px;                                                           /* Posiziona il video nell'header appena sotto la navbar */
+    width: 100%;                                                                /* Occupa l'intera larghezza */
+    height: 100%;                                                               /* Occupa tutta l'altezza disponibile */
+    object-fit: cover;                                                          /* Adatta il video per coprire tutto lo spazio disponibile */
+}
+
+.headerImg {
+    position: absolute;                                                         /* Posiziona l'immagine sopra il video */
+    top: 60%;                                                                   /* Sposta l'ancoraggio dell'immagine al centro verticalmente */
+    left: 50%;                                                                  /* Sposta l'ancoraggio delll'immagine al centro orizzontalmente */
+    transform: translate(-50%, -50%);                                           /* Sposta l'ancoraggio dell'immgaine al suo centro*/
+    max-width: 50%;                                                             /* Limita la dimensione massima al 50% della larghezza */
+}

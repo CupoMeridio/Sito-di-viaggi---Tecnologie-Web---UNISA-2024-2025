@@ -1,0 +1,19 @@
+footer {
+    clear: both;
+    background-color: #333;                                                             /* Colore di sfondo scuro */
+    color: white;                                                                       /* Colore del testo chiaro */
+    padding: 20px;                                                                      /* Distanza interna */
+    text-align: center;                                                                 /* Centra il testo */
+    font-size: 14px;                                                                    /* Dimensione del testo (più piccola rispetto alla dimensione di default) */
+    margin-top: 0px;                                                                   /* Spazio sopra il footer */
+}
+
+.footer-content p {
+    margin: 10px 0;                                                                     /* Distanza tra i paragrafi */
+}
+
+.footer-content .disclaimer {
+    font-style: italic;                                                                 /* Testo in corsivo per il disclaimer */
+    font-size: 12px;                                                                    /* Testo più piccolo per il disclaimer */
+    color: #ccc;                                                                        /* Colore del testo del disclaimer */
+}

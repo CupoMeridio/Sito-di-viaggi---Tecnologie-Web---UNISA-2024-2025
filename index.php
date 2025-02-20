@@ -10,31 +10,35 @@ include 'prendi_dati.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
     <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet" href="commons/navbarStyle.css">
+    <link rel="stylesheet" href="commons/dashboardStyle.css">
     <script src="index_javascript.js" type="text/javascript" defer="true"></script>
 </head>
 
 <body>
 
-    <nav class="navbar">
+    <nav id="navbar">
     <a href="index.php"><img src="immagini/logo.png"></a>
-    <a class="navButton" id="aboutButton"href="#about-section">About</a>
-    <a class="navButton" id="contactButton" href="#contact-section">Contact</a>
+    <a class="navButton" id="aboutButton"href="index.php#about-section">About</a>
+    <a class="navButton" id="contactButton" href="index.php#contact-section">Contact</a>
     
     <?php if(!isset($email)){?>
-    <a class="navButton" id="registrazioneButton" href="registrazione.php?register">Registrati</a>
+    <a class="navButton" id="registrazioneButton" href="registrazione.php">Registrati</a>
     <a class="navButton" id="accessoButton" href="registrazione.php?login">Accedi</a>
     <?php }?>
     
     <?php if(isset($email)){?>
     <!-- Sezione profilo utente -->
     <div id="userProfile">
-        <span id="welcomeMessage"><?php echo "Ciao, $username";?> </span>  
+        <span id="welcomeMessage"><?php  echo "Ciao, $username";?> </span>
          <?php echo '<img id="profilePic" src="'.$img.'">'; ?>
         
     </div>
     <?php }?>
     
   </nav>
+  
+    <?php include 'commons/dashboard.html'; ?>
     
     
     
@@ -54,7 +58,7 @@ include 'prendi_dati.php';
 
         <div class="mySlides fade">
             <div class="numberText">3 / 3</div>
-            <a href="dragonball.php"><img src="immagini/namecc.jpeg"></a>
+            <a href="dragonball.php"><img src="immagini/DragonBall/namecc.jpeg"></a>
             <div class="captionText">Scopri: Namecc!</div>
         </div>
 
