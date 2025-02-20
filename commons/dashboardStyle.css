@@ -16,9 +16,9 @@
 
 /* Stile per gli elementi della lista */
 #dashboard li {
-
     border-bottom: 1px solid #ff9900; /* Linea divisoria tra gli elementi */
     transition: background-color 0.3s ease; /* Transizione per l'effetto hover */
+    border-radius: 10px 0px 0px 10px; /* Arrotonda solo lo spigolo sinistro in alto e sinistro in basso */ 
 }
 
 /* Rimuove il bordo inferiore dall'ultimo elemento */
