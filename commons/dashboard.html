@@ -1,4 +1,16 @@
-    <ul id="dashboard">
-      <li><a href="modifica.php">Modifica dell'account</a></li>
-      <li><a href="logout.php">Esci</a></li>
-    </ul>
+<ul id="dashboard">
+  <li><a id="modifica-link">Modifica dell'account</a></li>
+  <li><a href="logout.php">Esci</a></li>
+</ul>
+
+  <iframe id="modifica" src="modifica.php" style="display: none; width: 1000px; height: 500px; position: relative;"></iframe>
+
+
+<script>
+  let link = document.getElementById("modifica-link"); // Modifica questa linea
+  link.addEventListener("click", function(event){
+    event.preventDefault(); // Evita il comportamento predefinito del link (andare alla pagina)
+    document.getElementById("modifica").style.display = "block"; // Mostra l'iframe
+    document.getElementById("modifica").style.setProperty("z-index", "1000");
+  });
+</script>

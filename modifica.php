@@ -56,6 +56,7 @@ if (isset($_POST['update'])) {
         exit();
     }
 
+    unset($img_up);
 }
 ?>
 
@@ -73,7 +74,7 @@ if (isset($_POST['update'])) {
 </head>
 
 <body>
-    <?php include 'commons/navbar.php'; ?>
+    
 
     
     <div id="modifica">
