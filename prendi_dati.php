@@ -45,7 +45,7 @@ $query_no_injection= " SELECT * FROM  utente where email=LOWER($1) ";
     if(isset($username))
     $_SESSION['username']= $username;
     if(isset($img))
-    if ($img != null && $type !=null || $img != '') {
+    if ($img != null && $type !=null || $img != '' ) {
           $_SESSION['type'] = $type;
         $_SESSION['img']= "data:". $type . ";base64," . $img ;// passo direttamente la stringa da mettere nel src
     }else {

@@ -90,55 +90,47 @@
   </div>
   <div class="clearfix" id="info_location2">
     <h2>
-      🌌 Esplora Namecc: Un Viaggio tra Natura Mistica e Potere Leggendario! 🛸
+      Esplora Skaro: La terra dei Daleck! 🛸
     </h2>
     <p>
-      🌿 Benvenuti su Namecc, il pianeta verde smeraldo dove la natura incontaminata e il misticismo si fondono in
-      un’esperienza di viaggio unica!<br>
-      Situato in una galassia lontana, questo paradiso extraterrestre offre paesaggi mozzafiato, villaggi pacifici e
-      un’energia spirituale che scorre tra le sue terre sacre.
+    Skaro è il pianeta natale della razza Dalek, uno degli antagonisti più noti di "Doctor Who".
+    <br> È un mondo devastato dalla guerra e dalla distruzione, riflettendo la natura bellicosa dei suoi abitanti.
+
     </p>
 
     <h3>
-      ✨ Cosa ti aspetta su Namecc?
+      ✨Caratteristiche di Skaro:
     </h3>
     <img class="float-left clear-right" src="immagini/desktop-wallpaper-planet-namek.jpg">
-    <h4 class="clear-right">🟢 Paesaggi Alieni e Incantevoli</h4>
+    <h4 class="clear-right">🟢 Aspetto:</h4>
     <p class="clear-right">
-      Immergiti in un mondo dalle sfumature verde-blu, dove gli alberi alti e slanciati, i cieli cangianti e gli
-      immensi specchi d’acqua creano un’atmosfera di pura meraviglia.<br>
-      Goditi tramonti surreali mentre esplori questo angolo di universo lontano dalla frenesia terrestre.
+       La superficie di Skaro è caratterizzata da vasti deserti, pianure aride, e rovine di antiche città.
+       Le zone di guerra radioattive e i crateri di esplosioni nucleari sono una presenza comune.
     </p>
-    <h4 class="clear-right">🛕 Visita i Villaggi Namecciani</h4>
+    <h4 class="clear-right">🛕 Città:</h4>
     <p class="clear-right">
-      Scopri le antiche comunità dei Namecciani, una razza pacifica e saggia.<br>
-      Interagisci con gli abitanti locali e lasciati affascinare dalla loro cultura basata sull’equilibrio, la
-      meditazione e l’armonia con la natura.
+    La città più famosa di Skaro è la "Cittadella dei Dalek", un'area altamente fortificata e tecnologicamente avanzata dove risiedono i Dalek.<br> 
+    È piena di torri minacciose e strutture metalliche.
     </p>
 
     <img class="float-right clear-left"
       src="immagini/adding-a-new-character-every-day-until-sparking-zero-is-v0-z7u56vhfjzyc1.webp">
-    <h4 class="clear-left">🌟 Alla Ricerca delle Sfere del Drago</h4>
+    <h4 class="clear-left"> Storia:</h4>
     <p class="clear-left">
-      Namecc è il luogo d’origine delle leggendarie Sfere del Drago!<br>
-      Unisciti a una spedizione esclusiva per scoprire i templi sacri e gli altari nascosti dove queste reliquie
-      mistiche sono state custodite per secoli.<br>
-      Chi lo sa? Magari potresti persino avvistare Porunga, il drago eterno!
+    Skaro ha una storia di conflitti continui, principalmente tra i Kaleds e i Thals, due razze originarie del pianeta.<br> 
+    I Dalek sono il risultato delle mutazioni dei Kaleds causate dalla guerra nucleare.
     </p>
-    <h4 class="clear-left">⚔ Le Rovine della Battaglia Epica</h4>
+    <h4 class="clear-left">Ambiente:</h4>
     <p class="clear-left">
-      Se sei un fan dell’azione, visita i luoghi dove si è combattuta una delle battaglie più leggendarie
-      dell’universo!<br>
-      Attraversa le valli devastate dallo scontro tra Goku e Freezer e ascolta i racconti che hanno reso questo
-      pianeta un'icona della storia intergalattica.
+     L'ambiente di Skaro è inospitale per la maggior parte delle forme di vita.<br>
+     La contaminazione radioattiva e le condizioni climatiche estreme rendono difficile la sopravvivenza.
     </p>
 
-    <img class="float-left clear-right" src="immagini/Namecciani.png">
-    <h4 class="clear-right">🌱 Rigenerazione e Benessere</h4>
+    <img class="float-left clear-right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Dalek_%28Dr_Who%29.jpg/1200px-Dalek_%28Dr_Who%29.jpg">
+    <h4 class="clear-right">🌱 Guerriglia per sopravvivere</h4>
     <p class="clear-right">
-      Dopo tanta avventura, rilassati nelle acque rigenerative naturali del pianeta e goditi un percorso di benessere
-      sotto la guida di un anziano namecciano.<br>
-      Qui potrai ricaricare corpo e spirito, avvolto dalla quiete e dalla magia di Namecc.
+      Adatta a chi ama combattere per sopravvivere. La nosta socetà non si prenderà cura di voi. <br>
+      Anche se i dalek sembrano degli aspirapolvere, <br> sono la cosa più cattiva che ci sia.
     </p>
   </div>
   <div class="clearfix" id="info_location3">
