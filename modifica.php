@@ -12,37 +12,42 @@ if (isset($_SESSION['cognome']))
     $cognome = $_SESSION['cognome'];
 
 include 'connection.php';
+$img_tmp = '';
+$type = '';
+$bin = '';
+$img_up = '';
 
 if (isset($_POST['update'])) {
     $nome = $_POST['nome'];
     $cognome = $_POST['cognome'];
-    $email = $_POST['email'];
+    //$email = $_POST['email'];
     $username = $_POST['username'];
-    $img = $_SESSION['img'];
+    
+    //$img = $_SESSION['img'];
    
-
     // Gestione dell'upload della nuova immagine del profilo
     if ($_FILES['fotoProfilo']['tmp_name'] != null) {
         $img_tmp = $_FILES['fotoProfilo']['tmp_name'];
         $type = $_FILES['fotoProfilo']['type'];
         $bin = file_get_contents($img_tmp);
-        $img = pg_escape_bytea($bin);
+        $img_up = pg_escape_bytea($bin);
     }
 
     // Query per aggiornare i dati dell'utente
-    $query = "UPDATE utente SET nome = $1, cognome = $2, username = $3, email = $4, img = $5, type = $6 WHERE email = $7";
-    $result = pg_prepare($db, "update_user", $query);
-    $values = array($nome, $cognome, $username, $email, $img, $type, $_SESSION['email']);
+    if(isset($img_up)){
+        $query = "UPDATE utente SET nome = $1, cognome = $2, username = $3, img = $4, type = $5 WHERE email = $6";
+        $result = pg_prepare($db, "update_user", $query);
+        $values = array($nome, $cognome, $username, $img_up, $type, $_SESSION['email']);
+    }else{
+        $query = "UPDATE utente SET nome = $1, cognome = $2, username = $3 WHERE email = $4";
+        $result = pg_prepare($db, "update_user", $query);
+        $values = array($nome, $cognome, $username, $_SESSION['email']);
+
+    }
 
     $result = pg_execute($db, "update_user", $values);
 
     if ($result) {
-        $_SESSION['nome'] = $nome;
-        $_SESSION['cognome'] = $cognome;
-        $_SESSION['username'] = $username;
-        $_SESSION['email'] = $email;
-        $_SESSION['img'] = $img;
-
         header("Location: index.php");
         exit();
     } else {
@@ -81,8 +86,7 @@ if (isset($_POST['update'])) {
         <label>Cognome:</label>
         <input type="text" name="cognome" value="<?php echo $cognome ?>" required>
 
-        <label>Email:</label>
-        <input type="email" name="email" value="<?php echo $email ?>" required>
+        
 
         <label>Username:</label>
         <input type="text" name="username" value="<?php echo $username ?>" required>
