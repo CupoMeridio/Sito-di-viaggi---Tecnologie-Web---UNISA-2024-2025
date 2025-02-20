@@ -54,3 +54,13 @@ function showSlides(n) {
 }
 
 //da gestore login e logout???
+
+const dashboard = document.getElementById('dashboard');
+const navbar=document.getElementById('navbar');
+// Aggiungi un event listener per il click sull'immagine
+navbar.addEventListener('click', function(event) {
+  if (event.target.id === "profilePic") {
+    event.stopPropagation(); // Impedisce la propagazione dell'evento
+    dashboard.classList.toggle('visible'); // Apre/chiude la dashboard
+  }
+});

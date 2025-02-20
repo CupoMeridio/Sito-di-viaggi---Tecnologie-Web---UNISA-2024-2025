@@ -10,31 +10,35 @@ include 'prendi_dati.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
     <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet" href="commons/navbarStyle.css">
+    <link rel="stylesheet" href="commons/dashboardStyle.css">
     <script src="index_javascript.js" type="text/javascript" defer="true"></script>
 </head>
 
 <body>
 
-    <nav class="navbar">
+    <nav id="navbar">
     <a href="index.php"><img src="immagini/logo.png"></a>
-    <a class="navButton" id="aboutButton"href="#about-section">About</a>
-    <a class="navButton" id="contactButton" href="#contact-section">Contact</a>
+    <a class="navButton" id="aboutButton"href="index.php#about-section">About</a>
+    <a class="navButton" id="contactButton" href="index.php#contact-section">Contact</a>
     
     <?php if(!isset($email)){?>
-    <a class="navButton" id="registrazioneButton" href="registrazione.php?register">Registrati</a>
+    <a class="navButton" id="registrazioneButton" href="registrazione.php">Registrati</a>
     <a class="navButton" id="accessoButton" href="registrazione.php?login">Accedi</a>
     <?php }?>
     
     <?php if(isset($email)){?>
     <!-- Sezione profilo utente -->
     <div id="userProfile">
-        <span id="welcomeMessage"><?php echo "Ciao, $username";?> </span>  
+        <span id="welcomeMessage"><?php  echo "Ciao, $username";?> </span>
          <?php echo '<img id="profilePic" src="'.$img.'">'; ?>
         
     </div>
     <?php }?>
     
   </nav>
+  
+    <?php include 'commons/dashboard.html'; ?>
     
     
     
@@ -54,7 +58,7 @@ include 'prendi_dati.php';
 
         <div class="mySlides fade">
             <div class="numberText">3 / 3</div>
-            <a href="dragonball.php"><img src="immagini/namecc.jpeg"></a>
+            <a href="dragonball.php"><img src="immagini/DragonBall/namecc.jpeg"></a>
             <div class="captionText">Scopri: Namecc!</div>
         </div>
 
@@ -82,7 +86,7 @@ include 'prendi_dati.php';
             </div>
             <div class="destination" id="destination2">
                 <a href="doctorwho.php"><img src="immagini/drwho.jpg"></a>
-                <div class="destination-name">Dr. Who</div>
+                <div class="destination-name">Doctor Who</div>
             </div>
             <div class="destination" id="destination3">
                 <a href="dragonball.php"><img src="immagini/dragonballtitleindex.png"></a>
@@ -120,8 +124,8 @@ include 'prendi_dati.php';
         
         <h3>Il nostro team</h3>
         <div class="team" id="contact-section">
-            <div class="team-member">
-                <div class="profile-pic"><img src="https://pbs.twimg.com/media/FbjFQH_WAAE_RsA.png"></div>
+            <div class="team-member"> <!--https://pbs.twimg.com/media/FbjFQH_WAAE_RsA.png-->
+                <a href="#"><div class="profile-pic"><img src="https://i1.sndcdn.com/artworks-96KvhzYlwoy1zhOY-PaPjQw-t500x500.jpg"></div></a>
                 <h4>Passaro Rosa</h4>
                 <p>r.passaro5@studenti.unisa.it</p>
             </div>
@@ -131,12 +135,12 @@ include 'prendi_dati.php';
                 <p>v.postiglione7@studenti.unisa.it</p>
             </div>
             <div class="team-member">
-                <div class="profile-pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQquPDtFOisYUHZfHEqMgPePp_Mu7oS9_F1w&s"></div>
+                <a href="https://linktr.ee/MattiaSanzari"><div class="profile-pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQquPDtFOisYUHZfHEqMgPePp_Mu7oS9_F1w&s"></div></a>
                 <h4>Sanzari Mattia</h4>
                 <p>m.sanzari@studenti.unisa.it</p>
             </div>
             <div class="team-member">
-                <div class="profile-pic"><img src="https://i.pinimg.com/736x/52/b1/9d/52b19d6902fcbe7a514862a852afe402.jpg"></div>
+                <a href="#"><div class="profile-pic"><img src="https://i.pinimg.com/736x/52/b1/9d/52b19d6902fcbe7a514862a852afe402.jpg"></div></a>
                 <h4>Vitale Antonio</h4>
                 <p>a.vitale132@studenti.unisa.it</p>
             </div>

@@ -4,77 +4,38 @@ body {
     flex-direction: column;                                               /* Disposizione verticale degli elementi */
     margin: 0;                                                            /* Rimuove il margine predefinito del body */
     padding: 0;                                                           /* Rimuove il padding predefinito del body */
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Imposta il font della navbar */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
     
 }
 
 
-
-/* Navbar */
-.navbar {
-    background-color: blueviolet;                                          /* Colore di sfondo della navbar */
-    display: flex;                                                              /* Usa flexbox per allineare gli elementi */
-    justify-content: space-around;                                              /* Distribuisce uniformemente gli elementi lungo la navbar */
-    align-items: center; 
-    padding-top: 15px;                                                          
-    padding-bottom: 15px;
-    position: fixed;                                                            /* Mantiene la navbar fissa in alto */
-    width: 100%;                                                                /* Occupa l'intera larghezza della pagina */
-    top: 0;                                                                     /* Posiziona la navbar in cima alla finestra */
-    z-index: 2;                                                              /* Assicura che la navbar stia sopra gli altri elementi */
-}
-.navbar div{
-    display: flex;
-    align-items: center;
-}
-.navbar div span{
-    margin-right: 10px;
-
+nav {
+    background-color: blueviolet !important;                                     /* Imposta un colore violetto per la navbar */
+    font-family: Arial, sans-serif;
 }
 
-.navbar img{
-    height: 40px;
-    margin-left: 15px;
-    cursor: pointer;
+.navButton:nth-child(4) {                                                        /* annulla una regola presente in navbarStyle.css */
+    margin-right: 0!important;
 }
 
-
-
-
-.navButton {
-    text-decoration: none;                                                      /* Rimuove la sottolineatura dai link */
-    color: white;                                                               /* Imposta il colore del testo su bianco */
-    font-weight: bold;                                                          /* Rende il testo in grassetto */
-    padding: 10px 15px;                                                         /* Aggiunge spazio interno ai bottoni */
-    transition: background 0.3s;                                                /* Aggiunge una transizione fluida per il cambio di colore */
-    margin-left: 10px;                                                          /* Aggiunge un po di spazio tra un bottone e l'altro */
-    margin-right: 10px;
-    border-radius: 10px;
+.navButton:nth-child(3) {                                                       /* Separa i primi 3 elementi e sposta il resto a destra */
+    margin-right: auto!important;
 }
+
 
 .navButton:hover {
-    background: rgb(60, 26, 156);                                                        /* Cambia il colore di sfondo al passaggio del mouse */
-    border-radius: 5px;
-    cursor: pointer                                                         /* Arrotonda leggermente i bordi */
+    background: rgb(60, 26, 156) !important;
 }
 
-.navButton:nth-child(3) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
-    margin-right: auto;
+
+
+/* Stile per gli elementi della lista */
+#dashboard li {
+    border-bottom: 1px solid blueviolet !important ; ;                          /* Linea divisoria tra gli elementi */
+
 }
 
-.navbar div img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 15px;
-    object-fit: cover; /* Mantiene le proporzioni dell'immagine */
-    overflow: hidden; /* Nasconde l'overflow */
-}
 
-.navbar div{
-    display: flex;
-    align-items: center;                                                        /* Allinea verticalmente al centro */
-}
 
 /*slideshow*/
 .slideshow-container {

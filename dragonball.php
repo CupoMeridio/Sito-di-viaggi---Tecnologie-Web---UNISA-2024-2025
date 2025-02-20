@@ -18,58 +18,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">                              <!-- Rende la pagina responsiva, adattandola alla larghezza dello schermo del dispositivo -->
     <title>Dragon Ball</title>                                                                          <!-- Imposta il titolo della pagina che apparirà nella scheda del browser -->
     <link rel="stylesheet" href="DragonBallStyle.css">                                                  <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
-    <script src="mondo_javascript.js" type="text/javascript" defer></script>                            <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
+    <link rel="stylesheet" href="commons/footerStyle.css">
+    <link rel="stylesheet" href="commons/navbarStyle.css">
+    <link rel="stylesheet" href="commons/dashboardStyle.css">
+    <link rel="stylesheet" href="commons/headerStyle.css">
+    <link rel="stylesheet" href="commons/overlayblockStyle.css">
+    <?php include("commons/setIcon.html"); ?>
+    <script src="commons/mondo_javascript.js" type="text/javascript" defer></script>                            <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
     <script src="commenti.js" type="text/javascript" defer></script>
     <script src="stripe/stripe.js" type="text/javascript" defer></script>
     <script src="https://js.stripe.com/v3/"></script>
+
   </head>
 
 <body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
-  <nav>
-    <a href="index.php"><img src="immagini/logo.png"></a>
-    <a class="navButton" id="homeButton" href="index.php">Home</a>
-    <a class="navButton" id="aboutButton"href="index.php#about-section">About</a>
-    <a class="navButton" id="contactButton" href="index.php#contact-section">Contact</a>
-    
-    <?php if(!isset($email)){?>
-    <a class="navButton" id="registrazioneButton" href="registrazione.php">Registrati</a>
-    <a class="navButton" id="accessoButton" href="registrazione.php?login">Accedi</a>
-    <?php }?>
-    
-    <?php if(isset($email)){?>
-    <!-- Sezione profilo utente -->
-    <div id="userProfile">
-        <span id="welcomeMessage"><?php  echo "Ciao, $username";?> </span>
-         <?php echo '<img id="profilePic" src="'.$img.'">'; ?>
-        
-    </div>
-    <?php }?>
-    
-  </nav>
+  <?php include("commons/navbar.php"); ?>
   
-    <ul id="dashboard">
-      <li><a href="modifica.php">Modifica dell'account</a></li>
-      <li><a href="logout.php">Esci</a></li>
-    </ul>
+  <?php include("commons/dashboard.html"); ?>
     
   <header>
     <video src="video/Dragon_Ball/video1.mp4" class="headerVideo" id="background-video" alt="Dragon Ball background video" autoplay muted loop></video>
-    <img class="headerImg" id="worldTitle" src="immagini/dragonballtitleheader.png" alt="Dragon Ball Title screen">
+    <img class="headerImg" id="worldTitle" src="immagini/DragonBall/dragonballtitleheader.png" alt="Dragon Ball Title screen">
   </header>
   
   <div class="container" id="container">
     <h2>Esplora le più belle location del mondo di Dragon Ball!</h2>
     <div class="locations_selector"id="locations_selector">
       <div class="location" id="location1">
-        <img src="immagini/kamehouse_.jpg">
+        <img src="immagini/DragonBall/kamehouse_.jpg">
          <div class="location-name">Kame House</div>
       </div>
       <div class="location" id="location2">
-        <img src="immagini/Namek.png">
+        <img src="immagini/DragonBall/Namek.png">
          <div class="location-name">Namecc</div>
       </div>
       <div class="location" id="location3">
-        <img src="immagini/KingKaisPlanetNV.png">
+        <img src="immagini/DragonBall/KingKaisPlanetNV.png">
          <div class="location-name">Pianeta di King Kai</div>
       </div>
     </div>
@@ -83,7 +67,7 @@
           Situata in mezzo a un oceano cristallino, questa destinazione è perfetta per chi desidera un mix di relax, allenamento e un pizzico di magia marziale!
         </p>
         <h3>🐢 Cosa ti aspetta alla Kame House?</h3>
-        <img class="float-left clear-right" src="immagini/Dragon-Ball-Son-Goku-Bulma-Young-Bulma-Dragon-Ball-Z-group-of-people-2232722.jpg">
+        <img class="float-left clear-right" src="immagini/DragonBall/Dragon-Ball-Son-Goku-Bulma-Young-Bulma-Dragon-Ball-Z-group-of-people-2232722.jpg">
 
         <h4 class="clear-right">🌅 Un’Isola da Sogno</h4>
         <p class="clear-right">
@@ -97,7 +81,7 @@
         </p>
 
         
-        <img class="float-right clear-left" src="immagini/Krillin-Goku-training-Master-Roshi.jpg">
+        <img class="float-right clear-left" src="immagini/DragonBall/Krillin-Goku-training-Master-Roshi.jpg">
         <h4 class="clear-left">💪 Allenamenti sulla Spiaggia</h4>
           <p class="clear-left">
             Per i più temerari, la Kame House offre programmi di allenamento personalizzati.<br>
@@ -108,7 +92,7 @@
             Esplora le acque circostanti con sessioni di snorkeling e immersioni, alla scoperta di fauna marina incredibile e, chissà, magari anche qualche tesoro nascosto!
           </p>
 
-          <img class="float-left clear-right" src="immagini/kamehousefood.jpg">
+          <img class="float-left clear-right" src="immagini/DragonBall/kamehousefood.jpg">
           <h4 class="clear-right">🥥 Cucina Esotica</h4>
           <p class="clear-right">
             Dopo una giornata di avventure, rilassati gustando specialità locali a base di cocco, pesce fresco e deliziosi piatti ispirati alle ricette segrete di Muten Roshi.
@@ -132,7 +116,7 @@
         <h3>
           ✨ Cosa ti aspetta su Namecc?
         </h3>
-        <img class="float-left clear-right" src="immagini/desktop-wallpaper-planet-namek.jpg">
+        <img class="float-left clear-right" src="immagini/DragonBall/desktop-wallpaper-planet-namek.jpg">
         <h4 class="clear-right">🟢 Paesaggi Alieni e Incantevoli</h4>
         <p class="clear-right">
           Immergiti in un mondo dalle sfumature verde-blu, dove gli alberi alti e slanciati, i cieli cangianti e gli immensi specchi d’acqua creano un’atmosfera di pura meraviglia.<br>
@@ -144,7 +128,7 @@
           Interagisci con gli abitanti locali e lasciati affascinare dalla loro cultura basata sull’equilibrio, la meditazione e l’armonia con la natura.
         </p>
         
-        <img class="float-right clear-left" src="immagini/adding-a-new-character-every-day-until-sparking-zero-is-v0-z7u56vhfjzyc1.webp">
+        <img class="float-right clear-left" src="immagini/DragonBall/adding-a-new-character-every-day-until-sparking-zero-is-v0-z7u56vhfjzyc1.webp">
         <h4 class="clear-left">🌟 Alla Ricerca delle Sfere del Drago</h4>
         <p class="clear-left">
           Namecc è il luogo d’origine delle leggendarie Sfere del Drago!<br>
@@ -157,7 +141,7 @@
           Attraversa le valli devastate dallo scontro tra Goku e Freezer e ascolta i racconti che hanno reso questo pianeta un'icona della storia intergalattica.
         </p>
         
-        <img class="float-left clear-right" src="immagini/Namecciani.png">
+        <img class="float-left clear-right" src="immagini/DragonBall/Namecciani.png">
         <h4 class="clear-right">🌱 Rigenerazione e Benessere</h4>
         <p class="clear-right">
           Dopo tanta avventura, rilassati nelle acque rigenerative naturali del pianeta e goditi un percorso di benessere sotto la guida di un anziano namecciano.<br>
@@ -175,7 +159,7 @@
         <h3>
           🔥 Cosa ti aspetta sul Pianeta di King Kai?
         </h3>
-        <img class="float-left clear-right" src="immagini/Dead_Z-Fighters_on_King_Kai's_planet.png">
+        <img class="float-left clear-right" src="immagini/DragonBall/Dead_Z-Fighters_on_King_Kai's_planet.png">
         <h4 class="clear-right">🪐 Un Pianeta Unico nel Suo Genere</h4>
         <p class="clear-right">
           Qui la gravità è 10 volte superiore a quella terrestre! Ogni passo è una sfida, ogni movimento un allenamento. Sei pronto a testare i tuoi limiti?
@@ -186,7 +170,7 @@
           Interagisci con gli abitanti locali e lasciati affascinare dalla loro cultura basata sull’equilibrio, la meditazione e l’armonia con la natura.
         </p>
         
-        <img class="float-right clear-left" src="immagini/Goku-Struggles-With-The-Gravity-On-King-Kais-Planet.jpg">
+        <img class="float-right clear-left" src="immagini/DragonBall/Goku-Struggles-With-The-Gravity-On-King-Kais-Planet.jpg">
         <h4 class="clear-left">🐒 Sfida Bubbles e Gregory!</h4>
         <p class="clear-left">
           Per diventare un vero allievo di King Kai, dovrai superare due prove iconiche:
@@ -201,7 +185,7 @@
           Medita con King Kai e scopri i segreti dell’equilibrio tra mente e corpo.
         </p>
         
-        <img class="float-left clear-right" src="immagini/dragon-ball-goku-riesce-superare-velocitA-luce-scopriamolo-v3-532194-1280x720.webp">
+        <img class="float-left clear-right" src="immagini/DragonBall/dragon-ball-goku-riesce-superare-velocitA-luce-scopriamolo-v3-532194-1280x720.webp">
         <h4 class="clear-right">🌱 Rigenerazione e Benessere</h4>
         <p class="clear-right">
           Dopo tanta avventura, rilassati nelle acque rigenerative naturali del pianeta e goditi un percorso di benessere sotto la guida di un anziano namecciano.<br>
@@ -216,6 +200,7 @@
 <!-- Sezione Prenotazione Viaggio -->
 <div class="booking-section" style="clear:both">
   <h2>Prenota il Tuo Viaggio Fantastico!</h2>
+  <div id="form-container"> <!-- Contenitore per il form -->
   <form id="booking-form" onsubmit="return calcolaprezzo(event)">
     <label for="tickets-count">Numero di Biglietti:</label>
     <input type="number" id="tickets-count" name="tickets-count" min="1" value="1" required>
@@ -248,9 +233,16 @@
       <input type="button" id="submit-form-button"  value="Registrati o accedi per prenotare il tuo viaggio!">
       <?php } ?>
   </form>
+  
+  <?php if(!isset($email)){ ?>
+  <div id="form-overlay" class="form-overlay">
+    <div class="overlay-message">Registrati o accedi per prenotare il tuo viaggio!</div>
+  </div>
+  <?php } ?>
+  </div>
 </div>
 
-<!--SONO QUI-->
+
 <script>
   // Impostare la data minima per la partenza come la data corrente
   document.getElementById('departure-date').min = new Date().toLocaleDateString('en-CA');
@@ -261,54 +253,24 @@
     document.getElementById('return-date').min = departureDate;
   }
 </script>
-  <div id="popup">
-  <div id="pagamento_con_stripe" style="display: none;">
-    <h1>Pagamento con Stripe</h1>
-    <form method="post" id="payment-form">
-      <div class="form-row">
-        <label for="fullname">
-          Nome Completo
-        </label>
-        <input type="text" id="fullname" name="fullname" value="">
-        <input type="hidden" id="importo" name="importo" value="">
-      </div>
-      <div class="form-row">
-        <label for="card-element">
-          Credit or debit card
-        </label>
-        <div id="card-element">
-          <!-- A Stripe Element will be inserted here. -->
-        </div>
 
-        <!-- Used to display Element errors. -->
-        <div id="card-errors" role="alert"></div>
-      </div>
-
-      <button id="close-button">Chiudi</button>
-      <button id="submit-button">Conferma pagamento</button>
-    </form>
-  </div>
-  </div>
+  <?php include("commons/popup.html"); ?>
 
   <!-- Sezione Recensioni -->
 <div class="reviews-section" style="display: flex; justify-content: space-between">
   
   <!-- Colonna Visualizzazione Recensioni -->
-  <div class="reviews-display" style="width: 50%; height: 300px; overflow-y: auto;">
-    <h2>Recensioni dei Viaggiatori</h2>
-    <div id="reviews-container" style="border: 1px solid; margin: 10px; padding: 10px">
-      <p>Nessuna recensione disponibile. Sii il primo a lasciare un commento!</p>
-    </div>
-  </div>
+  <?php include("commons/recensioni.html"); ?>
   
   <!-- Colonna Aggiunta Recensione -->
   
   <div class="review-form" style="width: 50%;">
     <h2>Lascia una Recensione</h2>
     <!-- <form action="submit_review.php" method="post">-->
+    <div id="form-container-review"> <!-- Contenitore per il form -->
       <form id="reviewForm" name="commenti">
         <label for="location">Seleziona la location:
-        <select id="location" name="location" onchange="updateReviewPlaceholder()"></label>
+        <select id="location_selection" name="location" onchange="updateReviewPlaceholder()"></label>
             <option value="kamehouse">Kame House</option>
             <option value="namecc">Namecc</option>
             <option value="kingkaiplanet">King Kai Planet</option>
@@ -333,19 +295,17 @@
         <?php }else{ ?> 
         <input type="button" value="Registrati o accedi per inviare una recensione" >
         <?php  }?>
-    </form>
+      </form>
+      <?php if(!isset($email)){ ?>
+      <div id="form-overlay-review" class="form-overlay">
+        <div class="overlay-message">Registrati o accedi per scrivere una recensione!</div>
+      </div>
+      <?php } ?>
+    </div>
   </div>
   
 </div>
   
-  <footer>
-    <div class="footer-content">
-        <p>&copy; 2025 BeyondReality Journeys | Tutti i diritti riservati.</p>
-        <p class="disclaimer">
-            🚨 <strong>Disclaimer:</strong> Questo sito non è un reale sito di viaggi, ma è un progetto creato per l'esame di <strong>Tecnologie Web</strong> dell'Università degli Studi di Salerno (UNISA) per l'anno accademico 2024/2025. <br>
-            Tutti i contenuti sono puramente fittizi.
-        </p>
-    </div>    
-</footer>
+  <?php include("commons/footer.html"); ?>
 </body>
 </html>
