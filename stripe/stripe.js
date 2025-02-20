@@ -4,18 +4,23 @@
     const MAX=101;
 
     
-    function prendiDatiAggiuntivi(){
-        //1. una variaile stringa da ritornare
+    function prendiDatiAggiuntivi() {
+        // 1. Una variabile stringa da ritornare
+        let formData = new FormData(form_prenotazione);
         let num_biglietti = parseInt(formData.get('tickets-count'));
-        let stringa=new Array(MAX);
-        for(let i=0; i<num_biglietti; i++){
-            stringa[i]="nominativo"+i+":"+form_prenotazione.getElementsById("ticket-name-"+i).value;
+        let stringa = []; // Inizializza come array vuoto
+    
+        for (let i = 0; i < num_biglietti; i++) {
+            stringa[i] = "nominativo" + i + ":" + document.getElementById("ticket-name-" + i).value;
         }
-        //ABBIAMO TUTTI I BIGLIETTI
-        stringa[num_biglietti]="commento:"+form_prenotazione.getElementById('comments').value;//qua si prende il commento
-        //creo json
-        let json=JSON.stringify(stringa);
-        //alert(json);
+    
+        // ABBIAMO TUTTI I BIGLIETTI
+        stringa[num_biglietti] = "commento:" + document.getElementById('comments').value; // Prendi il commento
+    
+        // Crea JSON
+        let json = JSON.stringify(stringa);
+         alert(json);
+        return json;
     }
 
     function calcolaprezzo(event) {
@@ -49,7 +54,7 @@
         importo.value = saldo_tot*100;
         prenotazione.disabled=true;
         
-
+        //aggiornaPrenotazione();
         return false;
     }
 
@@ -112,6 +117,7 @@
             } else if (paymentIntent && paymentIntent.status === 'succeeded') {
                 alert('Pagamento completato con successo!');
                 aggiornaPrenotazione();
+                window.open('stripe/gen_pdf.php', '_blank');
                 let pag_stripe = document.getElementById('pagamento_con_stripe');
                 if (pag_stripe) {
                     pag_stripe.style.display = "none";
@@ -155,20 +161,25 @@
         let formData = new FormData(form_prenotazione);
         let num_biglietti = parseInt(formData.get('tickets-count'));
         let location = formData.get('location');
-        let data_p = Date.parse(formData.get('departure-date'));
-        let data_r = Date.parse(formData.get('return-date'));
+        let data_p = formData.get('departure-date');
+        let data_r = formData.get('return-date');
         let dati=prendiDatiAggiuntivi();
-
+       
+        alert(data_p);
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                alert(this.responseText);
+                //alert(this.responseText);
+                console.log(this.responseText);
             }
         };
 
-        xhr.open("POST", "prenotazioni.php");
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send(`num_biglietti=${num_biglietti}&location=${location}&data_p=${data_p}&data_r=${data_r}&dati=${dati}&prezzo=${importo}`);
-    }
+        let encodedData = `numbiglietti=${encodeURIComponent(num_biglietti)}&location=${encodeURIComponent(location)}&datap=${encodeURIComponent(data_p)}&datar=${encodeURIComponent(data_r)}&dati=${encodeURIComponent(dati)}&prezzo=${encodeURIComponent(importo.value)}`;
+    alert(encodedData);
+    console.log(encodedData);
+    xhr.open('POST', 'stripe/prenotazioni.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
+    xhr.send(encodedData);
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     // Il codice per il pulsante "Chiudi" e il reset del form
