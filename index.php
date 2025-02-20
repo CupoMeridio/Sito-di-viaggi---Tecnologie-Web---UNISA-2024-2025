@@ -12,6 +12,7 @@ include 'prendi_dati.php';
     <link rel="stylesheet" href="indexStyle.css">
     <link rel="stylesheet" href="commons/navbarStyle.css">
     <link rel="stylesheet" href="commons/dashboardStyle.css">
+    <?php include("commons/setIcon.html"); ?>
     <script src="index_javascript.js" type="text/javascript" defer="true"></script>
 </head>
 
