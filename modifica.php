@@ -48,6 +48,10 @@ if (isset($_POST['update'])) {
 
     if ($result) {
         //header("Location: index.php");
+
+
+
+
         echo "<script>window.parent.postMessage('operationComplete', '*');</script>";
         //exit();
     } else {
@@ -74,7 +78,7 @@ if (isset($_POST['update'])) {
     <link rel="stylesheet" href="modifica.css">
     <?php include("commons/setIcon.html"); ?>
 
-    
+
 </head>
 
 <body>
@@ -85,6 +89,7 @@ if (isset($_POST['update'])) {
 
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
             <h2>Modifica Dati</h2>
+            <h3>Attentione, modificare i dati ti riporterà nella home.</h3>
             <div class="wrapper">
                 <img src="<?php echo $img; ?>" alt="Foto Profilo" width="100" id="current">
                 <div id="anteprimaFoto" class="anteprima-foto">
@@ -101,13 +106,19 @@ if (isset($_POST['update'])) {
             <label>Username:</label>
             <input type="text" name="username" value="<?php echo $username ?>" required>
 
-            <label>Foto Profilo:</label>
-            <input type="file" name="fotoProfilo" id="fotoProfilo" accept="image/*">
-
-            <div class="wrapper"><input type="submit" name="update" value="Aggiorna Dati"></div>
-            <div class="wrapper">
-                <input type="button" name="close" value="Chiudi la Pagina" onclick="window.parent.postMessage('operationComplete', '*')">
+            <div class="file-input-container">
+                <label for="fotoProfilo" class="custom-file-label">Scegli un file</label>
+                <input type="file" id="fotoProfilo" name="fotoProfilo" accept="image/*" class="custom-file-input">
             </div>
+
+            <div class="wrapper">
+                <input type="submit" name="update" value="Aggiorna Dati" onclick="window.parent.postMessage('operationComplete', '*')">
+            </div>
+
+            <div class="wrapper">
+                <input type="button" name="close" value="Chiudi la Pagina" onclick="window.parent.postMessage('closeIframe', '*')">
+            </div>
+
         </form>
         <?php
         if (isset($_SESSION['errore'])) {
@@ -124,7 +135,7 @@ if (isset($_POST['update'])) {
         const fotoProfiloInput = document.getElementById('fotoProfilo');
         const immagineAnteprima = document.getElementById('immagineAnteprima');
 
-        let img_corrente=document.getElementById("current");
+        let img_corrente = document.getElementById("current");
         // Funzione per gestire il file selezionato
         function handleFile(file) {
             if (file.size > MAX_FILE_SIZE) {
@@ -138,7 +149,7 @@ if (isset($_POST['update'])) {
             reader.onload = function(e) {
                 immagineAnteprima.src = e.target.result; // Imposta l'URL dell'immagine letta come sorgente dell'anteprima
                 immagineAnteprima.style.display = "block"; // Mostra l'immagine nell'anteprima
-                img_corrente.style.display="none";
+                img_corrente.style.display = "none";
             };
 
             reader.readAsDataURL(file); // Legge il file come URL di dati
@@ -152,10 +163,11 @@ if (isset($_POST['update'])) {
                 handleFile(file); // Gestisci il file
             } else {
                 immagineAnteprima.style.display = "none"; // Nascondi l'anteprima se non ci sono file
-                img_corrente.style.display="block";
+                img_corrente.style.display = "block";
             }
         });
     </script>
+
 </body>
 
 

@@ -11,16 +11,18 @@
   link.addEventListener("click", function(event){
     event.preventDefault(); // Evita il comportamento predefinito del link (andare alla pagina)
     document.getElementById("modifica").style.display = "block"; // Mostra l'iframe
-    document.getElementById("modifica").style.setProperty("z-index", "999");
+    document.getElementById("modifica").style.setProperty("z-index", "4");
   });
   window.addEventListener('message', function(event) {
-    console.log('Messaggio ricevuto:', event.data);
+    //console.log('Messaggio ricevuto:', event.data);
     if (event.data == 'operationComplete') {
       document.getElementById("modifica").style.display = "none"; 
       document.getElementById("modifica").style.setProperty("z-index", "1");
       window.open('index.php', '_self');
+    }else if (event.data == 'closeIframe') {
+        document.getElementById("modifica").style.display = "none"; 
+        document.getElementById("modifica").style.setProperty("z-index", "1");
+        window.open('#', '_self');
     }
 });
-
-
 </script>
