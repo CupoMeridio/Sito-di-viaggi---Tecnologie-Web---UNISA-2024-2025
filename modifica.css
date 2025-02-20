@@ -14,16 +14,6 @@ body {
     margin: 0;                                                                  /* Rimuove il margine predefinito del body */
 }
 
-/* Navbar */
-nav {
-    /* Centra verticalmente gli elementi */
-background-color: #0abab5 !important;                                                  /* Imposta un colore arancione per la navbar */
-}
-
-.navButton:hover {
-background: #0a62ba !important;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
-}
-
 #modifica{
     display: grid;                                                              /* Usa il layout CSS Grid */
     gap: 20px;
@@ -35,6 +25,11 @@ background: #0a62ba !important;                                                 
     width: 50%;
     color: white;                                                            /* Spaziatura tra le colonne */
  }
+
+ #modifica h2 {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+}
 
  /* Centrare l'immagine e il pulsante */
 .wrapper {
@@ -74,4 +69,16 @@ background: #0a62ba !important;                                                 
      color: white;                               /* Colore del testo */
      border-radius: 4px;                         /* Angoli arrotondati */
      cursor: pointer;                            /* Cambia il cursore in una mano quando si passa sopra */
+     margin-top: 10px;
  }
+
+  /* Stile per il pulsante di chiusura */
+  input[type="button"] {
+    width: 50%;                                 /* Larghezza completa del contenitore padre */
+    padding: 10px;                              /* Spaziatura interna */
+    background-color: #5cb85c;                  /* Colore verde di sfondo */
+    border: none;                               /* Rimuove il bordo */
+    color: white;                               /* Colore del testo */
+    border-radius: 4px;                         /* Angoli arrotondati */
+    cursor: pointer;                            /* Cambia il cursore in una mano quando si passa sopra */
+}

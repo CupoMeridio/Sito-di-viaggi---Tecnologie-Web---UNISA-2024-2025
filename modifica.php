@@ -101,9 +101,7 @@ if (isset($_POST['update'])) {
         <input type="file" name="fotoProfilo" accept="image/*">
 
         <div class="wrapper"><input type="submit" name="update" value="Aggiorna Dati"></div>
-        <div class="wrapper">
-            <input type="button" name="close" value="Chiudi la Pagina" onclick="window.parent.postMessage('operationComplete', '*')">
-        </div>
+        <div class="wrapper"><input type="button" name="close" value="Chiudi la Pagina" onclick="window.parent.postMessage('operationComplete', '*')"></div>
     </form>
     <?php 
     if(isset($_SESSION['errore'])){
