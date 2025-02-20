@@ -73,6 +73,7 @@ if (isset($_POST['update'])) {
     <link rel="stylesheet" href="commons/footerStyle.css">
     <link rel="stylesheet" href="commons/footerStyle.css">
     <link rel="stylesheet" href="modifica.css">
+    <?php include("commons/setIcon.html"); ?>
 </head>
 
 <body>

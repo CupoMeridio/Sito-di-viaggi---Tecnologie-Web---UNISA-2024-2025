@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="commons/footerStyle.css">
     <link rel="stylesheet" href="commons/dashboardStyle.css">
     <link rel="stylesheet" href="commons/overlayblockStyle.css">
+    <?php include("commons/setIcon.html"); ?>
     <script src="commons/mondo_javascript.js" type="text/javascript" defer="true"></script>                    <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
     <script src="commenti.js" type="text/javascript" defer="true"></script>
     <script src="stripe/stripe.js" type="text/javascript" defer></script>

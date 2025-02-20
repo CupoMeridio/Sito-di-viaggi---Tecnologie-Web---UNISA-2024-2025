@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="commons/dashboardStyle.css">
   <link rel="stylesheet" href="commons/headerStyle.css">
   <link rel="stylesheet" href="commons/overlayblockStyle.css">
+  <?php include("commons/setIcon.html"); ?>
 </head>
 
 

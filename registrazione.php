@@ -29,6 +29,7 @@ if(isset($_POST["inviato"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">                              <!-- Rende la pagina responsiva, adattandola alla larghezza dello schermo del dispositivo -->
     <title>Form di registrazione</title>                                                                <!-- Imposta il titolo della pagina che apparirà nella scheda del browser -->
     <link rel="stylesheet" href="registrazioneStyle.css">                                               <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
+    <?php include("commons/setIcon.html"); ?>
     <script src="registrazione_javascript.js" type="text/javascript" defer="true"></script>             <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
     <?php include("commons/setIcon.html"); ?>
 </head>
