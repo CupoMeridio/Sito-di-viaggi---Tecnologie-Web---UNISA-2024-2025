@@ -1,0 +1,50 @@
+/* Stile di base per la dashboard verticale */
+#dashboard {
+    z-index: 1;
+    visibility: hidden;
+    list-style-type: none;                                                      /* Rimuove i pallini della lista */
+    margin: 0;
+    padding: 0;
+    width: 15%; /* Larghezza della navbar */
+    background-color: #333333; /* Colore di sfondo */
+    position: fixed; /* Fissa la navbar sulla destra */
+    margin-top: 73.5px;
+    right: 0;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);                                 /* Effetto "in rilievo" con ombra */
+    border-radius: 10px 0px 0px 10px;                                           /* Arrotonda solo lo spigolo sinistro in alto e sinistro in basso */ 
+}
+
+/* Stile per gli elementi della lista */
+#dashboard li {
+
+    border-bottom: 1px solid #ff9900; /* Linea divisoria tra gli elementi */
+    transition: background-color 0.3s ease; /* Transizione per l'effetto hover */
+}
+
+/* Rimuove il bordo inferiore dall'ultimo elemento */
+#dashboard li:last-child {
+    border-bottom: none;
+}
+
+/* Stile per i link */
+#dashboard li a {
+    padding: 15px;
+    color: #ecf0f1; /* Colore del testo */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    display: block; /* Rende il link un blocco per occupare tutto lo spazio */
+}
+
+/* Effetto hover sugli elementi */
+#dashboard li:hover {
+    background-color: #34495e; /* Cambia colore di sfondo al passaggio del mouse */
+
+}
+
+/* Effetto hover sui link */
+#dashboard li:hover a {
+    color: #fff301; /* Cambia colore del testo al passaggio del mouse */
+}
+
+#dashboard.visible {
+    visibility: initial;
+}

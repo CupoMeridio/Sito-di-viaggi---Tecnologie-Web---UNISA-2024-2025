@@ -1,6 +1,6 @@
     let form_prenotazione = document.getElementById('booking-form');
     let pag_stripe = document.getElementById('pagamento_con_stripe');
-    
+
     const MAX=101;
 
     
@@ -34,7 +34,7 @@
         let bottone_stripe = document.getElementById('submit-button');
         var importo = document.getElementById('importo');
         let prenotazione = document.getElementById('submit-form-button');
-        
+
         let costo_biglietto = 50;
 
         if (isNaN(data_p) || isNaN(data_r)) {
@@ -54,8 +54,8 @@
     }
 
 
-
-    closeBtn.addEventListener("click", () => {
+    const closeBttn = document.getElementById('close-button');
+    closeBttn.addEventListener("click", () => {
         popup.classList.remove("open");
         pag_stripe.style.display = "none";
     });

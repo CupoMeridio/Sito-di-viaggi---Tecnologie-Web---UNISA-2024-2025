@@ -30,6 +30,7 @@ if(isset($_POST["inviato"])){
     <title>Form di registrazione</title>                                                                <!-- Imposta il titolo della pagina che apparirà nella scheda del browser -->
     <link rel="stylesheet" href="registrazioneStyle.css">                                               <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
     <script src="registrazione_javascript.js" type="text/javascript" defer="true"></script>             <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
+    <?php include("commons/setIcon.html"); ?>
 </head>
 
 <body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->

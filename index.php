@@ -10,12 +10,14 @@ include 'prendi_dati.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
     <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet" href="commons/navbarStyle.css">
+    <link rel="stylesheet" href="commons/dashboardStyle.css">
     <script src="index_javascript.js" type="text/javascript" defer="true"></script>
 </head>
 
 <body>
 
-    <nav>
+    <nav id="navbar">
     <a href="index.php"><img src="immagini/logo.png"></a>
     <a class="navButton" id="aboutButton"href="index.php#about-section">About</a>
     <a class="navButton" id="contactButton" href="index.php#contact-section">Contact</a>
@@ -35,6 +37,8 @@ include 'prendi_dati.php';
     <?php }?>
     
   </nav>
+  
+    <?php include 'commons/dashboard.html'; ?>
     
     
     
@@ -54,7 +58,7 @@ include 'prendi_dati.php';
 
         <div class="mySlides fade">
             <div class="numberText">3 / 3</div>
-            <a href="dragonball.php"><img src="immagini/namecc.jpeg"></a>
+            <a href="dragonball.php"><img src="immagini/DragonBall/namecc.jpeg"></a>
             <div class="captionText">Scopri: Namecc!</div>
         </div>
 
