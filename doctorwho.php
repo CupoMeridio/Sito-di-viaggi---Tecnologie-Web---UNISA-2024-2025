@@ -37,7 +37,7 @@
 <header>
   <video src="video/doctorwho/doctorwho.mp4" class="headerVideo" id="background-video"
     alt="Dragon Ball background video" autoplay muted loop></video>
-  <img class="headerImg" id="worldTitle" src="immagini/Doctor-Who-Logo.png" alt="Dragon Ball Title screen">
+  <img class="headerImg" id="worldTitle" src="immagini/Doctor-Who-Logo.png" alt="Dragon Ball Title screen" style="margin-top: 10px; height: 200px;">
 </header>
 
 
