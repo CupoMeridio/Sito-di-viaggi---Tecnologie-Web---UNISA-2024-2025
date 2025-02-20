@@ -60,33 +60,21 @@ if (isset($_POST['update'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifica dati</title>
+    <title>Modifica dati</title>                                                  <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
+    <link rel="stylesheet" href="commons/navbarStyle.css">
+    <link rel="stylesheet" href="commons/footerStyle.css">
+    <link rel="stylesheet" href="commons/footerStyle.css">
     <link rel="stylesheet" href="modifica.css">
 </head>
 
 <body>
-    <nav>
-        <a href="index.php"><img src="immagini/logo.png"></a>
-        <a class="navButton" id="homeButton" href="index.php">Home</a>
-        <a class="navButton" id="aboutButton" href="index.php#about-section">About</a>
-        <a class="navButton" id="contactButton" href="index.php#contact-section">Contact</a>
+    <?php include 'commons/navbar.php'; ?>
 
-        <?php if (!isset($email)) { ?>
-            <a class="navButton" id="registrazioneButton" href="registrazione.php">Registrati</a>
-            <a class="navButton" id="accessoButton" href="registrazione.php?login">Accedi</a>
-        <?php } ?>
-
-        <?php if (isset($email)) { ?>
-            <!-- Sezione profilo utente -->
-            <div id="userProfile">
-                <span id="welcomeMessage"><?php echo "Ciao, $username"; ?> </span>
-                <?php echo '<img id="profilePic" src="' . $img . '">'; ?>
-            </div>
-        <?php } ?>
-    </nav>
-    <h2>Modifica Dati</h2>
-    <div>
+    
+    <div id="modifica">
+    
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
+        <h2>Modifica Dati</h2>
         <label>Nome:</label>
         <input type="text" name="nome" value="<?php echo $nome ?>" required>
 

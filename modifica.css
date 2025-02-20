@@ -16,43 +16,49 @@ body {
 
 /* Navbar */
 nav {
-    display: flex;                                                              /* Usa flexbox per allineare gli elementi */
-    position: fixed;
-    justify-content: space-around;                                              /* Distribuisce uniformemente gli elementi lungo la navbar */
-    align-items: center;                                                        /* Centra verticalmente gli elementi */
-    background-color: #ff0011;                                                  /* Imposta un colore arancione per la navbar */
-    padding-top: 15px;                                                          
-    padding-bottom: 15px;
-    width: 100%;                                                                /* Occupa l'intera larghezza della pagina */
-    top: 0;                                                                     /* Posiziona la navbar in cima alla finestra */
-}
-
-
-nav img{
-    height: 40px;
-    margin-left: 15px;
-}
-
-nav img:hover{
-    cursor: pointer;
-}
-
-.navButton {
-    text-decoration: none;                                                      /* Rimuove la sottolineatura dai link */
-    color: white;                                                               /* Imposta il colore del testo su bianco */
-    font-weight: bold;                                                          /* Rende il testo in grassetto */
-    padding: 10px 15px;                                                         /* Aggiunge spazio interno ai bottoni */
-    transition: background 0.3s;                                                /* Aggiunge una transizione fluida per il cambio di colore */
-    margin-left: 10px;                                                          /* Aggiunge un po di spazio tra un bottone e l'altro */
-    margin-right: 10px;
-    border-radius: 10px;
+    /* Centra verticalmente gli elementi */
+background-color: #0abab5 !important;                                                  /* Imposta un colore arancione per la navbar */
 }
 
 .navButton:hover {
-    background: #c50d00;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
-    border-radius: 5px;                                                         /* Arrotonda leggermente i bordi */
+background: #0a62ba !important;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
 }
 
-.navButton:nth-child(4) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
-    margin-right: auto;
-}
+#modifica{
+    display: grid;                                                              /* Usa il layout CSS Grid */
+    gap: 20px;
+    width: 55%;
+    background-color: rgba(0, 0, 0, 0.8);                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
+    border-radius: 5px;                                                         /* Angoli arrotondati */
+    padding: 20px;                                                              /* Spaziatura interna */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);                                    /* Ombra leggera intorno al contenitore */
+    width: 50%;
+    color: white;                                                            /* Spaziatura tra le colonne */
+ }
+ 
+ /* Stile per le etichette del form */
+ label {
+     display: block;                             /* Mostra l'etichetta come blocco */
+     margin-bottom: 5px;                         /* Spaziatura inferiore rispetto all'input */
+ }
+ 
+ /* Stile per i campi di input del form */
+ input {
+     width: 100%;                                /* Larghezza completa del contenitore padre */
+     padding: 8px;                               /* Spaziatura interna */
+     box-sizing: border-box;                     /* Include il padding e il bordo nella larghezza totale */
+     border: 1px solid #ccc;                     /* Bordo grigio chiaro */
+     border-radius: 4px;                         /* Angoli arrotondati */
+ }
+ 
+ 
+ /* Stile per il pulsante di invio */
+ input[type="submit"] {
+     width: 50%;                                 /* Larghezza completa del contenitore padre */
+     padding: 10px;                              /* Spaziatura interna */
+     background-color: #5cb85c;                  /* Colore verde di sfondo */
+     border: none;                               /* Rimuove il bordo */
+     color: white;                               /* Colore del testo */
+     border-radius: 4px;                         /* Angoli arrotondati */
+     cursor: pointer;                            /* Cambia il cursore in una mano quando si passa sopra */
+ }
