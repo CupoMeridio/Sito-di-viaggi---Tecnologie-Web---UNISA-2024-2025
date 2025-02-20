@@ -48,7 +48,7 @@ nav {
 /* Stile per gli elementi della lista */
 #dashboard li {
 
-    border-bottom: 1px solid #ff9900; /* Linea divisoria tra gli elementi */
+    border-bottom: 1px solid #0c224a; /* Linea divisoria tra gli elementi */
     transition: background-color 0.3s ease; /* Transizione per l'effetto hover */
 }
 

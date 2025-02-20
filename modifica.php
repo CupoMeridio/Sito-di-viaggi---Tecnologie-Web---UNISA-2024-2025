@@ -18,7 +18,7 @@ if (isset($_POST['update'])) {
     $cognome = $_POST['cognome'];
     $email = $_POST['email'];
     $username = $_POST['username'];
-    //$img = $_SESSION['img'];
+    $img = $_SESSION['img'];
    
 
     // Gestione dell'upload della nuova immagine del profilo

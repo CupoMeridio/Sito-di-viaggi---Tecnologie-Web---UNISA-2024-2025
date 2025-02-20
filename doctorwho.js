@@ -41,5 +41,5 @@ function showSlides(n) {
         // Mostra la slide corrente
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
-    }, 4950); // millisecondi di intermezzo, sincronizzato con la durata della gif
+    }, 5000); // millisecondi di intermezzo, sincronizzato con la durata della gif
 }
