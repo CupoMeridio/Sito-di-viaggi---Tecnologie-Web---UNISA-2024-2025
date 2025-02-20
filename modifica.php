@@ -61,7 +61,7 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifica dati</title>
-    <link rel="stylesheet" href="registrazioneStyle.css">
+    <link rel="stylesheet" href="modifica.css">
 </head>
 
 <body>
