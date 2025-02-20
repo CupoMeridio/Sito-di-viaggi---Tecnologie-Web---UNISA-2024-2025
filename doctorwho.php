@@ -89,57 +89,16 @@
 <div class="info_location">
   <div id="info_location1" class="clearfix">
     <h2>
-      🏝️ Scopri la Kame House: Paradiso Tropicale del Maestro Muten! 🐢🌊
+       Scopri il pianeta di Gallyfeid
     </h2>
     <p>
-      🌴 Benvenuti alla Kame House, la leggendaria isoletta tropicale dove il tempo sembra fermarsi e l’avventura è
-      sempre dietro l’angolo!<br>
-      Situata in mezzo a un oceano cristallino, questa destinazione è perfetta per chi desidera un mix di relax,
-      allenamento e un pizzico di magia marziale!
+      È un pianeta affascinante con una lunga storia e una cultura avanzata.<br>
+      Gallifrey si trova nella costellazione di Kasterborous, al 10º pianeta dal suo sole.
+      È un mondo di tecnologia avanzata, con enormi città coperte da cupole, 
+      la più famosa delle quali è la capitale, chiamata anche Gallifrey o più comunemente Citadel.
     </p>
-    <h3>🐢 Cosa ti aspetta alla Kame House?</h3>
-    <img class="float-left clear-right"
-      src="immagini/Dragon-Ball-Son-Goku-Bulma-Young-Bulma-Dragon-Ball-Z-group-of-people-2232722.jpg">
-
-    <h4 class="clear-right">🌅 Un’Isola da Sogno</h4>
-    <p class="clear-right">
-      Circondata da acque turchesi e sabbie bianchissime, la Kame House è il luogo ideale per chi cerca tranquillità e
-      un panorama mozzafiato.<br>
-      Rilassati all’ombra delle palme e lasciati cullare dal suono delle onde.
-    </p>
-    <h4 class="clear-right">👓 Incontra il Maestro Muten</h4>
-    <p class="clear-right">
-      Preparati a conoscere il leggendario Maestro delle Tartarughe, Muten Roshi!<br>
-      Partecipa alle sue esclusive sessioni di allenamento (e qualche storia strampalata!) per scoprire i segreti
-      delle arti marziali più potenti dell’universo.
-    </p>
-
-
-    <img class="float-right clear-left" src="immagini/Krillin-Goku-training-Master-Roshi.jpg">
-    <h4 class="clear-left">💪 Allenamenti sulla Spiaggia</h4>
-    <p class="clear-left">
-      Per i più temerari, la Kame House offre programmi di allenamento personalizzati.<br>
-      Prova l’esperienza di allenarti con pesi giganteschi, corse sulla spiaggia e, se sei fortunato, qualche lezione
-      speciale di Kamehameha direttamente dal Maestro!
-    </p>
-    <h4 class="clear-left">🌊 Attività Acquatiche Avventurose</h4>
-    <p class="clear-left">
-      Esplora le acque circostanti con sessioni di snorkeling e immersioni, alla scoperta di fauna marina incredibile
-      e, chissà, magari anche qualche tesoro nascosto!
-    </p>
-
-    <img class="float-left clear-right" src="immagini/kamehousefood.jpg">
-    <h4 class="clear-right">🥥 Cucina Esotica</h4>
-    <p class="clear-right">
-      Dopo una giornata di avventure, rilassati gustando specialità locali a base di cocco, pesce fresco e deliziosi
-      piatti ispirati alle ricette segrete di Muten Roshi.
-    </p>
-    <h4 style="clear-right">📜 Storie e Leggende Epiche</h4>
-    <p style="clear-right">
-      Rilassati al tramonto ascoltando le incredibili avventure del Maestro Muten, dalle storie di Goku e Crilin fino
-      alle tecniche segrete dei guerrieri Z.<br>
-      Ogni serata è un tuffo nella storia dell'arte marziale più potente dell'universo!
-    </p>
+    <h2> Per chi è adatto questo viaggio ?</h2>
+    <p>A tutti gli esseri viventi che amano tecnologie aliene avanzate e non hanno paura del nuovo e del diverso. </p>
 
   </div>
   <div class="clearfix" id="info_location2">
