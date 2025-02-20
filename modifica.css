@@ -75,6 +75,41 @@ background: #0a62ba !important;                                                 
      border-radius: 4px;                         /* Angoli arrotondati */
      cursor: pointer;                            /* Cambia il cursore in una mano quando si passa sopra */
  }
-div input[type="button"]{
-    cursor: pointer;
+ input[type="submit"]:hover{
+
+    background-color: #488a48;                  /* Colore verde di sfondo */
  }
+    div input[type="button"]{
+    cursor: pointer;
+    text-align: center;
+    background-color: #7d7d7d;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-color: #7d7d7d;
+    color: rgb(255, 255, 255);
+    
+ }
+
+ div input[type="button"]:hover{
+    background-color: #3b3b3b;
+    border-color: #3b3b3b;
+    
+ }
+ h2{
+    text-align: center;
+ }
+
+ #immagineAnteprima {
+    max-width: 100%;
+    max-height: 150px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: none;
+    /* Inizialmente nascosto */
+}
+
+/* Stile per il contenitore dell'anteprima */
+.anteprima-foto {
+    text-align: center;
+    margin-top: 10px;
+}

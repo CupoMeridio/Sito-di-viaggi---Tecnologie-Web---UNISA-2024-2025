@@ -49,7 +49,7 @@
     visibility: initial;
 }
 
-#frame:hover{
+#modifica-link:hover{
     cursor: pointer;
 }
 #modifica{
@@ -69,5 +69,8 @@ justify-content: center;
 
 width: 100%; 
 height: 100%; 
+z-index: 4;
 
 }
+
+
