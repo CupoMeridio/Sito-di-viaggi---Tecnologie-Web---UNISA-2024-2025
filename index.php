@@ -82,7 +82,7 @@ include 'prendi_dati.php';
             </div>
             <div class="destination" id="destination2">
                 <a href="doctorwho.php"><img src="immagini/drwho.jpg"></a>
-                <div class="destination-name">Dr. Who</div>
+                <div class="destination-name">Doctor Who</div>
             </div>
             <div class="destination" id="destination3">
                 <a href="dragonball.php"><img src="immagini/dragonballtitleindex.png"></a>
@@ -120,8 +120,8 @@ include 'prendi_dati.php';
         
         <h3>Il nostro team</h3>
         <div class="team" id="contact-section">
-            <div class="team-member">
-                <div class="profile-pic"><img src="https://pbs.twimg.com/media/FbjFQH_WAAE_RsA.png"></div>
+            <div class="team-member"> <!--https://pbs.twimg.com/media/FbjFQH_WAAE_RsA.png-->
+                <a href="#"><div class="profile-pic"><img src="https://i1.sndcdn.com/artworks-96KvhzYlwoy1zhOY-PaPjQw-t500x500.jpg"></div></a>
                 <h4>Passaro Rosa</h4>
                 <p>r.passaro5@studenti.unisa.it</p>
             </div>
@@ -131,12 +131,12 @@ include 'prendi_dati.php';
                 <p>v.postiglione7@studenti.unisa.it</p>
             </div>
             <div class="team-member">
-                <div class="profile-pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQquPDtFOisYUHZfHEqMgPePp_Mu7oS9_F1w&s"></div>
+                <a href="https://linktr.ee/MattiaSanzari"><div class="profile-pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQquPDtFOisYUHZfHEqMgPePp_Mu7oS9_F1w&s"></div></a>
                 <h4>Sanzari Mattia</h4>
                 <p>m.sanzari@studenti.unisa.it</p>
             </div>
             <div class="team-member">
-                <div class="profile-pic"><img src="https://i.pinimg.com/736x/52/b1/9d/52b19d6902fcbe7a514862a852afe402.jpg"></div>
+                <a href="#"><div class="profile-pic"><img src="https://i.pinimg.com/736x/52/b1/9d/52b19d6902fcbe7a514862a852afe402.jpg"></div></a>
                 <h4>Vitale Antonio</h4>
                 <p>a.vitale132@studenti.unisa.it</p>
             </div>
