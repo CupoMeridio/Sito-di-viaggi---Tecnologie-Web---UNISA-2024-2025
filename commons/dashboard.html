@@ -3,7 +3,7 @@
   <li><a href="logout.php">Esci</a></li>
 </ul>
 
-  <iframe id="modifica" src="modifica.php" style="display: none; width: 1000px; height: 500px; position: relative;"></iframe>
+  <iframe id="modifica" src="modifica.php" style="display: none; width: 100%; height: 100%; position: absolute;"></iframe>
 
 
 <script>
@@ -11,6 +11,14 @@
   link.addEventListener("click", function(event){
     event.preventDefault(); // Evita il comportamento predefinito del link (andare alla pagina)
     document.getElementById("modifica").style.display = "block"; // Mostra l'iframe
-    document.getElementById("modifica").style.setProperty("z-index", "1000");
+    document.getElementById("modifica").style.setProperty("z-index", "999");
   });
+  window.addEventListener('message', function(event) {
+    console.log('Messaggio ricevuto:', event.data);
+    if (event.data == 'operationComplete') {
+      document.getElementById("modifica").style.display = "none"; 
+      document.getElementById("modifica").style.setProperty("z-index", "1");
+      window.open('index.php', '_self');
+    }
+});
 </script>
