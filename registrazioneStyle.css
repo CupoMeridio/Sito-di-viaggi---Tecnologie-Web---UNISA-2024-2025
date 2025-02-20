@@ -70,6 +70,10 @@ nav img:hover{
    
 }
 
+.regcontainer{
+    margin-top: 75px;
+}
+
 
 #registrazione{
    display: grid;                                                              /* Usa il layout CSS Grid */

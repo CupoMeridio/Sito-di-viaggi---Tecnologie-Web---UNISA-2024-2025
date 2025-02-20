@@ -9,6 +9,8 @@ nav {
     width: 100%;                                                                /* Occupa l'intera larghezza della pagina */
     top: 0;                                                                     /* Posiziona la navbar in cima alla finestra */
     z-index: 2;                                                                 /* Assicura che la navbar stia sopra gli altri elementi */
+    color: white;                                                               /* Imposta il colore del testo su bianco */
+    font-weight: bold;
 }
 
 nav img{
