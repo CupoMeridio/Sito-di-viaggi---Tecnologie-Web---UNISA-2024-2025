@@ -36,10 +36,18 @@ background: #0a62ba !important;                                                 
     color: white;                                                            /* Spaziatura tra le colonne */
  }
 
- #modifica img{
+ /* Centrare l'immagine e il pulsante */
+.wrapper {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    margin-bottom: 15px; /* Aggiunge spazio sotto l'immagine */
+}
+
+.imgwrapper img{
     border-radius: 10px;
  }
  
+
  /* Stile per le etichette del form */
  label {
      display: block;                             /* Mostra l'etichetta come blocco */
@@ -53,6 +61,7 @@ background: #0a62ba !important;                                                 
      box-sizing: border-box;                     /* Include il padding e il bordo nella larghezza totale */
      border: 1px solid #ccc;                     /* Bordo grigio chiaro */
      border-radius: 4px;                         /* Angoli arrotondati */
+     margin-bottom: 10px;
  }
  
  
