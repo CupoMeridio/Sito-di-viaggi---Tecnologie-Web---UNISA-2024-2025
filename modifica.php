@@ -80,6 +80,8 @@ if (isset($_POST['update'])) {
     
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
         <h2>Modifica Dati</h2>
+        <div class="imgwrapper"><img src="<?php echo $img; ?>" alt="Foto Profilo" width="100"></div>
+        
         <label>Nome:</label>
         <input type="text" name="nome" value="<?php echo $nome ?>" required>
 
@@ -93,7 +95,6 @@ if (isset($_POST['update'])) {
 
         <label>Foto Profilo:</label>
         <input type="file" name="fotoProfilo" accept="image/*">
-        <img src="<?php echo $img; ?>" alt="Foto Profilo" width="100">
 
         <input type="submit" name="update" value="Aggiorna Dati">
     </form>

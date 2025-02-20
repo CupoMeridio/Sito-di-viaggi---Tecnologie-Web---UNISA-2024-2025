@@ -27,13 +27,17 @@ background: #0a62ba !important;                                                 
 #modifica{
     display: grid;                                                              /* Usa il layout CSS Grid */
     gap: 20px;
-    width: 55%;
+    width: 40%;
     background-color: rgba(0, 0, 0, 0.8);                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
-    border-radius: 5px;                                                         /* Angoli arrotondati */
+    border-radius: 10px;                                                         /* Angoli arrotondati */
     padding: 20px;                                                              /* Spaziatura interna */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);                                    /* Ombra leggera intorno al contenitore */
     width: 50%;
     color: white;                                                            /* Spaziatura tra le colonne */
+ }
+
+ #modifica img{
+    border-radius: 10px;
  }
  
  /* Stile per le etichette del form */
