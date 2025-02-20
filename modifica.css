@@ -75,3 +75,6 @@ background: #0a62ba !important;                                                 
      border-radius: 4px;                         /* Angoli arrotondati */
      cursor: pointer;                            /* Cambia il cursore in una mano quando si passa sopra */
  }
+div input[type="button"]{
+    cursor: pointer;
+ }
