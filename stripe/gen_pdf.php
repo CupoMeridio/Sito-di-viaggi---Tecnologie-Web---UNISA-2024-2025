@@ -14,6 +14,9 @@ $data_r = $_SESSION['datar'];
 
 $info= $_SESSION['info'];
 
+$nominativi_commento = $testo_pulito = str_replace(array('Array','[0]', '[1]','[2]','[3]','[4]','[5]','[6]','[7]','[8]','[9]','[10]', '(', ')', '[', ']','=','>'), '', $info);
+
+
 include('fpdf/fpdf.php');
 
 $data_ricevuta= date("d/m/o");
@@ -35,7 +38,7 @@ $pdf->Cell(0,30,"",0,2,'',false);
 $pdf->MultiCell(190, 15, "Grazie  $cognome $nome \nper esserti rivolto a noi per viaggiare nel $destinazione\nil team ;)\n Data ricevuta: $data_ricevuta Ore:$ora", 1, 'C', false);
 $pdf->Cell(0,90,"",0,2,'',false);
 $pdf->SetFont('Arial', '', 18);
-$pdf->MultiCell(0, 10, "Ecco i dettagli:\nPartenza:$data_p\nRitorno:$data_r\nMONDO: $mondo\nPREZZO:$prezzo\nAltre info:$info", 0, 'L', false);
+$pdf->MultiCell(0, 10, "Ecco i dettagli:\nPartenza:$data_p\nRitorno:$data_r\nMONDO: $mondo\nPREZZO:$prezzo euro\nAltre info:$nominativi_commento", 0, 'L', false);
 
 // Forza il download del PDF
 $pdf->Output('D', 'Ricevuta.pdf');

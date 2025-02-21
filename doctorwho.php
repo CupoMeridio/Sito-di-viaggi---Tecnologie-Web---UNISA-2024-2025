@@ -197,7 +197,7 @@
   <div id="form-container"> <!-- Contenitore per il form -->
   <form id="booking-form" onsubmit="return calcolaprezzo(event)">
     <label for="tickets-count">Numero di Biglietti:</label>
-    <input type="number" id="tickets-count" name="tickets-count" min="1" value="1" required>
+    <input type="number" id="tickets-count" name="tickets-count" min="1" max="10" value="1" required>
 
     <h3>Nominativi</h3>
     <div id="ticket-names-container">
