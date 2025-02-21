@@ -26,8 +26,8 @@ function PrendiCommenti() {
             LeggiCommenti(this.responseText);
         }
     };
-    xhrCommenti.open("POST", "prova_JSON");
-    xhrCommenti.send(ID_ULTIMO_COMMENTO);
+    xhrCommenti.open("POST", "prova_JSON.php");
+    xhrCommenti.send("max="+ID_ULTIMO_COMMENTO);
 }
 
 function LeggiCommenti(response) {

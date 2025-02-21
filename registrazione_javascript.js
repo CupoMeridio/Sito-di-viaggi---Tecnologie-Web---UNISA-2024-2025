@@ -63,6 +63,7 @@ function verificaModulo(){ // viene chiamata dal onsubmit del form. Una volta cl
     // Controlla se le password corrispondono
     if (password!== confirmPassword) {
         confirmPasswordError.textContent = 'Le password non corrispondono!';
+        
        
     } else {
         confirmPasswordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
@@ -101,12 +102,16 @@ elementoPassword.addEventListener("input", function(){
     if(elementoPassword.value===''){
         passwordError.textContent = '';
         span.textContent='';
+        elementoPassword.style.outline="";
     }else if (!passwordValid) {
         passwordError.textContent = 'La password inserita non rispetta i requisiti.';
+        elementoPassword.style.outline="solid red 2px";
         span.textContent='Show Password';
     } else {        
         passwordError.textContent = ''; // Cancella eventuali messaggi di errore precedenti
+        elementoPassword.style.outline="solid #287b3f 2px"
         span.textContent='Show Password';
+
     }
 });
 
@@ -119,14 +124,17 @@ elementoVerificaPassword.addEventListener("input", function(){
         span.textContent='';
         okPassword.textContent = '';
         confirmPasswordError.textContent = '';
+        elementoVerificaPassword.style.outline = "";
         
     }else if (password.value !== elementoVerificaPassword.value && elementoVerificaPassword.value!=='') {
         span.textContent='Show Password';
         okPassword.textContent='';
-        confirmPasswordError.textContent = 'Le password non corrispondono!';        
+        confirmPasswordError.textContent = 'Le password non corrispondono!';      
+       elementoVerificaPassword.style.outline="solid 2px red";
+        
     } else if(password.value === elementoVerificaPassword.value){
         span.textContent='Show Password';
-        okPassword.textContent='ok';
+        elementoVerificaPassword.style.outline="solid 2px #287b3f";
         confirmPasswordError.textContent = ''; 
     }
 });
@@ -232,10 +240,13 @@ let elementoError=document.getElementById("emailError");
 elementoEmail.addEventListener("input", function(){
     if(elementoEmail.value ===''){
         elementoError.textContent='';
+        elementoEmail.style.outline="";
     }else if(!validateEmail(elementoEmail.value)){
         elementoError.textContent='L\'email inserita non è valida';
+        elementoEmail.style.outline="solid red 2px";
     }else if(validateEmail(elementoEmail.value)){
         elementoError.textContent='';
+        elementoEmail.style.outline="solid #287b3f 2px";
     }
 });
 /* ----------------------------------ZONA EMAIL LOGIN---------------------------------------------------- */
@@ -244,9 +255,11 @@ let elementoErrorLogin=document.getElementById("emailErrorLogin");
 elementoEmailLogin.addEventListener("input", function(){
     if(elementoEmailLogin.value ==='')
         elementoErrorLogin.textContent='';
+    email.style.outline="";
 });
-/*---------------------------------------------ZONA NOME/COGNOME------------------------------------- */
+/*---------------------------------------------ZONA NOME/COGNOME/USERNAME------------------------------------- */
 let nome=document.getElementById("nome");
+
 let nameError=document.getElementById("nameError");
 let cognome=document.getElementById("cognome");
 let cognomeError=document.getElementById("cognomeError");
@@ -263,22 +276,28 @@ nome.addEventListener("input", function(){
     
     if(nome.value === ''){        
         nameError.textContent='';
+        nome.style.outline="";
     }else if(validateNome(nome.value)){
         nameError.textContent='';
         //alert("ciao");
+        nome.style.outline="solid #287b3f 2px";
     }else{
        // alert("ciao WERRRE");
         nameError.innerHTML='Il nome non può cominciare con numeri o caratteri speciali<br>Può contenere numeri';
+        nome.style.outline="solid red 2px";
     }
 });
 
 cognome.addEventListener("input", function(){
     if(cognome.value === ''){        
         cognomeError.textContent='';
+        cognome.style.outline="";
     }else if(validateCognome(cognome.value)){
         cognomeError.textContent='';
+        cognome.style.outline="solid #287b3f 2px";
     }else{
         cognomeError.textContent='Il cognome non può cominciare né contenere numeri o caratteri speciali';
+        cognome.style.outline="solid red 2px";
     }
 });
 
@@ -405,6 +424,7 @@ document.getElementById('email').addEventListener('blur', function(){
         } else {
             //alert("sono nell'if in ui NON esiste la mail");
             emailError.textContent = "Questa email è già associata ad un account."; 
+            email.style.outline="solid red 2px";
         }
     } 
     }
@@ -419,10 +439,10 @@ document.getElementById('email').addEventListener('blur', function(){
 
 
 function controlloEmailLogin() {
-    let email = document.getElementById('email-login').value;
+    let email = document.getElementById('email-login');
     let emailErrorLogin = document.getElementById("emailErrorLogin");
 
-    if (email.trim() === '') {
+    if (email.value.trim() === '') {
         emailErrorLogin.textContent = 'Compila il campo e-mail';        
     }
 
@@ -434,17 +454,19 @@ function controlloEmailLogin() {
             if (serverRequest.responseText === "esiste" ) {
                 
                 emailErrorLogin.textContent = "";
+                email.style.outline="";
                
             } else {
                 emailErrorLogin.textContent = "Non esiste alcun account associato a questa email.";
+                email.style.outline="solid red 2px";
                
             }
         }
     };
-    if(email.trim() !== ''){
+    if(email.value.trim() !== ''){
     serverRequest.open("POST", "controlloEmailAjax.php");
     serverRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    serverRequest.send("email=" + encodeURIComponent(email));
+    serverRequest.send("email=" + encodeURIComponent(email.value));
     }
     
 }
