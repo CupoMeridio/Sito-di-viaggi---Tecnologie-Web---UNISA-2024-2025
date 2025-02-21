@@ -1,44 +1,113 @@
 <ul id="dashboard">
+  <li><a id="storicoOrdini_link">Storico ordini</a></li>
   <li><a id="modifica-link">Modifica dell'account</a></li>
   <li><a href="logout.php">Esci</a></li>
 </ul>
-
-<iframe id="modifica" src="modifica.php" style="display: none;"></iframe>
-
+  
+  <iframe id="modifica" src="modifica.php" style="display: none;"></iframe>
+  
+  <div id="storicoOrdini">
+    <h1>Storico acquisti</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID acquisto</th>
+          <th>Destinazione</th>
+          <th>Data di partenza</th>
+          <th>Data di ritorno</th>
+        </tr>
+      </thead>
+      <tbody id="tabellaPrenotazioni">
+      
+      </tbody>
+    </table>
+    <button id="storico_close_button">Chiudi</button>
+  </div>
+  
+  
+  
 
 <script>
   let link = document.getElementById("modifica-link"); // Modifica questa linea
-  link.addEventListener("click", function (event) {
+  link.addEventListener("click", function(event){
     event.preventDefault(); // Evita il comportamento predefinito del link (andare alla pagina)
     document.getElementById("modifica").style.display = "block"; // Mostra l'iframe
     document.getElementById("modifica").style.setProperty("z-index", "4");
   });
-  window.addEventListener('message', function (event) {
+  window.addEventListener('message', function(event) {
     //console.log('Messaggio ricevuto:', event.data);
     if (event.data == 'operationComplete') {
-      document.getElementById("modifica").style.display = "none";
+      document.getElementById("modifica").style.display = "none"; 
       document.getElementById("modifica").style.setProperty("z-index", "1");
-      setTimeout(function () {
-        window.open('index.php', '_self');
-      }, 10);
+      setTimeout(function() {
+      window.open('index.php', '_self');
+    }, 20); 
       //window.open('index.php', '_self');
       //window.location.reload();
       //window.location.href='index.php';
-    } else if (event.data == 'closeIframe') {
+    }else if (event.data == 'closeIframe') {
         document.getElementById("modifica").style.display = "none"; 
         document.getElementById("modifica").style.setProperty("z-index", "1");
         window.open('#', '_self');
-        
-        
-        //PROBLEMA---> aggiungo o modifico un campo e poi faccio annulla: LO STATO RIMANE CAMBIATO MA NON MODIFICA
-        //SOLUZONE FAR RCARICARE LA PAGINA CORRENTE
-        setTimeout(function () {
-          window.location.reload(); 
-      }, 1);
-          
     }
-    
+});
 
+let ordini = document.getElementById("storicoOrdini_link");
+if(ordini!=null){
+ordini.addEventListener("click", function(event){
+  event.preventDefault();
+  document.getElementById("storicoOrdini").style.display="block";
+  PrendiPrenotazione();
+  document.getElementById("storicoOrdini").style.setProperty("z-index", "4");
+});  
+}
+
+let close_storico = document.getElementById("storico_close_button");
+if(close_storico!=null){
+  close_storico.addEventListener("click", function(event){
+    document.getElementById("storicoOrdini").style.display="none";
   });
+}
+
+var id_ultima_prenotazione=0;
+
+function PrendiPrenotazione() {
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              LeggiPrenotazioni(this.responseText);
+            }
+        };
+
+        xhr.open("POST", "prendi_prenotazioni");
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("ultima_prenotazione=" + id_ultima_prenotazione);
+    }
+
+
+    function LeggiPrenotazioni(response) {
+    var html = "";
+    try {
+        var prenotazioni = JSON.parse(response);
+        if (prenotazioni.length) {
+            //tutto ok
+            for (var i = 0; i < prenotazioni.length; i++) {
+                html += `
+                    <tr><td> ${prenotazioni[i].id_prenotazione} </td>
+                        <td> ${prenotazioni[i].destinazione} </td>
+                        <td> ${prenotazioni[i].data_p} </td>
+                        <td> ${prenotazioni[i].data_r} </td>
+                      </tr>
+                `;
+                id_ultima_prenotazione = prenotazioni[i].id_prenotazione;
+            }
+            document.getElementById("tabellaPrenotazioni").innerHTML = html;
+        }
+    } catch (e) {
+        //errore
+        alert("errore nel caricamento delle prenotazioni riprovare "+ e.message);
+    }
+}
 
 </script>

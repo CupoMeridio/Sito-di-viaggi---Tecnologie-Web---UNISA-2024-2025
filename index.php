@@ -1,6 +1,7 @@
 <?php
+
 include 'prendi_dati.php';
-include 'prendi_prenotazioni.php';
+
 
 ?>
 <!DOCTYPE html>
@@ -13,6 +14,7 @@ include 'prendi_prenotazioni.php';
     <link rel="stylesheet" href="indexStyle.css">
     <link rel="stylesheet" href="commons/navbarStyle.css">
     <link rel="stylesheet" href="commons/dashboardStyle.css">
+    <link rel="stylesheet" href="commons/storicoOrdiniStyle.css">
     <?php include("commons/setIcon.html"); ?>
     <script src="index_javascript.js" type="text/javascript" defer="true"></script>
 </head>
