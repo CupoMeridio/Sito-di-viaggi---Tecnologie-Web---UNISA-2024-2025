@@ -144,7 +144,7 @@ include 'prendi_dati.php';
                 <p>m.sanzari@studenti.unisa.it</p>
             </div>
             <div class="team-member">
-                <a href="#"><div class="profile-pic"><img src="https://i.pinimg.com/736x/52/b1/9d/52b19d6902fcbe7a514862a852afe402.jpg"></div></a>
+                <a href="https://linktr.ee/a.ntibiotico"><div class="profile-pic"><img src="https://i.pinimg.com/736x/52/b1/9d/52b19d6902fcbe7a514862a852afe402.jpg"></div></a>
                 <h4>Vitale Antonio</h4>
                 <p>a.vitale132@studenti.unisa.it</p>
             </div>
