@@ -47,7 +47,7 @@ if (isset($_POST['update'])) {
     $result = pg_execute($db, "update_user", $values);
 
     if ($result) {
-        //header("Location: index.php");
+        header("Location: index.php");
 
 
 
@@ -116,7 +116,7 @@ if (isset($_POST['update'])) {
             </div>
 <!-- onclick="window.parent.postMessage('closeIframe', '*')" -->
             <div class="wrapper">
-                <input type="button" name="close" value="Chiudi la Pagina" onclick="window.parent.postMessage('closeIframe', '*')">
+                <input type="button" name="close" value="Chiudi" onclick="window.parent.postMessage('closeIframe', '*')">
             </div>
 
         </form>
