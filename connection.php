@@ -1,5 +1,4 @@
 <?php
-//commento per il ricchio
 $host='database-1.czikiq82wrwk.eu-west-2.rds.amazonaws.com';
 //$host='localhost';
 $port = '5432';
