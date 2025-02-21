@@ -47,7 +47,7 @@ if (isset($_POST['update'])) {
     $result = pg_execute($db, "update_user", $values);
 
     if ($result) {
-        //header("Location: index.php");
+        header("Location: index.php");
 
 
 
