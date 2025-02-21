@@ -27,6 +27,7 @@
     <script src="commenti.js" type="text/javascript" defer></script>
     <script src="stripe/stripe.js" type="text/javascript" defer></script>
     <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" href="commons/storicoOrdiniStyle.css">
   </head>
 
 <body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
