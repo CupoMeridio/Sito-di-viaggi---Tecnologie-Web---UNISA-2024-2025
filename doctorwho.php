@@ -13,20 +13,20 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">                                                                            <!-- Definisce la codifica dei caratteri come UTF-8, per supportare caratteri speciali -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">                            <!-- Rende la pagina responsiva, adattandola alla larghezza dello schermo del dispositivo -->
-  <title>Doctor who</title>                                                                         <!-- Imposta il titolo della pagina che apparirà nella scheda del browser -->
-  <?php include("commons/setIcon.html"); ?>
-  <script src="doctorwho.js" type="text/javascript" defer="true"></script>                          <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
-  <script src="commenti.js" type="text/javascript" defer="true"></script>
-  <script src="commons/mondo_javascript.js" type="text/javascript" defer></script>   
-  <link rel="stylesheet" href="doctorwho.css">                                                      <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
-  <link rel="stylesheet" href="commons/footerStyle.css">
+  <meta charset="UTF-8">                                                                            
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">                            
+  <title>Doctor who</title>                                                                         
+  <link rel="stylesheet" href="doctorwho.css">
   <link rel="stylesheet" href="commons/navbarStyle.css">
-  <link rel="stylesheet" href="commons/dashboardStyle.css">
   <link rel="stylesheet" href="commons/headerStyle.css">
+  <link rel="stylesheet" href="commons/footerStyle.css">
+  <link rel="stylesheet" href="commons/dashboardStyle.css">
   <link rel="stylesheet" href="commons/overlayblockStyle.css">
   <?php include("commons/setIcon.html"); ?>
+  <script src="doctorwho.js" type="text/javascript" defer="true"></script>
+  <script src="commenti.js" type="text/javascript" defer></script>
+    <script src="stripe/stripe.js" type="text/javascript" defer></script>
+    <script src="https://js.stripe.com/v3/"></script>                      
 </head>
 
 
