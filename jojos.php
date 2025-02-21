@@ -281,7 +281,7 @@
         <textarea id="experience" name="experience" rows="4" cols="50" required placeholder="Scrivi la tua esperienza..."></textarea>
         <br><br>
         <?php if(isset($email)){ ?> 
-        <input type="button" value="Invia Recensione" onclick="InserisciCommento()">
+        <input type="button" value="Invia Recensione" onclick="InserisciCommento()" style="background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer; font-size: 12px;">
         <?php }else{ ?> 
         <input type="button" value="Registrati o accedi per inviare una recensione" >
         <?php  }?>
