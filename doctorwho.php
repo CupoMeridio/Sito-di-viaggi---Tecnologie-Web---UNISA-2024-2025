@@ -57,7 +57,7 @@
 
   <div class="mySlides fade">
     <img src="immagini/castello.jpg" id="location3">
-    <div class="captionText">Prigione dei signori del tempo</div>
+    <div class="captionText" style="width: fit-content;">Prigione del tempo</div>
   </div>
 
   <!--pulsanti <- e -> -->
@@ -133,13 +133,13 @@
     </p>
 
     <img class="float-left clear-right" src="immagini/dalek-skaro-asylum-2">
-    <h4 class="clear-right">🌱 Guerriglia per sopravvivere</h4>
+    <h4 class="clear-right"> Guerriglia per sopravvivere</h4>
     <p class="clear-right">
       Adatta a chi ama combattere per sopravvivere. La nosta socetà non si prenderà cura di voi. <br>
       Anche se i dalek sembrano degli aspirapolvere, <br> sono la cosa più cattiva che ci sia.
     </p>
   </div>
-  <div class="clearfix show" id="info_location3" style="display: block;">
+  <div class="clearfix show" id="info_location3" style="display: none;">
     <h2>
       Combatti per la tua sopravvivenza!
     </h2>

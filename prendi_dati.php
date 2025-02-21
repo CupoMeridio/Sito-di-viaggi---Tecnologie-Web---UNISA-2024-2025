@@ -10,7 +10,7 @@ if(isset($_SESSION['email'])){
 
 $email= $_SESSION['email'];
 
-$query_no_injection= " SELECT * FROM  utente where email=LOWER($1) ";
+$query_no_injection= " SELECT * FROM  utente where email=$1 ";
     //inserimento dei dati nel database
     $result=pg_prepare($db, "select", $query_no_injection); 
     $values=array($email);

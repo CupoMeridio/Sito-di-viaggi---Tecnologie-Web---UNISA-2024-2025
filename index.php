@@ -1,5 +1,6 @@
 <?php
 include 'prendi_dati.php';
+include 'prendi_prenotazioni.php';
 
 ?>
 <!DOCTYPE html>
