@@ -91,7 +91,9 @@ if (isset($_POST['update'])) {
             <h2>Modifica Dati</h2>
             <h3>Attentione, modificare i dati ti riporterà nella home.</h3>
             <div class="wrapper">
+
                 <img src="<?php echo $img; ?>" alt="Foto Profilo" width="100" id="current">
+                
                 <div id="anteprimaFoto" class="anteprima-foto">
                     <img id="immagineAnteprima" src="" alt="Anteprima foto profilo">
                 </div>
@@ -129,43 +131,44 @@ if (isset($_POST['update'])) {
     </div>
     <script>
         // Costanti
-        const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
-        // Riferimenti agli elementi del DOM
-        const fotoProfiloInput = document.getElementById('fotoProfilo');
-        const immagineAnteprima = document.getElementById('immagineAnteprima');
+// Riferimenti agli elementi del DOM
+const fotoProfiloInput = document.getElementById('fotoProfilo');
+const immagineAnteprima = document.getElementById('immagineAnteprima');
+const anteprimaDiv = document.getElementById('anteprimaFoto');
+const imgCorrente = document.getElementById('current');
 
-        let img_corrente = document.getElementById("current");
-        // Funzione per gestire il file selezionato
-        function handleFile(file) {
-            if (file.size > MAX_FILE_SIZE) {
-                alert('Il file supera la dimensione massima consentita di 5 MB.');
-                return;
-            }
+// Funzione per gestire il file selezionato
+function handleFile(file) {
+    if (file.size > MAX_FILE_SIZE) {
+        alert('Il file supera la dimensione massima consentita di 5 MB.');
+        return;
+    }
 
-            const reader = new FileReader(); // Crea un oggetto FileReader
+    const reader = new FileReader(); // Crea un oggetto FileReader
 
-            // Quando il file è stato caricato
-            reader.onload = function(e) {
-                immagineAnteprima.src = e.target.result; // Imposta l'URL dell'immagine letta come sorgente dell'anteprima
-                immagineAnteprima.style.display = "block"; // Mostra l'immagine nell'anteprima
-                img_corrente.style.display = "none";
-            };
+    // Quando il file è stato caricato
+    reader.onload = function(e) {
+        immagineAnteprima.src = e.target.result; // Imposta l'URL dell'immagine letta come sorgente dell'anteprima
+        anteprimaDiv.style.display = "block"; // Mostra il contenitore dell'anteprima
+        imgCorrente.style.display = "none"; // Nascondi l'immagine corrente
+    };
 
-            reader.readAsDataURL(file); // Legge il file come URL di dati
-        }
+    reader.readAsDataURL(file); // Legge il file come URL di dati
+}
 
-        // Gestione del cambio di file
-        fotoProfiloInput.addEventListener('change', function(event) {
-            const file = event.target.files[0]; // Ottieni il file selezionato
+// Gestione del cambio di file
+fotoProfiloInput.addEventListener('change', function(event) {
+    const file = event.target.files[0]; // Ottieni il file selezionato
 
-            if (file) {
-                handleFile(file); // Gestisci il file
-            } else {
-                immagineAnteprima.style.display = "none"; // Nascondi l'anteprima se non ci sono file
-                img_corrente.style.display = "block";
-            }
-        });
+    if (file) {
+        handleFile(file); // Gestisci il file
+    } else {
+        anteprimaDiv.style.display = "none"; // Nascondi l'anteprima se non ci sono file
+        imgCorrente.style.display = "block"; // Mostra l'immagine corrente
+    }
+});
     </script>
 
 </body>
