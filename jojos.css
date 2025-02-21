@@ -14,7 +14,7 @@ nav {
 }
 
 .navButton:hover {
-    background: #9f1567 !important;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
+    background: rgb(159, 21, 81) !important;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
 }
 
 /* Stile per gli elementi della lista */
