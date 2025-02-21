@@ -26,10 +26,9 @@
   <?php include("commons/setIcon.html"); ?>
   <script src="doctorwho.js" type="text/javascript" defer="true"></script>
   <script src="commenti.js" type="text/javascript" defer></script>
-    <script src="stripe/stripe.js" type="text/javascript" defer></script>
-    <script src="https://js.stripe.com/v3/"></script>   
-    <link rel="stylesheet" href="commons/storicoOrdiniStyle.css">
-                   
+  <script src="stripe/stripe.js" type="text/javascript" defer></script>
+  <script src="https://js.stripe.com/v3/"></script>   
+  <link rel="stylesheet" href="commons/storicoOrdiniStyle.css">                   
 </head>
 
 
