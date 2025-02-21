@@ -129,12 +129,12 @@ include 'prendi_dati.php';
         <h3>Il nostro team</h3>
         <div class="team" id="contact-section">
             <div class="team-member"> <!--https://pbs.twimg.com/media/FbjFQH_WAAE_RsA.png-->
-                <a href="#"><div class="profile-pic"><img src="https://i1.sndcdn.com/artworks-96KvhzYlwoy1zhOY-PaPjQw-t500x500.jpg"></div></a>
+                <a href="https://linktr.ee/ciiprosk"><div class="profile-pic"><img src="https://i1.sndcdn.com/artworks-96KvhzYlwoy1zhOY-PaPjQw-t500x500.jpg"></div></a>
                 <h4>Passaro Rosa</h4>
                 <p>r.passaro5@studenti.unisa.it</p>
             </div>
             <div class="team-member">
-                <a href="https://linktr.ee/CupoMeridio"><div class="profile-pic"><img src="https://cdn2.steamgriddb.com/icon/b035d6563a2adac9f822940c145263ce.png"></div></a>
+                <a href="https://linktr.ee/CupoMeridio"><div class="profile-pic"><img src="immagini/20200806_125456.jpg"></div></a>
                 <h4>Postiglione Vittorio</h4>
                 <p>v.postiglione7@studenti.unisa.it</p>
             </div>
