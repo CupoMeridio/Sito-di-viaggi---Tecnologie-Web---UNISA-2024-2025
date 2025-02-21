@@ -167,7 +167,7 @@
       Consigliamo l' esperienza a tutti, ma sono preferiti:
     </p>
     <ul> 
-     <li>Tutte le persone e alieni che vogliono mettersi in gioco<;/li> 
+     <li>Tutte le persone e alieni che vogliono mettersi in gioco</li> 
      <li>Uomini che vogliono liberarsi della suocera.</li>
       </ul>
   </div>
