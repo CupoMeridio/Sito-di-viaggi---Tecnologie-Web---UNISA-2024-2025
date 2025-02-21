@@ -40,8 +40,11 @@ function LeggiCommenti(response) {
                 html += `
                     <div class="commento">
                         <div class="commento-header">
-                            <span class="email">${commenti[i].email}</span>
+                            <span class="username"> <b>${commenti[i].username}</b></span>
                             <span class="rating">${convertiStelle(commenti[i].stelle)}</span>
+                            <br>
+                            <span class="email" style="color: grey; font-size 7px;">${commenti[i].email}</span>
+                            
                         </div>
                         <div class="commento-body">
                             <p class="testo" style="white-space: pre-wrap;">${commenti[i].testo}</p>

@@ -114,7 +114,7 @@ if (isset($_POST['update'])) {
             <div class="wrapper">
                 <input type="submit" name="update" value="Aggiorna Dati" onclick="window.parent.postMessage('operationComplete', '*')">
             </div>
-
+<!-- onclick="window.parent.postMessage('closeIframe', '*')" -->
             <div class="wrapper">
                 <input type="button" name="close" value="Chiudi la Pagina" onclick="window.parent.postMessage('closeIframe', '*')">
             </div>
