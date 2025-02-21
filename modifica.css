@@ -130,8 +130,6 @@ body {
     object-fit: cover; /* Mantiene le proporzioni e copre l'area */
     border-radius: 50%; /* Opzionale: per un effetto circolare */
     display: block; /* Assicura che l'immagine sia visibile */
-
-
 }
 #anteprimaFoto{
     display: none;

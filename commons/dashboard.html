@@ -2,32 +2,43 @@
   <li><a id="modifica-link">Modifica dell'account</a></li>
   <li><a href="logout.php">Esci</a></li>
 </ul>
-  
-  <iframe id="modifica" src="modifica.php" style="display: none;"></iframe>
+
+<iframe id="modifica" src="modifica.php" style="display: none;"></iframe>
 
 
 <script>
   let link = document.getElementById("modifica-link"); // Modifica questa linea
-  link.addEventListener("click", function(event){
+  link.addEventListener("click", function (event) {
     event.preventDefault(); // Evita il comportamento predefinito del link (andare alla pagina)
     document.getElementById("modifica").style.display = "block"; // Mostra l'iframe
     document.getElementById("modifica").style.setProperty("z-index", "4");
   });
-  window.addEventListener('message', function(event) {
+  window.addEventListener('message', function (event) {
     //console.log('Messaggio ricevuto:', event.data);
     if (event.data == 'operationComplete') {
-      document.getElementById("modifica").style.display = "none"; 
+      document.getElementById("modifica").style.display = "none";
       document.getElementById("modifica").style.setProperty("z-index", "1");
-      setTimeout(function() {
-      window.open('index.php', '_self');
-    }, 20); 
+      setTimeout(function () {
+        window.open('index.php', '_self');
+      }, 20);
       //window.open('index.php', '_self');
       //window.location.reload();
       //window.location.href='index.php';
-    }else if (event.data == 'closeIframe') {
+    } else if (event.data == 'closeIframe') {
         document.getElementById("modifica").style.display = "none"; 
         document.getElementById("modifica").style.setProperty("z-index", "1");
         window.open('#', '_self');
+        
+        
+        //PROBLEMA---> aggiungo o modifico un campo e poi faccio annulla: LO STATO RIMANE CAMBIATO MA NON MODIFICA
+        //SOLUZONE FAR RCARICARE LA PAGINA CORRENTE
+        setTimeout(function () {
+          window.location.reload(); 
+      }, 1);
+          
     }
-});
+    
+
+  });
+
 </script>

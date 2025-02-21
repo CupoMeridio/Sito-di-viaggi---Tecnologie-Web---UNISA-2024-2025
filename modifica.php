@@ -169,6 +169,8 @@ fotoProfiloInput.addEventListener('change', function(event) {
         imgCorrente.style.display = "block"; // Mostra l'immagine corrente
     }
 });
+
+
     </script>
 
 </body>
