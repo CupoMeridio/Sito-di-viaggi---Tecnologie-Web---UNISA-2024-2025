@@ -116,7 +116,7 @@ if (isset($_POST['update'])) {
             </div>
 <!-- onclick="window.parent.postMessage('closeIframe', '*')" -->
             <div class="wrapper">
-                <input type="button" name="close" value="Chiudi la Pagina" onclick="window.parent.postMessage('closeIframe', '*')">
+                <input type="button" name="close" value="Chiudi" onclick="window.parent.postMessage('closeIframe', '*')">
             </div>
 
         </form>
