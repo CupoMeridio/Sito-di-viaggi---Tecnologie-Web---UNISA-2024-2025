@@ -183,36 +183,36 @@
   <form id="booking-form" onsubmit="return calcolaprezzo(event)">
     <label for="tickets-count">Numero di Biglietti:</label>
     <input type="number" id="tickets-count" name="tickets-count" min="1" value="1" required>
-
+    
     <h3>Nominativi</h3>
     <div id="ticket-names-container">
       <label for="ticket-name-0">Nome Passeggero 1:</label>
       <input type="text" id="ticket-name-0" name="ticket-name-0" required placeholder="Nome Passeggero 1">
     </div>
-
+    
     <label for="location">Scegli la Destinazione:</label>
     <select id="location" name="location" required>
-    <option value="Gallifrey">Gallifrey</option>
-      <option value="Skaro">Skaro</option>
-      <option value="Prigione_dei_signori_del_tempo">Prigione dei signori del tempo</option>
+      <option value="kame_house">Gallifrey</option>
+      <option value="namecc">Skaro</option>
+      <option value="king_kai">Prigione del tempo</option>
     </select>
-
+    
     <label for="departure-date">Data di Partenza:</label>
     <input type="date" id="departure-date" name="departure-date" required min="" onchange="setMinReturnDate()">
-
+    
     <label for="return-date">Data di Ritorno:</label>
     <input type="date" id="return-date" name="return-date" required min="">
-
+    
     <label for="comments">Commenti Speciali:</label>
-    <textarea id="comments" name="comments" rows="4"
-      placeholder="Inserisci richieste particolari o commenti"></textarea>
-
-    <?php if (isset($email)) { ?>
-      <input type="submit" id="submit-form-button" value="Prenota il tuo viaggio!">
-    <?php } else { ?>
-      <input type="button" id="submit-form-button" value="Registrati o accedi per prenotare il tuo viaggio!">
-    <?php } ?>
+    <textarea id="comments" name="comments" rows="4" placeholder="Inserisci richieste particolari o commenti"></textarea>
+    
+    <?php if(isset($email)){ ?>
+    <input type="submit" id="submit-form-button"  value="Prenota il tuo viaggio!">
+    <?php }else{ ?> 
+      <input type="button" id="submit-form-button"  value="Registrati o accedi per prenotare il tuo viaggio!">
+      <?php } ?>
   </form>
+  
   <?php if(!isset($email)){ ?>
   <div id="form-overlay" class="form-overlay">
     <div class="overlay-message">Registrati o accedi per prenotare il tuo viaggio!</div>
@@ -221,7 +221,7 @@
   </div>
 </div>
 
-
+    
 <script>
   // Impostare la data minima per la partenza come la data corrente
   document.getElementById('departure-date').min = new Date().toLocaleDateString('en-CA');
@@ -233,8 +233,8 @@
   }
 </script>
 
+  <?php include("commons/popup.html"); ?>
 
-<?php include("commons/popup.html"); ?>
 
 <!-- Sezione Recensioni -->
 <div class="reviews-section" style="display: flex; justify-content: space-between">
