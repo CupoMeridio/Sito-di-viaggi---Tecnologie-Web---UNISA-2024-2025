@@ -12,6 +12,7 @@ $destinazione=$_SESSION['location'];
 $data_p = $_SESSION['datap'];
 $data_r = $_SESSION['datar'];
 
+$prezzo=$prezzo/100;
 $info= $_SESSION['info'];
 
 $nominativi_commento = $testo_pulito = str_replace(array('Array','[0]', '[1]','[2]','[3]','[4]','[5]','[6]','[7]','[8]','[9]','[10]', '(', ')', '[', ']','=','>'), '', $info);
