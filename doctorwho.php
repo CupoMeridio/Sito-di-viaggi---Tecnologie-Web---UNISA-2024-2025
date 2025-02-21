@@ -191,9 +191,9 @@
 
     <label for="location">Scegli la Destinazione:</label>
     <select id="location" name="location" required>
-      <option value="kame_house">Kame House</option>
-      <option value="namecc">Namecc</option>
-      <option value="king_kai">Pianeta di King Kai</option>
+    <option value="Gallifrey">Gallifrey</option>
+      <option value="Skaro">Skaro</option>
+      <option value="Prigione_dei_signori_del_tempo">Prigione dei signori del tempo</option>
     </select>
 
     <label for="departure-date">Data di Partenza:</label>
@@ -250,9 +250,9 @@
     <form id="reviewForm" name="commenti">
       <label for="location">Seleziona la location:
         <select id="location_selection" name="location" onchange="updateReviewPlaceholder()"></label>
-      <option value="kamehouse">Kame House</option>
-      <option value="namecc">Namecc</option>
-      <option value="kingkaiplanet">King Kai Planet</option>
+      <option value="Gallifrey">Gallifrey</option>
+      <option value="Skaro">Skaro</option>
+      <option value="Prigione_dei_signori_del_tempo">Prigione dei signori del tempo</option>
       </select>
       <br><br>
 
