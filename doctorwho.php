@@ -79,15 +79,20 @@
     <h2>
        Scopri il pianeta di Gallyfeid
     </h2>
+    <img class="float-left clear-right" src="immagini/citadel.jpg">
     <p>
-      È un pianeta affascinante con una lunga storia e una cultura avanzata.<br>
-      Gallifrey si trova nella costellazione di Kasterborous, al 10º pianeta dal suo sole.
-      È un mondo di tecnologia avanzata, con enormi città coperte da cupole, 
-      la più famosa delle quali è la capitale, chiamata anche Gallifrey o più comunemente Citadel.
+    Gallifrey è un pianeta affascinante con una lunga storia e una cultura avanzata. <br>
+    Situato nella costellazione di Kasterborous, è il decimo pianeta dal suo sole. <br>
+    Questo mondo straordinario è famoso per la sua tecnologia avanzata e le sue enormi città coperte da cupole, 
+    la più celebre delle quali è la capitale, chiamata anche Gallifrey o più comunemente Citadel.
     </p>
     <h2> Per chi è adatto questo viaggio ?</h2>
-    <p>A tutti gli esseri viventi che amano tecnologie aliene avanzate e non hanno paura del nuovo e del diverso. </p>
-
+    <ul>
+      <li>Tutti gli esseri viventi che amano tecnologie aliene avanzate:<br>
+         Se sei affascinato dalle innovazioni tecnologiche e dalle culture aliene, Gallifrey è il posto perfetto per te.</li>
+      <li>Coloro che non hanno paura del nuovo e del diverso:<br>
+         Gallifrey è un mondo che sfida le convenzioni e offre esperienze uniche, adatte a chi è aperto a scoprire l'ignoto.</li>
+    </ul>
   </div>
   <div class="clearfix" id="info_location2">
     <h2>
