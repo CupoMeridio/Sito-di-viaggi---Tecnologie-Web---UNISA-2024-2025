@@ -10,7 +10,7 @@ include 'prendi_dati.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>index</title>
     <link rel="stylesheet" href="indexStyle.css">
     <link rel="stylesheet" href="commons/navbarStyle.css">
     <link rel="stylesheet" href="commons/dashboardStyle.css">

@@ -13,21 +13,21 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">                                                                            
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">                            
-  <title>Doctor who</title>                                                                         
-  <link rel="stylesheet" href="doctorwho.css">
-  <link rel="stylesheet" href="commons/navbarStyle.css">
-  <link rel="stylesheet" href="commons/headerStyle.css">
+  <meta charset="UTF-8">                                                                            <!-- Definisce la codifica dei caratteri come UTF-8, per supportare caratteri speciali -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">                            <!-- Rende la pagina responsiva, adattandola alla larghezza dello schermo del dispositivo -->
+  <title>Doctor who</title>                                                                         <!-- Imposta il titolo della pagina che apparirà nella scheda del browser -->
+  <?php include("commons/setIcon.html"); ?>
+  <script src="doctorwho.js" type="text/javascript" defer="true"></script>                          <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
+  <script src="commenti.js" type="text/javascript" defer="true"></script>
+  <script src="commons/mondo_javascript.js" type="text/javascript" defer></script>   
+  <link rel="stylesheet" href="doctorwho.css">                                                      <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
   <link rel="stylesheet" href="commons/footerStyle.css">
+  <link rel="stylesheet" href="commons/navbarStyle.css">
   <link rel="stylesheet" href="commons/dashboardStyle.css">
+  <link rel="stylesheet" href="commons/headerStyle.css">
   <link rel="stylesheet" href="commons/overlayblockStyle.css">
   <link rel="stylesheet" href="commons/storicoOrdiniStyle.css">
   <?php include("commons/setIcon.html"); ?>
-  <script src="doctorwho.js" type="text/javascript" defer="true"></script>
-  <script src="commenti.js" type="text/javascript" defer></script>
-    <script src="stripe/stripe.js" type="text/javascript" defer></script>
-    <script src="https://js.stripe.com/v3/"></script>                      
 </head>
 
 
@@ -183,36 +183,36 @@
   <form id="booking-form" onsubmit="return calcolaprezzo(event)">
     <label for="tickets-count">Numero di Biglietti:</label>
     <input type="number" id="tickets-count" name="tickets-count" min="1" value="1" required>
-    
+
     <h3>Nominativi</h3>
     <div id="ticket-names-container">
       <label for="ticket-name-0">Nome Passeggero 1:</label>
       <input type="text" id="ticket-name-0" name="ticket-name-0" required placeholder="Nome Passeggero 1">
     </div>
-    
+
     <label for="location">Scegli la Destinazione:</label>
     <select id="location" name="location" required>
-      <option value="kame_house">Gallifrey</option>
-      <option value="namecc">Skaro</option>
-      <option value="king_kai">Prigione del tempo</option>
+    <option value="Gallifrey">Gallifrey</option>
+      <option value="Skaro">Skaro</option>
+      <option value="Prigione_dei_signori_del_tempo">Prigione dei signori del tempo</option>
     </select>
-    
+
     <label for="departure-date">Data di Partenza:</label>
     <input type="date" id="departure-date" name="departure-date" required min="" onchange="setMinReturnDate()">
-    
+
     <label for="return-date">Data di Ritorno:</label>
     <input type="date" id="return-date" name="return-date" required min="">
-    
+
     <label for="comments">Commenti Speciali:</label>
-    <textarea id="comments" name="comments" rows="4" placeholder="Inserisci richieste particolari o commenti"></textarea>
-    
-    <?php if(isset($email)){ ?>
-    <input type="submit" id="submit-form-button"  value="Prenota il tuo viaggio!">
-    <?php }else{ ?> 
-      <input type="button" id="submit-form-button"  value="Registrati o accedi per prenotare il tuo viaggio!">
-      <?php } ?>
+    <textarea id="comments" name="comments" rows="4"
+      placeholder="Inserisci richieste particolari o commenti"></textarea>
+
+    <?php if (isset($email)) { ?>
+      <input type="submit" id="submit-form-button" value="Prenota il tuo viaggio!">
+    <?php } else { ?>
+      <input type="button" id="submit-form-button" value="Registrati o accedi per prenotare il tuo viaggio!">
+    <?php } ?>
   </form>
-  
   <?php if(!isset($email)){ ?>
   <div id="form-overlay" class="form-overlay">
     <div class="overlay-message">Registrati o accedi per prenotare il tuo viaggio!</div>
@@ -221,7 +221,7 @@
   </div>
 </div>
 
-    
+
 <script>
   // Impostare la data minima per la partenza come la data corrente
   document.getElementById('departure-date').min = new Date().toLocaleDateString('en-CA');
@@ -233,8 +233,8 @@
   }
 </script>
 
-  <?php include("commons/popup.html"); ?>
 
+<?php include("commons/popup.html"); ?>
 
 <!-- Sezione Recensioni -->
 <div class="reviews-section" style="display: flex; justify-content: space-between">
