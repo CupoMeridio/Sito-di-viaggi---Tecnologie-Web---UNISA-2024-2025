@@ -168,7 +168,7 @@
     </p>
     <ul> 
      <li>Tutte le persone e alieni che vogliono mettersi in gioco</li> 
-     <li>Uomini che vogliono liberarsi della suocera.</li>
+     <li>Persone che vogliono sbarazzarsi di una partner scomodo</li>
       </ul>
   </div>
 </div>
