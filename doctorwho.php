@@ -36,8 +36,8 @@
 
 <header>
   <video src="video/doctorwho/doctorwho.mp4" class="headerVideo" id="background-video"
-    alt="Dragon Ball background video" autoplay muted loop></video>
-  <img class="headerImg" id="worldTitle" src="immagini/Doctor-Who-Logo.png" alt="Dragon Ball Title screen" style="margin-top: 10px; height: 200px;">
+    alt="Doctor who background video" autoplay muted loop></video>
+  <img class="headerImg" id="worldTitle" src="immagini/Doctor-Who-Logo.png" alt="Doctor who Title screen" style="margin-top: 10px; height: 200px;">
 </header>
 
 
@@ -46,18 +46,18 @@
 </div>
 <div class="slideshow-container">
   <div class="mySlides fade">
-    <img src="immagini/vesuvio.png" id="location1"> 
-    <div class="captionText">Nome 1</div>
+    <img src="immagini/gallifrey2.jpg" id="location1"> 
+    <div class="captionText">Gallifrey</div>
   </div>
 
   <div class="mySlides fade">
-    <img src="immagini/gallifrey.jpg" id="location2">
-    <div class="captionText">Nome 2</div>
+    <img src="immagini/Skyro" id="location2">
+    <div class="captionText">Skaro</div>
   </div>
 
   <div class="mySlides fade">
-    <img src="immagini/namecc.jpeg" id="location3">
-    <div class="captionText">Nome 3</div>
+    <img src="immagini/castello.jpg" id="location3">
+    <div class="captionText">Prigione dei signori del tempo</div>
   </div>
 
   <!--pulsanti <- e -> -->
@@ -102,7 +102,7 @@
     <h3>
       ✨Caratteristiche di Skaro:
     </h3>
-    <img class="float-left clear-right" src="immagini/desktop-wallpaper-planet-namek.jpg">
+    <img class="float-left clear-right" src="immagini/dalek-inside.jpg">
     <h4 class="clear-right">🟢 Aspetto:</h4>
     <p class="clear-right">
        La superficie di Skaro è caratterizzata da vasti deserti, pianure aride, e rovine di antiche città.
@@ -115,7 +115,7 @@
     </p>
 
     <img class="float-right clear-left"
-      src="immagini/adding-a-new-character-every-day-until-sparking-zero-is-v0-z7u56vhfjzyc1.webp">
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Dalek_%28Dr_Who%29.jpg/1200px-Dalek_%28Dr_Who%29.jpg"> 
     <h4 class="clear-left"> Storia:</h4>
     <p class="clear-left">
     Skaro ha una storia di conflitti continui, principalmente tra i Kaleds e i Thals, due razze originarie del pianeta.<br> 
@@ -127,65 +127,44 @@
      La contaminazione radioattiva e le condizioni climatiche estreme rendono difficile la sopravvivenza.
     </p>
 
-    <img class="float-left clear-right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Dalek_%28Dr_Who%29.jpg/1200px-Dalek_%28Dr_Who%29.jpg">
+    <img class="float-left clear-right" src="immagini/dalek-skaro-asylum-2">
     <h4 class="clear-right">🌱 Guerriglia per sopravvivere</h4>
     <p class="clear-right">
       Adatta a chi ama combattere per sopravvivere. La nosta socetà non si prenderà cura di voi. <br>
       Anche se i dalek sembrano degli aspirapolvere, <br> sono la cosa più cattiva che ci sia.
     </p>
   </div>
-  <div class="clearfix" id="info_location3">
+  <div class="clearfix show" id="info_location3" style="display: block;">
     <h2>
-      🌌 Viaggio sul Pianeta di King Kai: Allenati con il Maestro dell’Oltretomba! 🏃‍♂️⚡
+      Combatti per la tua sopravvivenza!
     </h2>
-    <p>
-      ✨ Benvenuti sul mitico Pianeta di King Kai! ✨<br>
-      Situato alla fine del Serpentone dell’aldilà, questo piccolo ma straordinario mondo è il luogo perfetto per chi
-      desidera affinare la propria forza interiore, migliorare i riflessi e, perché no, farsi qualche risata con gli
-      indovinelli del suo eccentrico abitante!
+    <p>Il castello(simile a quello di Guardia Sanframondi) è un luogo di tortura progettato per interrogare il Dottore e scoprire la verità su un misterioso "ibrido". 
+      Le sue pareti sono fatte di un minerale chiamato Azbantium, più duro del diamante, e il castello cambia continuamente forma, 
+      rendendo la fuga quasi impossibile.
     </p>
+    
+    <img class="float-left clear-right" src="immagini/castello_doctor_who.jpg">
     <h3>
-      🔥 Cosa ti aspetta sul Pianeta di King Kai?
+      🔥 Cosa ti aspetta in questa escaperoom?
     </h3>
-    <img class="float-left clear-right" src="immagini/Dead_Z-Fighters_on_King_Kai's_planet.png">
-    <h4 class="clear-right">🪐 Un Pianeta Unico nel Suo Genere</h4>
+    <p class="clear-right">Questo castello è un luogo enigmatico e pericoloso, <br>
+    con stanze che si riconfigurano continuamente e una creatura velata chiamata "Il Velo" che ti insegurà implacabilmente.</p>
+    <h4 class="clear-right"> Scappa, ragiona e impara a conoscerti</h4>
     <p class="clear-right">
-      Qui la gravità è 10 volte superiore a quella terrestre! Ogni passo è una sfida, ogni movimento un allenamento.
-      Sei pronto a testare i tuoi limiti?
-    </p>
-    <h4 class="clear-right">🐵 Incontra King Kai e la Sua Simpatica Compagnia</h4>
-    <p class="clear-right">
-      Scopri le antiche comunità dei Namecciani, una razza pacifica e saggia.<br>
-      Interagisci con gli abitanti locali e lasciati affascinare dalla loro cultura basata sull’equilibrio, la
-      meditazione e l’armonia con la natura.
+     Non potrai uscire sfruttando una sola vita ma non preoccuparti verrai rigenerato ogni volta.<br>
+      Lascia messaggi e indizzi al te del futuro prima di venir rigenerato e perdere la memoria.<br>
+      Solo chi sa conoscersi puo sfuggire.
     </p>
 
-    <img class="float-right clear-left" src="immagini/Goku-Struggles-With-The-Gravity-On-King-Kais-Planet.jpg">
-    <h4 class="clear-left">🐒 Sfida Bubbles e Gregory!</h4>
+    <img class="float-right clear-left" src="immagini/ilvelo">
+    <h4 class="clear-left">Per chi è adatto?</h4>
     <p class="clear-left">
-      Per diventare un vero allievo di King Kai, dovrai superare due prove iconiche:
-    <ul>
-      <li>Insegui e cattura Bubbles, la scimmietta più veloce del pianeta! Non lasciarti ingannare dal suo aspetto
-        carino, con la gravità aumentata ogni salto sarà un’impresa!</li>
-      <li>Colpisci Gregory, la cavalletta volante con un riflesso fulmineo! Se ci riesci, King Kai potrebbe svelarti
-        alcuni segreti proibiti…</li>
-    </ul>
+      Consigliamo l' esperienza a tutti, ma sono preferiti:
     </p>
-    <h4 class="clear-left">🌠 Panorama Celestiale e Relax Spirituale</h4>
-    <p class="clear-left">
-      Dopo tanto allenamento, rilassati sotto un cielo stellato incredibilmente limpido, circondato da un’atmosfera di
-      pura pace cosmica.<br>
-      Medita con King Kai e scopri i segreti dell’equilibrio tra mente e corpo.
-    </p>
-
-    <img class="float-left clear-right"
-      src="immagini/dragon-ball-goku-riesce-superare-velocitA-luce-scopriamolo-v3-532194-1280x720.webp">
-    <h4 class="clear-right">🌱 Rigenerazione e Benessere</h4>
-    <p class="clear-right">
-      Dopo tanta avventura, rilassati nelle acque rigenerative naturali del pianeta e goditi un percorso di benessere
-      sotto la guida di un anziano namecciano.<br>
-      Qui potrai ricaricare corpo e spirito, avvolto dalla quiete e dalla magia di Namecc.
-    </p>
+    <ul> 
+     <li>Tutte le persone e alieni che vogliono mettersi in gioco<;/li> 
+     <li>Uomini che vogliono liberarsi della suocera.</li>
+      </ul>
   </div>
 </div>
 </div>
