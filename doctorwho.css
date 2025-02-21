@@ -12,11 +12,14 @@ nav {
     background-color: #142c71 !important;                                       /* Imposta un colore arancione per la navbar */
 }
 
+.navButton:hover {
+    background: #136a9c !important;                                                        /* Cambia il colore di sfondo al passaggio del mouse */
+}
+
 
 /* Stile per gli elementi della lista */
 #dashboard li {
     border-bottom: 1px solid #142c71 !important ; ;                          /* Linea divisoria tra gli elementi */
-
 }
 
 /* Rimuove il bordo inferiore dall'ultimo elemento */
