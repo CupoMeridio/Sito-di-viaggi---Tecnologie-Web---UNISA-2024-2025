@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="commons/footerStyle.css">
   <link rel="stylesheet" href="commons/dashboardStyle.css">
   <link rel="stylesheet" href="commons/overlayblockStyle.css">
+  <link rel="stylesheet" href="commons/storicoOrdiniStyle.css">
   <?php include("commons/setIcon.html"); ?>
   <script src="doctorwho.js" type="text/javascript" defer="true"></script>
   <script src="commenti.js" type="text/javascript" defer></script>
