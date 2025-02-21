@@ -104,8 +104,10 @@ navbar.addEventListener('click', function(event) {
 
 // Chiudi la dashboard quando clicchi fuori da essa
 document.addEventListener('click', function(event) {
+    if(toggleButton!=null){
     if (!dashboard.contains(event.target) && !toggleButton.contains(event.target)) {
         dashboard.classList.remove('visible'); // Chiude la dashboard
+    }
     }
 });
 

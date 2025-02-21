@@ -1,4 +1,4 @@
-let slideIndex = 1; // Inizia dalla prima slide
+slideIndex = 1; // Inizia dalla prima slide
 showSlides(slideIndex); // Mostra la prima slide all'avvio
 
 // Funzione per cambiare slide manualmente (Next/Previous)
