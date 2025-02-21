@@ -18,7 +18,12 @@
     if (event.data == 'operationComplete') {
       document.getElementById("modifica").style.display = "none"; 
       document.getElementById("modifica").style.setProperty("z-index", "1");
+      setTimeout(function() {
       window.open('index.php', '_self');
+    }, 20); 
+      //window.open('index.php', '_self');
+      //window.location.reload();
+      //window.location.href='index.php';
     }else if (event.data == 'closeIframe') {
         document.getElementById("modifica").style.display = "none"; 
         document.getElementById("modifica").style.setProperty("z-index", "1");
