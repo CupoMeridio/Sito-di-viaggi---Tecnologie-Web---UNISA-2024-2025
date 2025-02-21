@@ -22,13 +22,11 @@
     <link rel="stylesheet" href="commons/footerStyle.css">
     <link rel="stylesheet" href="commons/dashboardStyle.css">
     <link rel="stylesheet" href="commons/overlayblockStyle.css">
-        <link rel="stylesheet" href="commons/storicoOrdiniStyle.css">
     <?php include("commons/setIcon.html"); ?>
-    <script src="commons/mondo_javascript.js" type="text/javascript" defer="true"></script>                    <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
-    <script src="commenti.js" type="text/javascript" defer="true"></script>
+    <script src="commons/mondo_javascript.js" type="text/javascript" defer></script>                            <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
+    <script src="commenti.js" type="text/javascript" defer></script>
     <script src="stripe/stripe.js" type="text/javascript" defer></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <?php include("commons/setIcon.html"); ?>
   </head>
 
 <body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
@@ -199,7 +197,7 @@
 <div class="booking-section" style="clear:both">
   <h2>Prenota il Tuo Viaggio Fantastico!</h2>
   <div id="form-container"> <!-- Contenitore per il form -->
-  <form id="booking-form" action="#" method="POST">
+  <form id="booking-form" onsubmit="return calcolaprezzo(event)">
     <label for="tickets-count">Numero di Biglietti:</label>
     <input type="number" id="tickets-count" name="tickets-count" min="1" value="1" required>
     
@@ -211,9 +209,9 @@
     
     <label for="location">Scegli la Destinazione:</label>
     <select id="location" name="location" required>
-      <option value="roma">Roma</option>
-      <option value="venezia">Venezia</option>
-      <option value="napoli">Napoli</option>
+      <option value="kame_house">Roma</option>
+      <option value="namecc">Venezia</option>
+      <option value="king_kai">Napoli</option>
     </select>
     
     <label for="departure-date">Data di Partenza:</label>
@@ -225,8 +223,13 @@
     <label for="comments">Commenti Speciali:</label>
     <textarea id="comments" name="comments" rows="4" placeholder="Inserisci richieste particolari o commenti"></textarea>
     
-    <button type="submit" id="submit-button">Prenota il Tuo Viaggio</button>
+    <?php if(isset($email)){ ?>
+    <input type="submit" id="submit-form-button"  value="Prenota il tuo viaggio!">
+    <?php }else{ ?> 
+      <input type="button" id="submit-form-button"  value="Registrati o accedi per prenotare il tuo viaggio!">
+      <?php } ?>
   </form>
+  
   <?php if(!isset($email)){ ?>
   <div id="form-overlay" class="form-overlay">
     <div class="overlay-message">Registrati o accedi per prenotare il tuo viaggio!</div>
@@ -235,6 +238,7 @@
   </div>
 </div>
 
+    
 <script>
   // Impostare la data minima per la partenza come la data corrente
   document.getElementById('departure-date').min = new Date().toLocaleDateString('en-CA');
