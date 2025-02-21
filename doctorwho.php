@@ -32,11 +32,17 @@
 =======
   <script src="doctorwho.js" type="text/javascript" defer="true"></script>
   <script src="commenti.js" type="text/javascript" defer></script>
+<<<<<<< HEAD
+  <script src="stripe/stripe.js" type="text/javascript" defer></script>
+  <script src="https://js.stripe.com/v3/"></script>   
+  <link rel="stylesheet" href="commons/storicoOrdiniStyle.css">                   
+=======
     <script src="stripe/stripe.js" type="text/javascript" defer></script>
     <script src="https://js.stripe.com/v3/"></script>   
     <link rel="stylesheet" href="commons/storicoOrdiniStyle.css">
                    
 >>>>>>> b3182186ee52108d2dcfe82158335de1b28e1c8b
+>>>>>>> 5c88368492513d8d3229af6086f1e8b6a3a4a78d
 </head>
 
 
