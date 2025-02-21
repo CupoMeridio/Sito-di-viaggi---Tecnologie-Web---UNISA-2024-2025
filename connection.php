@@ -10,5 +10,5 @@ $pass= 'Farinotta01_';
 $connection_string = "host=$host port=$port dbname=$db user=$user password=$pass";
 $db= pg_connect( $connection_string) or die('Impossibile connetersi al database:'.pg_last_error());
 
-
+//ricchio
 ?>
