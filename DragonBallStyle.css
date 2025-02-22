@@ -267,3 +267,16 @@ ul {
     z-index: 5;
 }
 
+#pagamento_con_stripe {
+    box-shadow: 0 0 15px #f31303 !important;
+}
+
+#pagamento_con_stripe input {
+    border-color: #ff6b0f !important;
+}
+
+
+
+#pagamento_con_stripe button:hover {
+    background: rgb(205, 171, 3) !important;                                                        /* Cambia il colore di sfondo al passaggio del mouse */                                                       /* Arrotonda leggermente i bordi */
+}

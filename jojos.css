@@ -360,37 +360,10 @@ footer {
 
 /*pagamento*/
 #pagamento_con_stripe {
-    background-color: rgb(255, 255, 255);
-    color: #000000;
-    padding: 30px 40px;
-    border-radius: 10px;
-    text-align: center;
-    z-index: 999;
-    box-shadow: 0 0 15px #ec2099;
-    font-family: Arial, sans-serif;
+    box-shadow: 0 0 15px #ec2099 !important;
 }
 
 #pagamento_con_stripe input {
-    width: 50%;
-    margin: 10px;
-    border-color: #ec2099;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
+    border-color: #ec2099 !important;
 
-#pagamento_con_stripe button {
-    background-color: #373737;
-    text-decoration: none;                                                      /* Rimuove la sottolineatura dai link */
-    color: rgb(255, 255, 255);                                                             /* Imposta il colore del testo su bianco */
-    font-weight: bold;                                                          /* Rende il testo in grassetto */
-    padding: 10px 15px;                                                         /* Aggiunge spazio interno ai bottoni */
-    transition: 0.3s;                                                           /* Aggiunge una transizione fluida per il cambio di colore */
-    margin: 20px;
-    border-radius: 10px;
-}
-
-#pagamento_con_stripe button:hover {
-    background: rgb(135, 135, 135);                                                        /* Cambia il colore di sfondo al passaggio del mouse */
-    border-radius: 15px;
-    cursor: pointer                                                         /* Arrotonda leggermente i bordi */
 }

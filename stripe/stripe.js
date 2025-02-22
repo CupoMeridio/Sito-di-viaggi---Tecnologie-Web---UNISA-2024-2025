@@ -19,7 +19,7 @@
     
         // Crea JSON
         let json = JSON.stringify(stringa);
-         alert(json);
+         //alert(json);
         return json;
     }
 
@@ -48,7 +48,7 @@
         }
 
         let saldo_tot= ((data_r-data_p)*num_biglietti *50/ (1000 * 60 * 60 * 24)) +5;
-        alert(saldo_tot);
+        //alert(saldo_tot);
 
         bottone_stripe.textContent = `Prenota il tuo viaggio a soli ${saldo_tot}€`;
         importo.value = saldo_tot*100;
@@ -116,6 +116,7 @@
                 document.getElementById('submit-button').disabled = false;
             } else if (paymentIntent && paymentIntent.status === 'succeeded') {
                 alert('Pagamento completato con successo!');
+                document.getElementById('popup').classList.remove("open");
                 aggiornaPrenotazione();
                 window.open('stripe/gen_pdf.php', '_blank');
                 let pag_stripe = document.getElementById('pagamento_con_stripe');
@@ -127,6 +128,7 @@
             } else {
                 console.error('Errore sconosciuto durante il pagamento.');
                 cardErrors.textContent = 'Errore sconosciuto, riprova.';
+                document.getElementById('popup').classList.remove("open");
                 document.getElementById('submit-button').disabled = false;
             }
         });
@@ -165,7 +167,7 @@
         let data_r = formData.get('return-date');
         let dati=prendiDatiAggiuntivi();
        
-        alert(data_p);
+        //alert(data_p);
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 //alert(this.responseText);
@@ -174,7 +176,7 @@
         };
 
         let encodedData = `numbiglietti=${encodeURIComponent(num_biglietti)}&location=${encodeURIComponent(location)}&datap=${encodeURIComponent(data_p)}&datar=${encodeURIComponent(data_r)}&dati=${encodeURIComponent(dati)}&prezzo=${encodeURIComponent(importo.value)}`;
-    alert(encodedData);
+    //alert(encodedData);
     console.log(encodedData);
     xhr.open('POST', 'stripe/prenotazioni.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
