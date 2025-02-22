@@ -51,7 +51,9 @@ function patternEmail(email){
 }
 
 //CONTROLLO EMAIL PATTERN 
-document.getElementById("email").addEventListener("input", function(){
+let email=document.getElementById("email");
+if(email!=null){
+email.addEventListener("input", function(){
     let email =document.getElementById("email").value;
     let email_style =document.getElementById("email");
     if(!patternEmail(email))
@@ -61,6 +63,7 @@ document.getElementById("email").addEventListener("input", function(){
     }
 
 });
+}
 
 //----------PATTERN PASSWORD
 function patternPassword(password){
@@ -69,7 +72,7 @@ function patternPassword(password){
 }
 
 document.getElementById("Cambia_password").addEventListener("input", function(){
-    alert("sono qui");
+  //  alert("sono qui");
     let password=document.getElementById("Cambia_password").value;
     let password_style=document.getElementById("Cambia_password");
     let password_error=document.getElementById("error");
