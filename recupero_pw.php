@@ -89,10 +89,16 @@ if ($password != "") {
     <style>
         #error {
             color: crimson;
+            margin: auto;
+            font-size: 15px;
         }
 
         #hint {
             color: grey;
+            margin: 2px;
+        }
+        .container{
+            margin: auto;
         }
     </style>
 </head>
