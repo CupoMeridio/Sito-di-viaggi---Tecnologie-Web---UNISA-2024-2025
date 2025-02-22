@@ -1,6 +1,14 @@
 <?php
-//session_unset();
 session_start();
+ini_set ('session.gc_maxlifetime', '600'); 
+ini_set ('session.cookie_lifetime', '600'); 
+
+// Imposta la probabilità che il garbage collector delle sessioni venga eseguito
+ini_set('session.gc_probability', 100);
+
+// Imposta il divisore per la probabilità del garbage collector delle sessioni
+ini_set('session.gc_divisor', 100);
+
 include('controlloGenerale.php');
 include('connection.php');
 

@@ -39,7 +39,7 @@ $mail= new PHPMailer();
 
     
     if($mail->send()){
-        echo 'Email inviata';
+       // echo 'Email inviata';
     }else{
         echo 'Email non inviata';
         echo $mail->ErrorInfo;
