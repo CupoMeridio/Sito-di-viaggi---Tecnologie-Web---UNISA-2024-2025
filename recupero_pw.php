@@ -105,7 +105,7 @@ if (!isset($_SESSION['codice'])) { //echo $_SESSION['codice'];?>
     <input type="text" id="Cambia_password" name="Cambia_password" required>
     <label for="codice_cambia_password">Scrivi il codice:</label>
     <input name="codice_cambia_password" id="codice_cambia_password" type="text" pattern="\d{6}" required>
-    <input type="submit" value="Invio" style="width: 100%; margin-top:10px;>
+    <input type="submit" value="Invio" style="width: 100%; margin-top:10px;">
 </form>
 <?php if(isset($_SESSION['pw_problem_cambio'])){ echo $_SESSION['pw_problem_cambio'];} ?>
 </div>
@@ -130,6 +130,7 @@ if (!isset($_SESSION['codice'])) { //echo $_SESSION['codice'];?>
 
     // Aggiunge un messaggio se il browser non supporta il video
     videoElement.innerHTML += 'Errore nella riproduzione del video.';
+    
 </script>
 
 </html>
