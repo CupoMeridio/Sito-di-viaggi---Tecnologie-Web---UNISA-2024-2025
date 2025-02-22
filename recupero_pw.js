@@ -70,7 +70,7 @@ function patternPassword(password){
     let pattern=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{8,}$/;
     return pattern.test(password);
 }
-
+if(document.getElementById("Cambia_password") != null){
 document.getElementById("Cambia_password").addEventListener("input", function(){
   //  alert("sono qui");
     let password=document.getElementById("Cambia_password").value;
@@ -84,4 +84,4 @@ document.getElementById("Cambia_password").addEventListener("input", function(){
         password_style.style.outline="solid 3px red";
         password_error.textContent="La password non rispetta i requisiti";
     }
-});
+});}

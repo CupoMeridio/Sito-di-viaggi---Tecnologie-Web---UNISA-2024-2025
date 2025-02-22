@@ -1,13 +1,13 @@
 <?php
-session_start();
-ini_set ('session.gc_maxlifetime', '600'); 
-ini_set ('session.cookie_lifetime', '600'); 
+ini_set ('session.gc_maxlifetime', '120'); 
+ini_set ('session.cookie_lifetime', '120'); 
 
 // Imposta la probabilità che il garbage collector delle sessioni venga eseguito
 ini_set('session.gc_probability', 100);
 
 // Imposta il divisore per la probabilità del garbage collector delle sessioni
 ini_set('session.gc_divisor', 100);
+session_start();
 
 include('controlloGenerale.php');
 include('connection.php');
@@ -36,9 +36,10 @@ if ($email != "") {
             $nome = $row['nome'];
             $cognome = $row['cognome'];
             $_SESSION['codice'] = rand(100000, 999999);
+            $_SESSION['time_codice']= time();
             $_SESSION['email'] = $email;
 
-            $body = "Ecco il codice per resettare la password: " . $_SESSION['codice'];
+            $body = "Ecco il codice per resettare la password: " . $_SESSION['codice']."\nIl codice è valido per 5 minuti";
             $subject = 'Recupero password';
             include('invia_email.php');
         } else {
@@ -53,7 +54,20 @@ if (isset($_POST['Cambia_password']))
 if ($password != "") {
     if (controlloPatternPassword($password)) {
         if (isset($_POST['codice_cambia_password']) && isset($_POST['Cambia_password'])) {
-            if ($_POST['codice_cambia_password'] == $_SESSION['codice']) {
+
+            $time_current= time();
+            if(isset($_SESSION['time_codice']))
+            $time_code=$_SESSION['time_codice'];
+
+        if ( isset($time_code) && ($time_current - $time_code)>300 ){ 
+            unset($_SESSION['codice']);
+            unset($_SESSION['codice_timestamp']);
+            $_SESSION['pw_problem']="Il codice è scaduto. Richiedi un nuovo codice.";
+            
+            header('recupero_pw.php'); 
+        }
+        if(  isset($_SESSION['codice']))
+        if($_POST['codice_cambia_password'] == $_SESSION['codice']) {
                 $query_no_injection = "UPDATE utente SET password=$1 WHERE email=$2";
                 $result = pg_prepare($db, "cambio_pw", $query_no_injection);
                 $hash = password_hash($password, PASSWORD_DEFAULT);
