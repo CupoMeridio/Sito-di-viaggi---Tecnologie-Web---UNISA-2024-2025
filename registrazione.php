@@ -31,7 +31,6 @@ if(isset($_POST["inviato"])){
     <link rel="stylesheet" href="registrazioneStyle.css">                                               <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
     <?php include("commons/setIcon.html"); ?>
     <script src="registrazione_javascript.js" type="text/javascript" defer="true"></script>             <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
-    <?php include("commons/setIcon.html"); ?>
 </head>
 
 <body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
@@ -153,7 +152,8 @@ if(isset($_POST["inviato"])){
                 <input type="submit" value="Login" name="inviato">
             </div> 
             <div class="messaggio-registrazione">Non sei registrato? <a href="?register">Registrati</a></div>
-        </form> 
+            <div class="messaggio-registrazione">Password dimenticata? <a href="recupero_pw.php">Resetta</a></div>
+
         
         <?php
          if(isset($_SESSION['errore']) ) { ?>
@@ -161,6 +161,7 @@ if(isset($_POST["inviato"])){
         <?php
         }?>
          </div>
+        </form> 
         
     </div> 
     
