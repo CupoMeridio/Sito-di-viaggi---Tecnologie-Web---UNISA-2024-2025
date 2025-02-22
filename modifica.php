@@ -89,7 +89,7 @@ if (isset($_POST['update'])) {
 
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
             <h2>Modifica Dati</h2>
-            <h3>Attentione, modificare i dati ti riporterà nella home.</h3>
+            <h3>Attenzione, modificare i dati ti riporterà nella home.</h3>
             <div class="wrapper">
 
                 <img src="<?php echo $img; ?>" alt="Foto Profilo" width="100" id="current">
