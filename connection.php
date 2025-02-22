@@ -7,7 +7,7 @@ $user= 'postgres';
 $pass= 'Farinotta01_'; */
 
 /*  Database Offline */
-$host='postgres';
+$host='localhost';
 $port = '5432';
 $db='gruppo11';
 $user='www';
