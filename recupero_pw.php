@@ -21,7 +21,8 @@ if ($email != "") {
         $result = pg_execute($db, "select_email", $values);
 
         if ($result && pg_num_rows($result) > 0) {
-            echo "Ti abbiamo inviato un'email al seguente indirizzo " . $email;
+            $_SESSION['email_inviata']="Ti abbiamo inviato un'email al seguente indirizzo " . $email;
+           // echo "Ti abbiamo inviato un'email al seguente indirizzo " . $email;
 
             $row = pg_fetch_assoc($result);
             $nome = $row['nome'];
@@ -100,6 +101,7 @@ if ($password != "") {
         .container{
             margin: auto;
         }
+        
     </style>
 </head>
 
@@ -111,16 +113,21 @@ if ($password != "") {
         ?>
             <!-- Contenitore principale per il modulo di registrazione -->
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <label for="email">E-mail inserita:</label>
+                <label for="email">Inserisci la tua e-mail:</label>
                 <input type="text" id="email" name="email" value="<?php $email ?>">
                 <input type="submit" value="Invio" style="width: 100%; margin-top:10px;" ;>
             </form>
             <?php if (isset($_SESSION['pw_problem'])) {
                 echo $_SESSION['pw_problem'];
             } ?>
-        <?php } else { ?>
+        <?php } else { 
+            if(isset($_SESSION['email_inviata'])){?> 
+            
+            <div id="email_inviata" style="margin: 3px; font-size: 15px; color:deeppink"> <?php echo $_SESSION['email_inviata'] ?></div>
 
+        <?php }?>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                
                 <div class="container">
                     <label for="Cambia_password">Scrivi la nuova password:</label>
                     <input type="text" id="Cambia_password" name="Cambia_password" required>
@@ -147,5 +154,5 @@ if ($password != "") {
 </html>
 
 <?php
-
+unset($_SESSION['email_inviata']);
 ?>
