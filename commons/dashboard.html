@@ -4,9 +4,11 @@
   <li><a href="logout.php">Esci</a></li>
 </ul>
   
-  <iframe id="modifica" src="modifica.php" style="display: none;"></iframe>
+<!-- Iframe nascosto per la modifica dell'account -->
+<iframe id="modifica" src="modifica.php" style="display: none;"></iframe>
   
-  <div id="storicoOrdini">
+<!-- Sezione per lo storico degli ordini -->
+<div id="storicoOrdini">
     <h1>Storico acquisti</h1>
     <table>
       <thead>
@@ -18,96 +20,99 @@
         </tr>
       </thead>
       <tbody id="tabellaPrenotazioni">
-      
+        <!-- Le righe della tabella verranno popolate dinamicamente tramite AJAX-->
       </tbody>
     </table>
     <button id="storico_close_button">Chiudi</button>
-  </div>
+</div>
   
-  
-  
-
 <script>
-  let link = document.getElementById("modifica-link"); // Modifica questa linea
+  // Gestione del click sul link "Modifica dell'account"
+  let link = document.getElementById("modifica-link");
   link.addEventListener("click", function(event){
-    event.preventDefault(); // Evita il comportamento predefinito del link (andare alla pagina)
+    event.preventDefault(); // Previene il comportamento predefinito del link (navigazione alla pagina)
     document.getElementById("modifica").style.display = "block"; // Mostra l'iframe
-    document.getElementById("modifica").style.setProperty("z-index", "4");
+    document.getElementById("modifica").style.setProperty("z-index", "4"); // Imposta un alto z-index per sovrapporre l'iframe
   });
+
+  // Ascolta i messaggi inviati dall'iframe (ad esempio, quando l'operazione è completata)
   window.addEventListener('message', function(event) {
-    //console.log('Messaggio ricevuto:', event.data);
     if (event.data == 'operationComplete') {
+      // Nasconde l'iframe e ricarica la pagina principale
       document.getElementById("modifica").style.display = "none"; 
       document.getElementById("modifica").style.setProperty("z-index", "1");
       setTimeout(function() {
-      window.open('index.php', '_self');
-    }, 20); 
-      //window.open('index.php', '_self');
-      //window.location.reload();
-      //window.location.href='index.php';
-    }else if (event.data == 'closeIframe') {
-        document.getElementById("modifica").style.display = "none"; 
-        document.getElementById("modifica").style.setProperty("z-index", "1");
-        window.open('#', '_self');
+        window.open('index.php', '_self');
+      }, 20); 
+    } else if (event.data == 'closeIframe') {
+      // Nasconde l'iframe senza ricaricare la pagina
+      document.getElementById("modifica").style.display = "none"; 
+      document.getElementById("modifica").style.setProperty("z-index", "1");
+      window.open('#', '_self');
     }
-});
-
-let ordini = document.getElementById("storicoOrdini_link");
-if(ordini!=null){
-ordini.addEventListener("click", function(event){
-  event.preventDefault();
-  document.getElementById("storicoOrdini").style.display="block";
-  PrendiPrenotazione();
-  document.getElementById("storicoOrdini").style.setProperty("z-index", "4");
-});  
-}
-
-let close_storico = document.getElementById("storico_close_button");
-if(close_storico!=null){
-  close_storico.addEventListener("click", function(event){
-    document.getElementById("storicoOrdini").style.display="none";
   });
-}
 
-var id_ultima_prenotazione=0;
+  // Gestione del click sul link "Storico ordini"
+  let ordini = document.getElementById("storicoOrdini_link");
+  if(ordini != null){
+    ordini.addEventListener("click", function(event){
+      event.preventDefault(); // Previene il comportamento predefinito del link
+      document.getElementById("storicoOrdini").style.display = "block"; // Mostra la sezione dello storico ordini
+      PrendiPrenotazione(); // Carica le prenotazioni
+      document.getElementById("storicoOrdini").style.setProperty("z-index", "4"); // Imposta un alto z-index per sovrapporre la sezione
+    });  
+  }
 
-function PrendiPrenotazione() {
-        var xhr = new XMLHttpRequest();
+  // Gestione del click sul pulsante "Chiudi" nello storico ordini
+  let close_storico = document.getElementById("storico_close_button");
+  if(close_storico != null){
+    close_storico.addEventListener("click", function(event){
+      document.getElementById("storicoOrdini").style.display = "none"; // Nasconde la sezione dello storico ordini
+    });
+  }
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-              LeggiPrenotazioni(this.responseText);
-            }
-        };
+  // Variabile per tenere traccia dell'ID dell'ultima prenotazione caricata
+  var id_ultima_prenotazione = 0;
 
-        xhr.open("POST", "prendi_prenotazioni");
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send("ultima_prenotazione=" + id_ultima_prenotazione);
-    }
+  // Funzione per richiedere le prenotazioni al server
+  function PrendiPrenotazione() {
+    var xhr = new XMLHttpRequest();
 
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        LeggiPrenotazioni(this.responseText); // Elabora la risposta del server
+      }
+    };
 
-    function LeggiPrenotazioni(response) {
+    xhr.open("POST", "prendi_prenotazioni.php");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("ultima_prenotazione=" + id_ultima_prenotazione); // Invia l'ID dell'ultima prenotazione come parametro
+  }
+
+  // Funzione per elaborare e visualizzare le prenotazioni ricevute dal server
+  function LeggiPrenotazioni(response) {
     var html = "";
     try {
-        var prenotazioni = JSON.parse(response);
-        if (prenotazioni.length) {
-            //tutto ok
-            for (var i = 0; i < prenotazioni.length; i++) {
-                html += `
-                    <tr><td> ${prenotazioni[i].id_prenotazione} </td>
-                        <td> ${prenotazioni[i].destinazione} </td>
-                        <td> ${prenotazioni[i].data_p} </td>
-                        <td> ${prenotazioni[i].data_r} </td>
-                      </tr>
-                `;
-                id_ultima_prenotazione = prenotazioni[i].id_prenotazione;
-            }
-            document.getElementById("tabellaPrenotazioni").innerHTML = html;
+      var prenotazioni = JSON.parse(response); // Converte la risposta in un array di oggetti
+      // nota personale: se avessimo usato xhr.responseType = "json" il parse non sarebbe stato necessario
+      if (prenotazioni.length) {
+        // Se ci sono prenotazioni, le aggiunge alla tabella
+        for (var i = 0; i < prenotazioni.length; i++) {
+          html += `
+            <tr>
+                <td> ${prenotazioni[i].id_prenotazione} </td>
+                <td> ${prenotazioni[i].destinazione} </td>
+                <td> ${prenotazioni[i].data_p} </td>
+                <td> ${prenotazioni[i].data_r} </td>
+            </tr>
+          `;    //nota: uso dei backstick per rendere più leggibile il codice
+          id_ultima_prenotazione = prenotazioni[i].id_prenotazione; // Aggiorna l'ID dell'ultima prenotazione
         }
+        document.getElementById("tabellaPrenotazioni").innerHTML = html; // Inserisce le righe nella tabella
+      }
     } catch (e) {
-        //errore
-        alert("errore nel caricamento delle prenotazioni riprovare "+ e.message);
+      // Gestione degli errori durante il parsing della risposta
+      alert("Errore nel caricamento delle prenotazioni. Riprovare. Errore: " + e.message);
     }
-}
-
+  }
 </script>

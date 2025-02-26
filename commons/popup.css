@@ -44,7 +44,7 @@
 #pagamento_con_stripe button {
     background-color: #373737;
     text-decoration: none;                                                      /* Rimuove la sottolineatura dai link */
-    color: rgb(255, 255, 255);                                                             /* Imposta il colore del testo su bianco */
+    color: rgb(255, 255, 255);                                                  /* Imposta il colore del testo su bianco */
     font-weight: bold;                                                          /* Rende il testo in grassetto */
     padding: 10px 15px;                                                         /* Aggiunge spazio interno ai bottoni */
     transition: 0.3s;                                                           /* Aggiunge una transizione fluida per il cambio di colore */

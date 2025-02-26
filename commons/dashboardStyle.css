@@ -5,20 +5,20 @@
     list-style-type: none;                                                      /* Rimuove i pallini della lista */
     margin: 0;
     padding: 0;
-    width: 15%; /* Larghezza della navbar */
-    background-color: #333333; /* Colore di sfondo */
-    position: fixed; /* Fissa la navbar sulla destra */
-    margin-top: 73.5px;
-    right: 0;
+    width: 15%;                                                                 /* Larghezza della navbar */
+    background-color: #333333;                                                  /* Colore di sfondo */
+    position: fixed;                                                            /* Fissa la dashboard */
+    margin-top: 73.5px;                                                         /* Sposta la dashboard appena sotto la navbar */
+    right: 0;                                                                   /* Fissa la dashboard a destra*/
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);                                 /* Effetto "in rilievo" con ombra */
     border-radius: 10px 0px 0px 10px;                                           /* Arrotonda solo lo spigolo sinistro in alto e sinistro in basso */ 
 }
 
 /* Stile per gli elementi della lista */
 #dashboard li {
-    border-bottom: 1px solid #ff9900; /* Linea divisoria tra gli elementi */
-    transition: background-color 0.3s ease; /* Transizione per l'effetto hover */
-    border-radius: 10px 0px 0px 10px; /* Arrotonda solo lo spigolo sinistro in alto e sinistro in basso */ 
+    border-bottom: 1px solid #ff9900;                                           /* Linea divisoria tra gli elementi */
+    transition: background-color 0.3s ease;                                     /* Transizione per l'effetto hover */
+    border-radius: 10px 0px 0px 10px;                                           /* Arrotonda solo lo spigolo sinistro in alto e sinistro in basso */ 
 }
 
 /* Rimuove il bordo inferiore dall'ultimo elemento */
@@ -29,48 +29,47 @@
 /* Stile per i link */
 #dashboard li a {
     padding: 15px;
-    color: #ecf0f1; /* Colore del testo */
-    text-decoration: none; /* Rimuove la sottolineatura */
-    display: block; /* Rende il link un blocco per occupare tutto lo spazio */
+    color: #ecf0f1;                                                             /* Colore del testo */
+    text-decoration: none;                                                      /* Rimuove la sottolineatura */
+    display: block;                                                             /* Rende il link un blocco per occupare tutto lo spazio */
 }
 
 /* Effetto hover sugli elementi */
 #dashboard li:hover {
-    background-color: #34495e; /* Cambia colore di sfondo al passaggio del mouse */
+    background-color: #34495e;                                                  /* Cambia colore di sfondo al passaggio del mouse */
 
 }
 
 /* Effetto hover sui link */
 #dashboard li:hover a {
-    color: #fff301; /* Cambia colore del testo al passaggio del mouse */
+    color: #fff301;                                                             /* Cambia colore del testo al passaggio del mouse */
 }
 
+/* Selettore per l'elemento con ID "dashboard" e classe "visible" */
 #dashboard.visible {
-    visibility: initial;
+    visibility: initial;                                                        /* Ripristina la visibilità dell'elemento al valore predefinito */
 }
 
-#modifica-link:hover{
+/* Selettore per l'elemento con ID "modifica-link" quando è in stato di hover */
+#modifica-link:hover {
     cursor: pointer;
 }
-#modifica{
-background-color: rgba(48, 48, 48, 0.453);
 
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-transition: all 0.3s ease-in-out;
-
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-width: 100%; 
-height: 100%; 
-z-index: 4;
-
+/* Selettore per l'elemento con ID "modifica" */
+#modifica {
+    background-color: rgba(48, 48, 48, 0.453);                                  /* Imposta un colore di sfondo semi-trasparente */
+    position: fixed;                                                            /* Posiziona l'elemento in modo fisso rispetto alla finestra del browser */
+    top: 0;                                                                     /* Allinea l'elemento al bordo superiore della finestra */
+    left: 0;                                                                    /* Allinea l'elemento al bordo sinistro della finestra */
+    right: 0;                                                                   /* Allinea l'elemento al bordo destro della finestra */
+    bottom: 0;                                                                  /* Allinea l'elemento al bordo inferiore della finestra */
+    transition: all 0.3s ease-in-out;                                           /* Aggiunge una transizione fluida di 0.3 secondi per tutte le proprietà */
+    display: flex;                                                              /* Usa il layout flexbox per allineare il contenuto */
+    align-items: center;                                                        /* Centra verticalmente il contenuto */
+    justify-content: center;                                                    /* Centra orizzontalmente il contenuto */
+    width: 100%;                                                                /* Imposta la larghezza al 100% della finestra */
+    height: 100%;                                                               /* Imposta l'altezza al 100% della finestra */
+    z-index: 4;                                                                 /* Imposta un livello di sovrapposizione alto per garantire che l'elemento sia sopra altri contenuti */
 }
 
 

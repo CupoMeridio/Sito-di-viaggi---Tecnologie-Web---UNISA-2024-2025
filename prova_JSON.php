@@ -11,6 +11,7 @@ if ( isset($_POST['max']))
 
 
 if(!isset($_SESSION['mondo'])){
+    //Sesione commenti nella homepage (non utilizzato più)
     $query_no_injection= "SELECT email, username, testo, id_testo, mondo,stelle FROM commento where (id_testo > $1)";// ricordati di usare il prepere 
     //inserimento dei dati nel database
     $result=pg_prepare($db, "insert_commenti", $query_no_injection); 
@@ -34,6 +35,7 @@ if(!isset($_SESSION['mondo'])){
 
 $out = [];
 
+//Creazione del JSON
 while ($row = pg_fetch_assoc($result)) {
     $entry = [
         "email" => $row['email'],
