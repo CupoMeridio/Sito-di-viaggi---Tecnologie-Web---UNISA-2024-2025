@@ -1,4 +1,5 @@
 # BeyondReality Journeys - Progetto di Tecnologie Web (UNISA 2024-2025)
+<img width="1213" height="454" alt="Immagine 2026-04-03 173918" src="https://github.com/user-attachments/assets/182d6dfa-36cd-41cc-8090-22a0af62a9fc" />
 
 ## Descrizione del Progetto
 Il presente repository contiene il codice sorgente per un'applicazione web dedicata alla gestione e prenotazione di viaggi fantasy. Il progetto è stato realizzato come prova d'esame per il corso di **Tecnologie Web** dell'Università degli Studi di Salerno (UNISA).
@@ -93,3 +94,40 @@ Le credenziali del database devono essere configurate nel file [connection.php](
 ├── doctorwho.php               # Pagina tematica: Mondo Doctor Who
 └── jojos.php                   # Pagina tematica: Mondo Jojo's Bizarre Adventure
 ```
+---
+
+## 📸Galleria
+<table align="center">
+  <thead>
+    <tr>
+      <th>Login</th>
+      <th>Registrazione</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img alt="Immagine1" src="https://github.com/user-attachments/assets/8fc060ed-7cfc-4443-a599-008fa3855271"/></td>
+      <td><img width="376" height="243" alt="Immagine2" src="https://github.com/user-attachments/assets/9b87250b-495d-4579-a1fe-71c52236761b"/></td>
+    </tr>
+</tbody>
+</table>
+<table align="center">
+  <thead>
+    <tr>
+      <th>Home page</th>
+      <th>Dragon Ball page</th>
+      <th>Doctor Who page</th>
+      <th>Jojo page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img width="267" height="454" alt="Immagine3" src="https://github.com/user-attachments/assets/46d918a0-c5f8-4e82-b6d1-51e366785402"/></td>
+      <td><img width="183" height="471" alt="Immagine4" src="https://github.com/user-attachments/assets/c9785e13-088d-481a-b946-27662d76ba2c"/></td>
+      <td><img width="190" height="471" alt="Immagine5" src="https://github.com/user-attachments/assets/08c39b9f-78f7-47b5-9012-c494e8d4d5c2"/></td>
+      <td><img width="185" height="471" alt="Immagine6" src="https://github.com/user-attachments/assets/68073c3e-d3da-47c2-ae2f-2bdcc8aa85f3"/></td>
+    </tr>
+</tbody>
+</table>
+
+
