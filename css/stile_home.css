@@ -14,13 +14,8 @@ nav {
     font-family: Arial, sans-serif;
 }
 
-.navButton:nth-child(4) {                                                        /* annulla una regola presente in navbarStyle.css */
-    margin-right: 0!important;
-}
 
-.navButton:nth-child(3) {                                                       /* Separa i primi 3 elementi e sposta il resto a destra */
-    margin-right: auto!important;
-}
+
 
 
 .navButton:hover {

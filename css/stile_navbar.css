@@ -36,8 +36,11 @@ nav img{
     border-radius: 5px;                                                         /* Arrotonda leggermente i bordi */
 }
 
-.navButton:nth-child(4) {                                                       /* Separa i primi 4 elementi e sposta il resto a destra */
-    margin-right: auto;
+#navAuth {                                                                  /* Contenitore pulsanti autenticazione */
+    display: flex;
+    align-items: center;
+    margin-left: auto;                                                          /* Spinge il blocco auth tutto a destra */
+    gap: 0;                                                                     /* Lo spacing è gestito dal margin dei singoli navButton */
 }
 
 nav div img {
