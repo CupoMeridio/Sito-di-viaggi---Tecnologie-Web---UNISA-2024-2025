@@ -1,6 +1,6 @@
 <?php
 
-include 'prendi_dati.php';
+include 'api/recupera_dati_utente.php';
 
 
 ?>
@@ -11,24 +11,26 @@ include 'prendi_dati.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="indexStyle.css">
-    <link rel="stylesheet" href="commons/navbarStyle.css">
-    <link rel="stylesheet" href="commons/dashboardStyle.css">
-    <link rel="stylesheet" href="commons/storicoOrdiniStyle.css">
-    <?php include("commons/setIcon.html"); ?>
-    <script src="index_javascript.js" type="text/javascript" defer="true"></script>
+    <link rel="stylesheet" href="css/stile_home.css">
+    <link rel="stylesheet" href="css/stile_navbar.css">
+    <link rel="stylesheet" href="css/stile_dashboard.css">
+    <link rel="stylesheet" href="css/stile_storico_ordini.css">
+    <?php include("components/imposta_icona.html"); ?>
+    <script src="js/utils.js" type="text/javascript" defer></script>
+    <script src="js/logica_home.js" type="text/javascript" defer="true"></script>
+
 </head>
 
 <body>
 
     <nav id="navbar">
-    <a href="index.php"><img src="immagini/logo.png"></a>
+    <a href="index.php"><img src="img/common/logo.png"></a>
     <a class="navButton" id="aboutButton"href="index.php#about-section">About</a>
     <a class="navButton" id="contactButton" href="index.php#contact-section">Contact</a>
     
     <?php if(!isset($email)){?>
-    <a class="navButton" id="registrazioneButton" href="registrazione.php">Registrati</a>
-    <a class="navButton" id="accessoButton" href="registrazione.php?login">Accedi</a>
+    <a class="navButton" id="registrazioneButton" href="autenticazione.php">Registrati</a>
+    <a class="navButton" id="accessoButton" href="autenticazione.php?login">Accedi</a>
     <?php }?>
     
     <?php if(isset($email)){?>
@@ -42,7 +44,7 @@ include 'prendi_dati.php';
     
   </nav>
   
-    <?php include 'commons/dashboard.html'; ?>
+    <?php include 'components/dashboard.html'; ?>
     
     
     
@@ -50,19 +52,19 @@ include 'prendi_dati.php';
 
         <div class="mySlides fade">
             <div class="numberText">1 / 3</div>
-            <a href="jojos.php"><img src="immagini/vesuvio.png"></a>
+            <a href="viaggio_jojos.php"><img src="img/index/vesuvio.png"></a>
             <div class="captionText">Scopri: Napoli!</div>
         </div>
 
         <div class="mySlides fade">
             <div class="numberText">2 / 3</div>
-            <a href="doctorwho.php"><img src="immagini/gallifrey.jpg"></a>
+            <a href="viaggio_doctorwho.php"><img src="img/index/gallifrey.jpg"></a>
             <div class="captionText">Scopri: Gallifrey!</div>
         </div>
 
         <div class="mySlides fade">
             <div class="numberText">3 / 3</div>
-            <a href="dragonball.php"><img src="immagini/DragonBall/namecc.jpeg"></a>
+            <a href="viaggio_dragonball.php"><img src="img/dragonball/namecc.jpeg"></a>
             <div class="captionText">Scopri: Namecc!</div>
         </div>
 
@@ -85,15 +87,15 @@ include 'prendi_dati.php';
         <h1>Our destinations</h1>
         <div class="destinations_selector" id="destinations_selector">
             <div class="destination" id="destination1">
-                <a href="jojos.php"><img src="immagini/jojos.png"></a>
+                <a href="viaggio_jojos.php"><img src="img/index/jojos.png"></a>
                 <div class="destination-name">Le bizzarre avventure di Jojo</div>
             </div>
             <div class="destination" id="destination2">
-                <a href="doctorwho.php"><img src="immagini/drwho.jpg"></a>
+                <a href="viaggio_doctorwho.php"><img src="img/index/drwho.jpg"></a>
                 <div class="destination-name">Doctor Who</div>
             </div>
             <div class="destination" id="destination3">
-                <a href="dragonball.php"><img src="immagini/dragonballtitleindex.png"></a>
+                <a href="viaggio_dragonball.php"><img src="img/index/dragonballtitleindex.png"></a>
                 <div class="destination-name">Dragonball</div>
             </div>
         </div>
@@ -134,7 +136,7 @@ include 'prendi_dati.php';
                 <p>r.passaro5@studenti.unisa.it</p>
             </div>
             <div class="team-member">
-                <a href="https://linktr.ee/CupoMeridio"><div class="profile-pic"><img src="immagini/20200806_125456.jpg"></div></a>
+                <a href="https://linktr.ee/CupoMeridio"><div class="profile-pic"><img src="img/index/20200806_125456.jpg"></div></a>
                 <h4>Postiglione Vittorio</h4>
                 <p>v.postiglione7@studenti.unisa.it</p>
             </div>
@@ -144,7 +146,7 @@ include 'prendi_dati.php';
                 <p>m.sanzari@studenti.unisa.it</p>
             </div>
             <div class="team-member">
-                <a href="https://linktr.ee/a.ntibiotico"><div class="profile-pic"><img src="https://i.pinimg.com/736x/52/b1/9d/52b19d6902fcbe7a514862a852afe402.jpg"></div></a>
+                <a href="https://linktr.ee/a.ntibiotico"><div class="profile-pic"><img src="img/index/av.jpg"></div></a>
                 <h4>Vitale Antonio</h4>
                 <p>a.vitale132@studenti.unisa.it</p>
             </div>

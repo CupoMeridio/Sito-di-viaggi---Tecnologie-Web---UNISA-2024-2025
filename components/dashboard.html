@@ -1,0 +1,118 @@
+<ul id="dashboard">
+  <li><a id="storicoOrdini_link">Storico ordini</a></li>
+  <li><a id="modifica-link">Modifica dell'account</a></li>
+  <li><a href="api/logout_utente.php">Esci</a></li>
+</ul>
+  
+  <iframe id="modifica" src="gestione_profilo.php" style="display: none;"></iframe>
+  
+  <div id="storicoOrdini">
+    <h1>Storico acquisti</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID acquisto</th>
+          <th>Destinazione</th>
+          <th>Data di partenza</th>
+          <th>Data di ritorno</th>
+        </tr>
+      </thead>
+      <tbody id="tabellaPrenotazioni">
+      
+      </tbody>
+    </table>
+    <button id="storico_close_button">Chiudi</button>
+  </div>
+  
+  
+  
+
+<script>
+  // Gestione Iframe Modifica Account
+  let link = document.getElementById("modifica-link");
+  if (link) {
+    link.addEventListener("click", function(event){
+      event.preventDefault();
+      const iframe = document.getElementById("modifica");
+      iframe.style.display = "block";
+      iframe.style.setProperty("z-index", "4");
+    });
+  }
+
+  window.addEventListener('message', function(event) {
+    if (event.data === 'operationComplete') {
+      const iframe = document.getElementById("modifica");
+      iframe.style.display = "none"; 
+      iframe.style.setProperty("z-index", "1");
+      setTimeout(() => {
+        window.location.reload(); // Ricarica per aggiornare i dati mostrati
+      }, 20); 
+    } else if (event.data === 'closeIframe') {
+      const iframe = document.getElementById("modifica");
+      iframe.style.display = "none"; 
+      iframe.style.setProperty("z-index", "1");
+    }
+  });
+
+  // Gestione Storico Ordini
+  let ordiniLink = document.getElementById("storicoOrdini_link");
+  if (ordiniLink) {
+    ordiniLink.addEventListener("click", function(event){
+      event.preventDefault();
+      document.getElementById("storicoOrdini").style.display = "block";
+      document.getElementById("storicoOrdini").style.setProperty("z-index", "4");
+      PrendiPrenotazione();
+    });  
+  }
+
+  let closeStorico = document.getElementById("storico_close_button");
+  if (closeStorico) {
+    closeStorico.addEventListener("click", function() {
+      document.getElementById("storicoOrdini").style.display = "none";
+    });
+  }
+
+  let id_ultima_prenotazione = 0;
+
+  /**
+   * Recupera le prenotazioni tramite Fetch API.
+   */
+  async function PrendiPrenotazione() {
+    try {
+      const responseJSON = await Utils.postData("api/recupera_prenotazioni.php", {
+        ultima_prenotazione: id_ultima_prenotazione
+      });
+      LeggiPrenotazioni(responseJSON);
+    } catch (error) {
+      console.error("Errore nel recupero delle prenotazioni:", error);
+    }
+  }
+
+  /**
+   * Elabora e visualizza le prenotazioni in modo sicuro.
+   */
+  function LeggiPrenotazioni(response) {
+    const tableBody = document.getElementById("tabellaPrenotazioni");
+    if (!tableBody) return;
+
+    try {
+      const prenotazioni = JSON.parse(response);
+      if (prenotazioni.length > 0) {
+        prenotazioni.forEach(p => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${p.id_prenotazione}</td>
+            <td>${Utils.sanitizeHTML(p.destinazione)}</td>
+            <td>${Utils.sanitizeHTML(p.data_p)}</td>
+            <td>${Utils.sanitizeHTML(p.data_r)}</td>
+          `;
+          tableBody.appendChild(row);
+          id_ultima_prenotazione = Math.max(id_ultima_prenotazione, p.id_prenotazione);
+        });
+      }
+    } catch (e) {
+      console.error("Errore nel parsing delle prenotazioni:", e);
+    }
+  }
+</script>
+

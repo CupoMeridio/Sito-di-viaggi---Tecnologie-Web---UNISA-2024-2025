@@ -1,0 +1,176 @@
+/* Imposta lo stile generale del corpo della pagina */
+body {
+    font-family: Arial, sans-serif;                                             /* Carattere del testo */
+  /*background-color: #f4f4f4;*/                                                /* Colore di sfondo della pagina*/
+  /*background-image: url('../img/registrazione/sfondo_registrazione.jpg');*/               /* Imposta l'immagine indicata dall'url come sfondo della pagina*/
+  /*background-size: cover;*/                                                   /* Adatta l'immagine a tutta la pagina*/
+  /*background-repeat: no-repeat;                                               /* Evita la ripetizione dell'immagine*/
+    background-position: center;                                                /* Centra l'immagine*/
+    display: flex;                                                              /* Uso del layout flexbox per centrare il contenuto */
+    flex-direction: column;                                                     /* Imposta la direzione del flusso in verticale */
+    justify-content: center;                                                    /* Centra orizzontalmente il contenuto */
+    align-items: center;                                                        /* Centra verticalmente il contenuto */
+   min-height: 100vh;                                                           /* Occupa almeno l'intera altezza della finestra */
+    margin: 0;                                                                  /* Rimuove il margine predefinito del body */
+}
+
+#modifica{
+    display: grid;                                                              /* Usa il layout CSS Grid */
+    gap: 20px;
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0.8);                                      /* Sfondo nero del contenitore con trasparenza al 20%*/
+    border-radius: 10px;                                                         /* Angoli arrotondati */
+    padding: 20px;                                                              /* Spaziatura interna */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);                                    /* Ombra leggera intorno al contenitore */
+    width: 50%;
+    color: white;                                                            /* Spaziatura tra le colonne */
+ }
+
+ #modifica h2 {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+}
+
+ /* Centrare l'immagine e il pulsante */
+.wrapper {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    margin-bottom: 15px; /* Aggiunge spazio sotto l'immagine */
+    
+}
+
+.wrapper img{
+    border-radius: 10px;
+    
+ }
+ 
+
+ /* Stile per le etichette del form */
+ label {
+     display: block;                             /* Mostra l'etichetta come blocco */
+     margin-bottom: 5px;                         /* Spaziatura inferiore rispetto all'input */
+ }
+ 
+ /* Stile per i campi di input del form */
+ input {
+     width: 100%;                                /* Larghezza completa del contenitore padre */
+     padding: 8px;                               /* Spaziatura interna */
+     box-sizing: border-box;                     /* Include il padding e il bordo nella larghezza totale */
+     border: 1px solid #ccc;                     /* Bordo grigio chiaro */
+     border-radius: 4px;                         /* Angoli arrotondati */
+     margin-bottom: 10px;
+ }
+ 
+ 
+ /* Stile per il pulsante di invio */
+ input[type="submit"] {
+     width: 50%;                                 /* Larghezza completa del contenitore padre */
+     padding: 10px;                              /* Spaziatura interna */
+     background-color: #5cb85c;                  /* Colore verde di sfondo */
+     border: none;                               /* Rimuove il bordo */
+     color: white;                               /* Colore del testo */
+     border-radius: 4px;                         /* Angoli arrotondati */
+     cursor: pointer;                            /* Cambia il cursore in una mano quando si passa sopra */
+ }
+ input[type="submit"]:hover{
+
+    background-color: #488a48;                  /* Colore verde di sfondo */
+ }
+    div input[type="button"]{
+    cursor: pointer;
+    text-align: center;
+    background-color: #7d7d7d;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-color: #7d7d7d;
+    color: rgb(255, 255, 255);
+    
+ }
+
+ div input[type="button"]:hover{
+    background-color: #3b3b3b;
+    border-color: #3b3b3b;
+    
+ }
+ h2,h3{
+    text-align: center;
+ }
+
+ h3{
+    color: rgb(114, 25, 25);
+ }
+/*
+ .anteprima-foto {
+    
+    position: relative;       
+    
+    overflow: hidden;        
+   
+    border-radius: 10px;      
+    box-sizing: border-box;   
+    
+}
+
+
+
+.anteprima-foto img {
+    display: none;
+
+    top: 0;
+    left: 0;
+    width: 100%;              
+    height: 100%;            
+    object-fit: cover;        
+
+}
+*/
+#current, #immagineAnteprima{
+    width: 100px; /* Larghezza fissa */
+    height: 100px; /* Altezza fissa */
+    object-fit: cover; /* Mantiene le proporzioni e copre l'area */
+    border-radius: 50%; /* Opzionale: per un effetto circolare */
+    display: block; /* Assicura che l'immagine sia visibile */
+}
+#anteprimaFoto{
+    display: none;
+}
+
+input[name="fotoProfilo"]{
+    border: none;
+}
+
+.file-input-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+
+.custom-file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+.custom-file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8a2be2;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-label:hover {
+    background-color: #571e8b;
+}
+
