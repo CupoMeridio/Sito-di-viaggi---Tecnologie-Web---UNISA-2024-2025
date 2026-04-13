@@ -26,6 +26,12 @@ if ($form == "reg") {
         $type = "";
         //di sicuro prendo le variabili da un form    
         if (($_FILES["fotoProfilo"]['tmp_name']) != null || $_FILES["fotoProfilo"]['tmp_name'] != "") {
+            // Limite 1MB per InfinityFree
+            if ($_FILES["fotoProfilo"]['size'] > 1024 * 1024) {
+                $_SESSION['errore'] = "L'immagine è troppo grande (max 1MB).";
+                header("Location: ../autenticazione.php");
+                exit();
+            }
             $img = $_FILES["fotoProfilo"]['tmp_name'];
             $type = $_FILES["fotoProfilo"]['type'];
             $bin = file_get_contents($img);
@@ -35,7 +41,11 @@ if ($form == "reg") {
             $hash = password_hash($password_pre_hash, PASSWORD_DEFAULT);
             $query_no_injection = "INSERT INTO utente (nome, cognome, username, email, password, img, type) VALUES (?, ?, ?, LOWER(?), ?, ?, ?)";
             $stmt = mysqli_prepare($db, $query_no_injection);
-            mysqli_stmt_bind_param($stmt, "ssssssb", $nome, $cognome, $username, $email, $hash, $type);
+            
+            // Definiamo una variabile per il parametro long data (blob)
+            $null = null;
+            // Ordine: nome(s), cognome(s), username(s), email(s), password(s), img(b), type(s)
+            mysqli_stmt_bind_param($stmt, "sssssbs", $nome, $cognome, $username, $email, $hash, $null, $type);
             
             if ($bytea != "") {
                 mysqli_stmt_send_long_data($stmt, 5, $bytea);

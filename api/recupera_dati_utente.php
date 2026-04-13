@@ -16,24 +16,23 @@ $result = mysqli_stmt_get_result($stmt);
 
 $row = mysqli_fetch_assoc($result);
 
-while ( $row != false ) {
-    try{
-    $nome=$row['nome'];
-    $cognome=$row['cognome'];
-    $email=$row['email'];
-    $username=$row['username'];
-    $img_data = $row['img'];
-    $type=$row['type'];
-    if ($img_data !== null) {
-        $img = base64_encode($img_data);
-    } else {
-        $img = '';
-    }
-    $row = mysqli_fetch_assoc($result);
-    }catch(Exception $e){
-
-        $_SESSION['errore']="Errore: ". $e->getMessage();
+if ($row) {
+    try {
+        $nome = $row['nome'];
+        $cognome = $row['cognome'];
+        $email = $row['email'];
+        $username = $row['username'];
+        $img_data = $row['img'];
+        $type = $row['type'];
+        if ($img_data !== null) {
+            $img = base64_encode($img_data);
+        } else {
+            $img = '';
+        }
+    } catch (Exception $e) {
+        $_SESSION['errore'] = "Errore nel caricamento dei dati.";
         header("Location: logout_utente.php");
+        exit();
     }
 }
 if(isset($nome))

@@ -64,7 +64,7 @@
         });
     }
 
-    const stripe = Stripe('pk_test_51QsWhnRwYugaEVfWZdpr479jZxUCuBKqds9KN0c01v8DtI9PQFFV3MSOwStu8zRt6ri900dIcnhvctZ1NVG9OCKD004ZiiHr18');
+    const stripe = Stripe('pk_test_51TLVWQFXztomsFI9FjM50aWflNeIU8Swoq6T6MB9RfBFoXRCx3EKrO63n101Y9nzhynNNsBrLfXlNxW5wSSUDgHI00SafNbcvN');
     const elements = stripe.elements();
     const cardElement = elements.create('card');
     cardElement.mount('#card-element');
@@ -80,12 +80,17 @@
         const submitBtn = document.getElementById('submit-button');
         submitBtn.disabled = true;
 
-        const amount = parseInt(paymentForm.importo.value);
+        let formData = new FormData(form_prenotazione);
+        const num_biglietti = formData.get('tickets-count') || 1;
+        const data_p = formData.get('departure-date');
+        const data_r = formData.get('return-date');
 
         try {
             // Creazione PaymentIntent tramite Fetch
             const responseData = await Utils.postData("api/stripe/crea_pagamento.php", {
-                importo: amount / 100, // Passiamo in euro se payment.php lo aspetta così, o aggiustiamo
+                num_biglietti: num_biglietti,
+                data_p: data_p,
+                data_r: data_r,
                 fullname: paymentForm.fullname.value
             });
 

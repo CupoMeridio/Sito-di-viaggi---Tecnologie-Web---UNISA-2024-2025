@@ -29,6 +29,12 @@ if (isset($_POST['update'])) {
 
     // Gestione dell'upload della nuova immagine del profilo
     if ($_FILES['fotoProfilo']['tmp_name'] != null) {
+        // Limite 1MB per InfinityFree
+        if ($_FILES['fotoProfilo']['size'] > 1024 * 1024) {
+            $_SESSION['errore'] = "L'immagine è troppo grande (max 1MB).";
+            header("Location: gestione_profilo.php");
+            exit();
+        }
         $img_tmp = $_FILES['fotoProfilo']['tmp_name'];
         $type = $_FILES['fotoProfilo']['type'];
         $bin = file_get_contents($img_tmp);
@@ -135,7 +141,7 @@ if (isset($_POST['update'])) {
     </div>
     <script>
         // Costanti
-        const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+        const MAX_FILE_SIZE = 1 * 1024 * 1024; // 1MB per InfinityFree
 
         // Riferimenti agli elementi del DOM
         const fotoProfiloInput = document.getElementById('fotoProfilo');
@@ -150,7 +156,7 @@ if (isset($_POST['update'])) {
             if (file.size > MAX_FILE_SIZE) {
                 // Invece di alert, usiamo una notifica più discreta se possibile, 
                 // o manteniamo alert se è un errore bloccante critico.
-                alert('Il file supera la dimensione massima consentita di 5 MB.');
+                alert('Il file supera la dimensione massima consentita di 1 MB per InfinityFree.');
                 fotoProfiloInput.value = ""; // Reset input
                 return;
             }

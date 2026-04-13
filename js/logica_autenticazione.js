@@ -213,7 +213,7 @@ function toggleClick(pw_id, span_id) {
 const dropArea = document.getElementById("dropArea");
 const inputFile = document.getElementById("fotoProfilo");
 const previewImage = document.getElementById("immagineAnteprima");
-const MAX_FILE_SIZE = 5 * 1024 * 1024;
+const MAX_FILE_SIZE = 1 * 1024 * 1024;
 
 function handleFile(file) {
     if (!file || !file.type.startsWith("image/")) {
@@ -221,7 +221,7 @@ function handleFile(file) {
         return;
     }
     if (file.size > MAX_FILE_SIZE) {
-        alert('Il file supera la dimensione massima consentita di 5 MB.');
+        alert('Il file supera la dimensione massima consentita di 1 MB per InfinityFree.');
         return;
     }
 

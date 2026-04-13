@@ -11,10 +11,6 @@ class ComposerStaticInit7bc20437b2adfa035ae41e9ef30953c7
         array (
             'Stripe\\' => 7,
         ),
-        'P' =>
-        array (
-            'PHPMailer\\PHPMailer\\' => 20,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -22,14 +18,11 @@ class ComposerStaticInit7bc20437b2adfa035ae41e9ef30953c7
         array (
             0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
         ),
-        'PHPMailer\\PHPMailer\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
-        ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'FPDF' => __DIR__ . '/..' . '/setasign/fpdf/fpdf.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

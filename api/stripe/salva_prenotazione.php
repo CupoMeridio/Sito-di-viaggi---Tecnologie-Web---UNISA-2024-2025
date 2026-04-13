@@ -8,11 +8,17 @@ include('../connessione_db.php');
 
 
 
+if(!isset($_SESSION['email'])){
+    http_response_code(401);
+    echo "Errore: Utente non autenticato.";
+    exit();
+}
+
 $email= $_SESSION['email'];
 $nome= $_SESSION['nome'];
 $cognome= $_SESSION['cognome'];
 
-$num_biglietti=$_POST['numbiglietti'];
+$num_biglietti= intval($_POST['numbiglietti']);
 
 $data_p = $_POST['datap'];
 $data_r = $_POST['datar'];
@@ -23,7 +29,7 @@ if(isset($email)){
     // Array di date
     $dateArray = array($data_p,$data_r);
 
-    // Converti l'array in una stringa formattata per PostgreSQL
+    // Converti l'array in una stringa formattata
     $dateArrayString = '{' . implode(',', $dateArray) . '}';
 
     $query= "INSERT INTO prenotazione (email, nome, cognome, data , destinazione ) VALUES (?, ?, ?, ?, ?)";
@@ -32,6 +38,13 @@ if(isset($email)){
     for( $i = 0 ; $i < $num_biglietti; $i=$i+1)  {
         mysqli_stmt_bind_param($stmt, "sssss", $email, $nome, $cognome, $dateArrayString, $destinazione);
         $result = mysqli_stmt_execute($stmt);
+    }
+
+    if (!$result) {
+        // Messaggio di errore generico
+        error_log("Errore inserimento prenotazione: " . mysqli_error($db));
+        echo "Errore durante il salvataggio della prenotazione.";
+        exit();
     }
 
     mysqli_stmt_close($stmt);

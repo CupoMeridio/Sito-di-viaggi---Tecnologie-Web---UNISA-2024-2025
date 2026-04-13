@@ -18,7 +18,9 @@ $info= $_SESSION['info'];
 $nominativi_commento = $testo_pulito = str_replace(array('Array','[0]', '[1]','[2]','[3]','[4]','[5]','[6]','[7]','[8]','[9]','[10]', '(', ')', '[', ']','=','>'), '', $info);
 
 
-include('../fpdf/fpdf.php');
+require_once __DIR__ . '/../../vendor/autoload.php';
+
+use FPDF;
 
 $data_ricevuta= date("d/m/o");
 $ora= date("H:i:s");

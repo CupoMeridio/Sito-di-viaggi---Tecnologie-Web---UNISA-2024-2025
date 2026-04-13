@@ -1,0 +1,19 @@
+# Configurazione locale e file sensibili
+api/config.php
+.env
+
+# Dipendenze
+vendor/
+node_modules/
+composer.phar
+composer.lock (opzionale, ma non caricare se vuoi che l'utente usi il proprio)
+
+# File di sistema e log
+.DS_Store
+*.log
+error_log
+.vscode/
+.idea/
+
+# Database (opzionale, se esporti dump)
+# *.sql

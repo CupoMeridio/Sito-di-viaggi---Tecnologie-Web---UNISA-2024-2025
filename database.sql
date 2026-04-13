@@ -1,9 +1,6 @@
 -- Script di creazione database per il sito di viaggi fantasia
 -- MySQL (compatibile con XAMPP e InfinityFree)
 
-CREATE DATABASE IF NOT EXISTS sito_viaggi_fantasia;
-USE sito_viaggi_fantasia;
-
 -- Tabella utenti
 CREATE TABLE IF NOT EXISTS utente (
     id INT AUTO_INCREMENT PRIMARY KEY,
