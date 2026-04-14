@@ -1,4 +1,11 @@
 <?php
+// Forza l'uso di HTTPS su InfinityFree
+if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
+    $location = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: ' . $location);
+    exit;
+}
 
 include 'api/recupera_dati_utente.php';
 
@@ -111,8 +118,8 @@ include 'api/recupera_dati_utente.php';
         
         <h3>Il nostro team</h3>
         <div class="team" id="contact-section">
-            <div class="team-member"> <!--https://pbs.twimg.com/media/FbjFQH_WAAE_RsA.png-->
-                <a href="https://linktr.ee/ciiprosk"><div class="profile-pic"><img src="https://i1.sndcdn.com/artworks-96KvhzYlwoy1zhOY-PaPjQw-t500x500.jpg"></div></a>
+            <div class="team-member">
+                <a href="https://linktr.ee/ciiprosk"><div class="profile-pic"><img src="img/common/ciiprosk_profile.jpg"></div></a>
                 <h4>Passaro Rosa</h4>
                 <p>r.passaro5@studenti.unisa.it</p>
             </div>
@@ -122,7 +129,7 @@ include 'api/recupera_dati_utente.php';
                 <p>v.postiglione7@studenti.unisa.it</p>
             </div>
             <div class="team-member">
-                <a href="https://linktr.ee/MattiaSanzari"><div class="profile-pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQquPDtFOisYUHZfHEqMgPePp_Mu7oS9_F1w&s"></div></a>
+                <a href="https://linktr.ee/MattiaSanzari"><div class="profile-pic"><img src="img/common/mattia_profile.jpg"></div></a>
                 <h4>Sanzari Mattia</h4>
                 <p>m.sanzari@studenti.unisa.it</p>
             </div>

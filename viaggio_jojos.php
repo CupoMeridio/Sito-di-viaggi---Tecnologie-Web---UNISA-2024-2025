@@ -1,4 +1,11 @@
 <?php
+// Forza l'uso di HTTPS su InfinityFree
+if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
+    $location = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: ' . $location);
+    exit;
+}
   session_start();
   if(isset($_SESSION['img']))
     $img=$_SESSION['img'];
@@ -16,7 +23,10 @@
     <meta charset="UTF-8">                                                                              <!-- Definisce la codifica dei caratteri come UTF-8, per supportare caratteri speciali -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">                              <!-- Rende la pagina responsiva, adattandola alla larghezza dello schermo del dispositivo -->
     <title>JoJo's Bizarre Adventure</title>                                                                          <!-- Imposta il titolo della pagina che apparirà nella scheda del browser -->
-    <link rel="stylesheet" href="css/jojos.css">                                                  <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
+    <?php include("components/imposta_icona.html"); ?>
+    
+    <!-- Fogli di Stile -->
+    <link rel="stylesheet" href="css/jojos.css">
     <link rel="stylesheet" href="css/stile_navbar.css">
     <link rel="stylesheet" href="css/stile_header.css">
     <link rel="stylesheet" href="css/stile_footer.css">
@@ -24,13 +34,12 @@
     <link rel="stylesheet" href="css/stile_overlay.css">
     <link rel="stylesheet" href="css/stile_storico_ordini.css">
     <link rel="stylesheet" href="css/popup.css">
-    <?php include("components/imposta_icona.html"); ?>
+
+    <!-- Script -->
     <script src="js/utils.js" type="text/javascript" defer></script>
-    <script src="js/logica_mondi.js" type="text/javascript" defer></script>                            <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
+    <script src="js/logica_mondi.js" type="text/javascript" defer></script>
     <script src="js/gestione_commenti.js" type="text/javascript" defer></script>
     <script src="js/integrazione_stripe.js" type="text/javascript" defer></script>
-    <script src="https://js.stripe.com/v3/"></script>
-  
   </head>
 
 <body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
@@ -41,7 +50,11 @@
 
     
   <header>
-    <video src="video/jojo/jojovideo.mp4" class="headerVideo" id="background-video" alt="Jojo background video" autoplay muted loop></video>
+    <video class="headerVideo" id="background-video" autoplay muted loop playsinline>
+      <source src="video/jojo/jojovideo.webm" type="video/webm">
+      <source src="video/jojo/jojovideo.mp4" type="video/mp4">
+      Il tuo browser non supporta il tag video.
+    </video>
     <img class="headerImg" id="worldTitle" src="img/jojos/jojostitle.png" alt="Dragon Ball Title screen">
   </header>
   
@@ -71,7 +84,7 @@
         Qui, tra antiche rovine e vicoli pieni di fascino, si intrecciano le avventure di Giorno Giovanna e i suoi amici, in una battaglia per il destino dell'Itala intera.
         </p>
         <h3>Cosa ti aspetta nella Roma di Vento Aureo?</h3>
-        <img class="float-left clear-right" src="https://static.jojowiki.com/images/thumb/5/50/latest/20200131204642/Rome_fontaine_de_tritone.png/197px-Rome_fontaine_de_tritone.png">
+        <img class="float-left clear-right" src="img/jojos/tritone.png">
 
         <h4 class="clear-right">🫧 L’Incontro del Destino: Joseph Joestar e Caesar Antonio Zeppeli</h4>
         <p class="clear-right">
@@ -85,7 +98,7 @@
         </p>
 
         
-        <img class="float-right clear-left" src="https://static.jojowiki.com/images/thumb/a/a1/latest/20200130220947/Colosseum_manga.png/400px-Colosseum_manga.png">
+        <img class="float-right clear-left" src="img/jojos/colosseo_manga.png">
         <h4 class="clear-left"> Il Colosseo: Arena di Duelli Epici 🏹</h4>
           <p class="clear-left">
           Il simbolo di Roma diventa teatro di una delle battaglie più leggendarie di JoJo! <br>
@@ -97,7 +110,7 @@
           Ascolta le storie delle sue esperienze, i suoi combattimenti epici e, ovviamente, qualche battuta sopra le righe!
           </p>
 
-          <img class="float-left clear-right" src="https://i.ytimg.com/vi/mZaJAkD2-FU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAlGYRGlPMEqYfcjhy940v1XplSNg">
+          <img class="float-left clear-right" src="img/jojos/battaglia_roma.jpg">
           <h4 class="clear-right">⚔ Il luogo della Epica Battaglia</h4>
           <p class="clear-right">
             Visita il luogo dello scontro con Cioccolata e Secco, i due assassini spietati al servizio di Diavolo!<br>
@@ -122,7 +135,7 @@
         <h3>
           ✨ Cosa ti aspetta a Venezia?
         </h3>
-        <img class="float-left clear-right" src="https://64.media.tumblr.com/8851522b46f7d11283ddf75cf2039dcb/tumblr_pbxnpr7WID1wxbjq5o1_1280.jpg">
+        <img class="float-left clear-right" src="img/jojos/tumblr_pbxnpr7WID1wxbjq5o1_1280.jpg">
         <h4 class="clear-right"> Lisa Lisa e l’addestramento segreto 🩸</h4>
         <p class="clear-right">
         Prima di Vento Aureo, un'altra eroina di JoJo ha calcato le calli veneziane!<br>

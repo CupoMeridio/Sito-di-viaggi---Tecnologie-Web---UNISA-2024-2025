@@ -245,15 +245,21 @@ inputFile?.addEventListener("change", () => handleFile(inputFile.files[0]));
 
 // --- VIDEO BACKGROUND ---
 const videos = [
-    'video/registrazione/Video1.mp4',
-    'video/registrazione/Video2.mp4',
-    'video/registrazione/Video3.mp4',
-    'video/registrazione/Video4.mp4',
+    'video1',
+    'video2',
+    'video3',
+    'video4',
 ];
 const videoElement = document.getElementById('background-video');
 if (videoElement) {
     const randomVideo = videos[Math.floor(Math.random() * videos.length)];
-    videoElement.innerHTML = `<source src="${randomVideo}" type="video/mp4">Errore nella riproduzione del video.`;
+    // Aggiungiamo WebM come primario e MP4 come fallback
+    videoElement.innerHTML = `
+        <source src="video/registrazione/${randomVideo}.webm" type="video/webm">
+        <source src="video/registrazione/${randomVideo}.mp4" type="video/mp4">
+        Il tuo browser non supporta il tag video.
+    `;
+    videoElement.load(); // Forza il ricaricamento del video con i nuovi sorgenti
 }
 
 // Toggle password login visibility

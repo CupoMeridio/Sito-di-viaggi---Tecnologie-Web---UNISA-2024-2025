@@ -1,4 +1,13 @@
 <?php
+// Forza il reindirizzamento su HTTPS per la sicurezza (necessario per Stripe)
+if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
+    $location = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: ' . $location);
+    exit;
+}
+
+include 'api/recupera_dati_utente.php';
 session_start();
 $nome="";
 $cognome="";
@@ -44,7 +53,7 @@ if(isset($_POST["inviato"])){
         <a class="navButton" id="contactButton" href="index.php#contact-section">Contact</a>
     </nav>
 
-<video id="background-video" autoplay muted loop></video>                                               <!-- Video di background -->
+<video id="background-video" autoplay muted loop playsinline></video>                                               <!-- Video di background -->
     <div id="main-container" class="regcontainer" style="display: <?php echo $showRegister ? 'block' : 'none'; ?>;">     <!-- Contenitore principale per il modulo di registrazione -->
         <div id="registrazione_page" class="page">                                                                                                                                                                    <!-- Titolo della sezione del modulo -->
         <form id="form-registrazione" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data" onsubmit="return verificaModulo()">  <!-- onsubmit che serve alla verifica della pw -->
@@ -55,30 +64,30 @@ if(isset($_POST["inviato"])){
 
                 <div class="form-fields">                                                               <!-- Contenitore per il campo Nome -->
                     <label for="nome">Nome</label>                                                      <!-- Etichetta per il campo di input associato, con l'attributo "for" legato all'id -->
-                    <input type="text" id="nome" name="nome" value="<?php echo $nome ?>"required>                                  <!-- Campo di input per il nome, obbligatorio grazie all'attributo "required" -->
+                    <input type="text" id="nome" name="nome" value="<?php echo $nome ?>" autocomplete="given-name" required>                                  <!-- Campo di input per il nome, obbligatorio grazie all'attributo "required" -->
                     <div id="nameError" class="error"></div>
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Cognome -->
                     <label for="cognome">Cognome</label>
-                    <input type="text" id="cognome" name="cognome" value="<?php echo $cognome ?>" required>
+                    <input type="text" id="cognome" name="cognome" value="<?php echo $cognome ?>" autocomplete="family-name" required>
                     <div id="cognomeError" class="error"></div>
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Username -->
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" value="<?php echo $username ?>"required>
+                    <input type="text" id="username" name="username" value="<?php echo $username ?>" autocomplete="username" required>
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Email -->
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value="<?php echo $email ?>"  required>   
+                    <input type="email" id="email" name="email" value="<?php echo $email ?>" autocomplete="email" required>   
                     <div id="emailError" class="error"></div>                             <!-- Il tipo "email" garantisce una validazione di base del formato email -->
                 </div>
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
                     <label for="password">Password <span id="pwReg" class="vedoPassword" onclick="toggleClick('password', 'pwReg')"></span></label>
-                    <input type="password" id="password" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
+                    <input type="password" id="password" name="password" value="" autocomplete="new-password" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
                     <div class="password-hint" id="passwordHint">                                        <!-- Testo di suggerimento per indicare i requisiti della password -->
                         La password deve contenere almeno 8 caratteri e includere almeno una
                         lettera maiuscola, una lettera minuscola, un numero e un carattere speciale.
@@ -89,7 +98,7 @@ if(isset($_POST["inviato"])){
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Conferma password -->
                     <label for="confirmPassword">Conferma password <span id="confirmReg" class="vedoPassword" onclick="toggleClick('confirmPassword', 'confirmReg')"></span></label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required>         <!-- Campo per confermare la password inserita -->
+                    <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password" required>         <!-- Campo per confermare la password inserita -->
                     <div id="passwordOK" class="confirm"></div> 
                     <div id="confirmPasswordError" class="error"></div>                                  <!-- Messaggio09% di errore per il campo di conferma password (se necessario) -->
                 </div>
@@ -97,7 +106,7 @@ if(isset($_POST["inviato"])){
 
             <div class="form-photo">                                                                     <!-- Contenitore per l'upload della foto profilo -->
                 <div class="form-group">
-                    <label>Foto profilo</label>
+                    <label for="fotoProfilo">Foto profilo</label>
                     <div id="dropArea" class="drop-area">                                                <!-- Area per il drag-and-drop della foto -->
                         Trascina qui la tua immagine o clicca per selezionarla.
                         <input type="file" id="fotoProfilo" name="fotoProfilo" accept="image/*" style="display: none">
@@ -135,7 +144,7 @@ if(isset($_POST["inviato"])){
             <div class="form-group">
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Email -->
                     <label for="email-login">Email</label>
-                    <input type="email" id="email-login" name="email" value="<?php echo isset($_GET['email']) ? htmlspecialchars($_GET['email']) : ''; ?>" required>    <!-- Il tipo "email" garantisce una validazione di base del formato email -->
+                    <input type="email" id="email-login" name="email" value="<?php echo isset($_GET['email']) ? htmlspecialchars($_GET['email']) : ''; ?>" autocomplete="email" required>    <!-- Il tipo "email" garantisce una validazione di base del formato email -->
                    
 
                     <div id = "emailErrorLogin" class=error></div>
@@ -143,7 +152,7 @@ if(isset($_POST["inviato"])){
 
                 <div class="form-fields">                                                                <!-- Contenitore per il campo Password -->
                     <label for="password-login">Password  <span id="pwLogin" class="vedoPassword" onclick="toggleClick( 'password-login', 'pwLogin')"></span></label>
-                    <input type="password" id="password-login" name="password" value="" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
+                    <input type="password" id="password-login" name="password" value="" autocomplete="current-password" required>                       <!-- Il tipo "password" oscura il testo inserito per motivi di sicurezza -->
                     
                     <div id = "passwordErrorLogin" class=error></div>
                     

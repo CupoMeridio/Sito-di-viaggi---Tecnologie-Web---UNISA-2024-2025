@@ -1,4 +1,11 @@
 <?php
+// Forza l'uso di HTTPS su InfinityFree
+if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
+    $location = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: ' . $location);
+    exit;
+}
   session_start();
   if(isset($_SESSION['img']))
     $img=$_SESSION['img'];
@@ -17,7 +24,10 @@
     <meta charset="UTF-8">                                                                              <!-- Definisce la codifica dei caratteri come UTF-8, per supportare caratteri speciali -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">                              <!-- Rende la pagina responsiva, adattandola alla larghezza dello schermo del dispositivo -->
     <title>Dragon Ball</title>                                                                          <!-- Imposta il titolo della pagina che apparirà nella scheda del browser -->
-    <link rel="stylesheet" href="css/DragonBallStyle.css">                                                  <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
+    <?php include("components/imposta_icona.html"); ?>
+    
+    <!-- Fogli di Stile -->
+    <link rel="stylesheet" href="css/DragonBallStyle.css">
     <link rel="stylesheet" href="css/stile_footer.css">
     <link rel="stylesheet" href="css/stile_navbar.css">
     <link rel="stylesheet" href="css/stile_dashboard.css">
@@ -25,13 +35,12 @@
     <link rel="stylesheet" href="css/stile_overlay.css">
     <link rel="stylesheet" href="css/stile_storico_ordini.css">
     <link rel="stylesheet" href="css/popup.css">
-    <?php include("components/imposta_icona.html"); ?>
+
+    <!-- Script -->
     <script src="js/utils.js" type="text/javascript" defer></script>
-    <script src="js/logica_mondi.js" type="text/javascript" defer></script>                            <!-- Collegamento al file JavaScript esterno per la logica di validazione o interattività -->
+    <script src="js/logica_mondi.js" type="text/javascript" defer></script>
     <script src="js/gestione_commenti.js" type="text/javascript" defer></script>
     <script src="js/integrazione_stripe.js" type="text/javascript" defer></script>
-    <script src="https://js.stripe.com/v3/"></script>
-  
   </head>
 
 <body>                                                                                                  <!-- Corpo del documento, dove vengono definiti i contenuti visibili sulla pagina -->
@@ -40,7 +49,11 @@
   <?php include("components/dashboard.html"); ?>
     
   <header>
-    <video src="video/dragonball/video1.mp4" class="headerVideo" id="background-video" alt="Dragon Ball background video" autoplay muted loop></video>
+    <video class="headerVideo" id="background-video" autoplay muted loop playsinline>
+      <source src="video/dragonball/dragonballvideo.webm" type="video/webm">
+      <source src="video/dragonball/dragonballvideo.mp4" type="video/mp4">
+      Il tuo browser non supporta il tag video.
+    </video>
     <img class="headerImg" id="worldTitle" src="img/dragonball/dragonballtitleheader.png" alt="Dragon Ball Title screen">
   </header>
   

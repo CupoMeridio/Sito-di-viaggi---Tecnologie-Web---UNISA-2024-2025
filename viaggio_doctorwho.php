@@ -1,4 +1,11 @@
 <?php
+// Forza l'uso di HTTPS su InfinityFree
+if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
+    $location = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: ' . $location);
+    exit;
+}
   session_start();
   if(isset($_SESSION['img']))
     $img=$_SESSION['img'];
@@ -17,12 +24,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">                            <!-- Rende la pagina responsiva, adattandola alla larghezza dello schermo del dispositivo -->
   <title>Doctor who</title>                                                                         <!-- Imposta il titolo della pagina che apparirà nella scheda del browser -->
   <?php include("components/imposta_icona.html"); ?>
-  <script src="js/utils.js" type="text/javascript" defer></script>
-  <script src="js/animazioni_doctorwho.js" type="text/javascript" defer="true"></script>
-  <script src="js/gestione_commenti.js" type="text/javascript" defer="true"></script>
-
-  <script src="js/logica_mondi.js" type="text/javascript" defer></script>   
-  <link rel="stylesheet" href="css/doctorwho.css">                                                      <!-- Collega il file CSS esterno per definire gli stili visivi della pagina -->
+  
+  <!-- Fogli di Stile -->
+  <link rel="stylesheet" href="css/doctorwho.css">
   <link rel="stylesheet" href="css/stile_footer.css">
   <link rel="stylesheet" href="css/stile_navbar.css">
   <link rel="stylesheet" href="css/stile_dashboard.css">
@@ -30,17 +34,13 @@
   <link rel="stylesheet" href="css/stile_overlay.css">
   <link rel="stylesheet" href="css/stile_storico_ordini.css">
   <link rel="stylesheet" href="css/popup.css">
-  <?php include("components/imposta_icona.html"); ?>
 
+  <!-- Script -->
   <script src="js/utils.js" type="text/javascript" defer></script>
-
+  <script src="js/animazioni_doctorwho.js" type="text/javascript" defer></script>
   <script src="js/gestione_commenti.js" type="text/javascript" defer></script>
-
+  <script src="js/logica_mondi.js" type="text/javascript" defer></script>   
   <script src="js/integrazione_stripe.js" type="text/javascript" defer></script>
-  <script src="https://js.stripe.com/v3/"></script>   
-
-  
-                   
 </head>
 
 
@@ -49,8 +49,11 @@
 <?php include("components/dashboard.html"); ?>
 
 <header>
-  <video src="video/doctorwho/doctorwho.mp4" class="headerVideo" id="background-video"
-    alt="Doctor who background video" autoplay muted loop></video>
+  <video class="headerVideo" id="background-video" autoplay muted loop playsinline>
+    <source src="video/doctorwho/doctorwhovideo.webm" type="video/webm">
+    <source src="video/doctorwho/doctorwhovideo.mp4" type="video/mp4">
+    Il tuo browser non supporta il tag video.
+  </video>
   <img class="headerImg" id="worldTitle" src="img/doctorwho/Doctor-Who-Logo.png" alt="Doctor who Title screen" style="margin-top: 10px; height: 200px;">
 </header>
 
@@ -134,7 +137,7 @@
     </p>
 
     <img class="float-right clear-left"
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Dalek_%28Dr_Who%29.jpg/1200px-Dalek_%28Dr_Who%29.jpg"> 
+      src="img/doctorwho/dalek_wiki.jpg"> 
     <h4 class="clear-left"> Storia:</h4>
     <p class="clear-left">
     Skaro ha una storia di conflitti continui, principalmente tra i Kaleds e i Thals, due razze originarie del pianeta.<br> 
