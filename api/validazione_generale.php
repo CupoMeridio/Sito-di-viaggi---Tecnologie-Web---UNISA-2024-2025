@@ -7,9 +7,7 @@ function controlloPatternPassword($pass){
     
 }
 function controlloPatternEmail($email){
-    $pattern = "/^[a-zA-Z0-9_.±]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/"; 
-    return preg_match($pattern, $email);
-    
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
 }
 function controlloPatternNome($nome){
     $pattern = "/^[a-zA-Z][a-zA-Z0-9]*$/";
