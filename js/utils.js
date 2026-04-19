@@ -20,29 +20,17 @@ const Utils = {
      * Pattern di validazione Regex.
      */
     patterns: {
-        email: /^[a-zA-Z0-9_.±]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
         password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{8,}$/,
         nome: /^[a-zA-Z][a-zA-Z0-9]*$/,
         cognome: /^[a-zA-Z]+$/
     },
 
     /**
-     * Provider email supportati (dal codice originale).
-     */
-    emailProviders: [
-        "@gmail.com", "@outlook.com", "@yahoo.com", "@icloud.com", "@protonmail.com",
-        "@zoho.com", "@gmx.com", "@aol.com", "@mail.com", "@libero.it", "@tiscali.it",
-        "@fastwebnet.it", "@email.it", "@aruba.it", "@kataweb.it", "@studenti.unisa.it",
-        "@hotmail.it", "@hotmail.com"
-    ],
-
-    /**
-     * Valida una mail controllando regex e provider.
+     * Valida una mail controllando regex.
      */
     isValidEmail(email) {
-        if (!this.patterns.email.test(email)) return false;
-        const dominio = "@" + email.split('@')[1];
-        return this.emailProviders.includes(dominio);
+        return this.patterns.email.test(email);
     },
 
     /**
