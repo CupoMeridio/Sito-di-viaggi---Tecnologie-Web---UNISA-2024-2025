@@ -1,5 +1,7 @@
 [![it](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/CupoMeridio/Sito-di-viaggi---Tecnologie-Web---UNISA-2024-2025/blob/main/README.md)
 
+*Cliccare sul flag per passare tra versione Italiana e Inglese.*
+
 # BeyondReality Journeys - Progetto di Tecnologie Web (UNISA 2024-2025)
 <img width="1213" height="454" alt="Immagine 2026-04-03 173918" src="https://github.com/user-attachments/assets/182d6dfa-36cd-41cc-8090-22a0af62a9fc" />
 
