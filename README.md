@@ -90,6 +90,7 @@ Database credentials and API keys must be configured in the [config.php](file://
 ├── viaggio_dragonball.php      # Thematic page: Dragon Ball world
 ├── viaggio_doctorwho.php       # Thematic page: Doctor Who world
 └── viaggio_jojos.php           # Thematic page: Jojo's Bizarre Adventure world
+```
 
 ## 📸Gallery
 <table align="center">
