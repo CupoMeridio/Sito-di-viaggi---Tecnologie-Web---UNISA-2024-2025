@@ -10,6 +10,9 @@ This repository contains the source code for a web application dedicated to mana
 
 The architecture follows the client-server model, implementing the fundamentals of **HTML5**, **CSS3**, and **JavaScript** for the frontend, with backend logic based on **PHP** and data persistence managed through **MySQL/MariaDB**.
 
+## 📄 Project Guidelines
+The original assignment guidelines provided for this project can be found here: [LineeGuida_Progetto_TecnologieWeb.pdf](./LineeGuida_Progetto_TecnologieWeb.pdf)
+
 ## 📸Gallery
 <table align="center">
   <thead>
